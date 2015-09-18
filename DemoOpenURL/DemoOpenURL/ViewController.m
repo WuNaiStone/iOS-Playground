@@ -18,8 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSString *username = @"icetime017";
-    [self openUserPage:username];
+//    NSString *username = @"icetime017";
+//    [self openUserPage:username];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"demomixpanel://"]];
 }
 
 - (void)didReceiveMemoryWarning {
