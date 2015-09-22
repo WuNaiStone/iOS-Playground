@@ -46,6 +46,12 @@
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     if ([[notification.userInfo objectForKey:@"id"] isEqualToString:@"notification_1"]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Notification" message:@"notification_1" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alertController addAction:okAction];
+        [alertController addAction:cancelAction];
         [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
     }
 }
