@@ -18,6 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    BOOL mixpanel = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"demomixpanel://"]];
+    NSLog(@"mixpanel : %d", mixpanel);
+    
+    BOOL instagram = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"instagram://"]];
+    NSLog(@"instagram : %d", instagram);
+    
+    BOOL wechat = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"wechat://"]];
+    NSLog(@"wechat : %d", wechat);
+    
+    BOOL weixin = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]];
+    NSLog(@"weixin : %d", weixin);
+    
 //    NSString *username = @"icetime017";
 //    [self openUserPage:username];
     

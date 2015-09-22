@@ -36,5 +36,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>instagram</string>
+        <string>weixin</string>
+        <string>wechat</string>
+        <string>demomixpanel</string>
+    </array>
 </dict>
 </plist>
