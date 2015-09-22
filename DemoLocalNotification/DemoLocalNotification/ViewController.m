@@ -98,11 +98,18 @@
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     if (notification) {
         NSLog(@">> clock local notification");
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:10];
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *dateComponents = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:[NSDate date]];
+        dateComponents.hour = 21;
+        dateComponents.minute = 00;
+        NSDate *time = [calendar dateFromComponents:dateComponents];
+
+        notification.fireDate = [time dateByAddingTimeInterval:7*24*60*60];
         notification.timeZone = [NSTimeZone defaultTimeZone];
         notification.alertTitle = @"AlertTitle 2";
         notification.alertBody = @"AlertBody 2";
         notification.soundName = UILocalNotificationDefaultSoundName;
+        notification.userInfo = @{@"id": @"notification_2"};
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
 }
