@@ -10,5 +10,8 @@
 
 @interface ViewController : UIViewController
 
+// 方法调用的参数
+- (int)method2TakeBlock:(int (^) (int a, int b))block;
+
 @end
 

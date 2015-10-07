@@ -19,6 +19,9 @@
 
 @property (nonatomic, copy) int (^myBlock)(int a, int b);
 
+typedef int (^MyBlock)(int a, int b);
+@property (nonatomic, copy) MyBlock myBlock2;
+
 @end
 
 @implementation ViewController
@@ -78,8 +81,33 @@
 //        return a * b;
 //    };
 //    sum = myBlock(10, 20);
+
+    // 方法调用的参数
+//    sum = [self methodTakeBlock:^int (int a, int b) {
+//        return b / a;
+//    }];
+
+    sum = [self method2TakeBlock:^int(int a, int b) {
+        return a * b - b;
+    }];
     
     _lbBlock.text = [NSString stringWithFormat:@"%d", sum];
+}
+
+- (int)methodTakeBlock:(MyBlock)block {
+    int sum = 0;
+    if (block) {
+        sum = block(10, 20);
+    }
+    return sum;
+}
+
+- (int)method2TakeBlock:(int (^)(int, int))block {
+    int sum = 0;
+    if (block) {
+        sum = block(10, 20);
+    }
+    return sum;
 }
 
 - (void)blockTestPassing {
