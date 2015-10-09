@@ -47,7 +47,9 @@
 }
 
 - (IBAction)action:(UIButton *)sender {
-//    _blockUpdateBtnTitle(@"sender");
+    if (_blockUpdateBtnTitle) {
+        _blockUpdateBtnTitle(@"value changed by block");
+    }
     
     [self dismissViewControllerAnimated:NO completion:nil];
 }

@@ -129,11 +129,10 @@ typedef int (^MyBlock)(int a, int b);
 
 - (IBAction)action:(UIButton *)sender {
     TestViewController *testVC = [[TestViewController alloc] init];
-//    __weak ViewController *weakSelf = self;
-//    testVC.blockUpdateBtnTitle = ^(NSString *btnTitle) {
-////        weakSelf.lb.text = [NSString stringWithFormat:@"%@", btnTitle];
-//        weakSelf.lb.text = btnTitle;
-//    };
+    __weak ViewController *weakSelf = self;
+    testVC.blockUpdateBtnTitle = ^(NSString *btnTitle) {
+        weakSelf.lb.text = btnTitle;
+    };
     [self presentViewController:testVC animated:NO completion:nil];
 }
 
