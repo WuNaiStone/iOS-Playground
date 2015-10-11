@@ -54,16 +54,17 @@ class ViewController: UIViewController {
     }
     
     func actionNSTimer() {
-        lb.text = "\(countdown)"
         if (countdown < 1) {
             if (timer != nil) {
                 countdown = countTimer
                 timer.invalidate()
                 timer = nil
+                lb.text = "\(countdown)"
                 lb.alpha = 1.0
             }
             return;
         }
+        lb.text = "\(countdown)"
         lb.transform = CGAffineTransformMakeScale(1.0, 1.0)
         lb.alpha = 1.0
         countdown = countdown - 1
