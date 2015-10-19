@@ -32,8 +32,8 @@ class ViewController: UIViewController {
     
     func call10086() {
         let number: String = "10086"
-        let url: NSURL = NSURL(string: "tel://\(number)")!
-        // let url: NSURL = NSURL(string: "telprompt://\(number)")!
+        // let url: NSURL = NSURL(string: "tel://\(number)")! // 直接拨打。
+        let url: NSURL = NSURL(string: "telprompt://\(number)")! // 有呼叫提示
         if (UIApplication.sharedApplication().canOpenURL(url)) {
             UIApplication.sharedApplication().openURL(url)
         }
