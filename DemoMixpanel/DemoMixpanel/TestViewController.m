@@ -23,8 +23,11 @@
     // Do any additional setup after loading the view.
 
     mixpanel = [Mixpanel sharedInstance];
-    [mixpanel identify:@"test user id"];
+//    [mixpanel identify:@"test user id"];
+    NSString *distinctId = mixpanel.distinctId;
+    [mixpanel identify:distinctId];
     [mixpanel.people set:@{
+                           @"name": distinctId,
                            @"age": @18,
                            @"Email": @"email_address@xxx.com"
                            }];
