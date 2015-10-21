@@ -35,6 +35,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func actionVolumPlus() {
+        if AVAudioSession.sharedInstance().otherAudioPlaying {
+            do {
+                try AVAudioSession.sharedInstance().setActive(false)
+            } catch {
+            }
+        } else {
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+            }
+        }
+
         if (mpVolumeView == nil) {
             volumeLabel = UILabel(frame: CGRectMake(0, 100, self.view.frame.width, 30))
             volumeLabel.textAlignment = NSTextAlignment.Center
