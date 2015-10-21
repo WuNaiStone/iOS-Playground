@@ -59,6 +59,7 @@ class ViewController: UIViewController {
                 if (NSStringFromClass(view.classForCoder) == "MPVolumeSlider") {
                     volumeSlider = view as! UISlider;
                     volumeSlider.sendActionsForControlEvents(.TouchUpInside)
+                    volumeSlider.addTarget(self, action: Selector("actionSliderChanged:"), forControlEvents: UIControlEvents.AllTouchEvents)
                     
                     volumeLabel.text = "\(volumeSlider.value)"
                 }
@@ -66,6 +67,10 @@ class ViewController: UIViewController {
             
             NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("volumeChanged:"), name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
         }
+    }
+    
+    func actionSliderChanged(sender: UISlider) {
+        volumeLabel.text = "\(volumeSlider.value)"
     }
     
     func volumeChanged(notification: NSNotification) {
