@@ -14,6 +14,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let vFilter: UIView = UIView(frame: self.view.frame)
+        vFilter.backgroundColor = UIColor.blackColor()
+        vFilter.alpha = 0.05
+        self.view.addSubview(vFilter)
+        
         let gifPath: String = NSBundle.mainBundle().pathForResource("railway", ofType: "gif")!
         let gifData: NSData = NSData(contentsOfFile: gifPath)!
         
