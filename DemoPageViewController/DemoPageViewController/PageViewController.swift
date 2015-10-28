@@ -8,12 +8,22 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController {
-
+class PageViewController: UIPageViewController,
+    UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+    
+    var pageCount: Int = 4
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.dataSource = self
+        self.delegate = self
+        
+        let startPage: PageContentViewController = self.viewControllerAtIndex(0)
+        
+        self.setViewControllers([startPage], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +31,27 @@ class PageViewController: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    public func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        let page: PageContentViewController = viewController as! PageContentViewController
+        let index: Int = page.pageIndex
+        if (index == 0) {
+            return nil
+        }
+        return self.viewControllerAtIndex(page.pageIndex - 1)
     }
-    */
 
+    public func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        let page: PageContentViewController = viewController as! PageContentViewController
+        let index: Int = page.pageIndex
+        if (index == pageCount) {
+            return nil
+        }
+        return self.viewControllerAtIndex(page.pageIndex + 1)
+    }
+    
+    public func viewControllerAtIndex(index: Int) -> PageContentViewController {
+        let page: PageContentViewController = PageContentViewController()
+        page.pageIndex = index
+        return page
+    }
 }
