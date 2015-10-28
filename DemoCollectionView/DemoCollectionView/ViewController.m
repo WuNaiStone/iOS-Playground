@@ -33,6 +33,10 @@
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 320, 320) collectionViewLayout:layout];
+    UIView *bgView = [[UIView alloc] initWithFrame:collectionView.frame];
+    bgView.backgroundColor = [UIColor grayColor];
+    collectionView.backgroundView = bgView;
+    
     [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@_CELL];
     collectionView.backgroundColor = [UIColor whiteColor];
     collectionView.pagingEnabled = YES;
