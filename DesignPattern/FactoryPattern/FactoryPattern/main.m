@@ -157,10 +157,12 @@ int main(int argc, const char * argv[]) {
         [awesomeLight create];
         
         // 添加AwesomeLight，需要改动Car的定义和实现。
+        // 如果要实例化多个car，则以上代码量很多。且以后若有修改，则涉及到的地方很多，扩展性不好。
         Car *car = [[Car alloc] init];
         [car create:engine wheel:wheel underpan:underpan light:light awesomeLight:awesomeLight];
         
         // FactoryPattern,即用户不需要一个个地实例化零件，且修改后调用的接口不变。调用端的耦合度降低。
+        // 对用户而言，扩展性好。
         CarFactory *carFactory = [[CarFactory alloc] init];
         [carFactory createCar];
     }
