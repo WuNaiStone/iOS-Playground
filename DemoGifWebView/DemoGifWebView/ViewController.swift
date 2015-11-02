@@ -8,31 +8,62 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIWebViewDelegate {
 
+    var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let vFilter: UIView = UIView(frame: self.view.frame)
+        let vFilter: UIView = UIView(frame: CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.height - 44))
         vFilter.backgroundColor = UIColor.blackColor()
         vFilter.alpha = 0.05
         self.view.addSubview(vFilter)
+        self.webView = UIWebView(frame: vFilter.frame)
+        self.view.addSubview(self.webView)
         
+//        self.loadHTML()
+//        self.loadGif()
+        self.loadURL("http://www.baidu.com")
+    }
+    
+    func loadHTML() {
+        self.webView.loadHTMLString("<html><body><p>this is baidu!</p></body></html>", baseURL: NSURL(string: "http://www.baidu.com")!)
+    }
+    
+    func loadGif() {
         let gifPath: String = NSBundle.mainBundle().pathForResource("railway", ofType: "gif")!
         let gifData: NSData = NSData(contentsOfFile: gifPath)!
-        
-        let webView = UIWebView(frame: self.view.frame)
-        webView.loadData(gifData, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
-        webView.userInteractionEnabled = false
-        self.view.addSubview(webView)
-    }
 
+        self.webView.loadData(gifData, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
+        self.webView.userInteractionEnabled = false
+    }
+    
+    func loadURL(url: String) {
+        self.webView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
+    func webViewDidStartLoad(webView: UIWebView) {
+        print("\(self.webView) : \(__FUNCTION__)")
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        print("\(self.webView) : \(__FUNCTION__)")
+    }
+    
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        print("\(self.webView) : \(__FUNCTION__)")
+        return true
+    }
+    
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        print("\(self.webView) : \(__FUNCTION__)")
+    }
 }
 
