@@ -31,7 +31,7 @@ class ItemViewController: UIViewController {
         //        gestures = ["UITapGestureRecognizer", "UIPinchGestureRecognizer",
         //            "UISwipeGestureRecognizer", "UIPanGestureRecognizer",
         //            "UIRotationGestureRecognizer", "UILongPressGestureRecognizer",
-        //            "UIScreenEdgePanGestureRecognizer"
+        //            "UIScreenEdgePanGestureRecognizer", "CustomGestureRecognizer"
         //        ]
         switch gesture {
         case "UITapGestureRecognizer":
@@ -77,6 +77,10 @@ class ItemViewController: UIViewController {
             let gestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "actionGesture:")
             gestureRecognizer.edges = UIRectEdge.Right
             self.view.addGestureRecognizer(gestureRecognizer)
+            break
+        case "CustomGestureRecognizer":
+            let gestureRecognizer = CustomGestureRecognizer(target: self, action: "actionCustomGesture:")
+            self.greenView.addGestureRecognizer(gestureRecognizer)
             break
         default:
             let gestureRecognizer = UITapGestureRecognizer(target: self, action: "actionGesture:")
@@ -134,6 +138,9 @@ class ItemViewController: UIViewController {
         }
     }
     
+    func actionCustomGesture(gesture: CustomGestureRecognizer) {
+        self.greenView.backgroundColor = UIColor.blueColor()
+    }
 
     @IBAction func actionReset(sender: UIButton) {
         self.greenView.backgroundColor = UIColor.greenColor()

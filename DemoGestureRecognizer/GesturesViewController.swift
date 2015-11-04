@@ -18,7 +18,7 @@ class GesturesViewController: UITableViewController {
         gestures = ["UITapGestureRecognizer", "UIPinchGestureRecognizer",
                     "UISwipeGestureRecognizer", "UIPanGestureRecognizer",
                     "UIRotationGestureRecognizer", "UILongPressGestureRecognizer",
-                    "UIScreenEdgePanGestureRecognizer"
+                    "UIScreenEdgePanGestureRecognizer", "CustomGestureRecognizer"
         ]
     }
 

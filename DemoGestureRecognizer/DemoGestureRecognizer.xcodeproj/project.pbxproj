@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A49FCE761BEA3E5F00E768D2 /* CustomGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49FCE751BEA3E5F00E768D2 /* CustomGestureRecognizer.swift */; };
 		A4ABAF4C1BE9867E0022ECBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ABAF4B1BE9867E0022ECBB /* AppDelegate.swift */; };
 		A4ABAF511BE9867E0022ECBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4ABAF4F1BE9867E0022ECBB /* Main.storyboard */; };
 		A4ABAF531BE9867E0022ECBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4ABAF521BE9867E0022ECBB /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A49FCE751BEA3E5F00E768D2 /* CustomGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGestureRecognizer.swift; sourceTree = "<group>"; };
 		A4ABAF481BE9867E0022ECBB /* DemoGestureRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoGestureRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4ABAF4B1BE9867E0022ECBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4ABAF501BE9867E0022ECBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				A4ABAF5D1BE987180022ECBB /* GesturesViewController.swift */,
 				A4ABAF5F1BE9873B0022ECBB /* ItemViewController.swift */,
+				A49FCE751BEA3E5F00E768D2 /* CustomGestureRecognizer.swift */,
 				A4ABAF4B1BE9867E0022ECBB /* AppDelegate.swift */,
 				A4ABAF4F1BE9867E0022ECBB /* Main.storyboard */,
 				A4ABAF521BE9867E0022ECBB /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			files = (
 				A4ABAF5E1BE987180022ECBB /* GesturesViewController.swift in Sources */,
 				A4ABAF4C1BE9867E0022ECBB /* AppDelegate.swift in Sources */,
+				A49FCE761BEA3E5F00E768D2 /* CustomGestureRecognizer.swift in Sources */,
 				A4ABAF601BE9873B0022ECBB /* ItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +294,7 @@
 				A4ABAF5C1BE9867E0022ECBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
