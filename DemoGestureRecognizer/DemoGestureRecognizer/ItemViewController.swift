@@ -75,7 +75,8 @@ class ItemViewController: UIViewController {
             break
         case "UIScreenEdgePanGestureRecognizer":
             let gestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: "actionGesture:")
-            self.greenView.addGestureRecognizer(gestureRecognizer)
+            gestureRecognizer.edges = UIRectEdge.Right
+            self.view.addGestureRecognizer(gestureRecognizer)
             break
         default:
             let gestureRecognizer = UITapGestureRecognizer(target: self, action: "actionGesture:")
@@ -114,19 +115,21 @@ class ItemViewController: UIViewController {
             }
             break
         case "UIPanGestureRecognizer":
-            
+            let g: UIPanGestureRecognizer = gesture as! UIPanGestureRecognizer
+            self.greenView.transform = CGAffineTransformMakeTranslation(g.translationInView(greenView).x, g.translationInView(greenView).y)
             break
         case "UIRotationGestureRecognizer":
-            
+            let g: UIRotationGestureRecognizer = gesture as! UIRotationGestureRecognizer
+            self.greenView.transform = CGAffineTransformMakeRotation(g.rotation)
             break
         case "UILongPressGestureRecognizer":
             self.greenView.backgroundColor = UIColor.blueColor()
             break
         case "UIScreenEdgePanGestureRecognizer":
-            
+            self.greenView.backgroundColor = UIColor.redColor()
             break
         default:
-            
+            self.greenView.backgroundColor = UIColor.blueColor()
             break
         }
     }
