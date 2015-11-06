@@ -30,7 +30,7 @@
     [self.view addSubview:btn];
     
     UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 50)];
-    btn1.center = self.view.center;
+    btn1.tag = 200;
     [btn1 setTitle:@"系统相册" forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
@@ -38,6 +38,16 @@
     btn1.layer.borderColor = [UIColor redColor].CGColor;
     btn1.layer.borderWidth = 2.0f;
     [self.view addSubview:btn1];
+    
+    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 300, self.view.frame.size.width, 50)];
+    btn2.tag = 300;
+    [btn2 setTitle:@"拍照" forState:UIControlStateNormal];
+    [btn2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn2 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn2 addTarget:self action:@selector(actionImagePicker:) forControlEvents:UIControlEventTouchUpInside];
+    btn2.layer.borderColor = [UIColor redColor].CGColor;
+    btn2.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +71,11 @@
 
 - (void)actionImagePicker:(UIButton *)sender {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    if (sender.tag == 200) {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    } else {
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
     imagePickerController.allowsEditing = YES;
     imagePickerController.delegate = self;
     [self presentViewController:imagePickerController animated:YES completion:^{
@@ -80,6 +94,10 @@
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     UIImage *savedImage = editedImage ?: originalImage;
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(savedImage, nil, nil, nil);
+    }
     
     __weak ViewController *weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
