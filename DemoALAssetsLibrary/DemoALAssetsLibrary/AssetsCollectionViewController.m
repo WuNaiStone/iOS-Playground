@@ -8,6 +8,8 @@
 
 #import "AssetsCollectionViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "AssetView.h"
+#import "AppDelegate.h"
 
 @interface AssetsCollectionViewController () <UICollectionViewDelegateFlowLayout>
 
@@ -113,6 +115,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - <UICollectionViewDelegate>
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    AssetView *assetView = [[AssetView alloc] initWithFrame:self.view.frame];
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [delegate.window addSubview:assetView];
+    
+    ALAsset *asset = self.assets[indexPath.row];
+    [assetView showImage:[UIImage imageWithCGImage:[asset defaultRepresentation].fullScreenImage]];
+}
+
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -145,6 +156,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - assets library
 
+// 因ALAssetsLibrary的生命周期原因，将其设置为一个property
+// 否则：invalid attempt to access <ALAssetsGroupPrivate: 0x32d4e0> past the lifetime of its owning ALAssetsLibrary
 - (ALAssetsLibrary *)defaultAssetsLibrary {
     static dispatch_once_t onceToken;
     static ALAssetsLibrary *assetsLibrary = nil;
