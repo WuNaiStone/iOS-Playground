@@ -20,6 +20,8 @@ class GesturesViewController: UITableViewController {
                     "UIRotationGestureRecognizer", "UILongPressGestureRecognizer",
                     "UIScreenEdgePanGestureRecognizer", "CustomGestureRecognizer"
         ]
+        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func didReceiveMemoryWarning() {
