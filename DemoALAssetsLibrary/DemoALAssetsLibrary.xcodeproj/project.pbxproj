@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4AE47501BEC7995007D3B22 /* AssetsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AE474F1BEC7995007D3B22 /* AssetsCollectionViewController.m */; };
 		A4F5E9921BE6F119003029ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F5E9911BE6F119003029ED /* main.m */; };
 		A4F5E9951BE6F119003029ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F5E9941BE6F119003029ED /* AppDelegate.m */; };
 		A4F5E9981BE6F119003029ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F5E9971BE6F119003029ED /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4AE474E1BEC7995007D3B22 /* AssetsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionViewController.h; sourceTree = "<group>"; };
+		A4AE474F1BEC7995007D3B22 /* AssetsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionViewController.m; sourceTree = "<group>"; };
 		A4F5E98D1BE6F119003029ED /* DemoALAssetsLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoALAssetsLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F5E9911BE6F119003029ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4F5E9931BE6F119003029ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				A4F5E9941BE6F119003029ED /* AppDelegate.m */,
 				A4F5E9961BE6F119003029ED /* ViewController.h */,
 				A4F5E9971BE6F119003029ED /* ViewController.m */,
+				A4AE474E1BEC7995007D3B22 /* AssetsCollectionViewController.h */,
+				A4AE474F1BEC7995007D3B22 /* AssetsCollectionViewController.m */,
 				A4F5E9991BE6F119003029ED /* Main.storyboard */,
 				A4F5E99C1BE6F119003029ED /* Assets.xcassets */,
 				A4F5E99E1BE6F119003029ED /* LaunchScreen.storyboard */,
@@ -151,6 +156,7 @@
 			files = (
 				A4F5E9981BE6F119003029ED /* ViewController.m in Sources */,
 				A4F5E9951BE6F119003029ED /* AppDelegate.m in Sources */,
+				A4AE47501BEC7995007D3B22 /* AssetsCollectionViewController.m in Sources */,
 				A4F5E9921BE6F119003029ED /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +306,7 @@
 				A4F5E9A61BE6F119003029ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
