@@ -10,4 +10,6 @@
 
 @interface AssetView : UIView
 
+- (void)showImage:(UIImage *)image;
+
 @end

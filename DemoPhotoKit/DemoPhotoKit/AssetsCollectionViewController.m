@@ -8,6 +8,7 @@
 
 #import "AssetsCollectionViewController.h"
 #import <Photos/Photos.h>
+#import "AssetView.h"
 
 @interface AssetsCollectionViewController () <UICollectionViewDelegateFlowLayout>
 
@@ -130,6 +131,26 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width / 4 - 2;
+    __weak AssetsCollectionViewController *weakSelf = self;
+    
+    PHImageManager *imageManager = [[PHImageManager alloc] init];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [imageManager requestImageForAsset:self.assets[indexPath.row] targetSize:CGSizeMake(width, width) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                NSLog(@"%@", result);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    AssetView *assetView = [[AssetView alloc] initWithFrame:self.view.frame];
+                    [weakSelf.view addSubview:assetView];
+                    [assetView showImage:result];
+                });
+            }
+        }];
+    });
+}
+
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
