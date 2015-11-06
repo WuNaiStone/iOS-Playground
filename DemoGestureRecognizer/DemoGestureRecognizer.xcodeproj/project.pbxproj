@@ -12,8 +12,8 @@
 		A4ABAF511BE9867E0022ECBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4ABAF4F1BE9867E0022ECBB /* Main.storyboard */; };
 		A4ABAF531BE9867E0022ECBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4ABAF521BE9867E0022ECBB /* Assets.xcassets */; };
 		A4ABAF561BE9867E0022ECBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4ABAF541BE9867E0022ECBB /* LaunchScreen.storyboard */; };
-		A4ABAF5E1BE987180022ECBB /* GesturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ABAF5D1BE987180022ECBB /* GesturesViewController.swift */; };
 		A4ABAF601BE9873B0022ECBB /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ABAF5F1BE9873B0022ECBB /* ItemViewController.swift */; };
+		A4AE474B1BEC786B007D3B22 /* GesturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AE474A1BEC786B007D3B22 /* GesturesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,8 @@
 		A4ABAF521BE9867E0022ECBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4ABAF551BE9867E0022ECBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4ABAF571BE9867E0022ECBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4ABAF5D1BE987180022ECBB /* GesturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GesturesViewController.swift; path = ../GesturesViewController.swift; sourceTree = "<group>"; };
 		A4ABAF5F1BE9873B0022ECBB /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		A4AE474A1BEC786B007D3B22 /* GesturesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GesturesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,7 @@
 		A4ABAF4A1BE9867E0022ECBB /* DemoGestureRecognizer */ = {
 			isa = PBXGroup;
 			children = (
-				A4ABAF5D1BE987180022ECBB /* GesturesViewController.swift */,
+				A4AE474A1BEC786B007D3B22 /* GesturesViewController.swift */,
 				A4ABAF5F1BE9873B0022ECBB /* ItemViewController.swift */,
 				A49FCE751BEA3E5F00E768D2 /* CustomGestureRecognizer.swift */,
 				A4ABAF4B1BE9867E0022ECBB /* AppDelegate.swift */,
@@ -141,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4ABAF5E1BE987180022ECBB /* GesturesViewController.swift in Sources */,
+				A4AE474B1BEC786B007D3B22 /* GesturesViewController.swift in Sources */,
 				A4ABAF4C1BE9867E0022ECBB /* AppDelegate.swift in Sources */,
 				A49FCE761BEA3E5F00E768D2 /* CustomGestureRecognizer.swift in Sources */,
 				A4ABAF601BE9873B0022ECBB /* ItemViewController.swift in Sources */,
