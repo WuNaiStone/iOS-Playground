@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 #import "AssetsCollectionViewController.h"
+#import "AssetView.h"
 
-
-@interface ViewController ()
+@interface ViewController () <UIImagePickerControllerDelegate>
 
 @end
 
@@ -20,8 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
-    btn.center = self.view.center;
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 50)];
     [btn setTitle:@"选择照片" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
@@ -29,6 +28,16 @@
     btn.layer.borderColor = [UIColor redColor].CGColor;
     btn.layer.borderWidth = 2.0f;
     [self.view addSubview:btn];
+    
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 50)];
+    btn1.center = self.view.center;
+    [btn1 setTitle:@"系统相册" forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn1 addTarget:self action:@selector(actionImagePicker:) forControlEvents:UIControlEventTouchUpInside];
+    btn1.layer.borderColor = [UIColor redColor].CGColor;
+    btn1.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +57,37 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:collectionViewController];
     
     [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)actionImagePicker:(UIButton *)sender {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.allowsEditing = YES;
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:^{
+        
+    }];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+//    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, 0);
+//    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    UIImage *savedImage = editedImage ?: originalImage;
+    
+    __weak ViewController *weakSelf = self;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        AssetView *assetView = [[AssetView alloc] initWithFrame:self.view.frame];
+        [weakSelf.view addSubview:assetView];
+        
+        [assetView showImage:savedImage];
+    }];
 }
 
 @end
