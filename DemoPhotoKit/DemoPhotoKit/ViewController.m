@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <Photos/Photos.h>
+#import "AssetsCollectionViewController.h"
 
 @interface ViewController ()
 
@@ -19,8 +20,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self loadOnePhoto];
-    [self loadPhotos];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 50)];
+    [btn setTitle:@"选择照片" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(actionLoadAssets:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +78,21 @@
             NSAssert1(NO, @"Fetch collection not PHCollection: %@", collection);
         }
     }
+}
+
+- (void)actionLoadAssets:(UIButton *)sender {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    CGFloat width = [UIScreen mainScreen].bounds.size.width / 4;
+    layout.itemSize = CGSizeMake(width, width);
+    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    
+    AssetsCollectionViewController *assetsCollectionViewController = [[AssetsCollectionViewController alloc] initWithCollectionViewLayout:layout];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:assetsCollectionViewController];
+    
+    [self presentViewController:navigationController animated:YES completion:^{
+        
+    }];
 }
 
 @end

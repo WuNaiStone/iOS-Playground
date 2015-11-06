@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4AE47561BECABD9007D3B22 /* AssetsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AE47551BECABD9007D3B22 /* AssetsCollectionViewController.m */; };
+		A4AE47591BECABEA007D3B22 /* AssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AE47581BECABEA007D3B22 /* AssetView.m */; };
 		A4F5E9B51BE6F59A003029ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F5E9B41BE6F59A003029ED /* main.m */; };
 		A4F5E9B81BE6F59A003029ED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F5E9B71BE6F59A003029ED /* AppDelegate.m */; };
 		A4F5E9BB1BE6F59A003029ED /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F5E9BA1BE6F59A003029ED /* ViewController.m */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4AE47541BECABD9007D3B22 /* AssetsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionViewController.h; sourceTree = "<group>"; };
+		A4AE47551BECABD9007D3B22 /* AssetsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionViewController.m; sourceTree = "<group>"; };
+		A4AE47571BECABEA007D3B22 /* AssetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetView.h; sourceTree = "<group>"; };
+		A4AE47581BECABEA007D3B22 /* AssetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetView.m; sourceTree = "<group>"; };
 		A4F5E9B01BE6F59A003029ED /* DemoPhotoKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoPhotoKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F5E9B41BE6F59A003029ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4F5E9B61BE6F59A003029ED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +68,10 @@
 				A4F5E9B71BE6F59A003029ED /* AppDelegate.m */,
 				A4F5E9B91BE6F59A003029ED /* ViewController.h */,
 				A4F5E9BA1BE6F59A003029ED /* ViewController.m */,
+				A4AE47541BECABD9007D3B22 /* AssetsCollectionViewController.h */,
+				A4AE47551BECABD9007D3B22 /* AssetsCollectionViewController.m */,
+				A4AE47571BECABEA007D3B22 /* AssetView.h */,
+				A4AE47581BECABEA007D3B22 /* AssetView.m */,
 				A4F5E9BC1BE6F59A003029ED /* Main.storyboard */,
 				A4F5E9BF1BE6F59A003029ED /* Assets.xcassets */,
 				A4F5E9C11BE6F59A003029ED /* LaunchScreen.storyboard */,
@@ -151,7 +161,9 @@
 			files = (
 				A4F5E9BB1BE6F59A003029ED /* ViewController.m in Sources */,
 				A4F5E9B81BE6F59A003029ED /* AppDelegate.m in Sources */,
+				A4AE47561BECABD9007D3B22 /* AssetsCollectionViewController.m in Sources */,
 				A4F5E9B51BE6F59A003029ED /* main.m in Sources */,
+				A4AE47591BECABEA007D3B22 /* AssetView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoPhotoKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoPhotoKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoPhotoKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoPhotoKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,6 +312,7 @@
 				A4F5E9C91BE6F59B003029ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
