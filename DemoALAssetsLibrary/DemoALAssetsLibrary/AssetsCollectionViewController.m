@@ -117,6 +117,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     AssetView *assetView = [[AssetView alloc] initWithFrame:self.view.frame];
+    assetView.closeBlock = ^() {
+        NSLog(@"Close AssetView");
+    };
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [delegate.window addSubview:assetView];
     

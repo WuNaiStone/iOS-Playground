@@ -102,6 +102,9 @@
     __weak ViewController *weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
         AssetView *assetView = [[AssetView alloc] initWithFrame:self.view.frame];
+        assetView.closeBlock = ^() {
+            NSLog(@"Close AssetView");
+        };
         [weakSelf.view addSubview:assetView];
         
         [assetView showImage:savedImage];

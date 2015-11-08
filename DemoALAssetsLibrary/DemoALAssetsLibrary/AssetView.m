@@ -57,6 +57,9 @@
         imageView.transform = CGAffineTransformMakeScale(0.1, 0.1);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
+        if (self.closeBlock) {
+            self.closeBlock();
+        }
     }];
 }
 
