@@ -145,6 +145,9 @@ static NSString * const reuseIdentifier = @"Cell";
                     AssetView *assetView = [[AssetView alloc] initWithFrame:self.view.frame];
                     [weakSelf.view addSubview:assetView];
                     [assetView showImage:result];
+                    assetView.closeBlock = ^() {
+                        NSLog(@"Close AssetView");
+                    };
                 });
             }
         }];

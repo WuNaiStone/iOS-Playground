@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^CloseBlock)();
+
 @interface AssetView : UIView
 
+@property (nonatomic, copy) CloseBlock closeBlock;
 - (void)showImage:(UIImage *)image;
 
 @end
