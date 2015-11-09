@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Photos/Photos.h>
 #import "AssetsCollectionViewController.h"
+#import "ScrollViewAndCollectionViewController.h"
 
 @interface ViewController ()
 
@@ -28,6 +29,16 @@
     btn.layer.borderColor = [UIColor redColor].CGColor;
     btn.layer.borderWidth = 2.0f;
     [self.view addSubview:btn];
+    
+    
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 50)];
+    [btn1 setTitle:@"Use ScrollView and CollectionView" forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn1 addTarget:self action:@selector(actionUseScrollViewAndCollectionView:) forControlEvents:UIControlEventTouchUpInside];
+    btn1.layer.borderColor = [UIColor redColor].CGColor;
+    btn1.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,6 +101,15 @@
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:assetsCollectionViewController];
     
+    [self presentViewController:navigationController animated:YES completion:^{
+        
+    }];
+}
+
+- (void)actionUseScrollViewAndCollectionView:(UIButton *)sender {
+    ScrollViewAndCollectionViewController *scrollVC = [[ScrollViewAndCollectionViewController alloc] init];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:scrollVC];
     [self presentViewController:navigationController animated:YES completion:^{
         
     }];
