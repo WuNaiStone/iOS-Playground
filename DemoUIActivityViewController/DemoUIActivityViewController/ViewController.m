@@ -64,6 +64,14 @@
     
     NSLog(@"%@", _shareContentArray);
     NSLog(@"%@", _title);
+    
+    [self activityDidFinish:YES];//默认调用传递NO
+}
+
+- (void)activityDidFinish:(BOOL)completed {
+    if (completed) {
+        NSLog(@"%s", __func__);
+    }
 }
 
 @end
