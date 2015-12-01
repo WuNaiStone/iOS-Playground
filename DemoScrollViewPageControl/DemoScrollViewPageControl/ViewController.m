@@ -23,6 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.title = @"ViewController";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, 200)];
     _headerView.backgroundColor = [UIColor lightGrayColor];
@@ -39,7 +40,7 @@
 }
 
 - (void)initScrollView {
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.headerView.bounds];
+    _scrollView = [[UIScrollView alloc] initWithFrame:_headerView.bounds];
     [_headerView addSubview:_scrollView];
     
     _scrollView.backgroundColor = [UIColor redColor];
