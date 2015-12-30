@@ -24,9 +24,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     aView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height / 2)];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:aView.bounds];
-    imageView.image = [UIImage imageNamed:@"Model.jpg"];
-    [aView addSubview:imageView];
+    UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, aView.frame.size.width / 2, aView.frame.size.height / 2)];
+    imageView1.image = [UIImage imageNamed:@"Model.jpg"];
+    [aView addSubview:imageView1];
+    
+    UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(aView.frame.size.width / 2, aView.frame.size.height / 2, aView.frame.size.width / 2, aView.frame.size.height / 2)];
+    imageView2.image = [UIImage imageNamed:@"Model2.jpg"];
+    [aView addSubview:imageView2];
+    
     [self.view addSubview:aView];
 
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height / 2 + 10, self.view.frame.size.width, 30)];

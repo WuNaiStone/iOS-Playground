@@ -15,6 +15,7 @@
 		A4B3A1DF1C33EBFD00A02DF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4B3A1DD1C33EBFD00A02DF0 /* LaunchScreen.storyboard */; };
 		A4B3A1E81C33EC2600A02DF0 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B3A1E71C33EC2600A02DF0 /* UIImage+ImageEffects.m */; };
 		A4B3A1EA1C33EC4E00A02DF0 /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4B3A1E91C33EC4E00A02DF0 /* Model.jpg */; };
+		A4B3A2081C33F5A100A02DF0 /* Model2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4B3A2071C33F5A100A02DF0 /* Model2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A4B3A1E61C33EC2600A02DF0 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		A4B3A1E71C33EC2600A02DF0 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		A4B3A1E91C33EC4E00A02DF0 /* Model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model.jpg; sourceTree = "<group>"; };
+		A4B3A2071C33F5A100A02DF0 /* Model2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		A4B3A1CE1C33EBFD00A02DF0 /* DemoBlurImage */ = {
 			isa = PBXGroup;
 			children = (
+				A4B3A2071C33F5A100A02DF0 /* Model2.jpg */,
 				A4B3A1E91C33EC4E00A02DF0 /* Model.jpg */,
 				A4B3A1E61C33EC2600A02DF0 /* UIImage+ImageEffects.h */,
 				A4B3A1E71C33EC2600A02DF0 /* UIImage+ImageEffects.m */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B3A1DF1C33EBFD00A02DF0 /* LaunchScreen.storyboard in Resources */,
+				A4B3A2081C33F5A100A02DF0 /* Model2.jpg in Resources */,
 				A4B3A1EA1C33EC4E00A02DF0 /* Model.jpg in Resources */,
 				A4B3A1DC1C33EBFD00A02DF0 /* Assets.xcassets in Resources */,
 				A4B3A1DA1C33EBFD00A02DF0 /* Main.storyboard in Resources */,
@@ -308,6 +312,7 @@
 				A4B3A1E51C33EBFD00A02DF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
