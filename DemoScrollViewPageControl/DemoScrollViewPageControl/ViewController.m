@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "AViewController.h"
+
 @interface ViewController ()
 
 @property (nonatomic) UIView *headerView;
@@ -32,6 +34,8 @@
     [self initScrollView];
     [self initPageControl];
     [self initTimer];
+    
+    [self addAViewControllerButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,5 +110,21 @@
 }
 
 
+#pragma mark - AViewController
+- (void)addAViewControllerButton {
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50)];
+    [btn setTitle:@"AViewController" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(actionAViewController:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn];
+}
+
+- (void)actionAViewController:(UIButton *)sender {
+    AViewController *aViewController = [[AViewController alloc] init];
+    [self presentViewController:aViewController animated:YES completion:nil];
+}
 
 @end
