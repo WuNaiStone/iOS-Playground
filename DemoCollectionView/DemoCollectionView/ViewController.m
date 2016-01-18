@@ -8,6 +8,7 @@
 
 #define _CELL "acell"
 #import "ViewController.h"
+#import "CollectionViewsTableViewController.h"
 
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -21,6 +22,7 @@
     NSInteger itemCount;
     
     UIButton *btn;
+    UIButton *btn1;
 }
 
 - (void)viewDidLoad {
@@ -38,7 +40,7 @@
 }
 
 - (void)addButton {
-    btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50)];
+    btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 120, self.view.frame.size.width, 50)];
     [btn setTitle:@"ScrollDirectionVertical" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
@@ -46,6 +48,15 @@
     btn.layer.borderColor = [UIColor redColor].CGColor;
     btn.layer.borderWidth = 2.0f;
     [self.view addSubview:btn];
+    
+    btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 50)];
+    [btn1 setTitle:@"UICollectionViewFlowLayout" forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn1 addTarget:self action:@selector(actionUICollectionViewFlowLayout:) forControlEvents:UIControlEventTouchUpInside];
+    btn1.layer.borderColor = [UIColor redColor].CGColor;
+    btn1.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn1];
 }
 
 - (void)actionScrollDirection:(UIButton *)sender {
@@ -57,6 +68,11 @@
         [btn setTitle:@"ScrollDirectionHorizontal" forState:UIControlStateNormal];
         collectionView.frame = CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height - 200);
     }
+}
+
+- (void)actionUICollectionViewFlowLayout:(UIButton *)sender {
+    CollectionViewsTableViewController *tableVC = [[CollectionViewsTableViewController alloc] init];
+    [self presentViewController:tableVC animated:YES completion:nil];
 }
 
 - (void)addCollectionView {

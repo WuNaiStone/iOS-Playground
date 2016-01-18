@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4C24F911C4C7453005EB292 /* CollectionViewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F901C4C7453005EB292 /* CollectionViewsTableViewController.m */; };
 		A4E362581BA8DCF2003EFC3A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E362571BA8DCF2003EFC3A /* main.m */; };
 		A4E3625B1BA8DCF2003EFC3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E3625A1BA8DCF2003EFC3A /* AppDelegate.m */; };
 		A4E3625E1BA8DCF2003EFC3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E3625D1BA8DCF2003EFC3A /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4C24F8F1C4C7453005EB292 /* CollectionViewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewsTableViewController.h; sourceTree = "<group>"; };
+		A4C24F901C4C7453005EB292 /* CollectionViewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewsTableViewController.m; sourceTree = "<group>"; };
 		A4E362521BA8DCF2003EFC3A /* DemoCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E362561BA8DCF2003EFC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E362571BA8DCF2003EFC3A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				A4E3625A1BA8DCF2003EFC3A /* AppDelegate.m */,
 				A4E3625C1BA8DCF2003EFC3A /* ViewController.h */,
 				A4E3625D1BA8DCF2003EFC3A /* ViewController.m */,
+				A4C24F8F1C4C7453005EB292 /* CollectionViewsTableViewController.h */,
+				A4C24F901C4C7453005EB292 /* CollectionViewsTableViewController.m */,
 				A4E3625F1BA8DCF2003EFC3A /* Main.storyboard */,
 				A4E362621BA8DCF2003EFC3A /* Images.xcassets */,
 				A4E362641BA8DCF2003EFC3A /* LaunchScreen.xib */,
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C24F911C4C7453005EB292 /* CollectionViewsTableViewController.m in Sources */,
 				A4E3625E1BA8DCF2003EFC3A /* ViewController.m in Sources */,
 				A4E3625B1BA8DCF2003EFC3A /* AppDelegate.m in Sources */,
 				A4E362581BA8DCF2003EFC3A /* main.m in Sources */,
@@ -416,6 +422,7 @@
 				A4E362771BA8DCF2003EFC3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4E362781BA8DCF2003EFC3A /* Build configuration list for PBXNativeTarget "DemoCollectionViewTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +431,7 @@
 				A4E3627A1BA8DCF2003EFC3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
