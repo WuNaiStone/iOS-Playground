@@ -10,4 +10,22 @@
 
 @implementation CollectionViewLayout
 
+- (instancetype)initWithType:(LayoutCollectionView)type
+{
+    self = [super init];
+    if (self) {
+        self.type = type;
+        
+        if (type == Layout_DefaultFlow) {
+            self = [[UICollectionViewFlowLayout alloc] init];
+        }
+    }
+    return self;
+}
+
+// collectionView内容尺寸
+- (CGSize)collectionViewContentSize {
+    return CGSizeMake(250, 250);
+}
+
 @end

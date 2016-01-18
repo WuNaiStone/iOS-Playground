@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, LayoutCollectionView) {
+    Layout_DefaultFlow = 0,
+    Layout_Linear,
+    Layout_Rotary,
+    Layout_Carousel,
+    Layout_CoverFlow,
+    Layout_Horizontal,
+};
+
 @interface CollectionViewLayout : UICollectionViewLayout
+
+@property (nonatomic) LayoutCollectionView type;
+@property (nonatomic) UICollectionViewScrollDirection scrollDirection;
+@property (nonatomic) CGSize itemSize;
+
+- (instancetype)initWithType:(LayoutCollectionView)type;
 
 @end
