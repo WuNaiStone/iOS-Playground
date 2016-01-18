@@ -72,7 +72,10 @@
 
 - (void)actionUICollectionViewFlowLayout:(UIButton *)sender {
     CollectionViewsTableViewController *tableVC = [[CollectionViewsTableViewController alloc] init];
-    [self presentViewController:tableVC animated:YES completion:nil];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableVC];
+    
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)addCollectionView {

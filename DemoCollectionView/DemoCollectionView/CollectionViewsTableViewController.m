@@ -7,6 +7,7 @@
 //
 
 #import "CollectionViewsTableViewController.h"
+#import "CollectionViewLayout.h"
 
 #define CellReuseIdentifier @"Cell"
 
@@ -15,8 +16,6 @@
 @end
 
 @implementation CollectionViewsTableViewController {
-
-    UIButton *btn;
     
     NSArray *collectionViewTypes;
 
@@ -37,17 +36,11 @@
 }
 
 - (void)addButtonBack {
-    btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 50)];
-    [btn setTitle:@"Back" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(actionBack:) forControlEvents:UIControlEventTouchUpInside];
-    btn.layer.borderColor = [UIColor redColor].CGColor;
-    btn.layer.borderWidth = 2.0f;
-    [self.view addSubview:btn];
+    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(actionBack:)];
+    self.navigationItem.leftBarButtonItem = btnBack;
 }
 
-- (void)actionBack:(UIButton *)sender {
+- (void)actionBack:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -105,6 +98,16 @@
     return YES;
 }
 */
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CollectionViewLayout *layout = [[CollectionViewLayout alloc] init];
+    
+    UICollectionViewController *collectionViewVC = [[UICollectionViewController alloc] initWithCollectionViewLayout:layout];
+    
+    [self.navigationController pushViewController:collectionViewVC animated:YES];
+}
 
 /*
 #pragma mark - Navigation
