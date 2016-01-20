@@ -7,6 +7,7 @@
 //
 
 #import "CustomCollectionViewController.h"
+#import "CollectionViewCell.h"
 
 @interface CustomCollectionViewController ()
 
@@ -21,7 +22,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    // 采用默认的UICollectionViewCell
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    // 采用自定义的CollectionViewCell
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,10 +45,21 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    // 采用默认的UICollectionViewCell
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+//    
+//    // Configure the cell
+//    
+////    cell.backgroundColor = [UIColor colorWithRed:((arc4random() % 255) / 255.0) green:((arc4random() % 255) / 255.0) blue:((arc4random() % 255) / 255.0) alpha:1.0f];
+//    
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:cell.bounds];
+//    [cell.contentView addSubview:imageView];
+//    imageView.image = [UIImage imageNamed:@"Model.jpg"];
     
-    // Configure the cell
-    cell.backgroundColor = [UIColor blueColor];
+    // 采用自定义的CollectionViewCell
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.imageView.image = [UIImage imageNamed:@"Model.jpg"];
     
     return cell;
 }
