@@ -60,6 +60,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // 采用自定义的CollectionViewCell
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.imageView.image = [UIImage imageNamed:@"Model.jpg"];
+    cell.labelIndexPath.text = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.item];
     
     return cell;
 }

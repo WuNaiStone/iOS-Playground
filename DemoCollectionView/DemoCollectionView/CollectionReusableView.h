@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.h
+//  CollectionReusableView.h
 //  DemoCollectionView
 //
 //  Created by zj－db0465 on 16/1/20.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CollectionViewCell : UICollectionViewCell
+@interface CollectionReusableView : UICollectionReusableView
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *labelIndexPath;
+
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

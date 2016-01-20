@@ -13,6 +13,10 @@
 		A4C24FB21C4E69D0005EB292 /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4C24FB11C4E69D0005EB292 /* Model.jpg */; };
 		A4C24FB61C4F1918005EB292 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24FB41C4F1918005EB292 /* CollectionViewCell.m */; };
 		A4C24FB71C4F1918005EB292 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C24FB51C4F1918005EB292 /* CollectionViewCell.xib */; };
+		A4C24FC21C4F6D28005EB292 /* HeaderFooterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24FC11C4F6D28005EB292 /* HeaderFooterCollectionViewController.m */; };
+		A4C24FC41C4F739C005EB292 /* Header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4C24FC31C4F739C005EB292 /* Header.jpg */; };
+		A4C24FCD1C4FBFD9005EB292 /* CollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24FCB1C4FBFD9005EB292 /* CollectionReusableView.m */; };
+		A4C24FCE1C4FBFD9005EB292 /* CollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C24FCC1C4FBFD9005EB292 /* CollectionReusableView.xib */; };
 		A4E362581BA8DCF2003EFC3A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E362571BA8DCF2003EFC3A /* main.m */; };
 		A4E3625B1BA8DCF2003EFC3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E3625A1BA8DCF2003EFC3A /* AppDelegate.m */; };
 		A4E3625E1BA8DCF2003EFC3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E3625D1BA8DCF2003EFC3A /* ViewController.m */; };
@@ -43,6 +47,12 @@
 		A4C24FB31C4F1918005EB292 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		A4C24FB41C4F1918005EB292 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		A4C24FB51C4F1918005EB292 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		A4C24FC01C4F6D28005EB292 /* HeaderFooterCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderFooterCollectionViewController.h; sourceTree = "<group>"; };
+		A4C24FC11C4F6D28005EB292 /* HeaderFooterCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderFooterCollectionViewController.m; sourceTree = "<group>"; };
+		A4C24FC31C4F739C005EB292 /* Header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Header.jpg; sourceTree = "<group>"; };
+		A4C24FCA1C4FBFD9005EB292 /* CollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionReusableView.h; sourceTree = "<group>"; };
+		A4C24FCB1C4FBFD9005EB292 /* CollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionReusableView.m; sourceTree = "<group>"; };
+		A4C24FCC1C4FBFD9005EB292 /* CollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionReusableView.xib; sourceTree = "<group>"; };
 		A4E362521BA8DCF2003EFC3A /* DemoCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E362561BA8DCF2003EFC3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4E362571BA8DCF2003EFC3A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				A4C24FB11C4E69D0005EB292 /* Model.jpg */,
+				A4C24FC31C4F739C005EB292 /* Header.jpg */,
 				A4E362591BA8DCF2003EFC3A /* AppDelegate.h */,
 				A4E3625A1BA8DCF2003EFC3A /* AppDelegate.m */,
 				A4E3625C1BA8DCF2003EFC3A /* ViewController.h */,
@@ -106,11 +117,16 @@
 				A4C24F901C4C7453005EB292 /* CollectionViewsTableViewController.m */,
 				A4C24F9B1C4C8BFC005EB292 /* CustomCollectionViewController.h */,
 				A4C24F9C1C4C8BFC005EB292 /* CustomCollectionViewController.m */,
+				A4C24FC01C4F6D28005EB292 /* HeaderFooterCollectionViewController.h */,
+				A4C24FC11C4F6D28005EB292 /* HeaderFooterCollectionViewController.m */,
 				A4C24F981C4C8079005EB292 /* CollectionViewLayout.h */,
 				A4C24F991C4C8079005EB292 /* CollectionViewLayout.m */,
 				A4C24FB31C4F1918005EB292 /* CollectionViewCell.h */,
 				A4C24FB41C4F1918005EB292 /* CollectionViewCell.m */,
 				A4C24FB51C4F1918005EB292 /* CollectionViewCell.xib */,
+				A4C24FCA1C4FBFD9005EB292 /* CollectionReusableView.h */,
+				A4C24FCB1C4FBFD9005EB292 /* CollectionReusableView.m */,
+				A4C24FCC1C4FBFD9005EB292 /* CollectionReusableView.xib */,
 				A4E3625F1BA8DCF2003EFC3A /* Main.storyboard */,
 				A4E362621BA8DCF2003EFC3A /* Images.xcassets */,
 				A4E362641BA8DCF2003EFC3A /* LaunchScreen.xib */,
@@ -226,7 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E362611BA8DCF2003EFC3A /* Main.storyboard in Resources */,
+				A4C24FCE1C4FBFD9005EB292 /* CollectionReusableView.xib in Resources */,
 				A4E362661BA8DCF2003EFC3A /* LaunchScreen.xib in Resources */,
+				A4C24FC41C4F739C005EB292 /* Header.jpg in Resources */,
 				A4C24FB21C4E69D0005EB292 /* Model.jpg in Resources */,
 				A4E362631BA8DCF2003EFC3A /* Images.xcassets in Resources */,
 				A4C24FB71C4F1918005EB292 /* CollectionViewCell.xib in Resources */,
@@ -249,8 +267,10 @@
 			files = (
 				A4C24F9A1C4C8079005EB292 /* CollectionViewLayout.m in Sources */,
 				A4C24F911C4C7453005EB292 /* CollectionViewsTableViewController.m in Sources */,
+				A4C24FCD1C4FBFD9005EB292 /* CollectionReusableView.m in Sources */,
 				A4E3625E1BA8DCF2003EFC3A /* ViewController.m in Sources */,
 				A4E3625B1BA8DCF2003EFC3A /* AppDelegate.m in Sources */,
+				A4C24FC21C4F6D28005EB292 /* HeaderFooterCollectionViewController.m in Sources */,
 				A4C24F9D1C4C8BFC005EB292 /* CustomCollectionViewController.m in Sources */,
 				A4C24FB61C4F1918005EB292 /* CollectionViewCell.m in Sources */,
 				A4E362581BA8DCF2003EFC3A /* main.m in Sources */,
