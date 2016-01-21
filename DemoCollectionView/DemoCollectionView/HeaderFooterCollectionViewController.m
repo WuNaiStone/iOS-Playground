@@ -101,18 +101,23 @@ static NSString * const reuseFooterIdentifier = @"Footer";
 - (CollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     CollectionReusableView *reuseableView;
     if (kind == UICollectionElementKindSectionHeader) {
+        
         reuseableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:reuseHeaderIdentifier forIndexPath:indexPath];
         
         reuseableView.imageView.image = [UIImage imageNamed:@"Header.jpg"];
+        reuseableView.button.titleLabel.text = @"Header Button";
         reuseableView.label.text = [NSString stringWithFormat:@"Header: %ld-%ld", (long)indexPath.section, (long)indexPath.row];
+        
     } else if (kind == UICollectionElementKindSectionFooter) {
+        
         reuseableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:reuseFooterIdentifier forIndexPath:indexPath];
         
         reuseableView.imageView.image = [UIImage imageNamed:@"Header.jpg"];
+        reuseableView.button.titleLabel.text = @"Footer Button";
         reuseableView.label.text = [NSString stringWithFormat:@"Footer: %ld-%ld", (long)indexPath.section, (long)indexPath.row];
+        
     } else {
     }
-    
     
     return reuseableView;
 }
