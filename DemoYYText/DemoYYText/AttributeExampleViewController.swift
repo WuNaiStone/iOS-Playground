@@ -47,6 +47,8 @@ class AttributeExampleViewController: UIViewController {
         
         // 内阴影        
         self.addInnerShadow()
+        
+        self.addMultiShadow()
     }
     
     func addShadow() {
@@ -78,6 +80,34 @@ class AttributeExampleViewController: UIViewController {
         textInnerShadow.yy_textInnerShadow = innerShadow
     
         self.text.appendAttributedString(textInnerShadow)
+        self.text.appendAttributedString(self.nextLine())
+    }
+    
+    func addMultiShadow() {
+        let textMultiShadow = NSMutableAttributedString(string: "Multiple Shadow")
+        textMultiShadow.yy_font = UIFont.systemFontOfSize(30)
+        textMultiShadow.yy_color = UIColor.whiteColor()
+        
+        let shadow = YYTextShadow()
+        shadow.color = UIColor(white: 0.0, alpha: 0.5)
+        shadow.offset = CGSizeMake(0, 1)
+        shadow.radius = 5
+        let subShadow = YYTextShadow()
+        subShadow.color = UIColor.redColor()
+        subShadow.offset = CGSizeMake(0, 1)
+        subShadow.radius = 1.5
+        shadow.subShadow = subShadow
+        
+        textMultiShadow.yy_textShadow = shadow
+        
+        let innerShadow = YYTextShadow()
+        innerShadow.color = UIColor(white: 0.0, alpha: 0.5)
+        innerShadow.offset = CGSizeMake(0, 1)
+        innerShadow.radius = 1
+        
+        textMultiShadow.yy_textInnerShadow = innerShadow
+        
+        self.text.appendAttributedString(textMultiShadow)
         self.text.appendAttributedString(self.nextLine())
     }
 }
