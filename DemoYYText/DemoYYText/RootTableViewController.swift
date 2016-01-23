@@ -20,7 +20,12 @@ class RootTableViewController: UITableViewController {
         self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "ReuseCellIdentifier")
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        self.examples = ["Markdown"]
+        self.examples = [
+            "Markdown",
+            "Attribute",
+            "Tag",
+            "",
+        ]
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,16 +51,18 @@ class RootTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var exampleVC: UIViewController!
+        
         switch indexPath.row {
         case 0:
-            let exampleVC = MarkDownExampleViewController()
-            self.navigationController?.pushViewController(exampleVC, animated: true)
+            exampleVC = MarkDownExampleViewController()
             break;
         default:
-            let exampleVC = MarkDownExampleViewController()
-            self.navigationController?.pushViewController(exampleVC, animated: true)
+            exampleVC = AttributeExampleViewController()
             break
         }
+        
+        self.navigationController?.pushViewController(exampleVC, animated: true)
     }
 
 }

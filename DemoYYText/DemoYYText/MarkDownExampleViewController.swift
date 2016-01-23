@@ -15,6 +15,8 @@ class MarkDownExampleViewController: UIViewController, YYTextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.whiteColor()
+        
         title = NSStringFromClass(self.classForCoder)
 
         // Do any additional setup after loading the view.
