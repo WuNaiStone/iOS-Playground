@@ -49,6 +49,8 @@ class AttributeExampleViewController: UIViewController {
         self.addInnerShadow()
         
         self.addMultiShadow()
+        
+        self.addBorder()
     }
     
     func addShadow() {
@@ -110,4 +112,23 @@ class AttributeExampleViewController: UIViewController {
         self.text.appendAttributedString(textMultiShadow)
         self.text.appendAttributedString(self.nextLine())
     }
+    
+    func addBorder() {
+        let textBorder = NSMutableAttributedString(string: "Border")
+        textBorder.yy_font = UIFont.systemFontOfSize(30)
+        textBorder.yy_color = UIColor.blueColor()
+        
+        let border = YYTextBorder()
+        border.strokeColor = UIColor.redColor()
+        border.strokeWidth = 3
+        border.cornerRadius = 3
+        border.lineStyle = YYTextLineStyle.PatternCircleDot
+        border.insets = UIEdgeInsetsMake(0, -4, 0, -4)
+        
+        textBorder.yy_textBackgroundBorder = border
+        
+        self.text.appendAttributedString(textBorder)
+        self.text.appendAttributedString(self.nextLine())
+    }
+    
 }
