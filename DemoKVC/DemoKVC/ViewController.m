@@ -11,6 +11,8 @@
 @interface MyObject : NSObject
 
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSString *age;
+@property (nonatomic) NSString *language;
 
 @end
 
@@ -45,7 +47,8 @@
     
     // KVC
     [self testKVC];
-    
+ 
+    [self testKVCInObject];
 }
 
 - (void)testNonKVC {
@@ -126,6 +129,23 @@
     NSLog(@"\n");
     
     
+}
+
+- (void)testKVCInObject {
+    MyObject *myObject = [MyObject new];
+    NSArray *array = @[@"name", @"age", @"language"];
+    for (NSString *key in array) {
+        [myObject setValue:@"unknown" forKey:key];
+    }
+    NSLog(@"myObject.name : %@", myObject.name);
+    NSLog(@"myObject.age : %@", myObject.age);
+    NSLog(@"myObject.language : %@", myObject.language);
+    NSLog(@"\n");
+    
+    for (NSString *key in array) {
+        NSString *value = [myObject valueForKey:key];
+        NSLog(@"%@ - %@", key, value);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
