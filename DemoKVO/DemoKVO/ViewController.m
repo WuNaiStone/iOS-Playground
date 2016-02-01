@@ -56,11 +56,14 @@
 
 static NSInteger nameContext = 0;
 static NSInteger ageContext = 1;
+static void * languageContext = &languageContext; // 一个静态变量存着它自己的指针，即什么都没有。
 
 - (void)addKVO {
     [self.myObject addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:&nameContext];
     
     [self.myObject addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:&ageContext];
+    
+    [self.myObject addObserver:self forKeyPath:@"language" options:NSKeyValueObservingOptionNew context:&languageContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -71,11 +74,30 @@ static NSInteger ageContext = 1;
         NSLog(@"keyPath : %@", keyPath);
         NSLog(@"object : %@", object);
         NSLog(@"change : %@", change);
+        
+        // 放置keyPath的拼写错误导致crash
+        if ([keyPath isEqualToString:NSStringFromSelector(@selector(name))]) {
+            NSLog(@"keyPath isEqualToString NSStringFromSelector name");
+            
+            // removeObserver，或者在dealloc中。
+            @try {
+                [object removeObserver:self forKeyPath:NSStringFromSelector(@selector(age)) context:&ageContext];
+            }
+            @catch (NSException *exception) {
+            }
+            @finally {
+            }
+        }
     } else if (context == &ageContext) {
         NSLog(@"keyPath : %@", keyPath);
         NSLog(@"object : %@", object);
         NSLog(@"change : %@", change);
-    } else {
+    } else if (context == &languageContext) {
+        NSLog(@"keyPath : %@", keyPath);
+        NSLog(@"object : %@", object);
+        NSLog(@"change : %@", change);
+    }
+    else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
@@ -100,6 +122,8 @@ static NSInteger ageContext = 1;
     
     
     [self.myObject setValue:@"New Age" forKey:@"age"];
+    
+    [self.myObject setValue:@"New Language" forKey:@"language"];
 }
 
 - (void)didReceiveMemoryWarning {
