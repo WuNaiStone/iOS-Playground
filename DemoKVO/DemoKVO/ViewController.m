@@ -54,19 +54,27 @@
     NSLog(@"\n");
 }
 
+static NSInteger nameContext = 0;
+static NSInteger ageContext = 1;
+
 - (void)addKVO {
-    [self.myObject addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+    [self.myObject addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:&nameContext];
+    
+    [self.myObject addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:&ageContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     NSLog(@"observeValueForKeyPath >>> ");
     
-    if (context == nil) {
+    if (context == &nameContext) {
         NSLog(@"keyPath : %@", keyPath);
         NSLog(@"object : %@", object);
         NSLog(@"change : %@", change);
-        NSLog(@"context : %@", context);
+    } else if (context == &ageContext) {
+        NSLog(@"keyPath : %@", keyPath);
+        NSLog(@"object : %@", object);
+        NSLog(@"change : %@", change);
     } else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -89,6 +97,9 @@
     [self.myObject setValue:@"New Name" forKey:@"name"];
     name = [self.myObject valueForKey:@"name"];
     NSLog(@"New Name : %@", name);
+    
+    
+    [self.myObject setValue:@"New Age" forKey:@"age"];
 }
 
 - (void)didReceiveMemoryWarning {
