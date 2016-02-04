@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "CSImagePickerViewController.h"
 
-@interface ViewController () <UIImagePickerControllerDelegate>
+@interface ViewController () <CSImagePickerViewControllerDelegate>
 
 @end
 
@@ -37,13 +37,13 @@
 
 - (void)actionBtn:(UIButton *)sender {
     CSImagePickerViewController *imagePicker = [[CSImagePickerViewController alloc] init];
-    imagePicker.delegate = self;
+    imagePicker.csImagePickerViewControllerDelegate = self;
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
 - (void)addImageView {
-    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 250)];
-    _imageView.contentMode = UIViewContentModeScaleAspectFill;
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 300)];
+    _imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:_imageView];
 }
 
@@ -52,14 +52,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UIImagePickerControllerDelegate
+#pragma mark - CSImagePickerViewControllerDelegate
 
-// 如果不重写这些方法，则选取photo之后只会dismiss picker，没有其他作用。
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
-
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+- (void)csImagePicker:(CSImagePickerViewController *)picker didFinishPickerPhotoWith:(NSDictionary *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     UIImage *savedImage = editedImage ?: originalImage;
@@ -72,10 +67,6 @@
     [picker dismissViewControllerAnimated:YES completion:^{
         weakSelf.imageView.image = savedImage;
     }];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-
 }
 
 @end

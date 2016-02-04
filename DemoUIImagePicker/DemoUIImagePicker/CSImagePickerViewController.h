@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CSImagePickerViewControllerDelegate;
+
 @interface CSImagePickerViewController : UIImagePickerController
+
+@property (nonatomic, weak) id<CSImagePickerViewControllerDelegate> csImagePickerViewControllerDelegate;
+
+@end
+
+@protocol CSImagePickerViewControllerDelegate <NSObject>
+
+/**
+ *  回调ViewController中的对应方法，更新Image。
+ *
+ *  @param picker CSImagePickerViewController
+ *  @param info   NSDictionary
+ */
+- (void)csImagePicker:(CSImagePickerViewController *)picker didFinishPickerPhotoWith:(NSDictionary *)info;
 
 @end

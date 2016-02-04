@@ -15,6 +15,11 @@
 		A44101B41C5F305400160A55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44101B21C5F305400160A55 /* LaunchScreen.storyboard */; };
 		A44101BF1C5F305400160A55 /* DemoUIImagePickerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101BE1C5F305400160A55 /* DemoUIImagePickerTests.m */; };
 		A44101CB1C5F307C00160A55 /* CSImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101CA1C5F307C00160A55 /* CSImagePickerViewController.m */; };
+		A44101CD1C5F36F400160A55 /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44101CC1C5F36F400160A55 /* TopBarView.xib */; };
+		A44101D01C5F370200160A55 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101CF1C5F370200160A55 /* TopBarView.m */; };
+		A44101D31C5F4E6600160A55 /* CSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101D21C5F4E6600160A55 /* CSCameraViewController.m */; };
+		A44102061C62FD5A00160A55 /* ToolBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44102051C62FD5A00160A55 /* ToolBarView.xib */; };
+		A44102091C62FD6B00160A55 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44102081C62FD6B00160A55 /* ToolBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,14 @@
 		A44101C01C5F305400160A55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A44101C91C5F307C00160A55 /* CSImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSImagePickerViewController.h; sourceTree = "<group>"; };
 		A44101CA1C5F307C00160A55 /* CSImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSImagePickerViewController.m; sourceTree = "<group>"; };
+		A44101CC1C5F36F400160A55 /* TopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
+		A44101CE1C5F370200160A55 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
+		A44101CF1C5F370200160A55 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
+		A44101D11C5F4E6600160A55 /* CSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSCameraViewController.h; sourceTree = "<group>"; };
+		A44101D21C5F4E6600160A55 /* CSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSCameraViewController.m; sourceTree = "<group>"; };
+		A44102051C62FD5A00160A55 /* ToolBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolBarView.xib; sourceTree = "<group>"; };
+		A44102071C62FD6B00160A55 /* ToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarView.h; sourceTree = "<group>"; };
+		A44102081C62FD6B00160A55 /* ToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +99,18 @@
 			children = (
 				A44101A71C5F305400160A55 /* AppDelegate.h */,
 				A44101A81C5F305400160A55 /* AppDelegate.m */,
-				A44101C91C5F307C00160A55 /* CSImagePickerViewController.h */,
-				A44101CA1C5F307C00160A55 /* CSImagePickerViewController.m */,
 				A44101AA1C5F305400160A55 /* ViewController.h */,
 				A44101AB1C5F305400160A55 /* ViewController.m */,
+				A44101C91C5F307C00160A55 /* CSImagePickerViewController.h */,
+				A44101CA1C5F307C00160A55 /* CSImagePickerViewController.m */,
+				A44101D11C5F4E6600160A55 /* CSCameraViewController.h */,
+				A44101D21C5F4E6600160A55 /* CSCameraViewController.m */,
+				A44101CE1C5F370200160A55 /* TopBarView.h */,
+				A44101CF1C5F370200160A55 /* TopBarView.m */,
+				A44101CC1C5F36F400160A55 /* TopBarView.xib */,
+				A44102071C62FD6B00160A55 /* ToolBarView.h */,
+				A44102081C62FD6B00160A55 /* ToolBarView.m */,
+				A44102051C62FD5A00160A55 /* ToolBarView.xib */,
 				A44101AD1C5F305400160A55 /* Main.storyboard */,
 				A44101B01C5F305400160A55 /* Assets.xcassets */,
 				A44101B21C5F305400160A55 /* LaunchScreen.storyboard */,
@@ -197,7 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A44101B41C5F305400160A55 /* LaunchScreen.storyboard in Resources */,
+				A44102061C62FD5A00160A55 /* ToolBarView.xib in Resources */,
 				A44101B11C5F305400160A55 /* Assets.xcassets in Resources */,
+				A44101CD1C5F36F400160A55 /* TopBarView.xib in Resources */,
 				A44101AF1C5F305400160A55 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,7 +241,10 @@
 			files = (
 				A44101AC1C5F305400160A55 /* ViewController.m in Sources */,
 				A44101A91C5F305400160A55 /* AppDelegate.m in Sources */,
+				A44102091C62FD6B00160A55 /* ToolBarView.m in Sources */,
 				A44101CB1C5F307C00160A55 /* CSImagePickerViewController.m in Sources */,
+				A44101D31C5F4E6600160A55 /* CSCameraViewController.m in Sources */,
+				A44101D01C5F370200160A55 /* TopBarView.m in Sources */,
 				A44101A61C5F305400160A55 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
