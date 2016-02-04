@@ -53,7 +53,7 @@
     if (!_topBarView) {
         _topBarView = [[[NSBundle mainBundle] loadNibNamed:@"TopBarView" owner:self options:nil] objectAtIndex:0];
         _topBarView.frame = CGRectMake(0, 0, self.view.frame.size.width, 64);
-        
+        _topBarView.lbTitle.text = @"相册";
         [_topBarView.btnBack addTarget:self action:@selector(actionBack:) forControlEvents:UIControlEventTouchUpInside];
         [_topBarView.btnCamera addTarget:self action:@selector(actionCamera:) forControlEvents:UIControlEventTouchUpInside];
     }

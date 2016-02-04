@@ -27,11 +27,23 @@
                     </constraints>
                     <state key="normal" title="Button" image="Camera"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4g-BR-a52">
+                    <rect key="frame" x="120" y="0.5" width="80" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="sji-uS-Wdv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="YTB-Ow-ESY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Amc-SF-qIv"/>
+                <constraint firstItem="J4g-BR-a52" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Caw-mz-pzR"/>
+                <constraint firstItem="J4g-BR-a52" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="RIp-o0-cS6"/>
                 <constraint firstItem="YTB-Ow-ESY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="jyv-ne-cw6"/>
+                <constraint firstItem="J4g-BR-a52" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kmo-gE-7eP"/>
                 <constraint firstItem="S9U-mQ-W3g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nVN-tB-rfU"/>
                 <constraint firstAttribute="trailing" secondItem="S9U-mQ-W3g" secondAttribute="trailing" id="v8V-sg-rFh"/>
             </constraints>
@@ -40,6 +52,7 @@
             <connections>
                 <outlet property="btnBack" destination="YTB-Ow-ESY" id="8qS-Ih-SvL"/>
                 <outlet property="btnCamera" destination="S9U-mQ-W3g" id="LOl-iQ-qgE"/>
+                <outlet property="lbTitle" destination="J4g-BR-a52" id="IUz-D6-pWZ"/>
             </connections>
             <point key="canvasLocation" x="470" y="60"/>
         </view>

@@ -10,6 +10,8 @@
 
 @interface TopBarView : UIView
 
+@property (weak, nonatomic) IBOutlet UILabel *lbTitle;
+
 @property (weak, nonatomic) IBOutlet UIButton *btnBack;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnCamera;
