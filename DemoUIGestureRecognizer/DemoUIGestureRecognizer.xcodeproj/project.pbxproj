@@ -13,6 +13,9 @@
 		A44618EB1BB95211006139CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44618E91BB95211006139CF /* Main.storyboard */; };
 		A44618ED1BB95211006139CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44618EC1BB95211006139CF /* Assets.xcassets */; };
 		A44618F01BB95211006139CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44618EE1BB95211006139CF /* LaunchScreen.storyboard */; };
+		A4C06A5C1C3E61CD00C862EA /* AView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C06A5B1C3E61CD00C862EA /* AView.m */; };
+		A4C06A5F1C3E653E00C862EA /* AScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C06A5E1C3E653E00C862EA /* AScrollView.m */; };
+		A4C06A621C3E695200C862EA /* BView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C06A611C3E695200C862EA /* BView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		A44618EC1BB95211006139CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A44618EF1BB95211006139CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A44618F11BB95211006139CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4C06A5A1C3E61CD00C862EA /* AView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AView.h; sourceTree = "<group>"; };
+		A4C06A5B1C3E61CD00C862EA /* AView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AView.m; sourceTree = "<group>"; };
+		A4C06A5D1C3E653E00C862EA /* AScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AScrollView.h; sourceTree = "<group>"; };
+		A4C06A5E1C3E653E00C862EA /* AScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AScrollView.m; sourceTree = "<group>"; };
+		A4C06A601C3E695200C862EA /* BView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BView.h; sourceTree = "<group>"; };
+		A4C06A611C3E695200C862EA /* BView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +71,12 @@
 				A44618E41BB95211006139CF /* AppDelegate.m */,
 				A44618E61BB95211006139CF /* ViewController.h */,
 				A44618E71BB95211006139CF /* ViewController.m */,
+				A4C06A5D1C3E653E00C862EA /* AScrollView.h */,
+				A4C06A5E1C3E653E00C862EA /* AScrollView.m */,
+				A4C06A5A1C3E61CD00C862EA /* AView.h */,
+				A4C06A5B1C3E61CD00C862EA /* AView.m */,
+				A4C06A601C3E695200C862EA /* BView.h */,
+				A4C06A611C3E695200C862EA /* BView.m */,
 				A44618E91BB95211006139CF /* Main.storyboard */,
 				A44618EC1BB95211006139CF /* Assets.xcassets */,
 				A44618EE1BB95211006139CF /* LaunchScreen.storyboard */,
@@ -149,8 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C06A5F1C3E653E00C862EA /* AScrollView.m in Sources */,
 				A44618E81BB95211006139CF /* ViewController.m in Sources */,
 				A44618E51BB95211006139CF /* AppDelegate.m in Sources */,
+				A4C06A621C3E695200C862EA /* BView.m in Sources */,
+				A4C06A5C1C3E61CD00C862EA /* AView.m in Sources */,
 				A44618E21BB95211006139CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +280,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIGestureRecognizer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoUIGestureRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -273,6 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIGestureRecognizer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoUIGestureRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -298,6 +318,7 @@
 				A44618F61BB95211006139CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
