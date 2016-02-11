@@ -17,7 +17,10 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+
+    BOOL canReceiveTouchesMoved;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -113,9 +116,25 @@
     UITouch *touch = (UITouch *)[touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.view];
     NSLog(@"ViewController touchesBegan : %@", NSStringFromCGPoint(touchPoint));
+    
+    canReceiveTouchesMoved = NO;
+    
+    [self performSelector:@selector(didTouchesBegan) withObject:nil afterDelay:0.5f];
+}
+
+- (void)didTouchesBegan {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(didTouchesBegan) object:nil];
+    
+    // TODO
+    
+    canReceiveTouchesMoved = YES;
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (!canReceiveTouchesMoved) {
+        return;
+    }
+    
     UITouch *touch = (UITouch *)[touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.view];
     NSLog(@"ViewController touchesMoved : %@", NSStringFromCGPoint(touchPoint));
