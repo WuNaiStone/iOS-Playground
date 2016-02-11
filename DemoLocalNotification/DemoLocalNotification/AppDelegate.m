@@ -17,6 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
+    }
+    
     return YES;
 }
 
@@ -36,6 +41,52 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // appIcon上的消息提示个数
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    // 添加1Mins和3Mins的localNotification
+#define kLocalNotificationTimeInterval_1Mins        (60*1)
+#define kLocalNotificationTimeInterval_3Mins        (60*3)
+    [self setLocalNotification:kLocalNotificationTimeInterval_1Mins];
+    [self setLocalNotification:kLocalNotificationTimeInterval_3Mins];
+}
+
+- (void)setLocalNotification:(NSTimeInterval)timeInterval {
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    if (notification) {
+        // 设置提醒时间为20:00
+        NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+        NSDateComponents *dateComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:[NSDate date]];
+        dateComponents.hour = 20;
+        dateComponents.minute = 0;
+        NSDate *fireDate = [calendar dateFromComponents:dateComponents];
+        
+        fireDate = [NSDate date];
+        
+        notification.fireDate = [fireDate dateByAddingTimeInterval:timeInterval];
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.alertBody = [NSString stringWithFormat:@"Local Notification %f", timeInterval];
+        notification.applicationIconBadgeNumber = 1;
+        
+#define LocalNotificationPeriod_1Mins   @"LocalNotificationPeriod_1Mins"
+#define LocalNotificationPeriod_3Mins   @"LocalNotificationPeriod_3Mins"
+        
+        NSString *period;
+        if (timeInterval == kLocalNotificationTimeInterval_1Mins) {
+            period = LocalNotificationPeriod_1Mins;
+        } else {
+            period = LocalNotificationPeriod_3Mins;
+        }
+        
+        notification.userInfo = @{
+                                  @"id": period,
+                                  };
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    }
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -44,6 +95,8 @@
 
 // APP运行中收到notification
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"notification : %@", notification);
+    
     if ([[notification.userInfo objectForKey:@"id"] isEqualToString:@"notification_1"]) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Notification" message:@"notification_1" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
