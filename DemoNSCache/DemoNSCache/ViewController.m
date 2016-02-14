@@ -16,8 +16,10 @@
     UIImageView *_imageView;
     
     NSString *_imageName;
-    NSData *_data;
     NSCache *_cache;
+    
+    NSString *_imageUrl;
+    NSString *_keyImageUrl;
 }
 
 - (void)viewDidLoad {
@@ -28,24 +30,66 @@
     _imageView.center = self.view.center;
     [self.view addSubview:_imageView];
     
-    [self addBtn];
+    [self addBtnClearNSCache];
+    [self addBtnLocal];
+    [self addBtnNetwork];
     
-    [self demoNSCache];
+    _cache = [[NSCache alloc] init];
+    
+    _imageName = @"Model.png";
+    [self demoNSCacheLocalImage:_imageName];
+    
+    _imageUrl = @"http://n.sinaimg.cn/ent/transform/20160105/JGXC-fxnerek0974413.jpg";
+    _keyImageUrl = @"NetworkImage.png";
+    [self demoNSCacheNetworkImage:_imageUrl];
 }
 
-- (void)addBtn {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50)];
-    [btn setTitle:@"NSCache" forState:UIControlStateNormal];
+- (void)addBtnClearNSCache {
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 160, self.view.frame.size.width, 50)];
+    [btn setTitle:@"Clear NSCache" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(actionNSCache:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(actionClearNSCache:) forControlEvents:UIControlEventTouchUpInside];
     btn.layer.borderColor = [UIColor redColor].CGColor;
     btn.layer.borderWidth = 2.0f;
     [self.view addSubview:btn];
 }
 
-- (void)actionNSCache:(UIButton *)sender {
-    NSData *data = [self readForKey:_imageName];
+- (void)actionClearNSCache:(UIButton *)sender {
+    NSLog(@"Clear NSCache ...... ");
+    [_cache removeAllObjects];
+}
+
+- (void)addBtnLocal {
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50)];
+    [btn setTitle:@"Local Image" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(actionLocalImage:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn];
+}
+
+- (void)actionLocalImage:(UIButton *)sender {
+    NSData *data = [self imageDataForImageName:_imageName];
+    UIImage *image = [UIImage imageWithData:data];
+    [_imageView setImage:image];
+}
+
+- (void)addBtnNetwork {
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 50)];
+    [btn setTitle:@"Network Image" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(actionNetworkImage:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn];
+}
+
+- (void)actionNetworkImage:(UIButton *)sender {
+    NSData *data = [self imageDataForImageURL:_imageUrl];
     UIImage *image = [UIImage imageWithData:data];
     [_imageView setImage:image];
 }
@@ -55,14 +99,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)demoNSCache {
-    _imageName = @"Model.png";
-    _data = UIImagePNGRepresentation([UIImage imageNamed:_imageName]);
-    _cache = [[NSCache alloc] init];
-    
-    [self write:_data forKey:_imageName];
-    
+#pragma mark - local image
+
+- (void)demoNSCacheLocalImage:(NSString *)imageName {
+    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:imageName]);
+    [self write:imageData forKey:imageName];
 }
+
+#pragma mark - network image
+- (void)demoNSCacheNetworkImage:(NSString *)imageUrl {
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_imageUrl]];
+    [self write:imageData forKey:_keyImageUrl];
+}
+
+#pragma mark - NSCache related operations
 
 - (NSString *)filePathForKey:(NSString *)key {
     NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
@@ -82,22 +132,47 @@
     });
 }
 
-- (NSData *)readForKey:(NSString *)key {
-    if (!key) {
+- (NSData *)imageDataForImageName:(NSString *)imageName {
+    if (!imageName) {
         return nil;
     }
     
-    NSData *cacheData = [_cache objectForKey:key];
+    NSData *cacheData = [_cache objectForKey:imageName];
     if (cacheData) {
         NSLog(@"NSCache Data ...... ");
         return cacheData;
     } else {
         NSLog(@"Sandbox file Data ...... ");
-        NSString *filePath = [self filePathForKey:key];
+        NSString *filePath = [self filePathForKey:imageName];
         NSData *data = [NSData dataWithContentsOfFile:filePath];
 //        NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
         if (data) {
-            [_cache setObject:data forKey:key];
+            [self write:data forKey:imageName];
+        }
+        return data;
+    }
+}
+
+- (NSData *)imageDataForImageURL:(NSString *)imageUrl {
+    if (!imageUrl) {
+        return nil;
+    }
+    
+    NSData *cacheData = [_cache objectForKey:_keyImageUrl];
+    if (cacheData) {
+        NSLog(@"NSCache Data ...... ");
+        return cacheData;
+    } else {
+        NSString *filePath = [self filePathForKey:_keyImageUrl];
+        NSData *data = [NSData dataWithContentsOfFile:filePath];
+        //        NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
+        if (data) {
+            NSLog(@"Sandbox file Data ...... ");
+            [self write:data forKey:_keyImageUrl];
+        } else {
+            NSLog(@"Network Data ...... ");
+            data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]];
+            [self write:data forKey:_keyImageUrl];
         }
         return data;
     }
