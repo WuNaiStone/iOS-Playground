@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <
+    NSCacheDelegate
+>
 
 @end
 
@@ -35,6 +37,8 @@
     [self addBtnNetwork];
     
     _cache = [[NSCache alloc] init];
+    _cache.name = @"Image NSCache";
+    _cache.delegate = self;
     
     _imageName = @"Model.png";
     [self demoNSCacheLocalImage:_imageName];
@@ -176,6 +180,13 @@
         }
         return data;
     }
+}
+
+#pragma mark - NSCacheDelegate
+
+- (void)cache:(NSCache *)cache willEvictObject:(id)obj {
+    NSLog(@"NSCacheDelegate ...... ");
+    NSLog(@"cache : %@", cache.name);
 }
 
 @end
