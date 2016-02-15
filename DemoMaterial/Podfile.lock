@@ -1,0 +1,10 @@
+PODS:
+  - Material (1.32.2)
+
+DEPENDENCIES:
+  - Material
+
+SPEC CHECKSUMS:
+  Material: c2752a84929229e904dc4b131f3564722ed22498
+
+COCOAPODS: 0.39.0
