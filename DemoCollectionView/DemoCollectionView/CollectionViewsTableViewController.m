@@ -11,6 +11,8 @@
 
 #import "CollectionViewLayout.h"
 
+#import "StickCollectionViewFlowLayout.h"
+
 @interface CollectionViewsTableViewController ()
 
 @end
@@ -28,7 +30,8 @@ static NSString * const CellReuseIdentifier = @"Cell";
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellReuseIdentifier];
     
-    collectionViewTypes = @[@"Default Flow", @"Linear", @"Rotary", @"Carousel", @"CoverFlow", @"Horizontal"];
+    collectionViewTypes = @[@"Default Flow", @"Linear", @"Rotary", @"Carousel", @"CoverFlow", @"Horizontal",
+                            @"Sticky"];
     
     [self addButtonBack];
 }
@@ -105,34 +108,63 @@ static NSString * const CellReuseIdentifier = @"Cell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomCollectionViewController *collectionViewVC;
-    CollectionViewLayout *layout;
     switch (indexPath.row) {
         case 0:
-            layout = [[CollectionViewLayout alloc] initWithType:Layout_DefaultFlow];
+        {
+            CollectionViewLayout *layout = [[CollectionViewLayout alloc] initWithType:Layout_DefaultFlow];
+            layout.itemSize = CGSizeMake(250, 250);
+            collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
             break;
+        }
         case 1:
-            layout = [[CollectionViewLayout alloc] initWithType:Layout_Linear];
+        {
+            CollectionViewLayout *layout = [[CollectionViewLayout alloc] initWithType:Layout_Linear];
+            layout.itemSize = CGSizeMake(250, 250);
+            collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
             break;
+        }
         case 2:
-            layout = [[CollectionViewLayout alloc] initWithType:Layout_Rotary];
+        {
+            CollectionViewLayout *layout = [[CollectionViewLayout alloc] initWithType:Layout_Rotary];
+            layout.itemSize = CGSizeMake(250, 250);
+            collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
             break;
+        }
         case 3:
-            layout = [[CollectionViewLayout alloc] initWithType:Layout_Carousel];
+        {
+            CollectionViewLayout *layout = [[CollectionViewLayout alloc] initWithType:Layout_Carousel];
+            layout.itemSize = CGSizeMake(250, 250);
+            collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
             break;
+        }
         case 4:
-            layout = [[CollectionViewLayout alloc] initWithType:Layout_CoverFlow];
+        {
+            CollectionViewLayout *layout = [[CollectionViewLayout alloc] initWithType:Layout_CoverFlow];
             layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+            layout.itemSize = CGSizeMake(250, 250);
+            collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
             break;
+        }
         case 5:
-            layout = [[CollectionViewLayout alloc] initWithType:Layout_Horizontal];
+        {
+            CollectionViewLayout *layout = [[CollectionViewLayout alloc] initWithType:Layout_Horizontal];
             layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+            layout.itemSize = CGSizeMake(250, 250);
+            collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
             break;
+        }
+        case 6:
+        {
+            StickCollectionViewFlowLayout *layout = [[StickCollectionViewFlowLayout alloc] init];
+            layout.firstItemTransform = 0.05f;
+            layout.itemSize = CGSizeMake(250, 250);
+            collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
+        }
         default:
+        {
             break;
+        }
     }
-    layout.itemSize = CGSizeMake(250, 250);
-    
-    collectionViewVC = [[CustomCollectionViewController alloc] initWithCollectionViewLayout:layout];
     
     [self.navigationController pushViewController:collectionViewVC animated:YES];
 }

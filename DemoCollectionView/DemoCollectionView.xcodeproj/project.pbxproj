@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A43494001C71B69800335FDA /* StickCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A43493FF1C71B69800335FDA /* StickCollectionViewFlowLayout.m */; };
 		A4C24F911C4C7453005EB292 /* CollectionViewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F901C4C7453005EB292 /* CollectionViewsTableViewController.m */; };
 		A4C24F9A1C4C8079005EB292 /* CollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F991C4C8079005EB292 /* CollectionViewLayout.m */; };
 		A4C24F9D1C4C8BFC005EB292 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F9C1C4C8BFC005EB292 /* CustomCollectionViewController.m */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		2546F0EE67BB1F6BF49748FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		70F6845222B79A6DBDF2C319 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A43493FE1C71B69800335FDA /* StickCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		A43493FF1C71B69800335FDA /* StickCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A4C24F8F1C4C7453005EB292 /* CollectionViewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewsTableViewController.h; sourceTree = "<group>"; };
 		A4C24F901C4C7453005EB292 /* CollectionViewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewsTableViewController.m; sourceTree = "<group>"; };
 		A4C24F981C4C8079005EB292 /* CollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewLayout.h; sourceTree = "<group>"; };
@@ -99,6 +102,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A43493FD1C71B69800335FDA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A43493FE1C71B69800335FDA /* StickCollectionViewFlowLayout.h */,
+				A43493FF1C71B69800335FDA /* StickCollectionViewFlowLayout.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		A4E362491BA8DCF2003EFC3A = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +134,7 @@
 		A4E362541BA8DCF2003EFC3A /* DemoCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				A43493FD1C71B69800335FDA /* Source */,
 				A4C24FB11C4E69D0005EB292 /* Model.jpg */,
 				A4C24FC31C4F739C005EB292 /* Header.jpg */,
 				A4E362591BA8DCF2003EFC3A /* AppDelegate.h */,
@@ -327,6 +340,7 @@
 				A4C24F9A1C4C8079005EB292 /* CollectionViewLayout.m in Sources */,
 				A4C24F911C4C7453005EB292 /* CollectionViewsTableViewController.m in Sources */,
 				A4C24FCD1C4FBFD9005EB292 /* CollectionReusableView.m in Sources */,
+				A43494001C71B69800335FDA /* StickCollectionViewFlowLayout.m in Sources */,
 				A4E3625E1BA8DCF2003EFC3A /* ViewController.m in Sources */,
 				A4E3625B1BA8DCF2003EFC3A /* AppDelegate.m in Sources */,
 				A4C24FC21C4F6D28005EB292 /* HeaderFooterCollectionViewController.m in Sources */,
