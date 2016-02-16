@@ -16,6 +16,7 @@
 		A434949C1C730A2B00335FDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A434949A1C730A2B00335FDA /* LaunchScreen.storyboard */; };
 		A43494A71C730A2B00335FDA /* DemoUITextViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A43494A61C730A2B00335FDA /* DemoUITextViewTests.m */; };
 		A43494B21C730A2B00335FDA /* DemoUITextViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A43494B11C730A2B00335FDA /* DemoUITextViewUITests.m */; };
+		A43494C11C7312AE00335FDA /* CSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A43494C01C7312AE00335FDA /* CSTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		A43494AD1C730A2B00335FDA /* DemoUITextViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITextViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43494B11C730A2B00335FDA /* DemoUITextViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUITextViewUITests.m; sourceTree = "<group>"; };
 		A43494B31C730A2B00335FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43494BF1C7312AE00335FDA /* CSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSTextView.h; sourceTree = "<group>"; };
+		A43494C01C7312AE00335FDA /* CSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				A434948D1C730A2B00335FDA /* AppDelegate.m */,
 				A434948F1C730A2B00335FDA /* ViewController.h */,
 				A43494901C730A2B00335FDA /* ViewController.m */,
+				A43494BF1C7312AE00335FDA /* CSTextView.h */,
+				A43494C01C7312AE00335FDA /* CSTextView.m */,
 				A43494921C730A2B00335FDA /* Main.storyboard */,
 				A43494981C730A2B00335FDA /* Assets.xcassets */,
 				A434949A1C730A2B00335FDA /* LaunchScreen.storyboard */,
@@ -277,6 +282,7 @@
 				A434948E1C730A2B00335FDA /* AppDelegate.m in Sources */,
 				A43494971C730A2B00335FDA /* DemoUITextView.xcdatamodeld in Sources */,
 				A434948B1C730A2B00335FDA /* main.m in Sources */,
+				A43494C11C7312AE00335FDA /* CSTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +506,7 @@
 				A43494B81C730A2B00335FDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A43494B91C730A2B00335FDA /* Build configuration list for PBXNativeTarget "DemoUITextViewTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +515,7 @@
 				A43494BB1C730A2B00335FDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A43494BC1C730A2B00335FDA /* Build configuration list for PBXNativeTarget "DemoUITextViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +524,7 @@
 				A43494BE1C730A2B00335FDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

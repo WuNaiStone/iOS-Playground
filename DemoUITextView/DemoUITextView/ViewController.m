@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import "CSTextView.h"
+
 #define PlaceHolder @"This is placeholder"
 
 @interface ViewController () <
@@ -34,6 +36,12 @@
     tap.numberOfTapsRequired = 1;
     tap.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:tap];
+    
+    
+    CSTextView *csTextView = [[CSTextView alloc] initWithFrame:CGRectMake(0, 250, self.view.frame.size.width, 100) placeHolder:PlaceHolder];
+    csTextView.backgroundColor = [UIColor whiteColor];
+    csTextView.font = [UIFont systemFontOfSize:20.f];
+    [self.view addSubview:csTextView];
 }
 
 - (void)actionTap:(UITapGestureRecognizer *)sender {
