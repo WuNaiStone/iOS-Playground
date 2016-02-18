@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EE558C18CDD04EA14FD7662 /* libPods-DemoUIImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5229EE3E439A59407EA85FF3 /* libPods-DemoUIImagePicker.a */; };
 		A44101A61C5F305400160A55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101A51C5F305400160A55 /* main.m */; };
 		A44101A91C5F305400160A55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101A81C5F305400160A55 /* AppDelegate.m */; };
 		A44101AC1C5F305400160A55 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101AB1C5F305400160A55 /* ViewController.m */; };
@@ -20,6 +21,11 @@
 		A44101D31C5F4E6600160A55 /* CSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44101D21C5F4E6600160A55 /* CSCameraViewController.m */; };
 		A44102061C62FD5A00160A55 /* ToolBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44102051C62FD5A00160A55 /* ToolBarView.xib */; };
 		A44102091C62FD6B00160A55 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44102081C62FD6B00160A55 /* ToolBarView.m */; };
+		A4EA89EF1C75AF3200D2EFE7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EA89EE1C75AF3100D2EFE7 /* CoreMedia.framework */; };
+		A4EA89F11C75AF3900D2EFE7 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EA89F01C75AF3900D2EFE7 /* CoreVideo.framework */; };
+		A4EA89F31C75AF4100D2EFE7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EA89F21C75AF4100D2EFE7 /* OpenGLES.framework */; };
+		A4EA89F51C75AF4600D2EFE7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EA89F41C75AF4600D2EFE7 /* AVFoundation.framework */; };
+		A4EA89F71C75AF4D00D2EFE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EA89F61C75AF4D00D2EFE7 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5229EE3E439A59407EA85FF3 /* libPods-DemoUIImagePicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoUIImagePicker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44101A11C5F305400160A55 /* DemoUIImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoUIImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44101A51C5F305400160A55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A44101A71C5F305400160A55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,6 +63,13 @@
 		A44102051C62FD5A00160A55 /* ToolBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolBarView.xib; sourceTree = "<group>"; };
 		A44102071C62FD6B00160A55 /* ToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarView.h; sourceTree = "<group>"; };
 		A44102081C62FD6B00160A55 /* ToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarView.m; sourceTree = "<group>"; };
+		A4EA89EE1C75AF3100D2EFE7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A4EA89F01C75AF3900D2EFE7 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A4EA89F21C75AF4100D2EFE7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A4EA89F41C75AF4600D2EFE7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A4EA89F61C75AF4D00D2EFE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B9B02C9EDB7382F13F52BF05 /* Pods-DemoUIImagePicker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoUIImagePicker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoUIImagePicker/Pods-DemoUIImagePicker.debug.xcconfig"; sourceTree = "<group>"; };
+		F176423B638E4D55B5D7095E /* Pods-DemoUIImagePicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoUIImagePicker.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoUIImagePicker/Pods-DemoUIImagePicker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +77,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4EA89F71C75AF4D00D2EFE7 /* QuartzCore.framework in Frameworks */,
+				A4EA89F51C75AF4600D2EFE7 /* AVFoundation.framework in Frameworks */,
+				A4EA89F31C75AF4100D2EFE7 /* OpenGLES.framework in Frameworks */,
+				A4EA89F11C75AF3900D2EFE7 /* CoreVideo.framework in Frameworks */,
+				A4EA89EF1C75AF3200D2EFE7 /* CoreMedia.framework in Frameworks */,
+				4EE558C18CDD04EA14FD7662 /* libPods-DemoUIImagePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +96,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E53D4BF378AAFB67AA420E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4EA89F61C75AF4D00D2EFE7 /* QuartzCore.framework */,
+				A4EA89F41C75AF4600D2EFE7 /* AVFoundation.framework */,
+				A4EA89F21C75AF4100D2EFE7 /* OpenGLES.framework */,
+				A4EA89F01C75AF3900D2EFE7 /* CoreVideo.framework */,
+				A4EA89EE1C75AF3100D2EFE7 /* CoreMedia.framework */,
+				5229EE3E439A59407EA85FF3 /* libPods-DemoUIImagePicker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A44101981C5F305400160A55 = {
 			isa = PBXGroup;
 			children = (
 				A44101A31C5F305400160A55 /* DemoUIImagePicker */,
 				A44101BD1C5F305400160A55 /* DemoUIImagePickerTests */,
 				A44101A21C5F305400160A55 /* Products */,
+				EAC601CF8FC0266608B28198 /* Pods */,
+				0E53D4BF378AAFB67AA420E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +172,15 @@
 			path = DemoUIImagePickerTests;
 			sourceTree = "<group>";
 		};
+		EAC601CF8FC0266608B28198 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9B02C9EDB7382F13F52BF05 /* Pods-DemoUIImagePicker.debug.xcconfig */,
+				F176423B638E4D55B5D7095E /* Pods-DemoUIImagePicker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A44101C31C5F305400160A55 /* Build configuration list for PBXNativeTarget "DemoUIImagePicker" */;
 			buildPhases = (
+				3D22F7802E6B918084D9D489 /* Check Pods Manifest.lock */,
 				A441019D1C5F305400160A55 /* Sources */,
 				A441019E1C5F305400160A55 /* Frameworks */,
 				A441019F1C5F305400160A55 /* Resources */,
+				FF6584C2260F26C65480FC04 /* Embed Pods Frameworks */,
+				214E85D25B51FA901D9753B2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +280,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		214E85D25B51FA901D9753B2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoUIImagePicker/Pods-DemoUIImagePicker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D22F7802E6B918084D9D489 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FF6584C2260F26C65480FC04 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoUIImagePicker/Pods-DemoUIImagePicker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A441019D1C5F305400160A55 /* Sources */ = {
@@ -369,6 +464,7 @@
 		};
 		A44101C41C5F305400160A55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B02C9EDB7382F13F52BF05 /* Pods-DemoUIImagePicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIImagePicker/Info.plist;
@@ -381,6 +477,7 @@
 		};
 		A44101C51C5F305400160A55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F176423B638E4D55B5D7095E /* Pods-DemoUIImagePicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIImagePicker/Info.plist;
