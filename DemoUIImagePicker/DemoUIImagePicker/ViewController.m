@@ -25,6 +25,7 @@
     GPUImageView *gpuImageView;
     UIButton *btnCamera;
     UIButton *btnCancel;
+    UIButton *btnRotate;
     
     
     GPUImageVignetteFilter *vignetteFilter;
@@ -112,8 +113,14 @@
     
     [vignetteFilter addTarget:gpuImageView];
     
-    [stillCamera startCameraCapture];
+    [self addCameraSettingsButton];
     
+    [stillCamera startCameraCapture];
+}
+
+#pragma mark - Camera Settings
+
+- (void)addCameraSettingsButton {
     btnCancel = [[UIButton alloc] initWithFrame:CGRectMake(0, gpuImageView.frame.size.height, 100, 50)];
     [btnCancel setImage:[UIImage imageNamed:@"Close"] forState:UIControlStateNormal];
     [btnCancel addTarget:self action:@selector(actionCancel:) forControlEvents:UIControlEventTouchUpInside];
@@ -124,6 +131,11 @@
     [btnCamera setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
     [btnCamera addTarget:self action:@selector(actionCamera:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnCamera];
+    
+    btnRotate = [[UIButton alloc] initWithFrame:CGRectMake(gpuImageView.frame.size.width - 100, gpuImageView.frame.size.height, 100, 50)];
+    [btnRotate setImage:[UIImage imageNamed:@"Rotate"] forState:UIControlStateNormal];
+    [btnRotate addTarget:self action:@selector(actionRotate:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnRotate];
 }
 
 - (void)actionCancel:(UIButton *)sender {
@@ -135,10 +147,12 @@
     [gpuImageView removeFromSuperview];
     gpuImageView = nil;
     
-    [btnCamera removeFromSuperview];
-    btnCamera = nil;
     [btnCancel removeFromSuperview];
     btnCancel = nil;
+    [btnCamera removeFromSuperview];
+    btnCamera = nil;
+    [btnRotate removeFromSuperview];
+    btnRotate = nil;
 }
 
 - (void)actionCamera:(UIButton *)sender {
@@ -157,6 +171,10 @@
         
         [weakSelf actionCancel:nil];
     }];
+}
+
+- (void)actionRotate:(UIButton *)sender {
+    [stillCamera rotateCamera];
 }
 
 @end
