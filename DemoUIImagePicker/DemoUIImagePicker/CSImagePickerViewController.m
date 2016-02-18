@@ -72,6 +72,14 @@
 - (void)actionCamera:(UIButton *)sender {
     CSCameraViewController *cameraVC = [[CSCameraViewController alloc] init];
     
+    __weak CSCameraViewController *weakCameraVC = cameraVC;
+    cameraVC.completionBlock = ^void(UIImagePickerController *picker, NSDictionary *info) {
+        if (_csImagePickerViewControllerDelegate && [_csImagePickerViewControllerDelegate respondsToSelector:@selector(csImagePicker:didFinishPickerPhotoWith:)]) {
+            
+            [_csImagePickerViewControllerDelegate csImagePicker:picker didFinishPickerPhotoWith:info];
+            
+        }
+    };
     [self presentViewController:cameraVC animated:YES completion:nil];
 }
 

@@ -372,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoUIImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -383,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIImagePicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoUIImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,6 +434,7 @@
 				A44101C51C5F305400160A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A44101C61C5F305400160A55 /* Build configuration list for PBXNativeTarget "DemoUIImagePickerTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +443,7 @@
 				A44101C81C5F305400160A55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

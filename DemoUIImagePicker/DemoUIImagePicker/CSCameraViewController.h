@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSCameraViewController : UIViewController
+typedef void(^CompletionBlock)(UIImagePickerController *picker, NSDictionary *info);
+
+@interface CSCameraViewController : UIImagePickerController
+
+@property (nonatomic, copy) CompletionBlock completionBlock;
 
 @end
