@@ -26,6 +26,7 @@
     UIButton *btnCamera;
     UIButton *btnCancel;
     UIButton *btnRotate;
+    UIButton *btnFlash;
     
     
     GPUImageVignetteFilter *vignetteFilter;
@@ -131,8 +132,14 @@
     [btnCamera setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
     [btnCamera addTarget:self action:@selector(actionCamera:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnCamera];
+
+    btnFlash = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+    [btnFlash setImage:[UIImage imageNamed:@"Flash_On"] forState:UIControlStateNormal];
+    [btnFlash addTarget:self action:@selector(actionFlash:) forControlEvents:UIControlEventTouchUpInside];
+    [btnFlash setTitle:@"Off" forState:UIControlStateNormal];
+    [self.view addSubview:btnFlash];
     
-    btnRotate = [[UIButton alloc] initWithFrame:CGRectMake(gpuImageView.frame.size.width - 100, gpuImageView.frame.size.height, 100, 50)];
+    btnRotate = [[UIButton alloc] initWithFrame:CGRectMake(gpuImageView.frame.size.width - 100, 0, 100, 50)];
     [btnRotate setImage:[UIImage imageNamed:@"Rotate"] forState:UIControlStateNormal];
     [btnRotate addTarget:self action:@selector(actionRotate:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnRotate];
@@ -171,6 +178,23 @@
         
         [weakSelf actionCancel:nil];
     }];
+}
+
+- (void)actionFlash:(UIButton *)sender {
+    [stillCamera.inputCamera lockForConfiguration:nil];
+    
+    if ([btnFlash.titleLabel.text isEqualToString:@"Off"]) {
+        [btnFlash setTitle:@"Auto" forState:UIControlStateNormal];
+        [stillCamera.inputCamera setTorchMode:AVCaptureTorchModeAuto];
+    } else if ([btnFlash.titleLabel.text isEqualToString:@"On"]) {
+        [btnFlash setTitle:@"Off" forState:UIControlStateNormal];
+        [stillCamera.inputCamera setTorchMode:AVCaptureTorchModeOff];
+    } else {
+        [btnFlash setTitle:@"On" forState:UIControlStateNormal];
+        [stillCamera.inputCamera setTorchMode:AVCaptureTorchModeOn];
+    }
+    
+    [stillCamera.inputCamera unlockForConfiguration];
 }
 
 - (void)actionRotate:(UIButton *)sender {
