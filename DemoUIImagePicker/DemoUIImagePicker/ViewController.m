@@ -126,12 +126,6 @@
     [btnCancel setImage:[UIImage imageNamed:@"Close"] forState:UIControlStateNormal];
     [btnCancel addTarget:self action:@selector(actionCancel:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnCancel];
-    
-    btnCamera = [[UIButton alloc] initWithFrame:CGRectMake(100, gpuImageView.frame.size.height, 100, 50)];
-    btnCamera.center = CGPointMake(self.view.frame.size.width / 2, btnCamera.center.y);
-    [btnCamera setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
-    [btnCamera addTarget:self action:@selector(actionCamera:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnCamera];
 
     btnFlash = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
     [btnFlash setImage:[UIImage imageNamed:@"Flash_On"] forState:UIControlStateNormal];
@@ -143,6 +137,12 @@
     [btnRotate setImage:[UIImage imageNamed:@"Rotate"] forState:UIControlStateNormal];
     [btnRotate addTarget:self action:@selector(actionRotate:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnRotate];
+    
+    btnCamera = [[UIButton alloc] initWithFrame:CGRectMake(100, gpuImageView.frame.size.height, 100, 50)];
+    btnCamera.center = CGPointMake(self.view.frame.size.width / 2, btnCamera.center.y);
+    [btnCamera setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
+    [btnCamera addTarget:self action:@selector(actionCamera:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnCamera];
 }
 
 - (void)actionCancel:(UIButton *)sender {
@@ -160,24 +160,6 @@
     btnCamera = nil;
     [btnRotate removeFromSuperview];
     btnRotate = nil;
-}
-
-- (void)actionCamera:(UIButton *)sender {
-    if (!stillCamera) {
-        return;
-    }
-    
-    __weak ViewController *weakSelf = self;
-    [stillCamera capturePhotoAsImageProcessedUpToFilter:vignetteFilter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
-        if (!processedImage) {
-            NSLog(@"Error : %@", error.description);
-            return;
-        }
-        
-        weakSelf.imageView.image = processedImage;
-        
-        [weakSelf actionCancel:nil];
-    }];
 }
 
 - (void)actionFlash:(UIButton *)sender {
@@ -199,6 +181,24 @@
 
 - (void)actionRotate:(UIButton *)sender {
     [stillCamera rotateCamera];
+}
+
+- (void)actionCamera:(UIButton *)sender {
+    if (!stillCamera) {
+        return;
+    }
+    
+    __weak ViewController *weakSelf = self;
+    [stillCamera capturePhotoAsImageProcessedUpToFilter:vignetteFilter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+        if (!processedImage) {
+            NSLog(@"Error : %@", error.description);
+            return;
+        }
+        
+        weakSelf.imageView.image = processedImage;
+        
+        [weakSelf actionCancel:nil];
+    }];
 }
 
 @end
