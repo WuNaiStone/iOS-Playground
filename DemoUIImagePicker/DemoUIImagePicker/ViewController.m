@@ -196,6 +196,9 @@
         }
         
         weakSelf.imageView.image = processedImage;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImageWriteToSavedPhotosAlbum(processedImage, nil, nil, nil);
+        });
         
         [weakSelf actionCancel:nil];
     }];
