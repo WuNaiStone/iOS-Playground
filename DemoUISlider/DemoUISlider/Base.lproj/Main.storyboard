@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cvt-x0-NuI">
+                                <rect key="frame" x="14" y="220" width="292" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bmr-W3-U3j"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderTouchDown:" destination="BYZ-38-t0r" eventType="touchDown" id="sng-Up-ho5"/>
+                                    <action selector="sliderTouchUp:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="0wc-ze-U0I"/>
+                                    <action selector="sliderTouchUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZZ-l5-2W2"/>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mRG-GF-76m"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-ZP-liG">
+                                <rect key="frame" x="0.0" y="120" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wvq-QT-cQ5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bMo-Ws-qW1">
+                                <rect key="frame" x="0.0" y="338" width="320" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="y3Z-6f-xnl"/>
+                                </constraints>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="actionReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V45-uU-xXc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sgA-ZP-liG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="3xO-zi-CFE"/>
+                            <constraint firstItem="bMo-Ws-qW1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="5E3-ma-s7y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Cvt-x0-NuI" secondAttribute="trailing" id="WZa-58-m6l"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Cvt-x0-NuI" secondAttribute="leading" id="XCJ-8R-DSB"/>
+                            <constraint firstItem="sgA-ZP-liG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="eOn-Ge-QyU"/>
+                            <constraint firstItem="Cvt-x0-NuI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="gwl-4j-hfQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bMo-Ws-qW1" secondAttribute="bottom" constant="200" id="ng3-Qh-hOG"/>
+                            <constraint firstItem="bMo-Ws-qW1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yLP-9z-Wo6"/>
+                            <constraint firstItem="sgA-ZP-liG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z97-9E-opF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="sgA-ZP-liG" id="1e7-kv-EOE"/>
+                        <outlet property="slider" destination="Cvt-x0-NuI" id="jor-uZ-WKZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="181" y="345"/>
+        </scene>
+    </scenes>
+</document>
