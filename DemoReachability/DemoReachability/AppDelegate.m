@@ -8,12 +8,16 @@
 
 #import "AppDelegate.h"
 #import "Reachability.h"
+#import "RealReachability.h"
 
 @interface AppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+
+    BOOL real;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -24,12 +28,17 @@
     NSLog(@"isReachableViaWWAN : %d", [Reachability reachabilityForInternetConnection].isReachableViaWWAN);
     
     NSLog(@"currentReachabilityStatus : %d", [[Reachability reachabilityForInternetConnection] currentReachabilityStatus]);
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
-    
-    Reachability *reachability = [Reachability reachabilityWithHostName:@"www.baidu.com"];
-    [reachability startNotifier];
-    
+
+    real = YES;
+    if (real) {
+        [[RealReachability sharedInstance] startNotifier];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(realReachabilityChanged:) name:kRealReachabilityChangedNotification object:nil];
+    } else {
+        Reachability *reachability = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+        [reachability startNotifier];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    }
     
     return YES;
 }
@@ -40,6 +49,12 @@
     NSLog(@"isReachableViaWWAN : %d", [Reachability reachabilityForInternetConnection].isReachableViaWWAN);
     
     NSLog(@"currentReachabilityStatus : %d", [[Reachability reachabilityForInternetConnection] currentReachabilityStatus]);
+}
+
+- (void)realReachabilityChanged:(NSNotification *)notification {
+    RealReachability *reach = (RealReachability *)notification.object;
+    ReachabilityStatus status = [reach currentReachabilityStatus];
+    NSLog(@"RealReachability status : %@", @(status));
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
