@@ -18,8 +18,49 @@
     if (self) {
         [self demo];
     }
+    
+    NSLog(@"%s", __func__);
     return self;
 }
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    }
+    
+    NSLog(@"%s", __func__);
+    return self;
+}
+
++ (void)initialize
+{
+    if (self == [UIView class]) {
+    }
+    
+    NSLog(@"%s", __func__);
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+    }
+    
+    NSLog(@"%s", __func__);
+    return self;
+}
+
+- (BOOL)canBecomeFirstResponder {
+    NSLog(@"%s", __func__);
+    return [super canBecomeFirstResponder];
+}
+
+- (BOOL)canBecomeFocused {
+    NSLog(@"%s", __func__);
+    return [super canBecomeFocused];
+}
+
 
 - (void)demo {
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
