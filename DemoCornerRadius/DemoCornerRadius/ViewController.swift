@@ -8,6 +8,31 @@
 
 import UIKit
 
+extension UIImage {
+    func cs_imageWithCornerRadius(radius: CGFloat, sizeToFit: CGSize) -> UIImage {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: sizeToFit)
+        
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.mainScreen().scale)
+        let path: CGPathRef = UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.AllCorners, cornerRadii: CGSize(width: radius, height: radius)).CGPath
+        CGContextAddPath(UIGraphicsGetCurrentContext(), path)
+        CGContextClip(UIGraphicsGetCurrentContext())
+        
+        self.drawInRect(rect)
+        CGContextDrawPath(UIGraphicsGetCurrentContext(), .FillStroke)
+        
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
+extension UIImageView {
+    func cs_cornerRadiusImageView(radius: CGFloat) {
+        self.image = self.image?.cs_imageWithCornerRadius(radius, sizeToFit: self.bounds.size)
+    }
+}
+
+
 class ViewController: UIViewController {
 
     var label: UILabel!
@@ -44,9 +69,18 @@ class ViewController: UIViewController {
         
         self.imageView = UIImageView(frame: CGRectMake(100, 50, self.view.frame.size.width - 200, 200))
         self.imageView.image = UIImage(named: "Model.png")
-        self.imageView.layer.cornerRadius = 10.0
-        self.imageView.layer.masksToBounds = true
+//        self.imageView.layer.cornerRadius = 10.0
+//        self.imageView.layer.masksToBounds = true
+        self.imageView.cs_cornerRadiusImageView(10.0)
         self.view.addSubview(self.imageView)
+        
+        let aView: UIView = UIView(frame: CGRectMake(100, 300, self.view.frame.size.width - 200, 100))
+        aView.backgroundColor = UIColor.greenColor()
+        aView.layer.borderColor = UIColor.redColor().CGColor
+        aView.layer.borderWidth = 2.0
+        // 普通视图直接使用即可
+        aView.layer.cornerRadius = 10.0
+        self.view.addSubview(aView)
     }
 
     func actionBtn(sender: UIButton) {
