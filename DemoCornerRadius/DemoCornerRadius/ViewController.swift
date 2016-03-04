@@ -32,6 +32,58 @@ extension UIImageView {
     }
 }
 
+extension UIView {
+    func cs_cornerRadius(radius: CGFloat,
+                    borderWidth: CGFloat,
+                    borderColor: UIColor,
+                backgroundColor: UIColor) {
+        let width = self.frame.size.width
+        let height = self.frame.size.height
+        
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, UIScreen.mainScreen().scale)
+        let context = UIGraphicsGetCurrentContext()
+        
+        CGContextSetLineWidth(context, borderWidth)
+        CGContextSetStrokeColorWithColor(context, borderColor.CGColor)
+        CGContextSetFillColorWithColor(context, backgroundColor.CGColor)
+                    
+        CGContextMoveToPoint(context,
+                                width - borderWidth / 2,
+                                radius + borderWidth / 2)  // 开始坐标
+        CGContextAddArcToPoint(context,
+                                width - borderWidth / 2,
+                                height - borderWidth / 2,
+                                width - radius - borderWidth / 2,
+                                height - borderWidth / 2,
+                                radius)  // 右下角
+        CGContextAddArcToPoint(context,
+                                borderWidth / 2,
+                                height - borderWidth / 2,
+                                borderWidth / 2,
+                                height - radius - borderWidth / 2,
+                                radius) // 左下角
+        CGContextAddArcToPoint(context,
+                                borderWidth / 2,
+                                borderWidth / 2,
+                                width - borderWidth / 2,
+                                borderWidth / 2,
+                                radius) // 左上角
+        CGContextAddArcToPoint(context,
+                                width - borderWidth / 2,
+                                borderWidth / 2,
+                                width - borderWidth / 2,
+                                radius + borderWidth / 2,
+                                radius) // 右上角
+        
+        CGContextDrawPath(context, .FillStroke)
+        
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let imageView: UIImageView = UIImageView(image: image)
+        self.insertSubview(imageView, atIndex: 0)
+    }
+}
 
 class ViewController: UIViewController {
 
@@ -75,11 +127,13 @@ class ViewController: UIViewController {
         self.view.addSubview(self.imageView)
         
         let aView: UIView = UIView(frame: CGRectMake(100, 300, self.view.frame.size.width - 200, 100))
-        aView.backgroundColor = UIColor.greenColor()
-        aView.layer.borderColor = UIColor.redColor().CGColor
-        aView.layer.borderWidth = 2.0
         // 普通视图直接使用即可
-        aView.layer.cornerRadius = 10.0
+        //        aView.layer.cornerRadius = 10.0
+        // 使用cs_cornerRadius的扩展方法，就不能使用UIView自身的borderWidth，boarderColor，backgroundColor了
+        aView.cs_cornerRadius(10.0,
+                            borderWidth: 2.0,
+                            borderColor: UIColor.redColor(),
+                        backgroundColor: UIColor.greenColor())
         self.view.addSubview(aView)
     }
 
