@@ -2,7 +2,7 @@
 //  ViewController.m
 //  DemoRuntime
 //
-//  Created by zj－db0465 on 15/10/1.
+//  Created by Chris Hu on 15/10/1.
 //  Copyright © 2015年 icetime17. All rights reserved.
 //
 
@@ -28,7 +28,10 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+
+    UIButton *btn;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,14 +39,22 @@
     
     [NSObject test]; //先到NSObject的metaclass中找+test，没找到，到其metaclass的superclass（仍然是NSObject自身）的-test方法即可。
     
-    [self printIvarList];
-    [self printPropertyList];
-    [self printMethodList];
+    [self printRuntime];
+    
+    [self fixUIButtonClickIssue];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Runtime 的基本用法
+
+- (void)printRuntime {
+    [self printIvarList];
+    [self printPropertyList];
+    [self printMethodList];
 }
 
 - (void)printIvarList {
@@ -85,4 +96,38 @@
     free(methods);
 }
 
+#pragma mark - 使用Runtime解决UIButton重复点击问题
+
+- (void)fixUIButtonClickIssue {
+    btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50)];
+    [btn setTitle:@"Button" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(actionFixMultiClick2:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn];
+}
+
+#pragma mark - 使用UIButton的enabled来控制
+
+- (void)actionFixMultiClick1:(UIButton *)sender {
+    sender.enabled = NO;
+    [self btnClickedOperations];
+}
+
+- (void)btnClickedOperations {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSLog(@"%s", __func__);
+        btn.enabled = YES;
+    });
+}
+
+#pragma mark - 使用performSelector来控制
+
+- (void)actionFixMultiClick2:(UIButton *)sender {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(btnClickedOperations) object:nil];
+    
+    [self performSelector:@selector(btnClickedOperations) withObject:nil afterDelay:2];
+}
 @end
