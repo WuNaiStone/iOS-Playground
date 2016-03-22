@@ -14,6 +14,10 @@
 
 @implementation LifeCycleViewController
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -21,7 +25,6 @@
     
     [self addButtons];
     
-    NSLog(@">>>>>>>>>>>> Life Cycle >>>>>>>>>>>>");
     NSLog(@"%s", __func__);
 }
 
@@ -145,11 +148,15 @@
     NSLog(@"%s", __func__);
 }
 
-
+- (void) removeFromParentViewController {
+    [super removeFromParentViewController];
+    
+    NSLog(@"%s", __func__);
+}
 #pragma mark - IBActions
 
 - (void)addButtons {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 64, 50, 50)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 44)];
     [btn setTitle:@"Close" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];

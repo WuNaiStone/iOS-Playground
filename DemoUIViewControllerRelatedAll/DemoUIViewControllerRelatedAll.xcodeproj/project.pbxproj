@@ -312,6 +312,7 @@
 				A47B83591C87D37A00C1EA54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

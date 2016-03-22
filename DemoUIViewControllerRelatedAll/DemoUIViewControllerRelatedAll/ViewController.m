@@ -2,7 +2,7 @@
 //  ViewController.m
 //  DemoUIViewControllerRelatedAll
 //
-//  Created by zj－db0465 on 16/3/3.
+//  Created by Chris Hu on 16/3/3.
 //  Copyright © 2016年 icetime17. All rights reserved.
 //
 
@@ -31,7 +31,7 @@
     
     demos = @[@"UIViewController生命周期"];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -41,6 +41,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
