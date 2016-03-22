@@ -66,4 +66,50 @@
     [self presentViewController:lifeCycle animated:YES completion:nil];
 }
 
+#pragma mark - Life Cycle
+
+/**
+ *  视图加载完成，并即将显示在屏幕上,还没有设置动画，可以改变当前屏幕方向或状态栏的风格等
+ *
+ *  @param animated 是否有动画效果
+ */
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSLog(@"%s", __func__);
+}
+
+/**
+ *  视图已经展示在屏幕上，可以对视图做一些关于展示效果方面的修改。
+ *
+ *  @param animated 是否有动画效果
+ */
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSLog(@"%s", __func__);
+}
+
+/**
+ *  视图即将消失
+ *
+ *  @param animated 是否有动画效果
+ */
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    NSLog(@"%s", __func__);
+}
+
+/**
+ *  视图即将消失
+ *
+ *  @param animated 是否有动画效果
+ */
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    NSLog(@"%s", __func__);
+}
+
 @end
