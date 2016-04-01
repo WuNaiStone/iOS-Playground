@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LifeCycleViewController.h"
+#import "DismissViewController.h"
 
 @interface ViewController () <
 
@@ -29,7 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    demos = @[@"UIViewController生命周期"];
+    demos = @[@"UIViewController 生命周期",
+              @"Dismiss ViewController",
+              ];
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
@@ -62,7 +65,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    LifeCycleViewController *lifeCycle = [[LifeCycleViewController alloc] init];
+    NSString *viewControllerName;
+    switch (indexPath.row) {
+        case 0:
+            viewControllerName = @"LifeCycleViewController";
+            break;
+        case 1:
+            viewControllerName = @"DismissViewController";
+            break;
+        default:
+            break;
+    }
+    UIViewController *lifeCycle = [[NSClassFromString(viewControllerName) alloc] init];
     [self presentViewController:lifeCycle animated:YES completion:nil];
 }
 
