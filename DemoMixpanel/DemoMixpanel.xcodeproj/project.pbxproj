@@ -199,6 +199,7 @@
 				TargetAttributes = {
 					A4C1480E1BAA60D8005A1930 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = NYXX2N95WM;
 					};
 					A4C148271BAA60D8005A1930 = {
 						CreatedOnToolsVersion = 6.4;
@@ -413,8 +414,10 @@
 			baseConfigurationReference = 4A6FD56C89C042FA38ECAFA6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DemoMixpanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoMixpanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -424,8 +427,10 @@
 			baseConfigurationReference = D3FD0E5669837B07EBEE6438 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DemoMixpanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoMixpanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

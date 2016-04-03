@@ -207,7 +207,7 @@
 				TargetAttributes = {
 					A4A113C21B9C4006004E0963 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = GGVWN85K85;
+						DevelopmentTeam = NYXX2N95WM;
 					};
 					A4A113DB1B9C4006004E0963 = {
 						CreatedOnToolsVersion = 7.0;
@@ -416,7 +416,7 @@
 				INFOPLIST_FILE = DemoOpenURL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoOpenURL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoOpenURL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -429,7 +429,7 @@
 				INFOPLIST_FILE = DemoOpenURL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoOpenURL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoOpenURL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -501,6 +501,7 @@
 				A4A113F21B9C4006004E0963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4A113F31B9C4006004E0963 /* Build configuration list for PBXNativeTarget "DemoOpenURLTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +510,7 @@
 				A4A113F51B9C4006004E0963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4A113F61B9C4006004E0963 /* Build configuration list for PBXNativeTarget "DemoOpenURLUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +519,7 @@
 				A4A113F81B9C4006004E0963 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
