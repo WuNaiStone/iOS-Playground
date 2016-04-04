@@ -20,6 +20,8 @@
     [self demoOpenURL];
     
     [self demoJump];
+    
+    [self demoJumpWithData];
 }
 
 - (void)demoOpenURL {
@@ -90,6 +92,30 @@
      调用canOpenURL: 没有输出, 返回1
      调用openURL: 跳转至DemoMixpanel.
      */
+}
+
+#pragma mark - jump with data
+- (void)demoJumpWithData {
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 60, self.view.frame.size.width, 50)];
+    [btn setTitle:@"Jump with data" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(actionJumpWithData:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn];
+}
+
+- (void)actionJumpWithData:(UIButton *)sender {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = @"Modal.jpg";
+    pasteboard.image = [UIImage imageNamed:@"Modal.jpg"];
+    
+    
+    BOOL mixpanel = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"demomixpanel://"]];
+    NSLog(@"mixpanel : %d", mixpanel);
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"demomixpanel://"]];
 }
 
 @end

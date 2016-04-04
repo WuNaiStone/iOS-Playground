@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83D8BF781CB24551000888A5 /* ViewOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D8BF771CB24551000888A5 /* ViewOpenURL.m */; };
 		A4C148151BAA60D8005A1930 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C148141BAA60D8005A1930 /* main.m */; };
 		A4C148181BAA60D8005A1930 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C148171BAA60D8005A1930 /* AppDelegate.m */; };
 		A4C1481B1BAA60D8005A1930 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1481A1BAA60D8005A1930 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		4A6FD56C89C042FA38ECAFA6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		83D8BF761CB24551000888A5 /* ViewOpenURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewOpenURL.h; sourceTree = "<group>"; };
+		83D8BF771CB24551000888A5 /* ViewOpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewOpenURL.m; sourceTree = "<group>"; };
 		A4C1480F1BAA60D8005A1930 /* DemoMixpanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoMixpanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C148131BAA60D8005A1930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4C148141BAA60D8005A1930 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 		A4C148111BAA60D8005A1930 /* DemoMixpanel */ = {
 			isa = PBXGroup;
 			children = (
+				83D8BF761CB24551000888A5 /* ViewOpenURL.h */,
+				83D8BF771CB24551000888A5 /* ViewOpenURL.m */,
 				A4C148161BAA60D8005A1930 /* AppDelegate.h */,
 				A4C148171BAA60D8005A1930 /* AppDelegate.m */,
 				A4C148191BAA60D8005A1930 /* ViewController.h */,
@@ -284,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D8BF781CB24551000888A5 /* ViewOpenURL.m in Sources */,
 				A4C1481B1BAA60D8005A1930 /* ViewController.m in Sources */,
 				A4C148181BAA60D8005A1930 /* AppDelegate.m in Sources */,
 				A4C1483A1BAA63AC005A1930 /* TestViewController.m in Sources */,

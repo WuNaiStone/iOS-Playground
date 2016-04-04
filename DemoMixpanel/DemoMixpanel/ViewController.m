@@ -2,13 +2,14 @@
 //  ViewController.m
 //  DemoMixpanel
 //
-//  Created by zj－db0465 on 15/9/17.
+//  Created by icetime17 on 15/9/17.
 //  Copyright (c) 2015年 icetime17. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "Mixpanel.h"
 #import "TestViewController.h"
+#import "ViewOpenURL.h"
 
 @interface ViewController ()
 
@@ -89,6 +90,14 @@
     [alert addAction:ok];
     [alert addAction:cancel];
     [self presentViewController:alert animated:NO completion:nil];
+}
+
+#pragma mark - openURL
+
+- (void)showOpenURLData {
+    ViewOpenURL *aView = [[ViewOpenURL alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    [self.view addSubview:aView];
+    aView.center = self.view.center;
 }
 
 @end

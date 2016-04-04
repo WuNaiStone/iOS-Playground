@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83D8BF751CB24373000888A5 /* Modal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83D8BF741CB24373000888A5 /* Modal.jpg */; };
 		A4A113C81B9C4006004E0963 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A113C71B9C4006004E0963 /* main.m */; };
 		A4A113CB1B9C4006004E0963 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A113CA1B9C4006004E0963 /* AppDelegate.m */; };
 		A4A113CE1B9C4006004E0963 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A113CD1B9C4006004E0963 /* ViewController.m */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83D8BF741CB24373000888A5 /* Modal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Modal.jpg; sourceTree = "<group>"; };
 		A4A113C31B9C4006004E0963 /* DemoOpenURL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoOpenURL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A113C71B9C4006004E0963 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4A113C91B9C4006004E0963 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		A4A113C51B9C4006004E0963 /* DemoOpenURL */ = {
 			isa = PBXGroup;
 			children = (
+				83D8BF741CB24373000888A5 /* Modal.jpg */,
 				A4A113C91B9C4006004E0963 /* AppDelegate.h */,
 				A4A113CA1B9C4006004E0963 /* AppDelegate.m */,
 				A4A113CC1B9C4006004E0963 /* ViewController.h */,
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A113D61B9C4006004E0963 /* LaunchScreen.storyboard in Resources */,
+				83D8BF751CB24373000888A5 /* Modal.jpg in Resources */,
 				A4A113D31B9C4006004E0963 /* Assets.xcassets in Resources */,
 				A4A113D11B9C4006004E0963 /* Main.storyboard in Resources */,
 			);

@@ -2,12 +2,13 @@
 //  AppDelegate.m
 //  DemoMixpanel
 //
-//  Created by zj－db0465 on 15/9/17.
+//  Created by icetime17 on 15/9/17.
 //  Copyright (c) 2015年 icetime17. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "Mixpanel.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -32,7 +33,9 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-    UIViewController *rootViewController = keyWindow.rootViewController;
+    ViewController *rootViewController = (ViewController *)keyWindow.rootViewController;
+    
+    [rootViewController showOpenURLData];
     
     [rootViewController dismissViewControllerAnimated:NO completion:^{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Jump OpenURL" message:@"Test OpenURL and Alert" preferredStyle:UIAlertControllerStyleAlert];

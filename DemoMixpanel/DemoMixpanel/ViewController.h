@@ -2,7 +2,7 @@
 //  ViewController.h
 //  DemoMixpanel
 //
-//  Created by zj－db0465 on 15/9/17.
+//  Created by icetime17 on 15/9/17.
 //  Copyright (c) 2015年 icetime17. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 
+- (void)showOpenURLData;
 
 @end
 
