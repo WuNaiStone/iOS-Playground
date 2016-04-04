@@ -32,6 +32,8 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+    NSLog(@"url: %@", url);
+    
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     ViewController *rootViewController = (ViewController *)keyWindow.rootViewController;
     

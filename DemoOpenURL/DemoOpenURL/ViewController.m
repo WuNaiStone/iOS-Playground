@@ -115,7 +115,7 @@
     BOOL mixpanel = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"demomixpanel://"]];
     NSLog(@"mixpanel : %d", mixpanel);
     
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"demomixpanel://"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"demomixpanel://params?param1=111&param2=222"]];
 }
 
 @end
