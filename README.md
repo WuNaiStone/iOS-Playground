@@ -122,4 +122,3 @@ Demo for iOS.
 ### DemoYYText
 ### DesignPattern
 ### OCPlayground
-### SwiftPlayground.playground
