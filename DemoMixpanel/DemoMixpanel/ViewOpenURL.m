@@ -42,6 +42,9 @@
 
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     imageView.image = pasteboard.image;
+    
+    NSData *imageData = [pasteboard dataForPasteboardType:@"Modal.jpg"];
+    imageView.image = [UIImage imageWithData:imageData];
 }
 
 - (void)addButtonClose {

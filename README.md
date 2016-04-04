@@ -36,6 +36,8 @@ Demo for iOS.
 ### DemoNSUserDefaults
 ### DemoNavigationController
 ### DemoOpenURL
+请参考博客:[iOS --- 通过openURL实现APP之间跳转并传递数据](http://blog.csdn.net/icetime17/article/details/51056923)
+
 ### DemoPageViewController
 ### DemoPhotoKit
 ### DemoReachability

@@ -110,7 +110,8 @@
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = @"Modal.jpg";
     pasteboard.image = [UIImage imageNamed:@"Modal.jpg"];
-    
+    NSData *imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"Modal.jpg"], 0);
+    [pasteboard setData:imageData forPasteboardType:@"Modal.jpg"];
     
     BOOL mixpanel = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"demomixpanel://"]];
     NSLog(@"mixpanel : %d", mixpanel);
