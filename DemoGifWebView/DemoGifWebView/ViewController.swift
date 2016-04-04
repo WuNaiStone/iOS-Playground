@@ -24,8 +24,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.view.addSubview(self.webView)
         
 //        self.loadHTML()
-//        self.loadGif()
-        self.loadURL("http://www.baidu.com")
+//        self.loadURL("http://www.baidu.com")
+        self.loadGif()        
     }
     
     func loadHTML() {
@@ -33,7 +33,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
     }
     
     func loadGif() {
-        let gifPath: String = NSBundle.mainBundle().pathForResource("railway", ofType: "gif")!
+        let gifPath: String = NSBundle.mainBundle().pathForResource("demo", ofType: "gif")!
         let gifData: NSData = NSData(contentsOfFile: gifPath)!
 
         self.webView.loadData(gifData, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
