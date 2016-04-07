@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BF3E3324606BD76EFB78751 /* libPods-DemoUIViewRelatedAll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C529F5A1F764FC382A6D3B9C /* libPods-DemoUIViewRelatedAll.a */; };
 		A45E3EDE1C3E044E00E2ED1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E3EDD1C3E044E00E2ED1F /* main.m */; };
 		A45E3EE11C3E044E00E2ED1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E3EE01C3E044E00E2ED1F /* AppDelegate.m */; };
 		A45E3EE41C3E044E00E2ED1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E3EE31C3E044E00E2ED1F /* ViewController.m */; };
@@ -15,6 +16,10 @@
 		A45E3EEC1C3E044E00E2ED1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45E3EEA1C3E044E00E2ED1F /* LaunchScreen.storyboard */; };
 		A45E3EF71C3E044F00E2ED1F /* DemoUIViewRelatedAllTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E3EF61C3E044F00E2ED1F /* DemoUIViewRelatedAllTests.m */; };
 		A45E3F021C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E3F011C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.m */; };
+		A4DFEDE21CB4C4AD00B782DB /* ViewXXNib.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DFEDE11CB4C4AD00B782DB /* ViewXXNib.m */; };
+		A4DFEDE41CB4C4BB00B782DB /* ViewXXNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DFEDE31CB4C4BB00B782DB /* ViewXXNib.xib */; };
+		A4DFEDE71CB4C62B00B782DB /* ViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DFEDE61CB4C62B00B782DB /* ViewBase.m */; };
+		A4DFEDE91CB4C63500B782DB /* ViewBase.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DFEDE81CB4C63500B782DB /* ViewBase.xib */; };
 		A4E3AE071C6F1173005B3F58 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E3AE061C6F1173005B3F58 /* DemoViewController.m */; };
 		A4E3AE0E1C6F1DE3005B3F58 /* UIViewAutoResize.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E3AE0D1C6F1DE3005B3F58 /* UIViewAutoResize.m */; };
 /* End PBXBuildFile section */
@@ -37,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		627474BBEC9F0BAEB4924D8D /* Pods-DemoUIViewRelatedAll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoUIViewRelatedAll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoUIViewRelatedAll/Pods-DemoUIViewRelatedAll.release.xcconfig"; sourceTree = "<group>"; };
+		75B774C64CE9867511972A68 /* Pods-DemoUIViewRelatedAll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoUIViewRelatedAll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoUIViewRelatedAll/Pods-DemoUIViewRelatedAll.debug.xcconfig"; sourceTree = "<group>"; };
 		A45E3ED91C3E044E00E2ED1F /* DemoUIViewRelatedAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoUIViewRelatedAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45E3EDD1C3E044E00E2ED1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A45E3EDF1C3E044E00E2ED1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,10 +60,17 @@
 		A45E3EFD1C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUIViewRelatedAllUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45E3F011C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUIViewRelatedAllUITests.m; sourceTree = "<group>"; };
 		A45E3F031C3E044F00E2ED1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4DFEDE01CB4C4AD00B782DB /* ViewXXNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewXXNib.h; sourceTree = "<group>"; };
+		A4DFEDE11CB4C4AD00B782DB /* ViewXXNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewXXNib.m; sourceTree = "<group>"; };
+		A4DFEDE31CB4C4BB00B782DB /* ViewXXNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewXXNib.xib; sourceTree = "<group>"; };
+		A4DFEDE51CB4C62B00B782DB /* ViewBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewBase.h; sourceTree = "<group>"; };
+		A4DFEDE61CB4C62B00B782DB /* ViewBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewBase.m; sourceTree = "<group>"; };
+		A4DFEDE81CB4C63500B782DB /* ViewBase.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewBase.xib; sourceTree = "<group>"; };
 		A4E3AE051C6F1173005B3F58 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		A4E3AE061C6F1173005B3F58 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		A4E3AE0C1C6F1DE3005B3F58 /* UIViewAutoResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAutoResize.h; sourceTree = "<group>"; };
 		A4E3AE0D1C6F1DE3005B3F58 /* UIViewAutoResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAutoResize.m; sourceTree = "<group>"; };
+		C529F5A1F764FC382A6D3B9C /* libPods-DemoUIViewRelatedAll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoUIViewRelatedAll.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF3E3324606BD76EFB78751 /* libPods-DemoUIViewRelatedAll.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		154166DCC6DD5BEE17064372 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75B774C64CE9867511972A68 /* Pods-DemoUIViewRelatedAll.debug.xcconfig */,
+				627474BBEC9F0BAEB4924D8D /* Pods-DemoUIViewRelatedAll.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A45E3ED01C3E044E00E2ED1F = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +115,8 @@
 				A45E3EF51C3E044F00E2ED1F /* DemoUIViewRelatedAllTests */,
 				A45E3F001C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests */,
 				A45E3EDA1C3E044E00E2ED1F /* Products */,
+				154166DCC6DD5BEE17064372 /* Pods */,
+				FA99A99D19849027CEFC2D1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,8 +180,22 @@
 			children = (
 				A4E3AE0C1C6F1DE3005B3F58 /* UIViewAutoResize.h */,
 				A4E3AE0D1C6F1DE3005B3F58 /* UIViewAutoResize.m */,
+				A4DFEDE51CB4C62B00B782DB /* ViewBase.h */,
+				A4DFEDE61CB4C62B00B782DB /* ViewBase.m */,
+				A4DFEDE81CB4C63500B782DB /* ViewBase.xib */,
+				A4DFEDE01CB4C4AD00B782DB /* ViewXXNib.h */,
+				A4DFEDE11CB4C4AD00B782DB /* ViewXXNib.m */,
+				A4DFEDE31CB4C4BB00B782DB /* ViewXXNib.xib */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		FA99A99D19849027CEFC2D1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C529F5A1F764FC382A6D3B9C /* libPods-DemoUIViewRelatedAll.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A45E3F061C3E044F00E2ED1F /* Build configuration list for PBXNativeTarget "DemoUIViewRelatedAll" */;
 			buildPhases = (
+				E9E9B339766862F09B9E6F5B /* Check Pods Manifest.lock */,
 				A45E3ED51C3E044E00E2ED1F /* Sources */,
 				A45E3ED61C3E044E00E2ED1F /* Frameworks */,
 				A45E3ED71C3E044E00E2ED1F /* Resources */,
+				0947152944FFC2B1DB0DAB78 /* Embed Pods Frameworks */,
+				B227FC7E4343C6F655B8E5A6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,7 +306,9 @@
 			files = (
 				A45E3EEC1C3E044E00E2ED1F /* LaunchScreen.storyboard in Resources */,
 				A45E3EE91C3E044E00E2ED1F /* Assets.xcassets in Resources */,
+				A4DFEDE41CB4C4BB00B782DB /* ViewXXNib.xib in Resources */,
 				A45E3EE71C3E044E00E2ED1F /* Main.storyboard in Resources */,
+				A4DFEDE91CB4C63500B782DB /* ViewBase.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,16 +328,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0947152944FFC2B1DB0DAB78 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoUIViewRelatedAll/Pods-DemoUIViewRelatedAll-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B227FC7E4343C6F655B8E5A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoUIViewRelatedAll/Pods-DemoUIViewRelatedAll-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9E9B339766862F09B9E6F5B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A45E3ED51C3E044E00E2ED1F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DFEDE21CB4C4AD00B782DB /* ViewXXNib.m in Sources */,
 				A45E3EE41C3E044E00E2ED1F /* ViewController.m in Sources */,
 				A45E3EE11C3E044E00E2ED1F /* AppDelegate.m in Sources */,
 				A45E3EDE1C3E044E00E2ED1F /* main.m in Sources */,
 				A4E3AE071C6F1173005B3F58 /* DemoViewController.m in Sources */,
 				A4E3AE0E1C6F1DE3005B3F58 /* UIViewAutoResize.m in Sources */,
+				A4DFEDE71CB4C62B00B782DB /* ViewBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,22 +524,24 @@
 		};
 		A45E3F071C3E044F00E2ED1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75B774C64CE9867511972A68 /* Pods-DemoUIViewRelatedAll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIViewRelatedAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoUIViewRelatedAll;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoUIViewRelatedAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		A45E3F081C3E044F00E2ED1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 627474BBEC9F0BAEB4924D8D /* Pods-DemoUIViewRelatedAll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DemoUIViewRelatedAll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoUIViewRelatedAll;
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoUIViewRelatedAll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

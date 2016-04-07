@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9532"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lz6-Og-Dq9" customClass="ViewXXNib">
+                    <rect key="frame" x="60" y="150" width="200" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="Bsc-si-FLS"/>
+                        <constraint firstAttribute="height" constant="200" id="jTU-Tn-uiT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.68627450980000004" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Lz6-Og-Dq9" secondAttribute="bottom" constant="51" id="D3L-e0-EV6"/>
+                <constraint firstItem="Lz6-Og-Dq9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WVy-A7-Xc7"/>
+                <constraint firstItem="Lz6-Og-Dq9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="cdw-lK-DrE"/>
+                <constraint firstItem="Lz6-Og-Dq9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="fDV-pD-aBi"/>
+                <constraint firstAttribute="trailing" secondItem="Lz6-Og-Dq9" secondAttribute="trailing" constant="53" id="gcU-sg-r9B"/>
+                <constraint firstItem="Lz6-Og-Dq9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="53" id="hQy-cf-7mw"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="D3L-e0-EV6"/>
+                    <exclude reference="cdw-lK-DrE"/>
+                    <exclude reference="gcU-sg-r9B"/>
+                    <exclude reference="hQy-cf-7mw"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="278.5" y="169"/>
+        </view>
+    </objects>
+</document>

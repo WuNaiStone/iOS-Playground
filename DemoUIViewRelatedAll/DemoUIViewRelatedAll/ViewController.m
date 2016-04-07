@@ -40,7 +40,10 @@
 #define ReuseCellIdentifier @"ReuseCellIdentifier"
 
 - (void)addTableView {
-    demos = @[@"AutoResize"];
+    demos = @[
+              @"AutoResize",
+              @"XXNib"
+              ];
     
     tableViewDemos = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:tableViewDemos];

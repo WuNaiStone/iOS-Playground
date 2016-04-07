@@ -8,11 +8,11 @@
 
 #import "DemoViewController.h"
 #import "UIViewAutoResize.h"
-
+#import "ViewBase.h"
 
 typedef NS_ENUM(NSInteger, EnumDemoUIView) {
     DemoAutoResize = 0,
-    
+    DemoXXNib,
 };
 
 @interface DemoViewController ()
@@ -38,11 +38,18 @@ typedef NS_ENUM(NSInteger, EnumDemoUIView) {
 - (void)showDemos {
     switch ([self.demos indexOfObject:self.title]) {
         case DemoAutoResize:
-            {
-                UIViewAutoResize *view = [[UIViewAutoResize alloc] initWithFrame:self.view.frame];
-                [self.view addSubview:view];
-            }
+        {
+            UIViewAutoResize *view = [[UIViewAutoResize alloc] initWithFrame:self.view.frame];
+            [self.view addSubview:view];
             break;
+        }
+        case DemoXXNib:
+        {
+            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"ViewBase" owner:self options:nil];
+            ViewBase *view = (ViewBase *)[array objectAtIndex:0];
+            [self.view addSubview:view];
+            break;
+        }
         default:
             break;
     }
