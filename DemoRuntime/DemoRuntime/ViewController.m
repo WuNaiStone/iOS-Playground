@@ -67,6 +67,7 @@
         NSString *str = [NSString stringWithCString:ivarName encoding:NSUTF8StringEncoding];
         NSLog(@"ivarName : %@", str);
     }
+    free(ivars);
 }
 
 - (void)printPropertyList {
