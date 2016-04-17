@@ -106,6 +106,7 @@ Demo for iOS development.
 ### DemoRuntime
 请参考博客:
 - [iOS --- 理解Runtime机制及其使用场景](http://blog.csdn.net/icetime17/article/details/51176093)
+- [iOS --- 使用runtime解决3D Touch导致UIImagePicker崩溃的问题](http://blog.csdn.net/icetime17/article/details/50935187)
 
 ### DemoSandBox
 请参考博客:
