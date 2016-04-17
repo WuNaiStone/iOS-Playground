@@ -104,6 +104,9 @@ Demo for iOS development.
 - [iOS --- 使用RestKit与RESTful web服务器进行简单交互](http://blog.csdn.net/icetime17/article/details/48260695)
 
 ### DemoRuntime
+请参考博客:
+- [iOS --- 理解Runtime机制及其使用场景](http://blog.csdn.net/icetime17/article/details/51176093)
+
 ### DemoSandBox
 请参考博客:
 - [iOS --- 关于SandBox机制及文件读写的几种方式](http://blog.csdn.net/icetime17/article/details/49018441)
