@@ -58,6 +58,7 @@
 }
 
 - (void)printIvarList {
+    NSLog(@"%s", __func__);
     u_int count = 0;
     // 获取所有成员变量，对于属性会自动生成_成员变量
     Ivar *ivars = class_copyIvarList([UIView class], &count);
@@ -69,6 +70,7 @@
 }
 
 - (void)printPropertyList {
+    NSLog(@"%s", __func__);
     u_int count = 0;
     // 获取所有属性
     objc_property_t *properties = class_copyPropertyList([UIView class], &count);
@@ -81,6 +83,7 @@
 }
 
 - (void)printMethodList {
+    NSLog(@"%s", __func__);
     u_int count = 0;
     // 获取所有方法
     Method *methods = class_copyMethodList([UIView class], &count);
@@ -92,6 +95,18 @@
         
         int arguments = method_getNumberOfArguments(method);
         NSLog(@"methodName : %@, arguments Count: %d", str, arguments);
+//        
+//        const char *retType = method_copyReturnType(method);
+//        if (retType != "@") {
+//            str = [NSString stringWithCString:retType encoding:NSUTF8StringEncoding];
+//            NSLog(@"returnType : %@", str);
+//        }
+//        
+//        const char *argType = method_copyArgumentType(method, i);
+//        if (argType != NULL && argType != "@") {
+//            str = [NSString stringWithCString:argType encoding:NSUTF8StringEncoding];
+//            NSLog(@"returnType : %@", str);
+//        }
     }
     free(methods);
 }
@@ -99,6 +114,7 @@
 #pragma mark - 使用Runtime解决UIButton重复点击问题
 
 - (void)fixUIButtonClickIssue {
+    NSLog(@"%s", __func__);
     btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50)];
     [btn setTitle:@"Button" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -118,7 +134,7 @@
 
 - (void)btnClickedOperations {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"%s", __func__);
+        NSLog(@"btnClickedOperations");
         btn.enabled = YES;
     });
 }
