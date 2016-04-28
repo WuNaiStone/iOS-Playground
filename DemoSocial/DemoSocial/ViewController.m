@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <Social/Social.h>
+#import "WeChatSDK/WXApi.h"
 
 static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
 
@@ -28,6 +29,8 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [WXApi registerApp:@"wxde0194728b1f5f34"];
+    
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:_tableView];
     
@@ -35,7 +38,7 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
-    _items = @[@"Twitter", @"Facebook", @"SinaWeibo", @"TencentWeibo"];
+    _items = @[@"Twitter", @"Facebook", @"SinaWeibo", @"TencentWeibo", @"WeChat Session", @"WeChat Moment"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -61,6 +64,12 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
             break;
         case 3:
             [self shareToTencentWeibo];
+            break;
+        case 4:
+            [self shareToWeChatSession];
+            break;
+        case 5:
+            [self shareToWeChatMoment];
             break;
         default:
             break;
@@ -114,6 +123,22 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
     
     [sl addURL:[NSURL URLWithString:url]];
     [self presentViewController:sl animated:YES completion:nil];
+}
+
+- (void)shareToWeChatSession {
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.scene = WXSceneSession;
+    req.text = @"This is my site";
+    req.bText = YES;
+    [WXApi sendReq:req];
+}
+
+- (void)shareToWeChatMoment {
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.scene = WXSceneTimeline;
+    req.text = @"This is my site";
+    req.bText = YES;
+    [WXApi sendReq:req];
 }
 
 @end
