@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <Social/Social.h>
 
+static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
+
 @interface ViewController () <
     UITableViewDataSource,
     UITableViewDelegate
@@ -74,7 +76,6 @@
     SLComposeViewController *sl = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     [sl setInitialText:@"This is my site"];
     
-    NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
     [sl addURL:[NSURL URLWithString:url]];
     [self presentViewController:sl animated:YES completion:nil];
 }
@@ -87,7 +88,6 @@
     SLComposeViewController *sl = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     [sl setInitialText:@"This is my site"];
     
-    NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
     [sl addURL:[NSURL URLWithString:url]];
     [self presentViewController:sl animated:YES completion:nil];
 }
@@ -100,7 +100,6 @@
     SLComposeViewController *sl = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
     [sl setInitialText:@"This is my site"];
     
-    NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
     [sl addURL:[NSURL URLWithString:url]];
     [self presentViewController:sl animated:YES completion:nil];
 }
@@ -113,7 +112,6 @@
     SLComposeViewController *sl = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTencentWeibo];
     [sl setInitialText:@"This is my site"];
     
-    NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
     [sl addURL:[NSURL URLWithString:url]];
     [self presentViewController:sl animated:YES completion:nil];
 }
