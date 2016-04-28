@@ -125,6 +125,7 @@ Demo for iOS development.
 - [iOS --- 为UISlider添加点击事件](http://blog.csdn.net/icetime17/article/details/50720545)
 
 ### DemoSnapKit
+### DemoSocial
 ### DemoSoundRecordPlay
 ### DemoTelCall
 ### DemoTestCarrier
