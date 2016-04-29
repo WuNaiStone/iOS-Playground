@@ -19,6 +19,7 @@ Demo for iOS development.
 - [iOS --- 获取UIView的模糊效果截图](http://blog.csdn.net/icetime17/article/details/50432374)
 
 ### DemoCollectionView
+### DemoContainerView
 ### DemoCoreGraphics
 请参考博客:
 - [iOS --- CoreGraphics中三种绘图context切换方式的区别](http://blog.csdn.net/icetime17/article/details/50428992)
