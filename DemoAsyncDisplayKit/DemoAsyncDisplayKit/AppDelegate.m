@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  DemoAsyncDisplayKit
 //
-//  Created by zj－db0465 on 16/1/4.
+//  Created by Chris Hu on 16/1/4.
 //  Copyright © 2016年 icetime17. All rights reserved.
 //
 
