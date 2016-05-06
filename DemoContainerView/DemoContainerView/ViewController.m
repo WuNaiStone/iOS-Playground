@@ -27,7 +27,7 @@
 }
 
 - (void)addLabels {
-    UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.frame), 30)];
+    UILabel *lb = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, CGRectGetWidth(self.view.frame), 30)];
     lb.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:lb];
     lb.text = NSStringFromClass(self.class);

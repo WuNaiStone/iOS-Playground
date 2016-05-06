@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *containerCollectionView;
+
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 - (void)displayContentController: (UIViewController*)content;

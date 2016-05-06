@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oK7-fQ-eFy">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="oK7-fQ-eFy" secondAttribute="height" multiplier="1:1" id="ID5-bj-DDi"/>
+                        <constraint firstAttribute="width" constant="240" id="tcL-6L-D4t"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="tcL-6L-D4t"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z4C-rA-2Jn">
+                    <rect key="frame" x="0.0" y="50" width="50" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="SVB-xp-XQs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Z4C-rA-2Jn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PuV-0j-k3x"/>
+                <constraint firstItem="Z4C-rA-2Jn" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Pxj-hw-a3I"/>
+                <constraint firstItem="Z4C-rA-2Jn" firstAttribute="top" secondItem="oK7-fQ-eFy" secondAttribute="bottom" id="R7t-Lr-e4P"/>
+                <constraint firstItem="oK7-fQ-eFy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VEq-uk-SyB"/>
+                <constraint firstItem="oK7-fQ-eFy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZYl-o2-R7g"/>
+                <constraint firstItem="Z4C-rA-2Jn" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="cUP-e5-R9K"/>
+                <constraint firstItem="oK7-fQ-eFy" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="k46-4j-eZr"/>
+                <constraint firstItem="Z4C-rA-2Jn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uHf-2p-b9w"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Pxj-hw-a3I"/>
+                    <exclude reference="uHf-2p-b9w"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="imageView" destination="oK7-fQ-eFy" id="xOL-0W-ObV"/>
+                <outlet property="label" destination="Z4C-rA-2Jn" id="Kuh-Va-f93"/>
+            </connections>
+            <point key="canvasLocation" x="327" y="380"/>
+        </view>
+    </objects>
+</document>
