@@ -16,6 +16,8 @@
 		A44651481C0D599C00F8CA3A /* MVC.png in Resources */ = {isa = PBXBuildFile; fileRef = A44651471C0D599C00F8CA3A /* MVC.png */; };
 		A4BF10041C461FED0062B9DE /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BF10031C461FED0062B9DE /* AViewController.m */; };
 		A4BF10071C4620EF0062B9DE /* AView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BF10061C4620EF0062B9DE /* AView.m */; };
+		A4F6AD481CE0A10C007386EB /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F6AD461CE0A10C007386EB /* CollectionViewCell.m */; };
+		A4F6AD491CE0A10C007386EB /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F6AD471CE0A10C007386EB /* CollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,9 @@
 		A4BF10031C461FED0062B9DE /* AViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
 		A4BF10051C4620EF0062B9DE /* AView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AView.h; sourceTree = "<group>"; };
 		A4BF10061C4620EF0062B9DE /* AView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AView.m; sourceTree = "<group>"; };
+		A4F6AD451CE0A10C007386EB /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		A4F6AD461CE0A10C007386EB /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		A4F6AD471CE0A10C007386EB /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +76,9 @@
 				A44651341C0D57A800F8CA3A /* AppDelegate.m */,
 				A44651361C0D57A800F8CA3A /* ViewController.h */,
 				A44651371C0D57A800F8CA3A /* ViewController.m */,
+				A4F6AD451CE0A10C007386EB /* CollectionViewCell.h */,
+				A4F6AD461CE0A10C007386EB /* CollectionViewCell.m */,
+				A4F6AD471CE0A10C007386EB /* CollectionViewCell.xib */,
 				A4BF10021C461FED0062B9DE /* AViewController.h */,
 				A4BF10031C461FED0062B9DE /* AViewController.m */,
 				A4BF10051C4620EF0062B9DE /* AView.h */,
@@ -153,6 +161,7 @@
 				A44651401C0D57A800F8CA3A /* LaunchScreen.storyboard in Resources */,
 				A446513D1C0D57A800F8CA3A /* Assets.xcassets in Resources */,
 				A446513B1C0D57A800F8CA3A /* Main.storyboard in Resources */,
+				A4F6AD491CE0A10C007386EB /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F6AD481CE0A10C007386EB /* CollectionViewCell.m in Sources */,
 				A4BF10041C461FED0062B9DE /* AViewController.m in Sources */,
 				A44651381C0D57A800F8CA3A /* ViewController.m in Sources */,
 				A44651351C0D57A800F8CA3A /* AppDelegate.m in Sources */,
