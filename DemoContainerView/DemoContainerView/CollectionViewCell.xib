@@ -12,41 +12,47 @@
             <rect key="frame" x="0.0" y="0.0" width="50" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oK7-fQ-eFy">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dag-WL-K66">
                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="oK7-fQ-eFy" secondAttribute="height" multiplier="1:1" id="ID5-bj-DDi"/>
-                        <constraint firstAttribute="width" constant="240" id="tcL-6L-D4t"/>
+                        <constraint firstAttribute="height" constant="30" id="9ip-ge-a0S"/>
+                        <constraint firstAttribute="width" secondItem="dag-WL-K66" secondAttribute="height" multiplier="1:1" id="ZLB-Bz-dRf"/>
                     </constraints>
+                    <state key="normal" title="Button"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="tcL-6L-D4t"/>
+                            <exclude reference="9ip-ge-a0S"/>
                         </mask>
                     </variation>
-                </imageView>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z4C-rA-2Jn">
-                    <rect key="frame" x="0.0" y="50" width="50" height="20"/>
+                    <rect key="frame" x="0.0" y="50" width="50" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="SVB-xp-XQs"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="SVB-xp-XQs"/>
+                        </mask>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="Z4C-rA-2Jn" secondAttribute="bottom" id="KAO-St-rqV"/>
                 <constraint firstItem="Z4C-rA-2Jn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PuV-0j-k3x"/>
                 <constraint firstItem="Z4C-rA-2Jn" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Pxj-hw-a3I"/>
-                <constraint firstItem="Z4C-rA-2Jn" firstAttribute="top" secondItem="oK7-fQ-eFy" secondAttribute="bottom" id="R7t-Lr-e4P"/>
-                <constraint firstItem="oK7-fQ-eFy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VEq-uk-SyB"/>
-                <constraint firstItem="oK7-fQ-eFy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZYl-o2-R7g"/>
                 <constraint firstItem="Z4C-rA-2Jn" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="cUP-e5-R9K"/>
-                <constraint firstItem="oK7-fQ-eFy" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="k46-4j-eZr"/>
+                <constraint firstItem="Z4C-rA-2Jn" firstAttribute="top" secondItem="dag-WL-K66" secondAttribute="bottom" id="o1i-ur-nz2"/>
+                <constraint firstItem="dag-WL-K66" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="tr5-CX-0Wj"/>
                 <constraint firstItem="Z4C-rA-2Jn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uHf-2p-b9w"/>
+                <constraint firstItem="dag-WL-K66" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xRP-4l-ymT"/>
+                <constraint firstItem="dag-WL-K66" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yzM-Ej-aL3"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -57,7 +63,7 @@
                 </mask>
             </variation>
             <connections>
-                <outlet property="imageView" destination="oK7-fQ-eFy" id="xOL-0W-ObV"/>
+                <outlet property="btnIcon" destination="dag-WL-K66" id="OWB-cl-cvl"/>
                 <outlet property="label" destination="Z4C-rA-2Jn" id="Kuh-Va-f93"/>
             </connections>
             <point key="canvasLocation" x="327" y="380"/>

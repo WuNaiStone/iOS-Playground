@@ -81,7 +81,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSString *iconName = self.items[indexPath.item];
     cell.label.text = iconName;
-    cell.imageView.image = [UIImage imageNamed:iconName];
+    [cell.btnIcon setImage:[UIImage imageNamed:iconName] forState:UIControlStateNormal];
     
 //    cell.label.text = [NSString stringWithFormat:@"%ld-%ld", (long)indexPath.section, (long)indexPath.item];
     
