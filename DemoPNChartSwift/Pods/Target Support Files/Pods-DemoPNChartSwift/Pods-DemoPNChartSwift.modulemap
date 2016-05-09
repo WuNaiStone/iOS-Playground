@@ -1,0 +1,6 @@
+framework module Pods_DemoPNChartSwift {
+  umbrella header "Pods-DemoPNChartSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
