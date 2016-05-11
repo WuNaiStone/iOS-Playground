@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		839A70FA1CE3F810005E7E93 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839A70F91CE3F810005E7E93 /* LifeCycleViewController.m */; };
 		A47B83451C87D37A00C1EA54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B83441C87D37A00C1EA54 /* main.m */; };
 		A47B83481C87D37A00C1EA54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B83471C87D37A00C1EA54 /* AppDelegate.m */; };
 		A47B834B1C87D37A00C1EA54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B834A1C87D37A00C1EA54 /* ViewController.m */; };
 		A47B834E1C87D37A00C1EA54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47B834C1C87D37A00C1EA54 /* Main.storyboard */; };
 		A47B83501C87D37A00C1EA54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47B834F1C87D37A00C1EA54 /* Assets.xcassets */; };
 		A47B83531C87D37A00C1EA54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47B83511C87D37A00C1EA54 /* LaunchScreen.storyboard */; };
-		A47B835D1C87D58B00C1EA54 /* LifeCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B835C1C87D58B00C1EA54 /* LifeCycleViewController.m */; };
 		A49FCC1E1CAE300A009A8E63 /* DismissViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FCC191CAE300A009A8E63 /* DismissViewController.m */; };
 		A49FCC1F1CAE300A009A8E63 /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FCC1B1CAE300A009A8E63 /* ViewController1.m */; };
 		A49FCC201CAE300A009A8E63 /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = A49FCC1D1CAE300A009A8E63 /* ViewController2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		839A70F81CE3F810005E7E93 /* LifeCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleViewController.h; sourceTree = "<group>"; };
+		839A70F91CE3F810005E7E93 /* LifeCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleViewController.m; sourceTree = "<group>"; };
 		A47B83401C87D37A00C1EA54 /* DemoUIViewControllerRelatedAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoUIViewControllerRelatedAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47B83441C87D37A00C1EA54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A47B83461C87D37A00C1EA54 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,8 +32,6 @@
 		A47B834F1C87D37A00C1EA54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47B83521C87D37A00C1EA54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A47B83541C87D37A00C1EA54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A47B835B1C87D58B00C1EA54 /* LifeCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeCycleViewController.h; sourceTree = "<group>"; };
-		A47B835C1C87D58B00C1EA54 /* LifeCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeCycleViewController.m; sourceTree = "<group>"; };
 		A49FCC181CAE300A009A8E63 /* DismissViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissViewController.h; sourceTree = "<group>"; };
 		A49FCC191CAE300A009A8E63 /* DismissViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DismissViewController.m; sourceTree = "<group>"; };
 		A49FCC1A1CAE300A009A8E63 /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
@@ -51,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		839A70F71CE3F810005E7E93 /* LifeCycleDemo */ = {
+			isa = PBXGroup;
+			children = (
+				839A70F81CE3F810005E7E93 /* LifeCycleViewController.h */,
+				839A70F91CE3F810005E7E93 /* LifeCycleViewController.m */,
+			);
+			path = LifeCycleDemo;
+			sourceTree = "<group>";
+		};
 		A47B83371C87D37A00C1EA54 = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +104,8 @@
 		A47B835A1C87D56900C1EA54 /* Demos */ = {
 			isa = PBXGroup;
 			children = (
+				839A70F71CE3F810005E7E93 /* LifeCycleDemo */,
 				A49FCC171CAE300A009A8E63 /* DismissDemo */,
-				A47B835B1C87D58B00C1EA54 /* LifeCycleViewController.h */,
-				A47B835C1C87D58B00C1EA54 /* LifeCycleViewController.m */,
 			);
 			path = Demos;
 			sourceTree = "<group>";
@@ -189,8 +197,8 @@
 				A47B834B1C87D37A00C1EA54 /* ViewController.m in Sources */,
 				A47B83481C87D37A00C1EA54 /* AppDelegate.m in Sources */,
 				A49FCC1F1CAE300A009A8E63 /* ViewController1.m in Sources */,
+				839A70FA1CE3F810005E7E93 /* LifeCycleViewController.m in Sources */,
 				A47B83451C87D37A00C1EA54 /* main.m in Sources */,
-				A47B835D1C87D58B00C1EA54 /* LifeCycleViewController.m in Sources */,
 				A49FCC1E1CAE300A009A8E63 /* DismissViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
