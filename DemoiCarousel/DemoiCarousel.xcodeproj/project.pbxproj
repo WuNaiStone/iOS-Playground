@@ -16,6 +16,7 @@
 		A4A816761CE4C6160024457E /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A816751CE4C6160024457E /* iCarousel.m */; };
 		A4A816891CE4CDB50024457E /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4A816881CE4CDB50024457E /* Model.jpg */; };
 		A4A8168C1CE4D0260024457E /* ViewiCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A8168B1CE4D0260024457E /* ViewiCarousel.m */; };
+		A4A816BC1CE695770024457E /* CarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A816BB1CE695770024457E /* CarouselCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		A4A816881CE4CDB50024457E /* Model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model.jpg; sourceTree = "<group>"; };
 		A4A8168A1CE4D0260024457E /* ViewiCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewiCarousel.h; sourceTree = "<group>"; };
 		A4A8168B1CE4D0260024457E /* ViewiCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewiCarousel.m; sourceTree = "<group>"; };
+		A4A816BA1CE695770024457E /* CarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselCell.h; sourceTree = "<group>"; };
+		A4A816BB1CE695770024457E /* CarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				A4A816641CE4C3CD0024457E /* ViewController.m */,
 				A4A8168A1CE4D0260024457E /* ViewiCarousel.h */,
 				A4A8168B1CE4D0260024457E /* ViewiCarousel.m */,
+				A4A816BA1CE695770024457E /* CarouselCell.h */,
+				A4A816BB1CE695770024457E /* CarouselCell.m */,
 				A4A816661CE4C3CD0024457E /* Main.storyboard */,
 				A4A816691CE4C3CD0024457E /* Assets.xcassets */,
 				A4A8166B1CE4C3CD0024457E /* LaunchScreen.storyboard */,
@@ -174,6 +179,7 @@
 				A4A816651CE4C3CD0024457E /* ViewController.m in Sources */,
 				A4A816761CE4C6160024457E /* iCarousel.m in Sources */,
 				A4A816621CE4C3CD0024457E /* AppDelegate.m in Sources */,
+				A4A816BC1CE695770024457E /* CarouselCell.m in Sources */,
 				A4A8165F1CE4C3CD0024457E /* main.m in Sources */,
 				A4A8168C1CE4D0260024457E /* ViewiCarousel.m in Sources */,
 			);

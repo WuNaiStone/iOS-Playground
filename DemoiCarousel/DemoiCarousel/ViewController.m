@@ -33,14 +33,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    ViewiCarousel *viewiCarousel = [[ViewiCarousel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.view.frame), 100)];
-    NSArray *imageNames = @[@"Model",
-                       @"Model",
-                       @"Model",
-                       @"Model",
-                       @"Model",
-                       ];
-    [viewiCarousel prepareImageNames:imageNames andPageOffset:30];
+    ViewiCarousel *viewiCarousel = [[ViewiCarousel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.view.frame), 300) withCarouselType:iCarouselTypeCustom];
     [self.view addSubview:viewiCarousel];
     
     
@@ -57,9 +50,8 @@
 
 - (void)addiCarousel {
     CGFloat height = ScreenWidth - 2 * PAGE_OFFSET;
-    _iCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, (ScreenHeight - height) * 0.5, ScreenWidth, height)];
+    _iCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 400, ScreenWidth, height)];
     _iCarousel.backgroundColor = [UIColor lightGrayColor];
-    _iCarousel.center = self.view.center;
     [self.view addSubview:_iCarousel];
     
     _iCarousel.delegate = self;

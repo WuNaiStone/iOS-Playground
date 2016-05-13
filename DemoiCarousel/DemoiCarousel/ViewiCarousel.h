@@ -10,6 +10,6 @@
 
 @interface ViewiCarousel : UIView
 
-- (void)prepareImageNames:(NSArray *)items andPageOffset:(CGFloat)pageOffset;
-    
+- (instancetype)initWithFrame:(CGRect)frame withCarouselType:(NSInteger)type;
+
 @end
