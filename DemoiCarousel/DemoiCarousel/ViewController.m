@@ -10,6 +10,7 @@
 #import "iCarousel.h"
 
 #import "ViewiCarousel.h"
+#import "CarouselTableViewController.h"
 
 @interface ViewController () <
     iCarouselDataSource,
@@ -46,11 +47,32 @@
                    ];
     
     [self addiCarousel];
+    
+    [self addBtn];
+}
+
+- (void)addBtn {
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50)];
+    [btn setTitle:@"iCarousel Type" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(actionButton:) forControlEvents:UIControlEventTouchUpInside];
+    btn.layer.borderColor = [UIColor redColor].CGColor;
+    btn.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn];
+}
+
+- (void)actionButton:(UIButton *)sender {
+    CarouselTableViewController *tableVC = [[CarouselTableViewController alloc] init];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:tableVC];
+    
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)addiCarousel {
     CGFloat height = ScreenWidth - 2 * PAGE_OFFSET;
-    _iCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 400, ScreenWidth, height)];
+    _iCarousel = [[iCarousel alloc] initWithFrame:CGRectMake(0, 350, ScreenWidth, height)];
     _iCarousel.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:_iCarousel];
     

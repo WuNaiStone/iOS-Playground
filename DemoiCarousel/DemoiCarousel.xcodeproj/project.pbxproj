@@ -17,6 +17,8 @@
 		A4A816891CE4CDB50024457E /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4A816881CE4CDB50024457E /* Model.jpg */; };
 		A4A8168C1CE4D0260024457E /* ViewiCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A8168B1CE4D0260024457E /* ViewiCarousel.m */; };
 		A4A816BC1CE695770024457E /* CarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A816BB1CE695770024457E /* CarouselCell.m */; };
+		A4A816BF1CE69BA90024457E /* CarouselTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A816BE1CE69BA90024457E /* CarouselTableViewController.m */; };
+		A4A816C21CE69CE80024457E /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A816C11CE69CE80024457E /* ItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		A4A8168B1CE4D0260024457E /* ViewiCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewiCarousel.m; sourceTree = "<group>"; };
 		A4A816BA1CE695770024457E /* CarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselCell.h; sourceTree = "<group>"; };
 		A4A816BB1CE695770024457E /* CarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselCell.m; sourceTree = "<group>"; };
+		A4A816BD1CE69BA90024457E /* CarouselTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselTableViewController.h; sourceTree = "<group>"; };
+		A4A816BE1CE69BA90024457E /* CarouselTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselTableViewController.m; sourceTree = "<group>"; };
+		A4A816C01CE69CE80024457E /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		A4A816C11CE69CE80024457E /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,10 @@
 				A4A816611CE4C3CD0024457E /* AppDelegate.m */,
 				A4A816631CE4C3CD0024457E /* ViewController.h */,
 				A4A816641CE4C3CD0024457E /* ViewController.m */,
+				A4A816BD1CE69BA90024457E /* CarouselTableViewController.h */,
+				A4A816BE1CE69BA90024457E /* CarouselTableViewController.m */,
+				A4A816C01CE69CE80024457E /* ItemViewController.h */,
+				A4A816C11CE69CE80024457E /* ItemViewController.m */,
 				A4A8168A1CE4D0260024457E /* ViewiCarousel.h */,
 				A4A8168B1CE4D0260024457E /* ViewiCarousel.m */,
 				A4A816BA1CE695770024457E /* CarouselCell.h */,
@@ -180,6 +190,8 @@
 				A4A816761CE4C6160024457E /* iCarousel.m in Sources */,
 				A4A816621CE4C3CD0024457E /* AppDelegate.m in Sources */,
 				A4A816BC1CE695770024457E /* CarouselCell.m in Sources */,
+				A4A816BF1CE69BA90024457E /* CarouselTableViewController.m in Sources */,
+				A4A816C21CE69CE80024457E /* ItemViewController.m in Sources */,
 				A4A8165F1CE4C3CD0024457E /* main.m in Sources */,
 				A4A8168C1CE4D0260024457E /* ViewiCarousel.m in Sources */,
 			);
