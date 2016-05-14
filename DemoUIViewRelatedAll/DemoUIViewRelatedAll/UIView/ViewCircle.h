@@ -1,13 +1,13 @@
 //
-//  ViewXXNib.h
+//  ViewCircle.h
 //  DemoUIViewRelatedAll
 //
-//  Created by Chris Hu on 16/4/6.
+//  Created by Chris Hu on 16/5/6.
 //  Copyright © 2016年 icetime17. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewXXNib : UIView
+@interface ViewCircle : UIView
 
 @end

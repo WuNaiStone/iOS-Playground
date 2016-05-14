@@ -16,6 +16,7 @@
 		A45E3EEC1C3E044E00E2ED1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45E3EEA1C3E044E00E2ED1F /* LaunchScreen.storyboard */; };
 		A45E3EF71C3E044F00E2ED1F /* DemoUIViewRelatedAllTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E3EF61C3E044F00E2ED1F /* DemoUIViewRelatedAllTests.m */; };
 		A45E3F021C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E3F011C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.m */; };
+		A48DA9A51CDC6A2900A80E9F /* ViewCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = A48DA9A41CDC6A2900A80E9F /* ViewCircle.m */; };
 		A4DFEDE21CB4C4AD00B782DB /* ViewXXNib.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DFEDE11CB4C4AD00B782DB /* ViewXXNib.m */; };
 		A4DFEDE41CB4C4BB00B782DB /* ViewXXNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DFEDE31CB4C4BB00B782DB /* ViewXXNib.xib */; };
 		A4DFEDE71CB4C62B00B782DB /* ViewBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DFEDE61CB4C62B00B782DB /* ViewBase.m */; };
@@ -60,6 +61,8 @@
 		A45E3EFD1C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUIViewRelatedAllUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45E3F011C3E044F00E2ED1F /* DemoUIViewRelatedAllUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUIViewRelatedAllUITests.m; sourceTree = "<group>"; };
 		A45E3F031C3E044F00E2ED1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A48DA9A31CDC6A2900A80E9F /* ViewCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCircle.h; sourceTree = "<group>"; };
+		A48DA9A41CDC6A2900A80E9F /* ViewCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCircle.m; sourceTree = "<group>"; };
 		A4DFEDE01CB4C4AD00B782DB /* ViewXXNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewXXNib.h; sourceTree = "<group>"; };
 		A4DFEDE11CB4C4AD00B782DB /* ViewXXNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewXXNib.m; sourceTree = "<group>"; };
 		A4DFEDE31CB4C4BB00B782DB /* ViewXXNib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewXXNib.xib; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				A4DFEDE01CB4C4AD00B782DB /* ViewXXNib.h */,
 				A4DFEDE11CB4C4AD00B782DB /* ViewXXNib.m */,
 				A4DFEDE31CB4C4BB00B782DB /* ViewXXNib.xib */,
+				A48DA9A31CDC6A2900A80E9F /* ViewCircle.h */,
+				A48DA9A41CDC6A2900A80E9F /* ViewCircle.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				A45E3EE41C3E044E00E2ED1F /* ViewController.m in Sources */,
 				A45E3EE11C3E044E00E2ED1F /* AppDelegate.m in Sources */,
 				A45E3EDE1C3E044E00E2ED1F /* main.m in Sources */,
+				A48DA9A51CDC6A2900A80E9F /* ViewCircle.m in Sources */,
 				A4E3AE071C6F1173005B3F58 /* DemoViewController.m in Sources */,
 				A4E3AE0E1C6F1DE3005B3F58 /* UIViewAutoResize.m in Sources */,
 				A4DFEDE71CB4C62B00B782DB /* ViewBase.m in Sources */,

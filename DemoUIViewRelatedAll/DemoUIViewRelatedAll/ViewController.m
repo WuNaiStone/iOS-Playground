@@ -42,7 +42,8 @@
 - (void)addTableView {
     demos = @[
               @"AutoResize",
-              @"XXNib"
+              @"XXNib",
+              @"CircleView",
               ];
     
     tableViewDemos = [[UITableView alloc] initWithFrame:self.view.frame];
