@@ -18,6 +18,7 @@ Demo for iOS development.
 请参考博客:
 - [iOS --- 获取UIView的模糊效果截图](http://blog.csdn.net/icetime17/article/details/50432374)
 
+### DemoCharts
 ### DemoCollectionView
 ### DemoContainerView
 ### DemoCoreGraphics
@@ -26,6 +27,7 @@ Demo for iOS development.
 
 ### DemoCoreMotion
 ### DemoCornerRadius
+### DemoFabric
 ### DemoFlurry
 ### DemoGestureRecognizer
 ### DemoGifWebView
@@ -93,6 +95,7 @@ Demo for iOS development.
 - [iOS --- 使用openURL调用iOS系统应用](http://blog.csdn.net/icetime17/article/details/49257197)
 - [iOS --- 通过openURL实现APP之间跳转并传递数据](http://blog.csdn.net/icetime17/article/details/51056923)
 
+### DemoPNChartSwift
 ### DemoPageViewController
 ### DemoPhotoKit
 请参考博客:
@@ -136,7 +139,6 @@ Demo for iOS development.
 ### DemoUIActivityViewController
 ### DemoUIGestureRecognizer
 ### DemoUIImagePicker
-### DemoUIKit
 ### DemoUILabel
 ### DemoUIScrollViewZoomScale
 ### DemoUISlider
@@ -152,5 +154,6 @@ Demo for iOS development.
 
 ### DemoXXNibBridge
 ### DemoYYText
+### DemoiCarousel
 ### DesignPattern
 ### OCPlayground
