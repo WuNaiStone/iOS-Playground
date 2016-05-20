@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CDE41ACD-E512-4D4B-A519-11A3A6DDD2D0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BatteryTestAppOC</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>55F896C37297DD668C30718D73A13D83821677FD</key>
+		<string>github.com:icetime17/BatteryTestAppOC.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BatteryTestAppOC.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>55F896C37297DD668C30718D73A13D83821677FD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:icetime17/BatteryTestAppOC.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>55F896C37297DD668C30718D73A13D83821677FD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>55F896C37297DD668C30718D73A13D83821677FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BatteryTestAppOC</string>
+		</dict>
+	</array>
+</dict>
+</plist>
