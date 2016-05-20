@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAm-hd-BvZ">
+                                <rect key="frame" x="-4" y="89" width="328" height="45"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwL-Az-0gL">
+                                <rect key="frame" x="-4" y="201" width="328" height="53"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPv-Qp-9BM">
+                                <rect key="frame" x="-4" y="335" width="328" height="53"/>
+                                <animations/>
+                                <state key="normal" title="Go to ViewController2"/>
+                                <connections>
+                                    <action selector="actionButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jBS-aI-4eb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VPv-Qp-9BM" secondAttribute="bottom" constant="180" id="7Ky-6o-P80"/>
+                            <constraint firstItem="uwL-Az-0gL" firstAttribute="top" secondItem="KAm-hd-BvZ" secondAttribute="bottom" constant="67" id="8h3-5E-Vqg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VPv-Qp-9BM" secondAttribute="trailing" constant="-20" id="B09-Uv-kJd"/>
+                            <constraint firstItem="KAm-hd-BvZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Cgi-is-zFL"/>
+                            <constraint firstItem="uwL-Az-0gL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="LAO-GT-f6u"/>
+                            <constraint firstItem="KAm-hd-BvZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="69" id="UvV-b6-xvZ"/>
+                            <constraint firstItem="VPv-Qp-9BM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="bnN-3Y-6uc"/>
+                            <constraint firstItem="VPv-Qp-9BM" firstAttribute="top" secondItem="uwL-Az-0gL" secondAttribute="bottom" constant="81" id="g19-8b-woW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uwL-Az-0gL" secondAttribute="trailing" constant="-20" id="iTz-fL-owr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KAm-hd-BvZ" secondAttribute="trailing" constant="-20" id="tV0-qm-ZRA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uwL-Az-0gL" secondAttribute="bottom" constant="314" id="uTC-qa-r3I"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="KAm-hd-BvZ" secondAttribute="bottom" constant="434" id="wPO-x4-yAW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button1" destination="VPv-Qp-9BM" id="XpA-qm-JRx"/>
+                        <outlet property="label1" destination="KAm-hd-BvZ" id="6oC-7R-C9z"/>
+                        <outlet property="label2" destination="uwL-Az-0gL" id="fqL-EZ-lFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="81" y="339"/>
+        </scene>
+    </scenes>
+</document>
