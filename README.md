@@ -9,7 +9,15 @@ Demo for iOS development.
 ### DemoASIHTTPRequest
 ### DemoAddChildViewController
 ### DemoAlertController
+### DemoAnimation
+请参考博客:
+- [iOS --- 使用UIImageView来实现倒计时动画](http://blog.csdn.net/icetime17/article/details/49463971)
+
 ### DemoAsyncDisplayKit
+### DemoBatteryTestAppOC
+请参考博客:
+- [iOS --- 获取iOS设备的电量信息：Battery Level](http://blog.csdn.net/icetime17/article/details/45057721)
+
 ### DemoBlock
 请参考博客:
 - [iOS --- 关于block的常见使用方法](http://blog.csdn.net/icetime17/article/details/48946843)
@@ -27,6 +35,7 @@ Demo for iOS development.
 
 ### DemoCoreMotion
 ### DemoCornerRadius
+### DemoDataPersistence
 ### DemoFabric
 ### DemoFlurry
 ### DemoGestureRecognizer
@@ -47,6 +56,12 @@ Demo for iOS development.
 ### DemoKeyWindow
 请参考博客:
 - [iOS --- 理解UIWindow及其常见使用场景](http://blog.csdn.net/icetime17/article/details/51058417)
+
+### DemoLBS
+请参考博客:
+- [iOS --- 使用CoreLocation来获取地理位置信息](http://blog.csdn.net/icetime17/article/details/45230483)
+- [iOS --- 地图框架MapKit的简单使用](http://blog.csdn.net/icetime17/article/details/45251755)
+- [iOS --- 使用CoreLocation获取当前所在城市等地理位置信息](http://blog.csdn.net/icetime17/article/details/46788567)
 
 ### DemoLayout
 请参考博客:
@@ -70,6 +85,12 @@ Demo for iOS development.
 ### DemoMixpanel
 请参考博客:
 - [iOS --- 使用Mixpanel来统计和分析移动APP的用户数据](http://blog.csdn.net/icetime17/article/details/48530709)
+
+### DemoMultiThread
+请参考博客:
+- [iOS --- 多线程之GCD](http://blog.csdn.net/icetime17/article/details/50405474)
+- [iOS --- 多线程之NSOperation](http://blog.csdn.net/icetime17/article/details/50413608)
+- [iOS --- 多线程之NSThread](http://blog.csdn.net/icetime17/article/details/50405259)
 
 ### DemoNSAssert
 请参考博客:
@@ -145,6 +166,7 @@ Demo for iOS development.
 请参考博客:
 - [iOS --- 为UISlider添加点击事件](http://blog.csdn.net/icetime17/article/details/50720545)
 
+### DemoUITableView
 ### DemoUITextView
 ### DemoUIViewControllerRelatedAll
 ### DemoUIViewRelatedAll
@@ -152,8 +174,15 @@ Demo for iOS development.
 请参考博客:
 - [iOS --- 获取UIView的模糊效果截图](http://blog.csdn.net/icetime17/article/details/50432374)
 
+### DemoUnitTest
+请参考博客:
+- [iOS --- 使用XCTest进行单元测试](http://blog.csdn.net/icetime17/article/details/49893847)
+
 ### DemoXXNibBridge
 ### DemoYYText
 ### DemoiCarousel
 ### DesignPattern
 ### OCPlayground
+### DBFM
+### SinaNews
+### ZhihuAPP
