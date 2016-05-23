@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0600"
+   version = "2.0">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "837DA580197EB49900BB899B"
+               BuildableName = "DBFM.app"
+               BlueprintName = "DBFM"
+               ReferencedContainer = "container:DBFM.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "837DA592197EB49900BB899B"
+               BuildableName = "DBFMTests.xctest"
+               BlueprintName = "DBFMTests"
+               ReferencedContainer = "container:DBFM.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7D2EFFE81956BD2000308D4B"
+               BuildableName = "DBFMTests.xctest"
+               BlueprintName = "DBFMTests"
+               ReferencedContainer = "container:../../Downloads/&#x3010;&#x6279;&#x91cf;&#x4e0b;&#x8f7d;&#x3011;Swift&#x5b9e;&#x6218;-DBFM&#x7b49;/Swift&#x5b9e;&#x6218;-DBFM/03 &#x83b7;&#x53d6;&#x7f51;&#x7edc;&#x6570;&#x636e;/&#x8c46;&#x74e3;&#x7535;&#x53f0;&#xff08;&#x4e09;&#xff09;&#x83b7;&#x53d6;&#x7f51;&#x7edc;&#x6570;&#x636e;/DBFM.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7D2EFFE81956BD2000308D4B"
+               BuildableName = "DBFMTests.xctest"
+               BlueprintName = "DBFMTests"
+               ReferencedContainer = "container:../../Downloads/&#x3010;&#x6279;&#x91cf;&#x4e0b;&#x8f7d;&#x3011;Swift&#x5b9e;&#x6218;-DBFM&#x7b49;/Swift&#x5b9e;&#x6218;-DBFM/04 TableView&#x6570;&#x636e;&#x586b;&#x5145;/&#x8c46;&#x74e3;&#x7535;&#x53f0;&#xff08;&#x56db;&#xff09;TableView&#x6570;&#x636e;&#x586b;&#x5145;/DBFM.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7D2EFFE81956BD2000308D4B"
+               BuildableName = "DBFMTests.xctest"
+               BlueprintName = "DBFMTests"
+               ReferencedContainer = "container:../../Downloads/&#x3010;&#x6279;&#x91cf;&#x4e0b;&#x8f7d;&#x3011;Swift&#x5b9e;&#x6218;-DBFM&#x7b49;/Swift&#x5b9e;&#x6218;-DBFM/05 &#x64ad;&#x653e;&#x6b4c;&#x66f2;/&#x8c46;&#x74e3;&#x7535;&#x53f0;&#xff08;&#x4e94;&#xff09;&#x64ad;&#x653e;&#x6b4c;&#x66f2;/DBFM.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7D2EFFE81956BD2000308D4B"
+               BuildableName = "DBFMTests.xctest"
+               BlueprintName = "DBFMTests"
+               ReferencedContainer = "container:../../Downloads/&#x3010;&#x6279;&#x91cf;&#x4e0b;&#x8f7d;&#x3011;Swift&#x5b9e;&#x6218;-DBFM&#x7b49;/Swift&#x5b9e;&#x6218;-DBFM/07 &#x663e;&#x793a;&#x52a8;&#x753b;/&#x8c46;&#x74e3;&#x7535;&#x53f0;&#xff08;&#x4e03;&#xff09;&#x52a8;&#x753b;/DBFM.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "837DA580197EB49900BB899B"
+            BuildableName = "DBFM.app"
+            BlueprintName = "DBFM"
+            ReferencedContainer = "container:DBFM.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugXPCServices = "NO"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "837DA580197EB49900BB899B"
+            BuildableName = "DBFM.app"
+            BlueprintName = "DBFM"
+            ReferencedContainer = "container:DBFM.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "837DA580197EB49900BB899B"
+            BuildableName = "DBFM.app"
+            BlueprintName = "DBFM"
+            ReferencedContainer = "container:DBFM.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
