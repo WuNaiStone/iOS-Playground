@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>137FD1BE-785C-4C00-A395-8A23ED3EF99D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SinaNews</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F9116B3D42898A0D6B2E4B667FC8BF5DC9F83DFD</key>
+		<string>https://github.com/icetime17/SinaNews</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SinaNews.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F9116B3D42898A0D6B2E4B667FC8BF5DC9F83DFD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/icetime17/SinaNews</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F9116B3D42898A0D6B2E4B667FC8BF5DC9F83DFD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F9116B3D42898A0D6B2E4B667FC8BF5DC9F83DFD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SinaNews</string>
+		</dict>
+	</array>
+</dict>
+</plist>
