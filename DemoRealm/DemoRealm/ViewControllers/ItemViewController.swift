@@ -94,6 +94,8 @@ class ItemViewController: UIViewController {
         var pomodoros : Results<ModelPomodoroRealm>!
         pomodoros = pomodoroRealm.objects(ModelPomodoroRealm)
         print("pomodoros : \(pomodoros)")
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
 }
