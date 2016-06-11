@@ -22,7 +22,7 @@
 }
 
 /**
- *  NSLinguisticTagger 在语言学功能上来讲是一把名副其实的瑞士军刀，它可以讲自然语言的字符串标记为单词、确定词性和词根、划分出人名地名和组织名称、告诉你字符串使用的语言和语系。
+ *  NSLinguisticTagger 在语言学功能上来讲是一把名副其实的瑞士军刀，它可以将自然语言的字符串标记为单词、确定词性和词根、划分出人名地名和组织名称、告诉你字符串使用的语言和语系。
  
  对于我们大多数人来说，这其中蕴含着意义远超过我们所知道的，但或许也只是我们没有合适的机会使用而已。但是，几乎所有使用某种方式来处理自然语言的应用如果能够用上 NSLinguisticTagger ，或许就会润色不少，没准会催生一批新特性呢。
  配合潜在语义映射（Latent Semantic Mapping）http://developer.apple.com/library/mac/#documentation/LatentSemanticMapping/Reference/LatentSemanticMapping_header_reference/Reference/reference.html 库，我们就可以推断出合理解释
