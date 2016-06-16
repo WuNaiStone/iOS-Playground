@@ -43,9 +43,13 @@
     
     RLMResults *persons = [PersonRealm allObjects];
     for (PersonRealm *p in persons) {
-        NSLog(@"p : %@", p.description);
+//        NSLog(@"p : %@", p.description);
         [results addObject:p];
     }
+    
+    RLMRealm *realm         = [RLMRealm defaultRealm];
+    
+    NSLog(@"fileURL : %@", realm.configuration.fileURL);
     
     return results;
 }
