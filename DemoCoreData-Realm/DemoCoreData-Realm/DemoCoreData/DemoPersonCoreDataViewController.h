@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DemoPersonCoreDataViewController.h
 //  DemoCoreData-Realm
 //
 //  Created by Chris Hu on 16/6/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DemoPersonCoreDataViewController : UIViewController
 
 @end
-

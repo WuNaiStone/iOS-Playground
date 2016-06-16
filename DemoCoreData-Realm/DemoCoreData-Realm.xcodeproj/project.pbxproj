@@ -11,12 +11,17 @@
 		1D65F425B42591CB479862A1 /* libPods-DemoCoreData-Realm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D99F5D69A4D85D51BC7AF8FE /* libPods-DemoCoreData-Realm.a */; };
 		834794841D121E1800623212 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 834794831D121E1800623212 /* main.m */; };
 		834794871D121E1800623212 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 834794861D121E1800623212 /* AppDelegate.m */; };
-		8347948A1D121E1800623212 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834794891D121E1800623212 /* ViewController.m */; };
 		8347948D1D121E1800623212 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8347948B1D121E1800623212 /* Main.storyboard */; };
 		834794901D121E1800623212 /* DemoCoreData_Realm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8347948E1D121E1800623212 /* DemoCoreData_Realm.xcdatamodeld */; };
 		834794921D121E1800623212 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 834794911D121E1800623212 /* Assets.xcassets */; };
 		834794951D121E1800623212 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834794931D121E1800623212 /* LaunchScreen.storyboard */; };
 		834794A01D121E1800623212 /* DemoCoreData_RealmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8347949F1D121E1800623212 /* DemoCoreData_RealmTests.m */; };
+		A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A841D123EDF00E5D089 /* PersonRealm.m */; };
+		A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A871D123F4B00E5D089 /* DemoPersonRealm.m */; };
+		A4AA9A8B1D1245E100E5D089 /* DemoPersonRealmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A8A1D1245E100E5D089 /* DemoPersonRealmViewController.m */; };
+		A4AA9A8E1D12464900E5D089 /* DemoPersonCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A8D1D12464900E5D089 /* DemoPersonCoreDataViewController.m */; };
+		A4AA9A961D12521700E5D089 /* ViewTableViewCellPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A951D12521700E5D089 /* ViewTableViewCellPerson.m */; };
+		A4AA9A981D12522600E5D089 /* ViewTableViewCellPerson.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AA9A971D12522600E5D089 /* ViewTableViewCellPerson.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +43,6 @@
 		834794831D121E1800623212 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		834794851D121E1800623212 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		834794861D121E1800623212 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		834794881D121E1800623212 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		834794891D121E1800623212 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8347948C1D121E1800623212 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8347948F1D121E1800623212 /* DemoCoreData_Realm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DemoCoreData_Realm.xcdatamodel; sourceTree = "<group>"; };
 		834794911D121E1800623212 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +51,17 @@
 		8347949B1D121E1800623212 /* DemoCoreData-RealmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DemoCoreData-RealmTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8347949F1D121E1800623212 /* DemoCoreData_RealmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCoreData_RealmTests.m; sourceTree = "<group>"; };
 		834794A11D121E1800623212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4AA9A831D123EDF00E5D089 /* PersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRealm.h; sourceTree = "<group>"; };
+		A4AA9A841D123EDF00E5D089 /* PersonRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRealm.m; sourceTree = "<group>"; };
+		A4AA9A861D123F4B00E5D089 /* DemoPersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonRealm.h; sourceTree = "<group>"; };
+		A4AA9A871D123F4B00E5D089 /* DemoPersonRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPersonRealm.m; sourceTree = "<group>"; };
+		A4AA9A891D1245E100E5D089 /* DemoPersonRealmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonRealmViewController.h; sourceTree = "<group>"; };
+		A4AA9A8A1D1245E100E5D089 /* DemoPersonRealmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPersonRealmViewController.m; sourceTree = "<group>"; };
+		A4AA9A8C1D12464900E5D089 /* DemoPersonCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonCoreDataViewController.h; sourceTree = "<group>"; };
+		A4AA9A8D1D12464900E5D089 /* DemoPersonCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPersonCoreDataViewController.m; sourceTree = "<group>"; };
+		A4AA9A941D12521700E5D089 /* ViewTableViewCellPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewTableViewCellPerson.h; sourceTree = "<group>"; };
+		A4AA9A951D12521700E5D089 /* ViewTableViewCellPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewTableViewCellPerson.m; sourceTree = "<group>"; };
+		A4AA9A971D12522600E5D089 /* ViewTableViewCellPerson.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewTableViewCellPerson.xib; sourceTree = "<group>"; };
 		D960CAFCA7F87A14CCAD373F /* Pods-DemoCoreData-RealmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoCoreData-RealmTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoCoreData-RealmTests/Pods-DemoCoreData-RealmTests.release.xcconfig"; sourceTree = "<group>"; };
 		D99F5D69A4D85D51BC7AF8FE /* libPods-DemoCoreData-Realm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoCoreData-Realm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,10 +118,11 @@
 		834794811D121E1800623212 /* DemoCoreData-Realm */ = {
 			isa = PBXGroup;
 			children = (
+				A4AA9A931D1251E700E5D089 /* Views */,
+				A4AA9A7E1D123E5100E5D089 /* DemoCoreData */,
+				A4AA9A7F1D123E5100E5D089 /* DemoRealm */,
 				834794851D121E1800623212 /* AppDelegate.h */,
 				834794861D121E1800623212 /* AppDelegate.m */,
-				834794881D121E1800623212 /* ViewController.h */,
-				834794891D121E1800623212 /* ViewController.m */,
 				8347948B1D121E1800623212 /* Main.storyboard */,
 				834794911D121E1800623212 /* Assets.xcassets */,
 				834794931D121E1800623212 /* LaunchScreen.storyboard */,
@@ -133,6 +148,38 @@
 				834794A11D121E1800623212 /* Info.plist */,
 			);
 			path = "DemoCoreData-RealmTests";
+			sourceTree = "<group>";
+		};
+		A4AA9A7E1D123E5100E5D089 /* DemoCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A4AA9A8C1D12464900E5D089 /* DemoPersonCoreDataViewController.h */,
+				A4AA9A8D1D12464900E5D089 /* DemoPersonCoreDataViewController.m */,
+			);
+			path = DemoCoreData;
+			sourceTree = "<group>";
+		};
+		A4AA9A7F1D123E5100E5D089 /* DemoRealm */ = {
+			isa = PBXGroup;
+			children = (
+				A4AA9A831D123EDF00E5D089 /* PersonRealm.h */,
+				A4AA9A841D123EDF00E5D089 /* PersonRealm.m */,
+				A4AA9A861D123F4B00E5D089 /* DemoPersonRealm.h */,
+				A4AA9A871D123F4B00E5D089 /* DemoPersonRealm.m */,
+				A4AA9A891D1245E100E5D089 /* DemoPersonRealmViewController.h */,
+				A4AA9A8A1D1245E100E5D089 /* DemoPersonRealmViewController.m */,
+			);
+			path = DemoRealm;
+			sourceTree = "<group>";
+		};
+		A4AA9A931D1251E700E5D089 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A4AA9A941D12521700E5D089 /* ViewTableViewCellPerson.h */,
+				A4AA9A951D12521700E5D089 /* ViewTableViewCellPerson.m */,
+				A4AA9A971D12522600E5D089 /* ViewTableViewCellPerson.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EF8589FD841142543B020C8B /* Pods */ = {
@@ -233,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				834794951D121E1800623212 /* LaunchScreen.storyboard in Resources */,
+				A4AA9A981D12522600E5D089 /* ViewTableViewCellPerson.xib in Resources */,
 				834794921D121E1800623212 /* Assets.xcassets in Resources */,
 				8347948D1D121E1800623212 /* Main.storyboard in Resources */,
 			);
@@ -345,10 +393,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8347948A1D121E1800623212 /* ViewController.m in Sources */,
+				A4AA9A8B1D1245E100E5D089 /* DemoPersonRealmViewController.m in Sources */,
+				A4AA9A961D12521700E5D089 /* ViewTableViewCellPerson.m in Sources */,
+				A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */,
 				834794871D121E1800623212 /* AppDelegate.m in Sources */,
+				A4AA9A8E1D12464900E5D089 /* DemoPersonCoreDataViewController.m in Sources */,
 				834794841D121E1800623212 /* main.m in Sources */,
 				834794901D121E1800623212 /* DemoCoreData_Realm.xcdatamodeld in Sources */,
+				A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "DemoCoreData-Realm/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.icetime17.DemoCoreData-Realm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -490,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "DemoCoreData-Realm/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.icetime17.DemoCoreData-Realm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
