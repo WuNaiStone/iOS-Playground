@@ -20,6 +20,9 @@
 		A4012B181D1397A500A1A7C5 /* avatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4012B161D1397A500A1A7C5 /* avatar1.png */; };
 		A4012B1B1D13A4AC00A1A7C5 /* ViewEditPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B1A1D13A4AC00A1A7C5 /* ViewEditPerson.m */; };
 		A4012B1D1D13A4B900A1A7C5 /* ViewEditPerson.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4012B1C1D13A4B900A1A7C5 /* ViewEditPerson.xib */; };
+		A4012B221D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B1F1D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.m */; };
+		A4012B231D13E53600A1A7C5 /* PersonCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B211D13E53600A1A7C5 /* PersonCoreData.m */; };
+		A4012B261D13E60D00A1A7C5 /* DemoPersonCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B251D13E60D00A1A7C5 /* DemoPersonCoreData.m */; };
 		A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A841D123EDF00E5D089 /* PersonRealm.m */; };
 		A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A871D123F4B00E5D089 /* DemoPersonRealm.m */; };
 		A4AA9A8B1D1245E100E5D089 /* DemoPersonRealmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A8A1D1245E100E5D089 /* DemoPersonRealmViewController.m */; };
@@ -60,6 +63,12 @@
 		A4012B191D13A4AC00A1A7C5 /* ViewEditPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewEditPerson.h; sourceTree = "<group>"; };
 		A4012B1A1D13A4AC00A1A7C5 /* ViewEditPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewEditPerson.m; sourceTree = "<group>"; };
 		A4012B1C1D13A4B900A1A7C5 /* ViewEditPerson.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewEditPerson.xib; sourceTree = "<group>"; };
+		A4012B1E1D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PersonCoreData+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A4012B1F1D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PersonCoreData+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A4012B201D13E53600A1A7C5 /* PersonCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCoreData.h; sourceTree = "<group>"; };
+		A4012B211D13E53600A1A7C5 /* PersonCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCoreData.m; sourceTree = "<group>"; };
+		A4012B241D13E60D00A1A7C5 /* DemoPersonCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonCoreData.h; sourceTree = "<group>"; };
+		A4012B251D13E60D00A1A7C5 /* DemoPersonCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPersonCoreData.m; sourceTree = "<group>"; };
 		A4AA9A831D123EDF00E5D089 /* PersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRealm.h; sourceTree = "<group>"; };
 		A4AA9A841D123EDF00E5D089 /* PersonRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRealm.m; sourceTree = "<group>"; };
 		A4AA9A861D123F4B00E5D089 /* DemoPersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonRealm.h; sourceTree = "<group>"; };
@@ -162,6 +171,12 @@
 		A4AA9A7E1D123E5100E5D089 /* DemoCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				A4012B201D13E53600A1A7C5 /* PersonCoreData.h */,
+				A4012B211D13E53600A1A7C5 /* PersonCoreData.m */,
+				A4012B1E1D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.h */,
+				A4012B1F1D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.m */,
+				A4012B241D13E60D00A1A7C5 /* DemoPersonCoreData.h */,
+				A4012B251D13E60D00A1A7C5 /* DemoPersonCoreData.m */,
 				A4AA9A8C1D12464900E5D089 /* DemoPersonCoreDataViewController.h */,
 				A4AA9A8D1D12464900E5D089 /* DemoPersonCoreDataViewController.m */,
 			);
@@ -412,11 +427,14 @@
 			files = (
 				A4AA9A8B1D1245E100E5D089 /* DemoPersonRealmViewController.m in Sources */,
 				A4AA9A961D12521700E5D089 /* ViewTableViewCellPerson.m in Sources */,
+				A4012B261D13E60D00A1A7C5 /* DemoPersonCoreData.m in Sources */,
 				A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */,
 				834794871D121E1800623212 /* AppDelegate.m in Sources */,
+				A4012B231D13E53600A1A7C5 /* PersonCoreData.m in Sources */,
 				A4AA9A8E1D12464900E5D089 /* DemoPersonCoreDataViewController.m in Sources */,
 				A4012B1B1D13A4AC00A1A7C5 /* ViewEditPerson.m in Sources */,
 				834794841D121E1800623212 /* main.m in Sources */,
+				A4012B221D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.m in Sources */,
 				834794901D121E1800623212 /* DemoCoreData_Realm.xcdatamodeld in Sources */,
 				A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */,
 			);
