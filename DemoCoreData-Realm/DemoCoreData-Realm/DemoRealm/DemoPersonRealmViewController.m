@@ -87,32 +87,24 @@
 - (void)actionSorted:(UIBarButtonItem *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorted By Property" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    UIAlertAction *actionSortedByAvatar = [UIAlertAction actionWithTitle:@"Avatar" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *actionSortedByName = [UIAlertAction actionWithTitle:@"Name" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"avatar"];
+        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"name"];
         [_tableView reloadData];
         
     }];
     
-    UIAlertAction *actionSortedByHeight = [UIAlertAction actionWithTitle:@"Height" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *actionSortedByAge = [UIAlertAction actionWithTitle:@"Age" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"height"];
-        [_tableView reloadData];
-        
-    }];
-    
-    UIAlertAction *actionSortedByWeight = [UIAlertAction actionWithTitle:@"Weight" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"weight"];
+        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"age"];
         [_tableView reloadData];
         
     }];
     
     UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
-    [alert addAction:actionSortedByAvatar];
-    [alert addAction:actionSortedByHeight];
-    [alert addAction:actionSortedByWeight];
+    [alert addAction:actionSortedByName];
+    [alert addAction:actionSortedByAge];
     [alert addAction:actionCancel];
     
     [self presentViewController:alert animated:YES completion:nil];
