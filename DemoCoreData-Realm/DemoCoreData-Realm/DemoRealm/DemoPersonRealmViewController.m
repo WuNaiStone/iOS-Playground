@@ -36,7 +36,10 @@
 }
 
 - (void)initNavBar {
-    UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionAdd:)];
+    UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionAdd:)];
+    self.navigationItem.leftBarButtonItem = btnLeft;
+    
+    UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionSorted:)];
     self.navigationItem.rightBarButtonItem = btnRight;
 }
 
@@ -46,6 +49,40 @@
     }
     
     [self updateDataSource];
+}
+
+- (void)actionSorted:(UIBarButtonItem *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorted" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *actionSortedByAvatar = [UIAlertAction actionWithTitle:@"Avatar" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"avatar"];
+        [_tableView reloadData];
+        
+    }];
+    
+    UIAlertAction *actionSortedByHeight = [UIAlertAction actionWithTitle:@"Height" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"height"];
+        [_tableView reloadData];
+        
+    }];
+    
+    UIAlertAction *actionSortedByWeight = [UIAlertAction actionWithTitle:@"Weight" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmSortedBy:@"weight"];
+        [_tableView reloadData];
+        
+    }];
+    
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:actionSortedByAvatar];
+    [alert addAction:actionSortedByHeight];
+    [alert addAction:actionSortedByWeight];
+    [alert addAction:actionCancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)initTableView {
@@ -83,10 +120,10 @@
     cell.avatar.image       = [UIImage imageNamed:person.avatar];
     cell.lbName.text        = person.name;
     cell.lbWechatId.text    = person.wechatId;
-    cell.lbEmail.text       = person.email;
     cell.lbAge.text         = [NSString stringWithFormat:@"%ld", (long)person.age];
     cell.lbCity.text        = person.city;
-    cell.lbJob.text         = person.job;
+    cell.lbHeight.text      = [NSString stringWithFormat:@"%ld", (long)person.height];
+    cell.lbWeight.text      = [NSString stringWithFormat:@"%ld", (long)person.weight];
     
     return cell;
 }

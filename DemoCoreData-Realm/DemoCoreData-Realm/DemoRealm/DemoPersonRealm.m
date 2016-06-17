@@ -59,5 +59,15 @@
     return results;
 }
 
+- (NSArray *)queryPersonRealmSortedBy:(NSString *)sortedProperty {
+    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    RLMResults *persons = [[PersonRealm allObjects] sortedResultsUsingProperty:sortedProperty ascending:YES];
+    
+    for (PersonRealm *p in persons) {
+        [results addObject:p];
+    }
+    return results;
+}
 
 @end

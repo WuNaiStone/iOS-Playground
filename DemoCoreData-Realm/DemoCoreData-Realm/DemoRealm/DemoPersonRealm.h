@@ -16,4 +16,6 @@
 
 - (NSArray *)queryPersonRealm;
 
+- (NSArray *)queryPersonRealmSortedBy:(NSString *)sortedProperty;
+
 @end
