@@ -46,10 +46,14 @@
     UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionAddOne:)];
     
     UIBarButtonItem *btnLeft2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionAddAll:)];
+    
     self.navigationItem.leftBarButtonItems = @[btnLeft, btnLeft2];
     
     UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionSorted:)];
-    self.navigationItem.rightBarButtonItem = btnRight;
+    
+    UIBarButtonItem *btnRight2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(actionFiltered:)];
+    
+    self.navigationItem.rightBarButtonItems = @[btnRight, btnRight2];
 }
 
 - (void)actionAddOne:(UIBarButtonItem *)sender {
@@ -105,6 +109,32 @@
     
     [alert addAction:actionSortedByName];
     [alert addAction:actionSortedByAge];
+    [alert addAction:actionCancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)actionFiltered:(UIBarButtonItem *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Filtered By Property" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *actionFilteredByName = [UIAlertAction actionWithTitle:@"name BEGINSWITH 'A'" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmFilteredBy:@"name BEGINSWITH 'A'"];
+        [_tableView reloadData];
+        
+    }];
+    
+    UIAlertAction *actionFilteredByAge = [UIAlertAction actionWithTitle:@"age == 18" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        _persons = [[DemoPersonRealm sharedInstance] queryPersonRealmFilteredBy:@"age == 18"];
+        [_tableView reloadData];
+        
+    }];
+    
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:actionFilteredByName];
+    [alert addAction:actionFilteredByAge];
     [alert addAction:actionCancel];
     
     [self presentViewController:alert animated:YES completion:nil];

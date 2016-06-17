@@ -18,4 +18,6 @@
 
 - (NSArray *)queryPersonRealmSortedBy:(NSString *)sortedProperty;
 
+- (NSArray *)queryPersonRealmFilteredBy:(NSString *)filterCondition;
+
 @end

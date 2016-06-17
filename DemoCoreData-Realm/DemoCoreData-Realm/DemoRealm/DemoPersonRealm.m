@@ -70,4 +70,18 @@
     return results;
 }
 
+- (NSArray *)queryPersonRealmFilteredBy:(NSString *)filterCondition {
+    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    RLMResults *persons = [PersonRealm objectsWhere:filterCondition];
+    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age == %d AND name BEGINSWITH %@", 18, @"C"];
+//    RLMResults *persons = [PersonRealm objectsWithPredicate:predicate];
+    
+    for (PersonRealm *p in persons) {
+        [results addObject:p];
+    }
+    return results;
+}
+
 @end
