@@ -16,6 +16,8 @@
 		834794921D121E1800623212 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 834794911D121E1800623212 /* Assets.xcassets */; };
 		834794951D121E1800623212 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 834794931D121E1800623212 /* LaunchScreen.storyboard */; };
 		834794A01D121E1800623212 /* DemoCoreData_RealmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8347949F1D121E1800623212 /* DemoCoreData_RealmTests.m */; };
+		A4012B171D1397A500A1A7C5 /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4012B151D1397A500A1A7C5 /* avatar2.png */; };
+		A4012B181D1397A500A1A7C5 /* avatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4012B161D1397A500A1A7C5 /* avatar1.png */; };
 		A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A841D123EDF00E5D089 /* PersonRealm.m */; };
 		A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A871D123F4B00E5D089 /* DemoPersonRealm.m */; };
 		A4AA9A8B1D1245E100E5D089 /* DemoPersonRealmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A8A1D1245E100E5D089 /* DemoPersonRealmViewController.m */; };
@@ -51,6 +53,8 @@
 		8347949B1D121E1800623212 /* DemoCoreData-RealmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DemoCoreData-RealmTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8347949F1D121E1800623212 /* DemoCoreData_RealmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoCoreData_RealmTests.m; sourceTree = "<group>"; };
 		834794A11D121E1800623212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4012B151D1397A500A1A7C5 /* avatar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar2.png; sourceTree = "<group>"; };
+		A4012B161D1397A500A1A7C5 /* avatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar1.png; sourceTree = "<group>"; };
 		A4AA9A831D123EDF00E5D089 /* PersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRealm.h; sourceTree = "<group>"; };
 		A4AA9A841D123EDF00E5D089 /* PersonRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRealm.m; sourceTree = "<group>"; };
 		A4AA9A861D123F4B00E5D089 /* DemoPersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonRealm.h; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 		A4AA9A7F1D123E5100E5D089 /* DemoRealm */ = {
 			isa = PBXGroup;
 			children = (
+				A4012B161D1397A500A1A7C5 /* avatar1.png */,
+				A4012B151D1397A500A1A7C5 /* avatar2.png */,
 				A4AA9A831D123EDF00E5D089 /* PersonRealm.h */,
 				A4AA9A841D123EDF00E5D089 /* PersonRealm.m */,
 				A4AA9A861D123F4B00E5D089 /* DemoPersonRealm.h */,
@@ -281,7 +287,9 @@
 			files = (
 				834794951D121E1800623212 /* LaunchScreen.storyboard in Resources */,
 				A4AA9A981D12522600E5D089 /* ViewTableViewCellPerson.xib in Resources */,
+				A4012B181D1397A500A1A7C5 /* avatar1.png in Resources */,
 				834794921D121E1800623212 /* Assets.xcassets in Resources */,
+				A4012B171D1397A500A1A7C5 /* avatar2.png in Resources */,
 				8347948D1D121E1800623212 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,7 +41,9 @@
 }
 
 - (void)actionAdd:(UIBarButtonItem *)sender {
-    [[DemoPersonRealm sharedInstance] addPersonRealm];
+    for (NSInteger i = 0; i<1000; i++) {
+        [[DemoPersonRealm sharedInstance] addPersonRealm];
+    }
     
     [self updateDataSource];
 }
@@ -77,11 +79,14 @@
 - (ViewTableViewCellPerson *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ViewTableViewCellPerson *cell = (ViewTableViewCellPerson *)[tableView dequeueReusableCellWithIdentifier:@"UITableViewCell-Realm" forIndexPath:indexPath];
     
-    PersonRealm *person = (PersonRealm *)_persons[indexPath.row];
-    cell.lbName.text = person.name;
-    cell.lbAge.text  = [NSString stringWithFormat:@"%ld", (long)person.age];
-    cell.lbCity.text = person.city;
-    cell.lbJob.text = person.job;
+    PersonRealm *person     = (PersonRealm *)_persons[indexPath.row];
+    cell.avatar.image       = [UIImage imageNamed:person.avatar];
+    cell.lbName.text        = person.name;
+    cell.lbWechatId.text    = person.wechatId;
+    cell.lbEmail.text       = person.email;
+    cell.lbAge.text         = [NSString stringWithFormat:@"%ld", (long)person.age];
+    cell.lbCity.text        = person.city;
+    cell.lbJob.text         = person.job;
     
     return cell;
 }

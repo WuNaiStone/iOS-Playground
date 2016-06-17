@@ -14,6 +14,11 @@
 @property NSInteger age;
 @property NSString *city;
 @property NSString *job;
+@property NSString *email;
+@property NSString *wechatId;
+@property NSString *avatar;
+@property float height; // cm
+@property float weight; // kg
 
 @end
 

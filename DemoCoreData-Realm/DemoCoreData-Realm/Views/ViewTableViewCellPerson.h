@@ -10,7 +10,11 @@
 
 @interface ViewTableViewCellPerson : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+
 @property (weak, nonatomic) IBOutlet UILabel *lbName;
+@property (weak, nonatomic) IBOutlet UILabel *lbWechatId;
+@property (weak, nonatomic) IBOutlet UILabel *lbEmail;
 @property (weak, nonatomic) IBOutlet UILabel *lbAge;
 @property (weak, nonatomic) IBOutlet UILabel *lbCity;
 @property (weak, nonatomic) IBOutlet UILabel *lbJob;

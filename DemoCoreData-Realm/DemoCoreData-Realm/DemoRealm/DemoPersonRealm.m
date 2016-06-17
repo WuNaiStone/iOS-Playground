@@ -31,6 +31,11 @@
     aPerson.age             = index;
     aPerson.city            = [NSString stringWithFormat:@"city %ld", index];
     aPerson.job             = [NSString stringWithFormat:@"job %ld", index];
+    aPerson.email           = [NSString stringWithFormat:@"email %ld", index];
+    aPerson.wechatId        = [NSString stringWithFormat:@"wechatId %ld", index];
+    aPerson.avatar          = index % 2 ? @"avatar1.png" : @"avatar2.png";
+    aPerson.height          = 170 + index % 10;
+    aPerson.weight          = 60 + index % 10;
     
     RLMRealm *realm         = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
