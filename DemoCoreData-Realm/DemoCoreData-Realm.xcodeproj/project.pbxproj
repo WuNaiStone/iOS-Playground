@@ -18,6 +18,8 @@
 		834794A01D121E1800623212 /* DemoCoreData_RealmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8347949F1D121E1800623212 /* DemoCoreData_RealmTests.m */; };
 		A4012B171D1397A500A1A7C5 /* avatar2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4012B151D1397A500A1A7C5 /* avatar2.png */; };
 		A4012B181D1397A500A1A7C5 /* avatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4012B161D1397A500A1A7C5 /* avatar1.png */; };
+		A4012B1B1D13A4AC00A1A7C5 /* ViewEditPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B1A1D13A4AC00A1A7C5 /* ViewEditPerson.m */; };
+		A4012B1D1D13A4B900A1A7C5 /* ViewEditPerson.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4012B1C1D13A4B900A1A7C5 /* ViewEditPerson.xib */; };
 		A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A841D123EDF00E5D089 /* PersonRealm.m */; };
 		A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A871D123F4B00E5D089 /* DemoPersonRealm.m */; };
 		A4AA9A8B1D1245E100E5D089 /* DemoPersonRealmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A8A1D1245E100E5D089 /* DemoPersonRealmViewController.m */; };
@@ -55,6 +57,9 @@
 		834794A11D121E1800623212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4012B151D1397A500A1A7C5 /* avatar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar2.png; sourceTree = "<group>"; };
 		A4012B161D1397A500A1A7C5 /* avatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar1.png; sourceTree = "<group>"; };
+		A4012B191D13A4AC00A1A7C5 /* ViewEditPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewEditPerson.h; sourceTree = "<group>"; };
+		A4012B1A1D13A4AC00A1A7C5 /* ViewEditPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewEditPerson.m; sourceTree = "<group>"; };
+		A4012B1C1D13A4B900A1A7C5 /* ViewEditPerson.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewEditPerson.xib; sourceTree = "<group>"; };
 		A4AA9A831D123EDF00E5D089 /* PersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRealm.h; sourceTree = "<group>"; };
 		A4AA9A841D123EDF00E5D089 /* PersonRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRealm.m; sourceTree = "<group>"; };
 		A4AA9A861D123F4B00E5D089 /* DemoPersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonRealm.h; sourceTree = "<group>"; };
@@ -184,6 +189,9 @@
 				A4AA9A941D12521700E5D089 /* ViewTableViewCellPerson.h */,
 				A4AA9A951D12521700E5D089 /* ViewTableViewCellPerson.m */,
 				A4AA9A971D12522600E5D089 /* ViewTableViewCellPerson.xib */,
+				A4012B191D13A4AC00A1A7C5 /* ViewEditPerson.h */,
+				A4012B1A1D13A4AC00A1A7C5 /* ViewEditPerson.m */,
+				A4012B1C1D13A4B900A1A7C5 /* ViewEditPerson.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 				A4AA9A981D12522600E5D089 /* ViewTableViewCellPerson.xib in Resources */,
 				A4012B181D1397A500A1A7C5 /* avatar1.png in Resources */,
 				834794921D121E1800623212 /* Assets.xcassets in Resources */,
+				A4012B1D1D13A4B900A1A7C5 /* ViewEditPerson.xib in Resources */,
 				A4012B171D1397A500A1A7C5 /* avatar2.png in Resources */,
 				8347948D1D121E1800623212 /* Main.storyboard in Resources */,
 			);
@@ -406,6 +415,7 @@
 				A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */,
 				834794871D121E1800623212 /* AppDelegate.m in Sources */,
 				A4AA9A8E1D12464900E5D089 /* DemoPersonCoreDataViewController.m in Sources */,
+				A4012B1B1D13A4AC00A1A7C5 /* ViewEditPerson.m in Sources */,
 				834794841D121E1800623212 /* main.m in Sources */,
 				834794901D121E1800623212 /* DemoCoreData_Realm.xcdatamodeld in Sources */,
 				A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */,

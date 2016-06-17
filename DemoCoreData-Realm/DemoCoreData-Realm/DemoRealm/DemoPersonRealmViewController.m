@@ -8,18 +8,23 @@
 
 #import "DemoPersonRealmViewController.h"
 #import "ViewTableViewCellPerson.h"
+#import "ViewEditPerson.h"
 #import "DemoPersonRealm.h"
 #import "PersonRealm.h"
+#import "AppDelegate.h"
 
 @interface DemoPersonRealmViewController () <
     UITableViewDataSource,
-    UITableViewDelegate
+    UITableViewDelegate,
+    ViewEditPersonDelegate
 >
 
 @end
 
 @implementation DemoPersonRealmViewController {
 
+    ViewEditPerson *_viewEditPerson;
+    
     UITableView *_tableView;
     
     NSArray *_persons;
@@ -30,20 +35,48 @@
     
     [self initNavBar];
     
+    [self initViewEditPerson];
+    
     [self initTableView];
     
     [self updateDataSource];
 }
 
 - (void)initNavBar {
-    UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionAdd:)];
-    self.navigationItem.leftBarButtonItem = btnLeft;
+    UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionAddOne:)];
+    
+    UIBarButtonItem *btnLeft2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionAddAll:)];
+    self.navigationItem.leftBarButtonItems = @[btnLeft, btnLeft2];
     
     UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionSorted:)];
     self.navigationItem.rightBarButtonItem = btnRight;
 }
 
-- (void)actionAdd:(UIBarButtonItem *)sender {
+- (void)actionAddOne:(UIBarButtonItem *)sender {
+    _viewEditPerson.personRealm = nil;
+    
+    _viewEditPerson.hidden = NO;
+}
+
+- (void)initViewEditPerson {
+    NSArray *array = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewEditPerson class]) owner:nil options:nil];
+    _viewEditPerson = (ViewEditPerson *)[array lastObject];
+    _viewEditPerson.frame = self.view.frame;
+    _viewEditPerson.hidden = YES;
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate.window addSubview:_viewEditPerson];
+    
+    _viewEditPerson.delegate = self;
+}
+
+#pragma mark - <ViewEditPersonDelegate>
+
+- (void)ViewEditPersonActionDone {
+    [self updateDataSource];
+}
+
+- (void)actionAddAll:(UIBarButtonItem *)sender {
     for (NSInteger i = 0; i<1000; i++) {
         [[DemoPersonRealm sharedInstance] addPersonRealm];
     }
@@ -52,7 +85,7 @@
 }
 
 - (void)actionSorted:(UIBarButtonItem *)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorted" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Sorted By Property" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *actionSortedByAvatar = [UIAlertAction actionWithTitle:@"Avatar" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
@@ -126,6 +159,15 @@
     cell.lbWeight.text      = [NSString stringWithFormat:@"%ld", (long)person.weight];
     
     return cell;
+}
+
+#pragma mark - <UITableViewDelegate>
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    PersonRealm *personRealm    = (PersonRealm *)_persons[indexPath.row];
+    _viewEditPerson.personRealm = personRealm;
+    
+    _viewEditPerson.hidden = NO;
 }
 
 /*

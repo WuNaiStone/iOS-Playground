@@ -19,17 +19,17 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeA-bO-dO6">
-                    <rect key="frame" x="80" y="0.0" width="80" height="40"/>
+                    <rect key="frame" x="80" y="0.0" width="100" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="RL5-Fx-sNi"/>
-                        <constraint firstAttribute="width" constant="80" id="Z6P-cf-ltq"/>
+                        <constraint firstAttribute="width" constant="100" id="Z6P-cf-ltq"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wechatId" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGr-ia-2oj">
-                    <rect key="frame" x="160" y="0.0" width="100" height="40"/>
+                    <rect key="frame" x="180" y="0.0" width="100" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="a8C-eb-erC"/>
                         <constraint firstAttribute="width" constant="100" id="zus-5x-Gd6"/>
@@ -39,7 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="city" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f89-Ts-LR6">
-                    <rect key="frame" x="260" y="0.0" width="60" height="40"/>
+                    <rect key="frame" x="280" y="0.0" width="60" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="U3t-sQ-8FN"/>
                         <constraint firstAttribute="width" constant="60" id="ZRT-aj-oHE"/>
