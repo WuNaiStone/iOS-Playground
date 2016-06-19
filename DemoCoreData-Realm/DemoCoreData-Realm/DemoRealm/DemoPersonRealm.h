@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PersonRealm.h"
 
 @protocol DemoPersonRealmDelegate <NSObject>
 
@@ -24,10 +25,10 @@
 
 - (void)addPersonRealm;
 
-- (NSArray *)queryPersonRealm;
+- (RLMResults *)queryPersonRealm;
 
-- (NSArray *)queryPersonRealmSortedBy:(NSString *)sortedProperty;
+- (RLMResults *)queryPersonRealmSortedBy:(NSString *)sortedProperty;
 
-- (NSArray *)queryPersonRealmFilteredBy:(NSString *)filterCondition;
+- (RLMResults *)queryPersonRealmFilteredBy:(NSString *)filterCondition;
 
 @end

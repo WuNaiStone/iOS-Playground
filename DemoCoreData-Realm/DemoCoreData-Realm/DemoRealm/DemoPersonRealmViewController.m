@@ -28,7 +28,7 @@
     
     UITableView *_tableView;
     
-    NSArray *_persons;
+    RLMResults *_persons;
 }
 
 - (void)viewDidLoad {

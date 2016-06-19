@@ -7,7 +7,6 @@
 //
 
 #import "DemoPersonRealm.h"
-#import "PersonRealm.h"
 
 @interface DemoPersonRealm ()
 
@@ -79,45 +78,29 @@
     }];
 }
 
-- (NSArray *)queryPersonRealm {
-    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    RLMResults *persons = [PersonRealm allObjects];
-    for (PersonRealm *p in persons) {
-//        NSLog(@"p : %@", p.description);
-        [results addObject:p];
-    }
-    
-    RLMRealm *realm         = [RLMRealm defaultRealm];
+- (RLMResults *)queryPersonRealm {
+    RLMRealm *realm     = [RLMRealm defaultRealm];
     
     NSLog(@"fileURL : %@", realm.configuration.fileURL);
     
-    return results;
+    RLMResults *persons = [PersonRealm allObjects];
+    
+    return persons;
 }
 
-- (NSArray *)queryPersonRealmSortedBy:(NSString *)sortedProperty {
-    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
-    
+- (RLMResults *)queryPersonRealmSortedBy:(NSString *)sortedProperty {
     RLMResults *persons = [[PersonRealm allObjects] sortedResultsUsingProperty:sortedProperty ascending:YES];
     
-    for (PersonRealm *p in persons) {
-        [results addObject:p];
-    }
-    return results;
+    return persons;
 }
 
-- (NSArray *)queryPersonRealmFilteredBy:(NSString *)filterCondition {
-    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
-    
+- (RLMResults *)queryPersonRealmFilteredBy:(NSString *)filterCondition {
     RLMResults *persons = [PersonRealm objectsWhere:filterCondition];
     
 //    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age == %d AND name BEGINSWITH %@", 18, @"C"];
 //    RLMResults *persons = [PersonRealm objectsWithPredicate:predicate];
     
-    for (PersonRealm *p in persons) {
-        [results addObject:p];
-    }
-    return results;
+    return persons;
 }
 
 @end
