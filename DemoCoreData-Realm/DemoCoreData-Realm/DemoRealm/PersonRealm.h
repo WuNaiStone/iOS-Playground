@@ -20,6 +20,11 @@
 @property float height; // cm
 @property float weight; // kg
 
+// migration
+@property BOOL isMarried;
+
+@property NSString *nickName;
+
 @end
 
 // This protocol enables typed collections. i.e.:

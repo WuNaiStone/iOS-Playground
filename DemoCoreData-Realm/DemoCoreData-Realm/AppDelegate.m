@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PersonRealm.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self addRealmConfigurationMigrationBlock];
+    
     return YES;
+}
+
+#pragma mark - Migration
+
+- (void)addRealmConfigurationMigrationBlock {
+    RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
+    config.schemaVersion = 1; // migration需要指定
+    config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
+        // 没有执行过migration, 则oldSchemaVersion为0
+        if (oldSchemaVersion < config.schemaVersion) {
+            [migration enumerateObjects:PersonRealm.className
+                                  block:^(RLMObject * _Nullable oldObject, RLMObject * _Nullable newObject) {
+                                      
+                                      newObject[@"isMarried"] = @NO;
+                                      
+                                  }];
+        }
+        
+    };
+    [RLMRealmConfiguration setDefaultConfiguration:config];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
