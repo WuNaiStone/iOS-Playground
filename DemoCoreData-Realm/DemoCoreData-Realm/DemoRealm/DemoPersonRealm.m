@@ -11,7 +11,9 @@
 
 @interface DemoPersonRealm ()
 
-@property (nonatomic, strong) RLMNotificationToken *notificationToken;
+@property (nonatomic, strong) RLMNotificationToken *notificationTokenRealm;
+
+@property (nonatomic, strong) RLMNotificationToken *notificationTokenRealmCollection;
 
 @end
 
@@ -23,9 +25,16 @@
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
         
+        // Realm notification
         RLMRealm *realm         = [RLMRealm defaultRealm];
-        sharedInstance.notificationToken = [realm addNotificationBlock:^(NSString * _Nonnull notification, RLMRealm * _Nonnull realm) {
+        sharedInstance.notificationTokenRealm = [realm addNotificationBlock:^(NSString * _Nonnull notification, RLMRealm * _Nonnull realm) {
             NSLog(@"Realm Write Notification : %@, %@", notification, realm);
+        }];
+        
+        
+        // Collection notification
+        sharedInstance.notificationTokenRealmCollection = [[PersonRealm objectsWhere:@"age == 18"] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
+            NSLog(@"Realm Collection Notification : %@, %@", results, change);
         }];
     });
     
