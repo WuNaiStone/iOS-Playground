@@ -21,9 +21,11 @@
 
 + (instancetype)sharedInstance;
 
+- (void)addPersonRealm;
+
 - (void)deletePersonRealm;
 
-- (void)addPersonRealm;
+- (void)updatePersonRealm;
 
 - (RLMResults *)queryPersonRealm;
 

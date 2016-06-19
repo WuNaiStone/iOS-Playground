@@ -50,7 +50,9 @@
     
     UIBarButtonItem *btnLeft2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionAddAll:)];
     
-    self.navigationItem.leftBarButtonItems = @[btnLeft, btnLeft2];
+    UIBarButtonItem *btnLeft3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionUpdate:)];
+    
+    self.navigationItem.leftBarButtonItems = @[btnLeft, btnLeft2, btnLeft3];
     
     UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionSorted:)];
     
@@ -65,28 +67,14 @@
     _viewEditPerson.hidden = NO;
 }
 
-- (void)initViewEditPerson {
-    NSArray *array = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewEditPerson class]) owner:nil options:nil];
-    _viewEditPerson = (ViewEditPerson *)[array lastObject];
-    _viewEditPerson.frame = self.view.frame;
-    _viewEditPerson.hidden = YES;
-    
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate.window addSubview:_viewEditPerson];
-    
-    _viewEditPerson.delegate = self;
-}
-
-#pragma mark - <ViewEditPersonDelegate>
-
-- (void)ViewEditPersonActionDone {
-//    [self updateDataSource];
-}
-
 - (void)actionAddAll:(UIBarButtonItem *)sender {
     for (NSInteger i = 0; i<1000; i++) {
         [[DemoPersonRealm sharedInstance] addPersonRealm];
     }
+}
+
+- (void)actionUpdate:(UIBarButtonItem *)sender {
+    [[DemoPersonRealm sharedInstance] updatePersonRealm];
 }
 
 - (void)actionSorted:(UIBarButtonItem *)sender {
@@ -139,6 +127,24 @@
     [alert addAction:actionCancel];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)initViewEditPerson {
+    NSArray *array = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ViewEditPerson class]) owner:nil options:nil];
+    _viewEditPerson = (ViewEditPerson *)[array lastObject];
+    _viewEditPerson.frame = self.view.frame;
+    _viewEditPerson.hidden = YES;
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate.window addSubview:_viewEditPerson];
+    
+    _viewEditPerson.delegate = self;
+}
+
+#pragma mark - <ViewEditPersonDelegate>
+
+- (void)ViewEditPersonActionDone {
+//    [self updateDataSource];
 }
 
 - (void)initTableView {

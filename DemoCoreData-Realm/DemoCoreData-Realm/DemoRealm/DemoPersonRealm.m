@@ -49,13 +49,6 @@
     }];
 }
 
-- (void)deletePersonRealm {
-    RLMRealm *realm         = [RLMRealm defaultRealm];
-    [realm transactionWithBlock:^{
-        [realm deleteAllObjects];
-    }];
-}
-
 - (void)addPersonRealm {
     RLMResults *persons     = [PersonRealm allObjects];
     
@@ -75,6 +68,31 @@
     RLMRealm *realm         = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
         [realm addObject:aPerson];
+    }];
+}
+
+- (void)deletePersonRealm {
+    RLMResults *persons = [PersonRealm objectsWhere:@"age == 18"];
+    
+    RLMRealm *realm         = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        [realm deleteObject:[persons firstObject]];
+        
+//        [realm deleteObjects:persons];
+        
+//        [realm deleteAllObjects];
+    }];
+}
+
+- (void)updatePersonRealm {
+    RLMResults *persons = [PersonRealm objectsWhere:@"age == 18"];
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm transactionWithBlock:^{
+        [[persons firstObject] setValue:@20 forKey:@"age"];
+        
+//        [persons setValue:@20 forKey:@"age"];
     }];
 }
 
