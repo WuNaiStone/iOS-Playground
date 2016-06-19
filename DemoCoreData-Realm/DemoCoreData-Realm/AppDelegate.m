@@ -36,6 +36,7 @@
                                   block:^(RLMObject * _Nullable oldObject, RLMObject * _Nullable newObject) {
                                       
                                       // 如v1已经有了isMarried属性, 就不重复migration
+                                      // 使用场景:用户A每次及时更新(v0->v1->v2); 而用户B不及时,可能跳级(v0->v2).
                                       if (oldSchemaVersion < 1) {
                                           newObject[@"isMarried"] = @NO;
                                       }
