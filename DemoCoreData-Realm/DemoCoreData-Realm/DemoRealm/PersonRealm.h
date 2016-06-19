@@ -23,7 +23,7 @@
 // migration
 @property BOOL isMarried;
 
-@property NSString *nickName;
+@property NSString *nickname;
 
 @end
 
