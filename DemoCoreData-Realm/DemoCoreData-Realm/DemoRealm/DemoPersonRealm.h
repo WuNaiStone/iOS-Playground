@@ -20,6 +20,8 @@
 
 + (instancetype)sharedInstance;
 
+- (void)deletePersonRealm;
+
 - (void)addPersonRealm;
 
 - (NSArray *)queryPersonRealm;

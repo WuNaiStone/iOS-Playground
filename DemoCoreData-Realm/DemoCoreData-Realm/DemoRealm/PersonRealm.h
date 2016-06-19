@@ -9,7 +9,7 @@
 #import <Realm/Realm.h>
 
 // v0
-/*
+
 @interface PersonRealm : RLMObject
 
 @property NSString *name;
@@ -27,7 +27,7 @@
 // This protocol enables typed collections. i.e.:
 // RLMArray<PersonRealm>
 RLM_ARRAY_TYPE(PersonRealm)
-*/
+
 
 
 
@@ -58,7 +58,7 @@ RLM_ARRAY_TYPE(PersonRealm)
 
 
 // v2
-
+/*
 @interface PersonRealm : RLMObject
 
 @property NSString *name;
@@ -81,4 +81,4 @@ RLM_ARRAY_TYPE(PersonRealm)
 // This protocol enables typed collections. i.e.:
 // RLMArray<PersonRealm>
 RLM_ARRAY_TYPE(PersonRealm)
-
+*/

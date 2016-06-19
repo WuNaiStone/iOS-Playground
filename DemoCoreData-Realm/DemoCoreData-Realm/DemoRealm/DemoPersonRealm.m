@@ -50,6 +50,13 @@
     }];
 }
 
+- (void)deletePersonRealm {
+    RLMRealm *realm         = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        [realm deleteAllObjects];
+    }];
+}
+
 - (void)addPersonRealm {
     RLMResults *persons     = [PersonRealm allObjects];
     
