@@ -28,19 +28,26 @@
 
 - (void)addRealmConfigurationMigrationBlock {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-    config.schemaVersion = 3; // migration需要指定
+    config.schemaVersion = 2; // migration需要指定
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         // 没有执行过migration, 则oldSchemaVersion为0
         if (oldSchemaVersion < config.schemaVersion) {
             [migration enumerateObjects:PersonRealm.className
                                   block:^(RLMObject * _Nullable oldObject, RLMObject * _Nullable newObject) {
                                       
-                                      newObject[@"isMarried"] = @NO;
+                                      // 如v1已经有了isMarried属性, 就不重复migration
+                                      if (oldSchemaVersion < 1) {
+                                          newObject[@"isMarried"] = @NO;
+                                      }
+                                      
+                                      if (oldSchemaVersion < 2) {
+                                          newObject[@"nickname"] = @"";
+                                      }
                                       
                                   }];
             
             // rename与enumerateObjects无关, 不能放在其中.
-            [migration renamePropertyForClass:PersonRealm.className oldName:@"nickName" newName:@"nickname"];
+//            [migration renamePropertyForClass:PersonRealm.className oldName:@"nickName" newName:@"nickname"];
         }
         
     };
