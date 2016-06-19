@@ -9,6 +9,12 @@
 #import "DemoPersonRealm.h"
 #import "PersonRealm.h"
 
+@interface DemoPersonRealm ()
+
+@property (nonatomic, strong) RLMNotificationToken *notificationToken;
+
+@end
+
 @implementation DemoPersonRealm
 
 + (instancetype)sharedInstance {
@@ -16,6 +22,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
+        
+        RLMRealm *realm         = [RLMRealm defaultRealm];
+        sharedInstance.notificationToken = [realm addNotificationBlock:^(NSString * _Nonnull notification, RLMRealm * _Nonnull realm) {
+            NSLog(@"Realm Write Notification : %@, %@", notification, realm);
+        }];
     });
     
     return sharedInstance;
