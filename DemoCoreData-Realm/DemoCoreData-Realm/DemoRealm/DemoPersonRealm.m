@@ -29,6 +29,10 @@
         RLMRealm *realm         = [RLMRealm defaultRealm];
         sharedInstance.notificationTokenRealm = [realm addNotificationBlock:^(NSString * _Nonnull notification, RLMRealm * _Nonnull realm) {
             NSLog(@"Realm Write Notification : %@, %@", notification, realm);
+            
+            if (sharedInstance.delegateUpdated && [sharedInstance.delegateUpdated respondsToSelector:@selector(DemoPersonRealmUpdated)]) {
+                [sharedInstance.delegateUpdated DemoPersonRealmUpdated];
+            }
         }];
         
         

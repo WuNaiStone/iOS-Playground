@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol DemoPersonRealmDelegate <NSObject>
+
+- (void)DemoPersonRealmUpdated;
+
+@end
+
 @interface DemoPersonRealm : NSObject
+
+@property (nonatomic, weak) id<DemoPersonRealmDelegate> delegateUpdated;
 
 + (instancetype)sharedInstance;
 

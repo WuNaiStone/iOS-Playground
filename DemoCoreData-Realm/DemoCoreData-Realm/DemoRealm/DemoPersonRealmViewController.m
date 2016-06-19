@@ -16,7 +16,8 @@
 @interface DemoPersonRealmViewController () <
     UITableViewDataSource,
     UITableViewDelegate,
-    ViewEditPersonDelegate
+    ViewEditPersonDelegate,
+    DemoPersonRealmDelegate
 >
 
 @end
@@ -38,6 +39,8 @@
     [self initViewEditPerson];
     
     [self initTableView];
+    
+    [DemoPersonRealm sharedInstance].delegateUpdated = self;
     
     [self updateDataSource];
 }
@@ -77,15 +80,13 @@
 #pragma mark - <ViewEditPersonDelegate>
 
 - (void)ViewEditPersonActionDone {
-    [self updateDataSource];
+//    [self updateDataSource];
 }
 
 - (void)actionAddAll:(UIBarButtonItem *)sender {
     for (NSInteger i = 0; i<1000; i++) {
         [[DemoPersonRealm sharedInstance] addPersonRealm];
     }
-    
-    [self updateDataSource];
 }
 
 - (void)actionSorted:(UIBarButtonItem *)sender {
@@ -156,6 +157,14 @@
     _persons = [[DemoPersonRealm sharedInstance] queryPersonRealm];
     
     [_tableView reloadData];
+}
+
+#pragma mark - <DemoPersonRealmDelegate>
+
+- (void)DemoPersonRealmUpdated {
+    NSLog(@"%s", __func__);
+    
+    [self updateDataSource];
 }
 
 #pragma mark - <UITableViewDataSource>
