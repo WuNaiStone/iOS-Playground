@@ -9,7 +9,6 @@
 #import "DemoPersonCoreData.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
-#import "PersonCoreData.h"
 
 #define ENTITY_PERSON   @"PersonCoreData"
 

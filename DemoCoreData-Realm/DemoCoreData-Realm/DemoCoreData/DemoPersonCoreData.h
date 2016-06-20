@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PersonCoreData.h"
 
 @interface DemoPersonCoreData : NSObject
 

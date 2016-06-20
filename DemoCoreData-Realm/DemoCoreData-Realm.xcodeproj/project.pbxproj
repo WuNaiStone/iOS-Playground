@@ -23,6 +23,7 @@
 		A4012B221D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B1F1D13E53600A1A7C5 /* PersonCoreData+CoreDataProperties.m */; };
 		A4012B231D13E53600A1A7C5 /* PersonCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B211D13E53600A1A7C5 /* PersonCoreData.m */; };
 		A4012B261D13E60D00A1A7C5 /* DemoPersonCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = A4012B251D13E60D00A1A7C5 /* DemoPersonCoreData.m */; };
+		A40558EF1D17C49A00577D29 /* DemoPersonRealm_PersonCoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A40558EE1D17C49A00577D29 /* DemoPersonRealm_PersonCoreDataTests.m */; };
 		A4AA9A851D123EDF00E5D089 /* PersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A841D123EDF00E5D089 /* PersonRealm.m */; };
 		A4AA9A881D123F4B00E5D089 /* DemoPersonRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A871D123F4B00E5D089 /* DemoPersonRealm.m */; };
 		A4AA9A8B1D1245E100E5D089 /* DemoPersonRealmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA9A8A1D1245E100E5D089 /* DemoPersonRealmViewController.m */; };
@@ -69,6 +70,7 @@
 		A4012B211D13E53600A1A7C5 /* PersonCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCoreData.m; sourceTree = "<group>"; };
 		A4012B241D13E60D00A1A7C5 /* DemoPersonCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonCoreData.h; sourceTree = "<group>"; };
 		A4012B251D13E60D00A1A7C5 /* DemoPersonCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPersonCoreData.m; sourceTree = "<group>"; };
+		A40558EE1D17C49A00577D29 /* DemoPersonRealm_PersonCoreDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoPersonRealm_PersonCoreDataTests.m; sourceTree = "<group>"; };
 		A4AA9A831D123EDF00E5D089 /* PersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonRealm.h; sourceTree = "<group>"; };
 		A4AA9A841D123EDF00E5D089 /* PersonRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonRealm.m; sourceTree = "<group>"; };
 		A4AA9A861D123F4B00E5D089 /* DemoPersonRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoPersonRealm.h; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				8347949F1D121E1800623212 /* DemoCoreData_RealmTests.m */,
+				A40558EE1D17C49A00577D29 /* DemoPersonRealm_PersonCoreDataTests.m */,
 				834794A11D121E1800623212 /* Info.plist */,
 			);
 			path = "DemoCoreData-RealmTests";
@@ -445,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				834794A01D121E1800623212 /* DemoCoreData_RealmTests.m in Sources */,
+				A40558EF1D17C49A00577D29 /* DemoPersonRealm_PersonCoreDataTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

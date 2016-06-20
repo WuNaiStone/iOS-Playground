@@ -168,7 +168,7 @@
 #pragma mark - <DemoPersonRealmDelegate>
 
 - (void)DemoPersonRealmUpdated {
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
     
     [self updateDataSource];
 }
