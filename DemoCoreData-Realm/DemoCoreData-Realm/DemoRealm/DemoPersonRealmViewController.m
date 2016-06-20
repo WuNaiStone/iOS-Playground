@@ -46,31 +46,23 @@
 }
 
 - (void)initNavBar {
-    UIBarButtonItem *btnLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionAddOne:)];
+    UIBarButtonItem *btnInsert = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionInsert:)];
     
-    UIBarButtonItem *btnLeft2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(actionAddAll:)];
+    UIBarButtonItem *btnUpdate = [[UIBarButtonItem alloc] initWithTitle:@"Update Age(18)" style:UIBarButtonItemStylePlain target:self action:@selector(actionUpdate:)];
     
-    UIBarButtonItem *btnLeft3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionUpdate:)];
+    self.navigationItem.leftBarButtonItems = @[btnInsert, btnUpdate];
     
-    self.navigationItem.leftBarButtonItems = @[btnLeft, btnLeft2, btnLeft3];
+    UIBarButtonItem *btnSort = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStylePlain target:self action:@selector(actionSorted:)];
     
-    UIBarButtonItem *btnRight = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionSorted:)];
+    UIBarButtonItem *btnFilter = [[UIBarButtonItem alloc] initWithTitle:@"Filter" style:UIBarButtonItemStylePlain target:self action:@selector(actionFiltered:)];
     
-    UIBarButtonItem *btnRight2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(actionFiltered:)];
-    
-    self.navigationItem.rightBarButtonItems = @[btnRight, btnRight2];
+    self.navigationItem.rightBarButtonItems = @[btnSort, btnFilter];
 }
 
-- (void)actionAddOne:(UIBarButtonItem *)sender {
+- (void)actionInsert:(UIBarButtonItem *)sender {
     _viewEditPerson.personRealm = nil;
     
     _viewEditPerson.hidden = NO;
-}
-
-- (void)actionAddAll:(UIBarButtonItem *)sender {
-    for (NSInteger i = 0; i<1000; i++) {
-        [[DemoPersonRealm sharedInstance] addPersonRealm];
-    }
 }
 
 - (void)actionUpdate:(UIBarButtonItem *)sender {
