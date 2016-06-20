@@ -15,6 +15,10 @@
 
 - (void)addPersonCoreData;
 
+- (void)deletePersonCoreData;
+
+- (void)updatePersonCoreData;
+
 - (NSArray *)queryPersonCoreData;
 
 @end

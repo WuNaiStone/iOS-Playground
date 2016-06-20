@@ -30,6 +30,8 @@
     
     [self demoCoreData];
     
+    [self initNavBar];
+    
     [self initTableView];
     
     [self updateDataSource];
@@ -43,6 +45,36 @@
     for (PersonCoreData *person in fetchedObjects) {
         NSLog(@"person : %@", person.description);
     }
+}
+
+- (void)initNavBar {
+    UIBarButtonItem *btnInsert = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(actionInsert:)];
+    
+    UIBarButtonItem *btnUpdate = [[UIBarButtonItem alloc] initWithTitle:@"Update Age(18)" style:UIBarButtonItemStylePlain target:self action:@selector(actionUpdate:)];
+    
+    self.navigationItem.leftBarButtonItems = @[btnInsert, btnUpdate];
+    
+    UIBarButtonItem *btnDelete = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(actionDelete:)];
+
+    self.navigationItem.rightBarButtonItems = @[btnDelete];
+}
+
+- (void)actionInsert:(UIBarButtonItem *)sender {
+    [[DemoPersonCoreData sharedInstance] addPersonCoreData];
+    
+    [self updateDataSource];
+}
+
+- (void)actionUpdate:(UIBarButtonItem *)sender {
+    [[DemoPersonCoreData sharedInstance] updatePersonCoreData];
+    
+    [self updateDataSource];
+}
+
+- (void)actionDelete:(UIBarButtonItem *)sender {
+    [[DemoPersonCoreData sharedInstance] deletePersonCoreData];
+    
+    [self updateDataSource];
 }
 
 - (void)initTableView {

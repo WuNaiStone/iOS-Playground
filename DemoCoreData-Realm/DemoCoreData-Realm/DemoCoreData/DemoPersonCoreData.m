@@ -52,6 +52,36 @@
     [_managedObjectContext save:nil];
 }
 
+- (void)deletePersonCoreData {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_PERSON inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects.count) {
+        for (PersonCoreData *person in fetchedObjects) {
+            [_managedObjectContext deleteObject:person];
+        }
+    }
+    [_managedObjectContext save:nil];
+}
+
+- (void)updatePersonCoreData {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_PERSON inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects.count) {
+        for (PersonCoreData *person in fetchedObjects) {
+            person.age = @20;
+        }
+    }
+    [_managedObjectContext save:nil];
+}
+
 - (NSArray *)queryPersonCoreData {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_PERSON inManagedObjectContext:_managedObjectContext];
