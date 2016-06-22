@@ -28,7 +28,7 @@
 
 - (void)addRealmConfigurationMigrationBlock {
     RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
-    config.schemaVersion = 2; // migration需要指定
+    config.schemaVersion = 1; // migration需要指定
     config.migrationBlock = ^(RLMMigration *migration, uint64_t oldSchemaVersion) {
         // 没有执行过migration, 则oldSchemaVersion为0
         if (oldSchemaVersion < config.schemaVersion) {
@@ -41,9 +41,9 @@
                                           newObject[@"isMarried"] = @NO;
                                       }
                                       
-                                      if (oldSchemaVersion < 2) {
-                                          newObject[@"nickname"] = @"";
-                                      }
+//                                      if (oldSchemaVersion < 2) {
+//                                          newObject[@"nickname"] = @"";
+//                                      }
                                       
                                   }];
             

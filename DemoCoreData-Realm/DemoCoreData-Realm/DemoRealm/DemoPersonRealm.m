@@ -35,7 +35,7 @@
     // Realm Notification
     RLMRealm *realm         = [RLMRealm defaultRealm];
     _notificationTokenRealm = [realm addNotificationBlock:^(NSString * _Nonnull notification, RLMRealm * _Nonnull realm) {
-//        NSLog(@"Realm Write Notification : %@, %@", notification, realm);
+        NSLog(@"Realm Write Notification : %@, %@", notification, realm);
         
         if (_delegateUpdated && [_delegateUpdated respondsToSelector:@selector(DemoPersonRealmUpdated)]) {
             [_delegateUpdated DemoPersonRealmUpdated];
@@ -45,7 +45,7 @@
     
     // Collection Notification
     _notificationTokenRealmCollection = [[PersonRealm objectsWhere:@"age == 18"] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
-//        NSLog(@"Realm Collection Notification : %@, %@", results, change);
+        NSLog(@"Realm Collection Notification : %@, %@", results, change);
     }];
 }
 
@@ -93,9 +93,9 @@
 }
 
 - (RLMResults *)queryPersonRealm {
-//    RLMRealm *realm     = [RLMRealm defaultRealm];
+    RLMRealm *realm     = [RLMRealm defaultRealm];
     
-//    NSLog(@"fileURL : %@", realm.configuration.fileURL);
+    NSLog(@"fileURL : %@", realm.configuration.fileURL);
     
     RLMResults *persons = [PersonRealm allObjects];
     

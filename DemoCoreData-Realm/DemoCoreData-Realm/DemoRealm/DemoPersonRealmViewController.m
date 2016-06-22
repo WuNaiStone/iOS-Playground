@@ -60,9 +60,11 @@
 }
 
 - (void)actionInsert:(UIBarButtonItem *)sender {
-    _viewEditPerson.personRealm = nil;
+//    _viewEditPerson.personRealm = nil;
     
-    _viewEditPerson.hidden = NO;
+//    _viewEditPerson.hidden = NO;
+    
+    [[DemoPersonRealm sharedInstance] addPersonRealm];
 }
 
 - (void)actionUpdate:(UIBarButtonItem *)sender {
