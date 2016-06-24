@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A405592F1D180E5E00577D29 /* DemoRealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40559281D180E5E00577D29 /* DemoRealmViewController.swift */; };
+		A4358FB81D0D5C0200607763 /* DemoFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4358FB71D0D5C0200607763 /* DemoFileViewController.swift */; };
+		A4358FBA1D0D631000607763 /* DemoBasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4358FB91D0D631000607763 /* DemoBasicViewController.swift */; };
+		A4358FBE1D0D647300607763 /* DemoNSUserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4358FBD1D0D647300607763 /* DemoNSUserDefaultsViewController.swift */; };
+		A4358FC01D0D649100607763 /* DemoNSKeyedArchiverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4358FBF1D0D649100607763 /* DemoNSKeyedArchiverViewController.swift */; };
+		A45113681D1C016B003DF39B /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45113661D1C016B003DF39B /* Person+CoreDataProperties.swift */; };
+		A45113691D1C016B003DF39B /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45113671D1C016B003DF39B /* Person.swift */; };
+		A451136B1D1C0194003DF39B /* PersonCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451136A1D1C0194003DF39B /* PersonCoreDataManager.swift */; };
 		A4EA09911C9B915C0004A203 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EA09901C9B915C0004A203 /* AppDelegate.swift */; };
 		A4EA09931C9B915C0004A203 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EA09921C9B915C0004A203 /* ViewController.swift */; };
 		A4EA09961C9B915C0004A203 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4EA09941C9B915C0004A203 /* Main.storyboard */; };
@@ -27,6 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A40559281D180E5E00577D29 /* DemoRealmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoRealmViewController.swift; sourceTree = "<group>"; };
+		A4358FB71D0D5C0200607763 /* DemoFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoFileViewController.swift; sourceTree = "<group>"; };
+		A4358FB91D0D631000607763 /* DemoBasicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoBasicViewController.swift; sourceTree = "<group>"; };
+		A4358FBD1D0D647300607763 /* DemoNSUserDefaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoNSUserDefaultsViewController.swift; sourceTree = "<group>"; };
+		A4358FBF1D0D649100607763 /* DemoNSKeyedArchiverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoNSKeyedArchiverViewController.swift; sourceTree = "<group>"; };
+		A45113661D1C016B003DF39B /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A45113671D1C016B003DF39B /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		A451136A1D1C0194003DF39B /* PersonCoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCoreDataManager.swift; sourceTree = "<group>"; };
 		A4EA098D1C9B915C0004A203 /* DemoDataPersistence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoDataPersistence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4EA09901C9B915C0004A203 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4EA09921C9B915C0004A203 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +74,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A40559261D180E5E00577D29 /* DemoCoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A45113661D1C016B003DF39B /* Person+CoreDataProperties.swift */,
+				A45113671D1C016B003DF39B /* Person.swift */,
+				A451136A1D1C0194003DF39B /* PersonCoreDataManager.swift */,
+			);
+			path = DemoCoreData;
+			sourceTree = "<group>";
+		};
+		A40559271D180E5E00577D29 /* DemoRealm */ = {
+			isa = PBXGroup;
+			children = (
+				A40559281D180E5E00577D29 /* DemoRealmViewController.swift */,
+			);
+			path = DemoRealm;
+			sourceTree = "<group>";
+		};
+		A405592E1D180E5E00577D29 /* DemoSQLite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DemoSQLite;
+			sourceTree = "<group>";
+		};
+		A4358FB61D0D5BE800607763 /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+				A4358FB91D0D631000607763 /* DemoBasicViewController.swift */,
+				A4358FB71D0D5C0200607763 /* DemoFileViewController.swift */,
+				A4358FBD1D0D647300607763 /* DemoNSUserDefaultsViewController.swift */,
+				A4358FBF1D0D649100607763 /* DemoNSKeyedArchiverViewController.swift */,
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
 		A4EA09841C9B915C0004A203 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +131,10 @@
 		A4EA098F1C9B915C0004A203 /* DemoDataPersistence */ = {
 			isa = PBXGroup;
 			children = (
+				A40559261D180E5E00577D29 /* DemoCoreData */,
+				A40559271D180E5E00577D29 /* DemoRealm */,
+				A405592E1D180E5E00577D29 /* DemoSQLite */,
+				A4358FB61D0D5BE800607763 /* Demos */,
 				A4EA09901C9B915C0004A203 /* AppDelegate.swift */,
 				A4EA09921C9B915C0004A203 /* ViewController.swift */,
 				A4EA09941C9B915C0004A203 /* Main.storyboard */,
@@ -200,9 +256,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A45113691D1C016B003DF39B /* Person.swift in Sources */,
+				A451136B1D1C0194003DF39B /* PersonCoreDataManager.swift in Sources */,
 				A4EA09931C9B915C0004A203 /* ViewController.swift in Sources */,
+				A4358FBE1D0D647300607763 /* DemoNSUserDefaultsViewController.swift in Sources */,
+				A45113681D1C016B003DF39B /* Person+CoreDataProperties.swift in Sources */,
 				A4EA09991C9B915C0004A203 /* DemoDataPersistence.xcdatamodeld in Sources */,
+				A4358FBA1D0D631000607763 /* DemoBasicViewController.swift in Sources */,
+				A4358FC01D0D649100607763 /* DemoNSKeyedArchiverViewController.swift in Sources */,
+				A405592F1D180E5E00577D29 /* DemoRealmViewController.swift in Sources */,
 				A4EA09911C9B915C0004A203 /* AppDelegate.swift in Sources */,
+				A4358FB81D0D5C0200607763 /* DemoFileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +454,7 @@
 				A4EA09AF1C9B915C0004A203 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4EA09B01C9B915C0004A203 /* Build configuration list for PBXNativeTarget "DemoDataPersistenceTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +463,7 @@
 				A4EA09B21C9B915C0004A203 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -12,7 +12,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var tableView: UITableView!
     
-    var items = ["Plist and Sandbox files", "NSUserDefaults", "NSKeyedArchiver", "CoreData", "SQLite", "FMDB", "Realm", "Keychain", "iCloud"]
+    var items = ["Plist and Sandbox files",
+                 "NSUserDefaults",
+                 "NSKeyedArchiver",
+                 "CoreData",
+                 "SQLite",
+                 "FMDB",
+                 "Realm",
+                 "Keychain",
+                 "iCloud"]
     
     let CellReuseIdentifier = "CellReuseIdentifier"
     
@@ -54,4 +62,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell
     }
+    
+    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var vc: UIViewController!
+        
+        switch indexPath.row {
+        case 0:
+            vc = DemoFileViewController()
+        default:
+            vc = DemoNSUserDefaultsViewController()
+        }
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
 }
