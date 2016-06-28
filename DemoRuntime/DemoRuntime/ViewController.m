@@ -113,6 +113,7 @@
 }
 
 #pragma mark - 使用Runtime解决UIButton重复点击问题
+#pragma mark -
 
 - (void)fixUIButtonClickIssue {
     NSLog(@"%s", __func__);
@@ -120,7 +121,7 @@
     [btn setTitle:@"Button" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(actionFixMultiClick2:) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(actionFixMultiClick_performSelector:) forControlEvents:UIControlEventTouchUpInside];
     btn.layer.borderColor = [UIColor redColor].CGColor;
     btn.layer.borderWidth = 2.0f;
     [self.view addSubview:btn];
@@ -128,13 +129,13 @@
 
 #pragma mark - 使用UIButton的enabled来控制
 
-- (void)actionFixMultiClick1:(UIButton *)sender {
+- (void)actionFixMultiClick_enabled:(UIButton *)sender {
     sender.enabled = NO;
     [self btnClickedOperations];
 }
 
 - (void)btnClickedOperations {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSLog(@"btnClickedOperations");
         btn.enabled = YES;
     });
@@ -142,9 +143,9 @@
 
 #pragma mark - 使用performSelector来控制
 
-- (void)actionFixMultiClick2:(UIButton *)sender {
+- (void)actionFixMultiClick_performSelector:(UIButton *)sender {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(btnClickedOperations) object:nil];
     
-    [self performSelector:@selector(btnClickedOperations) withObject:nil afterDelay:2];
+    [self performSelector:@selector(btnClickedOperations) withObject:nil afterDelay:1];
 }
 @end
