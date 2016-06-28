@@ -13,6 +13,7 @@
 		A44619361BBD1F04006139CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44619341BBD1F04006139CF /* Main.storyboard */; };
 		A44619381BBD1F04006139CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44619371BBD1F04006139CF /* Assets.xcassets */; };
 		A446193B1BBD1F04006139CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44619391BBD1F04006139CF /* LaunchScreen.storyboard */; };
+		A485D6C01D22759D00D3A86B /* UIControl+CS_FixMultiClick.m in Sources */ = {isa = PBXBuildFile; fileRef = A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A44619371BBD1F04006139CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A446193A1BBD1F04006139CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A446193C1BBD1F04006139CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A485D6BE1D22759600D3A86B /* UIControl+CS_FixMultiClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+CS_FixMultiClick.h"; sourceTree = "<group>"; };
+		A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+CS_FixMultiClick.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		A446192A1BBD1F04006139CF /* DemoRuntime */ = {
 			isa = PBXGroup;
 			children = (
+				A485D6BD1D22758E00D3A86B /* UIControl+CS_FixMultiClick */,
 				A446192E1BBD1F04006139CF /* AppDelegate.h */,
 				A446192F1BBD1F04006139CF /* AppDelegate.m */,
 				A44619311BBD1F04006139CF /* ViewController.h */,
@@ -77,6 +81,15 @@
 				A446192C1BBD1F04006139CF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A485D6BD1D22758E00D3A86B /* UIControl+CS_FixMultiClick */ = {
+			isa = PBXGroup;
+			children = (
+				A485D6BE1D22759600D3A86B /* UIControl+CS_FixMultiClick.h */,
+				A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */,
+			);
+			path = "UIControl+CS_FixMultiClick";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +164,7 @@
 			files = (
 				A44619331BBD1F04006139CF /* ViewController.m in Sources */,
 				A44619301BBD1F04006139CF /* AppDelegate.m in Sources */,
+				A485D6C01D22759D00D3A86B /* UIControl+CS_FixMultiClick.m in Sources */,
 				A446192D1BBD1F04006139CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

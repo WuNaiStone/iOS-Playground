@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <objc/runtime.h>
 
+#import "UIControl+CS_FixMultiClick/UIControl+CS_FixMultiClick.h"
+
 @interface NSObject (Associate)
 
 + (void)test;
@@ -121,10 +123,13 @@
     [btn setTitle:@"Button" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(actionFixMultiClick_performSelector:) forControlEvents:UIControlEventTouchUpInside];
+//    [btn addTarget:self action:@selector(actionFixMultiClick_performSelector:) forControlEvents:UIControlEventTouchUpInside];
     btn.layer.borderColor = [UIColor redColor].CGColor;
     btn.layer.borderWidth = 2.0f;
     [self.view addSubview:btn];
+    
+    btn.cs_acceptEventInterval = 1;
+    [btn addTarget:self action:@selector(btnClickedOperations) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - 使用UIButton的enabled来控制
@@ -135,6 +140,11 @@
 }
 
 - (void)btnClickedOperations {
+    self.view.backgroundColor = [UIColor colorWithRed:((arc4random() % 255) / 255.0)
+                                                green:((arc4random() % 255) / 255.0)
+                                                 blue:((arc4random() % 255) / 255.0)
+                                                alpha:1.0f];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSLog(@"btnClickedOperations");
         btn.enabled = YES;
@@ -148,4 +158,7 @@
     
     [self performSelector:@selector(btnClickedOperations) withObject:nil afterDelay:1];
 }
+
+#pragma mark - 使用runtime来控制, 见UIButton的CS_FixMultiClick category.
+
 @end
