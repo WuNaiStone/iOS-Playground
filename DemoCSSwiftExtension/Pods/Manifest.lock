@@ -1,0 +1,12 @@
+PODS:
+  - CSSwiftExtension (0.0.3)
+
+DEPENDENCIES:
+  - CSSwiftExtension
+
+SPEC CHECKSUMS:
+  CSSwiftExtension: 4e45ba4ee09b9566b548babfae0c69e45cd3cee4
+
+PODFILE CHECKSUM: 234063700ac63f5a08005460d722f966865466ff
+
+COCOAPODS: 1.0.1
