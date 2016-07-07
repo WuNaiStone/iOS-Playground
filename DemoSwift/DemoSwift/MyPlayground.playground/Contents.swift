@@ -50,6 +50,8 @@ array.sort { (i, j) -> Bool in
 
 // MARK - Dictionary
 var dict = Dictionary<String, String>()
+dict["fff"] = "abc"
+dict.updateValue("fff", forKey: "fff")
 dict = ["a": "b", "c": "d", "e": "f"]
 dict.updateValue("g", forKey: "h")
 dict
@@ -66,6 +68,10 @@ for value in dict.values {
     print(value)
 }
 
+
+var dict2 = Dictionary<String, UIColor>()
+dict2["red"] = UIColor.redColor()
+dict2
 
 // Enum
 enum EnumName {
