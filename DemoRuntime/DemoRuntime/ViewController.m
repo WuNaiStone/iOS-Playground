@@ -120,12 +120,12 @@
 - (void)setBtnBackgroundColor {
     UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 50)];
     [self.view addSubview:btn];
-    btn1.backgroundColor = [UIColor greenColor];
     
     [btn1 setTitle:@"Button BackgroundColor" forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
+    btn1.backgroundColor = [UIColor greenColor];
     [btn1 setBackgroundColor:[UIColor greenColor] forState:UIControlStateNormal];
     [btn1 setBackgroundColor:[UIColor blueColor] forState:UIControlStateHighlighted];
     [self.view addSubview:btn1];

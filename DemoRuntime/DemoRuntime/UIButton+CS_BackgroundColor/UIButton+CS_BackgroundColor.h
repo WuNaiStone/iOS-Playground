@@ -1,5 +1,5 @@
 //
-//  UIControl+CS_FixMultiClick.h
+//  UIButton+CS_BackgroundColor.h
 //  DemoRuntime
 //
 //  Created by Chris Hu on 16/07/07.
