@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <objc/runtime.h>
 
+#import "UIButton+CS_BackgroundColor/UIButton+CS_BackgroundColor.h"
 #import "UIControl+CS_FixMultiClick/UIControl+CS_FixMultiClick.h"
 
 @interface NSObject (Associate)
@@ -42,6 +43,8 @@
     [NSObject test]; //先到NSObject的metaclass中找+test，没找到，到其metaclass的superclass（仍然是NSObject自身）的-test方法即可。
     
     [self printRuntime];
+    
+    [self setBtnBackgroundColor];
     
     [self fixUIButtonClickIssue];
 }
@@ -114,13 +117,27 @@
     free(methods);
 }
 
+- (void)setBtnBackgroundColor {
+    UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 50)];
+    [self.view addSubview:btn];
+    btn1.backgroundColor = [UIColor greenColor];
+    
+    [btn1 setTitle:@"Button BackgroundColor" forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    
+    [btn1 setBackgroundColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [btn1 setBackgroundColor:[UIColor blueColor] forState:UIControlStateHighlighted];
+    [self.view addSubview:btn1];
+}
+
 #pragma mark - 使用Runtime解决UIButton重复点击问题
 #pragma mark -
 
 - (void)fixUIButtonClickIssue {
     NSLog(@"%s", __func__);
     btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50)];
-    [btn setTitle:@"Button" forState:UIControlStateNormal];
+    [btn setTitle:@"Button Multi Click Issue" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
 //    [btn addTarget:self action:@selector(actionFixMultiClick_performSelector:) forControlEvents:UIControlEventTouchUpInside];

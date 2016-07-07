@@ -14,6 +14,7 @@
 		A44619381BBD1F04006139CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44619371BBD1F04006139CF /* Assets.xcassets */; };
 		A446193B1BBD1F04006139CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44619391BBD1F04006139CF /* LaunchScreen.storyboard */; };
 		A485D6C01D22759D00D3A86B /* UIControl+CS_FixMultiClick.m in Sources */ = {isa = PBXBuildFile; fileRef = A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */; };
+		A4DD33101D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD330F1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		A446193C1BBD1F04006139CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A485D6BE1D22759600D3A86B /* UIControl+CS_FixMultiClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+CS_FixMultiClick.h"; sourceTree = "<group>"; };
 		A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+CS_FixMultiClick.m"; sourceTree = "<group>"; };
+		A4DD330E1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CS_BackgroundColor.h"; sourceTree = "<group>"; };
+		A4DD330F1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CS_BackgroundColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 		A446192A1BBD1F04006139CF /* DemoRuntime */ = {
 			isa = PBXGroup;
 			children = (
+				A4DD330D1D2E413B00F1F631 /* UIButton+CS_BackgroundColor */,
 				A485D6BD1D22758E00D3A86B /* UIControl+CS_FixMultiClick */,
 				A446192E1BBD1F04006139CF /* AppDelegate.h */,
 				A446192F1BBD1F04006139CF /* AppDelegate.m */,
@@ -90,6 +94,15 @@
 				A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */,
 			);
 			path = "UIControl+CS_FixMultiClick";
+			sourceTree = "<group>";
+		};
+		A4DD330D1D2E413B00F1F631 /* UIButton+CS_BackgroundColor */ = {
+			isa = PBXGroup;
+			children = (
+				A4DD330E1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.h */,
+				A4DD330F1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m */,
+			);
+			path = "UIButton+CS_BackgroundColor";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +179,7 @@
 				A44619301BBD1F04006139CF /* AppDelegate.m in Sources */,
 				A485D6C01D22759D00D3A86B /* UIControl+CS_FixMultiClick.m in Sources */,
 				A446192D1BBD1F04006139CF /* main.m in Sources */,
+				A4DD33101D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
