@@ -2,7 +2,7 @@
 //  ViewController.m
 //  DemoUILabel
 //
-//  Created by zj－db0465 on 16/2/13.
+//  Created by Chris Hu on 16/2/13.
 //  Copyright © 2016年 icetime17. All rights reserved.
 //
 
@@ -37,7 +37,11 @@
     [self.view addSubview:label];
 
     // 根据字符串大小计算label的大小
-    CGSize size = [label.text sizeWithFont:[UIFont boldSystemFontOfSize:17.0f] constrainedToSize:CGSizeMake(self.view.frame.size.width, 300) lineBreakMode:NSLineBreakByWordWrapping];
+//    CGSize size = [label.text sizeWithFont:[UIFont boldSystemFontOfSize:17.0f] constrainedToSize:CGSizeMake(self.view.frame.size.width, 300) lineBreakMode:NSLineBreakByWordWrapping];
+    
+    // sizeWithFont:xxx方法已启用，现更新为boundingRectWithSize:xxx方法
+    CGSize size = [label.text boundingRectWithSize:CGSizeMake(self.view.frame.size.width, 300) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]} context:nil].size;
+    
     label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width, size.height);
 }
 
