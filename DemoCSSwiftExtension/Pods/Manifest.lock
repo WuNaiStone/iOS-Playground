@@ -1,11 +1,11 @@
 PODS:
-  - CSSwiftExtension (0.0.3)
+  - CSSwiftExtension (0.0.5)
 
 DEPENDENCIES:
   - CSSwiftExtension
 
 SPEC CHECKSUMS:
-  CSSwiftExtension: 4e45ba4ee09b9566b548babfae0c69e45cd3cee4
+  CSSwiftExtension: 8da094206ed992bc5cd96f650b88bbdfa1577bc7
 
 PODFILE CHECKSUM: 234063700ac63f5a08005460d722f966865466ff
 

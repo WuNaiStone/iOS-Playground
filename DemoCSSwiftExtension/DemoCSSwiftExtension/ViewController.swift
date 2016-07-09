@@ -23,9 +23,21 @@ class ViewController: UIViewController {
             print(jsonObject)
         }
         
-        
+        self.testUIButton()
     }
 
+    func testUIButton() {
+        let btn = UIButton(frame: CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50))
+        btn.setTitle("UIButton BackgroundColor", forState: UIControlState.Normal)
+        btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
+        self.view.addSubview(btn)
+        
+        btn.backgroundColor = UIColor.greenColor()
+        btn.cs_setBackgroundColor(UIColor.greenColor(), forState: .Normal)
+        btn.cs_setBackgroundColor(UIColor.blueColor(), forState: .Highlighted)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

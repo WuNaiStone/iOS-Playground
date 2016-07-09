@@ -1,6 +1,6 @@
 # CSSwiftExtension
 
-Some useful extension for Swift
+Some useful extension for Swift.
 
 # License
 
