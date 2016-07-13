@@ -1,6 +1,7 @@
 ## Playground
 
-Demo for iOS development.
+Demos for iOS development.
+
 
 ### DemoALAssetsLibrary
 AssetsLibrary框架的简单demo, AssetsLibrary提供了访问iOS设备的照片应用中的所有照片和视频的接口.
@@ -45,6 +46,8 @@ iOS设备的电量汇报小工具, 定时向服务端汇报设备电量.
 请参考博客:
 - [iOS---使用CAEmitterLayer制作发射粒子的特效](http://blog.csdn.net/icetime17/article/details/51704712)
 
+### DemoCAShapeLayer
+
 ### DemoCSSwiftExtension
 主要介绍了如何在CocoaPods上发布自己的项目.
 请参考博客:
@@ -53,6 +56,7 @@ iOS设备的电量汇报小工具, 定时向服务端汇报设备电量.
 ### DemoCharts
 ### DemoCollectionView
 关于UICollectionView, 布局, 及其优化的demo, 待补充.
+请参考 [DemoUICollectionView](https://github.com/icetime17/DemoUICollectionView)
 
 ### DemoContainerView
 ### DemoCoreData-Realm
@@ -81,6 +85,8 @@ iOS开发中的一些持久化技术的简单Demo, 包括Sandbox, NSUserDefaults
 使用Flurry统计平台的demo.
 
 ### DemoGestureRecognizer
+包含自定义手势, 可用于实现屏幕手势锁等.
+
 ### DemoGifWebView
 使用UIWebView来展示gif.
 
@@ -166,6 +172,9 @@ NSUserDefaults可用于持久化一些APP配置信息或用户保存的数据, �
 请参考博客:
 - [iOS --- UINavigationController的简单总结](http://blog.csdn.net/icetime17/article/details/42113591)
 
+### DemoNavigationItemAvatar
+添加导航栏的头像
+
 ### DemoOpenURL
 请参考博客:
 - [iOS --- 使用openURL调用iOS系统应用](http://blog.csdn.net/icetime17/article/details/49257197)
@@ -200,6 +209,7 @@ Reachability可用于测试网络连接情况, 也可以使用AFNetworking.
 - [iOS --- 理解Runtime机制及其使用场景](http://blog.csdn.net/icetime17/article/details/51176093)
 - [iOS --- 使用runtime解决3D Touch导致UIImagePicker崩溃的问题](http://blog.csdn.net/icetime17/article/details/50935187)
 - [iOS --- 防止UIButton重复点击的三种实现方式](http://blog.csdn.net/icetime17/article/details/51782983)
+- [iOS --- 如何在Swift项目中使用runtime?](http://blog.csdn.net/icetime17/article/details/51817534)
 
 ### DemoSQLite3
 SQLite3数据库的小demo, 待完善.
@@ -235,7 +245,15 @@ Social分享框架的demo.
 请参考博客:
 - [iOS --- 使用CoreTelephony来获取运营商信息](http://blog.csdn.net/icetime17/article/details/49254401)
 
+### DemoTimeline
+使用ISTimeline的Demo.
+
 ### DemoUIActivityViewController
+
+### DemoUIButtonBackgroundColor
+请参考博客:
+- [iOS --- 为UIButton添加setBackgroundColor:forState:方法(包含OC和Swift两个版本)](http://blog.csdn.net/icetime17/article/details/51854559)
+
 ### DemoUIGestureRecognizer
 关于iOS中一些手势的demo.
 
