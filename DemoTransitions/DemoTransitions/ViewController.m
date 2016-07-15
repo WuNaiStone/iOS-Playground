@@ -11,6 +11,8 @@
 #import "BViewController.h"
 #import "CViewController.h"
 
+#import "DemoCATransitionTableViewController.h"
+
 @interface ViewController () <
     CSViewControllerTransitionDelegate
 >
@@ -26,6 +28,8 @@
     UIButton *btn1;
     
     UIButton *btn2;
+    
+    UIButton *btn3;
 }
 
 - (void)viewDidLoad {
@@ -94,6 +98,16 @@
     btn2.layer.borderColor = [UIColor redColor].CGColor;
     btn2.layer.borderWidth = 2.0f;
     [self.view addSubview:btn2];
+    
+    // CATransition
+    btn3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 150, self.view.frame.size.width, 30)];
+    [btn3 setTitle:@"CATransition" forState:UIControlStateNormal];
+    [btn3 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn3 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn3 addTarget:self action:@selector(actionCATransition:) forControlEvents:UIControlEventTouchUpInside];
+    btn3.layer.borderColor = [UIColor redColor].CGColor;
+    btn3.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn3];
 }
 
 - (void)actionPresentViewController:(UIButton *)sender {
@@ -112,11 +126,17 @@
     // Flip 翻转效果
     // UIViewAnimationOptionTransitionFlipFromLeft, UIViewAnimationOptionTransitionFlipFromRight
     // UIViewAnimationOptionTransitionFlipFromTop, UIViewAnimationOptionTransitionFlipFromDown
-    [self transitionFromViewController:_currentViewController toViewController:b duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
-        
+    [self transitionFromViewController:_currentViewController toViewController:b duration:10.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        btn1.transform = CGAffineTransformMakeScale(2.0, 2.0);
     } completion:^(BOOL finished) {
-        
+        btn1.transform = CGAffineTransformMakeScale(1.0, 1.0);
     }];
+}
+
+- (void)actionCATransition:(UIButton *)sender {
+    DemoCATransitionTableViewController *vc = [[DemoCATransitionTableViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

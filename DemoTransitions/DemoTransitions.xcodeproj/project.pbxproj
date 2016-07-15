@@ -17,6 +17,9 @@
 		A4DD33B61D38BCF400F1F631 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33B51D38BCF400F1F631 /* BViewController.m */; };
 		A4DD33B91D38BCFC00F1F631 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33B81D38BCFC00F1F631 /* CViewController.m */; };
 		A4DD33BC1D38C72500F1F631 /* ChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33BB1D38C72500F1F631 /* ChildViewController.m */; };
+		A4DD33C01D38DBA100F1F631 /* ViewCATransition_Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33BF1D38DBA100F1F631 /* ViewCATransition_Fade.m */; };
+		A4DD33C61D38F47300F1F631 /* DemoCATransitionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33C51D38F47300F1F631 /* DemoCATransitionTableViewController.m */; };
+		A4DD33C91D38F74400F1F631 /* DemoCATransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33C81D38F74400F1F631 /* DemoCATransitionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,12 @@
 		A4DD33B81D38BCFC00F1F631 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
 		A4DD33BA1D38C72500F1F631 /* ChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildViewController.h; sourceTree = "<group>"; };
 		A4DD33BB1D38C72500F1F631 /* ChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildViewController.m; sourceTree = "<group>"; };
+		A4DD33BE1D38DBA100F1F631 /* ViewCATransition_Fade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCATransition_Fade.h; sourceTree = "<group>"; };
+		A4DD33BF1D38DBA100F1F631 /* ViewCATransition_Fade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCATransition_Fade.m; sourceTree = "<group>"; };
+		A4DD33C41D38F47300F1F631 /* DemoCATransitionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCATransitionTableViewController.h; sourceTree = "<group>"; };
+		A4DD33C51D38F47300F1F631 /* DemoCATransitionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCATransitionTableViewController.m; sourceTree = "<group>"; };
+		A4DD33C71D38F74400F1F631 /* DemoCATransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCATransitionViewController.h; sourceTree = "<group>"; };
+		A4DD33C81D38F74400F1F631 /* DemoCATransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCATransitionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +79,7 @@
 		A4DD33981D3890A700F1F631 /* DemoTransitions */ = {
 			isa = PBXGroup;
 			children = (
+				A4DD33BD1D38DB7500F1F631 /* DemoCATransition */,
 				A4DD33B01D3890E600F1F631 /* transitionFromViewController */,
 				A4DD339C1D3890A700F1F631 /* AppDelegate.h */,
 				A4DD339D1D3890A700F1F631 /* AppDelegate.m */,
@@ -105,6 +115,19 @@
 				A4DD33B81D38BCFC00F1F631 /* CViewController.m */,
 			);
 			path = transitionFromViewController;
+			sourceTree = "<group>";
+		};
+		A4DD33BD1D38DB7500F1F631 /* DemoCATransition */ = {
+			isa = PBXGroup;
+			children = (
+				A4DD33C41D38F47300F1F631 /* DemoCATransitionTableViewController.h */,
+				A4DD33C51D38F47300F1F631 /* DemoCATransitionTableViewController.m */,
+				A4DD33C71D38F74400F1F631 /* DemoCATransitionViewController.h */,
+				A4DD33C81D38F74400F1F631 /* DemoCATransitionViewController.m */,
+				A4DD33BE1D38DBA100F1F631 /* ViewCATransition_Fade.h */,
+				A4DD33BF1D38DBA100F1F631 /* ViewCATransition_Fade.m */,
+			);
+			path = DemoCATransition;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +200,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DD33C91D38F74400F1F631 /* DemoCATransitionViewController.m in Sources */,
+				A4DD33C61D38F47300F1F631 /* DemoCATransitionTableViewController.m in Sources */,
 				A4DD33B31D38914600F1F631 /* AViewController.m in Sources */,
 				A4DD33A11D3890A700F1F631 /* ViewController.m in Sources */,
 				A4DD33BC1D38C72500F1F631 /* ChildViewController.m in Sources */,
+				A4DD33C01D38DBA100F1F631 /* ViewCATransition_Fade.m in Sources */,
 				A4DD33B91D38BCFC00F1F631 /* CViewController.m in Sources */,
 				A4DD339E1D3890A700F1F631 /* AppDelegate.m in Sources */,
 				A4DD33B61D38BCF400F1F631 /* BViewController.m in Sources */,
