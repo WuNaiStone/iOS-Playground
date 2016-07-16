@@ -9,7 +9,13 @@
 #import "DemoViewControllerTransitionViewController.h"
 #import "DemoViewControllerTransitionPresentedViewController.h"
 
-@interface DemoViewControllerTransitionViewController ()
+#import "AnimatorPresentTransition.h"
+
+
+@interface DemoViewControllerTransitionViewController () <
+
+    UIViewControllerTransitioningDelegate
+>
 
 @end
 
@@ -35,7 +41,7 @@
 }
 
 - (void)prepareBubble {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor redColor];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake((self.view.frame.size.width - 80) / 2,
@@ -54,7 +60,22 @@
 
 - (void)actionBubble:(UIButton *)sender {
     DemoViewControllerTransitionPresentedViewController *presentedVC = [[DemoViewControllerTransitionPresentedViewController alloc] init];
+    
+    // 设置transitioningDelegate, 然后在其中实现协议方法即可.
+    presentedVC.transitioningDelegate = self;
     [self presentViewController:presentedVC animated:YES completion:nil];
+}
+
+#pragma mark - <UIViewControllerTransitioningDelegate>
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    // 指定的继承UIViewControllerAnimatedTransitioning协议的对象.
+    // 其中的协议方法即指定了转场动画.
+    return [[AnimatorPresentTransition alloc] initFromViewController:presented toViewController:presenting];
+}
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return nil;
 }
 
 @end
