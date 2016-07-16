@@ -12,6 +12,7 @@
 #import "CViewController.h"
 
 #import "DemoCATransitionTableViewController.h"
+#import "DemoViewControllerTransitionTableViewController.h"
 
 @interface ViewController () <
     CSViewControllerTransitionDelegate
@@ -30,6 +31,8 @@
     UIButton *btn2;
     
     UIButton *btn3;
+    
+    UIButton *btn4;
 }
 
 - (void)viewDidLoad {
@@ -108,6 +111,16 @@
     btn3.layer.borderColor = [UIColor redColor].CGColor;
     btn3.layer.borderWidth = 2.0f;
     [self.view addSubview:btn3];
+    
+    // ViewControllerTransition
+    btn3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 30)];
+    [btn3 setTitle:@"ViewControllerTransition" forState:UIControlStateNormal];
+    [btn3 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn3 setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btn3 addTarget:self action:@selector(actionViewControllerTransition:) forControlEvents:UIControlEventTouchUpInside];
+    btn3.layer.borderColor = [UIColor redColor].CGColor;
+    btn3.layer.borderWidth = 2.0f;
+    [self.view addSubview:btn3];
 }
 
 - (void)actionPresentViewController:(UIButton *)sender {
@@ -135,6 +148,12 @@
 
 - (void)actionCATransition:(UIButton *)sender {
     DemoCATransitionTableViewController *vc = [[DemoCATransitionTableViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)actionViewControllerTransition:(UIButton *)sender {
+    DemoViewControllerTransitionTableViewController *vc = [[DemoViewControllerTransitionTableViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
 }

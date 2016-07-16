@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8368359C1D39D6200065017C /* DemoViewControllerTransitionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368359B1D39D6200065017C /* DemoViewControllerTransitionTableViewController.m */; };
+		8368359F1D39D6970065017C /* DemoViewControllerTransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8368359E1D39D6970065017C /* DemoViewControllerTransitionViewController.m */; };
+		836835A21D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836835A11D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m */; };
 		A4DD339B1D3890A700F1F631 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD339A1D3890A700F1F631 /* main.m */; };
 		A4DD339E1D3890A700F1F631 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD339D1D3890A700F1F631 /* AppDelegate.m */; };
 		A4DD33A11D3890A700F1F631 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33A01D3890A700F1F631 /* ViewController.m */; };
@@ -23,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8368359A1D39D6200065017C /* DemoViewControllerTransitionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewControllerTransitionTableViewController.h; sourceTree = "<group>"; };
+		8368359B1D39D6200065017C /* DemoViewControllerTransitionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewControllerTransitionTableViewController.m; sourceTree = "<group>"; };
+		8368359D1D39D6970065017C /* DemoViewControllerTransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewControllerTransitionViewController.h; sourceTree = "<group>"; };
+		8368359E1D39D6970065017C /* DemoViewControllerTransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewControllerTransitionViewController.m; sourceTree = "<group>"; };
+		836835A01D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewControllerTransitionPresentedViewController.h; sourceTree = "<group>"; };
+		836835A11D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewControllerTransitionPresentedViewController.m; sourceTree = "<group>"; };
 		A4DD33961D3890A700F1F631 /* DemoTransitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoTransitions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD339A1D3890A700F1F631 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD339C1D3890A700F1F631 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,6 +69,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		836835991D39D5EF0065017C /* DemoViewControllerTransition */ = {
+			isa = PBXGroup;
+			children = (
+				8368359A1D39D6200065017C /* DemoViewControllerTransitionTableViewController.h */,
+				8368359B1D39D6200065017C /* DemoViewControllerTransitionTableViewController.m */,
+				8368359D1D39D6970065017C /* DemoViewControllerTransitionViewController.h */,
+				8368359E1D39D6970065017C /* DemoViewControllerTransitionViewController.m */,
+				836835A01D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.h */,
+				836835A11D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m */,
+			);
+			path = DemoViewControllerTransition;
+			sourceTree = "<group>";
+		};
 		A4DD338D1D3890A700F1F631 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +101,7 @@
 		A4DD33981D3890A700F1F631 /* DemoTransitions */ = {
 			isa = PBXGroup;
 			children = (
+				836835991D39D5EF0065017C /* DemoViewControllerTransition */,
 				A4DD33BD1D38DB7500F1F631 /* DemoCATransition */,
 				A4DD33B01D3890E600F1F631 /* transitionFromViewController */,
 				A4DD339C1D3890A700F1F631 /* AppDelegate.h */,
@@ -203,7 +226,10 @@
 				A4DD33C91D38F74400F1F631 /* DemoCATransitionViewController.m in Sources */,
 				A4DD33C61D38F47300F1F631 /* DemoCATransitionTableViewController.m in Sources */,
 				A4DD33B31D38914600F1F631 /* AViewController.m in Sources */,
+				8368359C1D39D6200065017C /* DemoViewControllerTransitionTableViewController.m in Sources */,
 				A4DD33A11D3890A700F1F631 /* ViewController.m in Sources */,
+				8368359F1D39D6970065017C /* DemoViewControllerTransitionViewController.m in Sources */,
+				836835A21D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m in Sources */,
 				A4DD33BC1D38C72500F1F631 /* ChildViewController.m in Sources */,
 				A4DD33C01D38DBA100F1F631 /* ViewCATransition_Fade.m in Sources */,
 				A4DD33B91D38BCFC00F1F631 /* CViewController.m in Sources */,
