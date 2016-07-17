@@ -18,6 +18,8 @@
 
 // This method can only  be a nop if the transition is interactive and not a percentDriven interactive transition.
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    _transitionContext = transitionContext;
+    
     _containerView = [transitionContext containerView];
     
     _from = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];

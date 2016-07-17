@@ -25,6 +25,8 @@ typedef NS_ENUM(NSInteger, AnimatorTransitionType) {
 @property (nonatomic, assign) AnimatorTransitionType animatorTransitionType;
 
 
+@property (nonatomic, weak) id<UIViewControllerContextTransitioning> transitionContext;
+
 @property (nonatomic, strong) UIView *containerView;
 
 @property (nonatomic, strong) UIViewController *from;
