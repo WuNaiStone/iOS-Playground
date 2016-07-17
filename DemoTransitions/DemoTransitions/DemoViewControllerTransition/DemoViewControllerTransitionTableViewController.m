@@ -32,6 +32,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     _demos = @[
+               @"Present",
                @"Bubble",
                ];
 }
@@ -61,7 +62,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DemoViewControllerTransitionViewController *demoVC = [[DemoViewControllerTransitionViewController alloc] init];
-    demoVC.demoType = DemoViewControllerTransitionTypeBubble;
+    demoVC.demoType = indexPath.row;
     demoVC.navigationItem.title = _demos[indexPath.row];
     [self.navigationController pushViewController:demoVC animated:YES];
 }

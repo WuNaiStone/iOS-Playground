@@ -10,7 +10,7 @@
 #import "DemoViewControllerTransitionPresentedViewController.h"
 
 #import "AnimatorPresentTransition.h"
-
+#import "AnimatorBubbleTransition.h"
 
 @interface DemoViewControllerTransitionViewController () <
 
@@ -19,7 +19,10 @@
 
 @end
 
-@implementation DemoViewControllerTransitionViewController
+@implementation DemoViewControllerTransitionViewController {
+
+    UIButton *button;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,22 +31,13 @@
 }
 
 - (void)demo {
-    switch (_demoType) {
-        case DemoViewControllerTransitionTypeBubble:
-        {
-            [self prepareBubble];
-        }
-            break;
-        default:
-            break;
-    }
-    
+    [self prepareBubble];
 }
 
 - (void)prepareBubble {
     self.view.backgroundColor = [UIColor redColor];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake((self.view.frame.size.width - 80) / 2,
                               self.view.frame.size.height - 80 - 64,
                               80,
@@ -71,7 +65,25 @@
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     // 指定的继承UIViewControllerAnimatedTransitioning协议的对象.
     // 其中的协议方法即指定了转场动画.
-    return [[AnimatorPresentTransition alloc] initFromViewController:presented toViewController:presenting];
+    
+    switch (_demoType) {
+        case DemoViewControllerTransitionTypePresent:
+        {
+            // Present
+            return [[AnimatorPresentTransition alloc] init];
+        }
+        case DemoViewControllerTransitionTypeBubble:
+        {
+            // Bubble
+            AnimatorBubbleTransition *bubbleTransition = [[AnimatorBubbleTransition alloc] init];
+            bubbleTransition.bubbleCenter = button.center;
+            return bubbleTransition;
+        }
+        default:
+            break;
+    }
+    
+    return [[AnimatorPresentTransition alloc] init];
 }
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {

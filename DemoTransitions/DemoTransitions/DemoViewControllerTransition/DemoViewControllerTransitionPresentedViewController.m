@@ -44,7 +44,7 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.backgroundColor = [UIColor purpleColor];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:30];
-    button.center = self.view.center;
+//    button.center = self.view.center;
     button.layer.cornerRadius = 40;
     [button addTarget:self action:@selector(actionBubble:) forControlEvents:UIControlEventTouchUpInside];
 }

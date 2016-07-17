@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, DemoViewControllerTransitionType) {
-    DemoViewControllerTransitionTypeBubble = 0,
+    DemoViewControllerTransitionTypePresent = 0,
+    DemoViewControllerTransitionTypeBubble,
     
 };
 

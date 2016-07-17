@@ -19,11 +19,10 @@
 
 @implementation AnimatorPresentTransition
 
-- (instancetype)initFromViewController:(UIViewController *)from toViewController:(UIViewController *)to {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.presentedViewController = from;
-        self.presentingViewController = to;
+    
     }
     return self;
 }
@@ -41,6 +40,8 @@
     
     UIViewController *from = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *to = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    self.presentingViewController = from;
+    self.presentedViewController = to;
     
     UIView *fromView, *toView;
     // iOS8之后才有
@@ -51,6 +52,27 @@
         fromView = from.view;
         toView = to.view;
     }
+    
+    
+    // 解决toView只有一半屏幕的时候, 不明白为何会有另一半的黑屏的问题.
+    UIView *tmpFromView;
+    tmpFromView = [[UIScreen mainScreen] snapshotViewAfterScreenUpdates:YES];
+    
+    tmpFromView.frame = fromView.frame;
+    [containerView addSubview:tmpFromView];
+    
+    // fromView的另一半, 点击执行dismiss操作.
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionTapToDismiss:)];
+    tmpFromView.userInteractionEnabled = YES;
+    [tmpFromView addGestureRecognizer:tapGesture];
+    
+    
+    
+    
+    
+    // fromView的起始frame
+    fromView.frame = [transitionContext initialFrameForViewController:from];
+    
     
     // 设置toView在转场开始时的位置和alpha.
     toView.frame = [transitionContext initialFrameForViewController:to]; // 全为0, 则toView从左上角扩散出来
@@ -77,9 +99,12 @@
 //    }];
     
     [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        toView.transform = CGAffineTransformMakeTranslation(0, CGRectGetHeight(toView.frame) / 2);
+        tmpFromView.transform = CGAffineTransformMakeScale(0.9, 0.9);
+        
         // 指定位置
         toView.frame = [transitionContext finalFrameForViewController:to];
-//        // toView只有一半屏幕的时候, 不明白为何会有一般的黑屏
+//        // toView只有一半屏幕的时候, 不明白为何会有另一半的黑屏
 //        toView.frame = CGRectMake(CGRectGetMinX(fromView.frame),
 //                                  CGRectGetHeight(fromView.frame) / 2,
 //                                  CGRectGetWidth(fromView.frame),
@@ -99,5 +124,9 @@
     NSLog(@"%s", __func__);
 }
 
+
+- (void)actionTapToDismiss:(UITapGestureRecognizer *)sender {
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
