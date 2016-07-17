@@ -33,6 +33,20 @@
         _fromView = _from.view;
         _toView = _to.view;
     }
+    
+    if (self.animatorTransitionType == kAnimatorTransitionTypePresent) {
+        [self animationPresent];
+    } else if (self.animatorTransitionType == kAnimatorTransitionTypeDismiss) {
+        [self animationDismiss];
+    }
+}
+
+- (void)animationPresent {
+
+}
+
+- (void)animationDismiss {
+
 }
 
 // This is a convenience and if implemented will be invoked by the system when the transition context's completeTransition: method is invoked.

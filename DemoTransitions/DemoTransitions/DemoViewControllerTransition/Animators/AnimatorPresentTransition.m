@@ -28,12 +28,6 @@
 // This method can only be a nop if the transition is interactive and not a percentDriven interactive transition.
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     [super animateTransition:transitionContext];
-    
-    if (self.animatorTransitionType == kAnimatorTransitionTypePresent) {
-        [self animationPresent];
-    } else if (self.animatorTransitionType == kAnimatorTransitionTypeDismiss) {
-        [self animationDismiss];
-    }
 }
 
 - (void)animationPresent {
