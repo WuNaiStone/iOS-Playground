@@ -70,12 +70,41 @@
         case DemoViewControllerTransitionTypePresent:
         {
             // Present
-            return [[AnimatorPresentTransition alloc] init];
+            AnimatorPresentTransition *presentTransition = [[AnimatorPresentTransition alloc] init];
+            presentTransition.animatorTransitionType = kAnimatorTransitionTypePresent;
+            return presentTransition;
         }
         case DemoViewControllerTransitionTypeBubble:
         {
             // Bubble
             AnimatorBubbleTransition *bubbleTransition = [[AnimatorBubbleTransition alloc] init];
+            bubbleTransition.bubbleCenter = button.center;
+            bubbleTransition.animatorTransitionType = kAnimatorTransitionTypePresent;
+            return bubbleTransition;
+        }
+        default:
+            break;
+    }
+    
+    AnimatorPresentTransition *presentTransition = [[AnimatorPresentTransition alloc] init];
+    presentTransition.animatorTransitionType = kAnimatorTransitionTypePresent;
+    return presentTransition;
+}
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    switch (_demoType) {
+        case DemoViewControllerTransitionTypePresent:
+        {
+            // Present
+            AnimatorPresentTransition *presentTransition = [[AnimatorPresentTransition alloc] init];
+            presentTransition.animatorTransitionType = kAnimatorTransitionTypeDismiss;
+            return presentTransition;
+        }
+        case DemoViewControllerTransitionTypeBubble:
+        {
+            // Bubble
+            AnimatorBubbleTransition *bubbleTransition = [[AnimatorBubbleTransition alloc] init];
+            bubbleTransition.animatorTransitionType = kAnimatorTransitionTypeDismiss;
             bubbleTransition.bubbleCenter = button.center;
             return bubbleTransition;
         }
@@ -83,11 +112,9 @@
             break;
     }
     
-    return [[AnimatorPresentTransition alloc] init];
-}
-
-- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    return nil;
+    AnimatorPresentTransition *presentTransition = [[AnimatorPresentTransition alloc] init];
+    presentTransition.animatorTransitionType = kAnimatorTransitionTypeDismiss;
+    return presentTransition;
 }
 
 @end

@@ -12,6 +12,7 @@
 		836835A21D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836835A11D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m */; };
 		836835AD1D39E4190065017C /* AnimatorPresentTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 836835AC1D39E4190065017C /* AnimatorPresentTransition.m */; };
 		836835B01D3B20700065017C /* AnimatorBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 836835AF1D3B20700065017C /* AnimatorBubbleTransition.m */; };
+		836835B31D3B59DC0065017C /* AnimatorBaseTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 836835B21D3B59DC0065017C /* AnimatorBaseTransition.m */; };
 		A4DD339B1D3890A700F1F631 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD339A1D3890A700F1F631 /* main.m */; };
 		A4DD339E1D3890A700F1F631 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD339D1D3890A700F1F631 /* AppDelegate.m */; };
 		A4DD33A11D3890A700F1F631 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33A01D3890A700F1F631 /* ViewController.m */; };
@@ -38,6 +39,8 @@
 		836835AC1D39E4190065017C /* AnimatorPresentTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatorPresentTransition.m; sourceTree = "<group>"; };
 		836835AE1D3B20700065017C /* AnimatorBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatorBubbleTransition.h; sourceTree = "<group>"; };
 		836835AF1D3B20700065017C /* AnimatorBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatorBubbleTransition.m; sourceTree = "<group>"; };
+		836835B11D3B59DC0065017C /* AnimatorBaseTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatorBaseTransition.h; sourceTree = "<group>"; };
+		836835B21D3B59DC0065017C /* AnimatorBaseTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatorBaseTransition.m; sourceTree = "<group>"; };
 		A4DD33961D3890A700F1F631 /* DemoTransitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoTransitions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD339A1D3890A700F1F631 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD339C1D3890A700F1F631 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 		836835AA1D39E4040065017C /* Animators */ = {
 			isa = PBXGroup;
 			children = (
+				836835B11D3B59DC0065017C /* AnimatorBaseTransition.h */,
+				836835B21D3B59DC0065017C /* AnimatorBaseTransition.m */,
 				836835AB1D39E4190065017C /* AnimatorPresentTransition.h */,
 				836835AC1D39E4190065017C /* AnimatorPresentTransition.m */,
 				836835AE1D3B20700065017C /* AnimatorBubbleTransition.h */,
@@ -245,6 +250,7 @@
 				A4DD33C61D38F47300F1F631 /* DemoCATransitionTableViewController.m in Sources */,
 				836835AD1D39E4190065017C /* AnimatorPresentTransition.m in Sources */,
 				A4DD33B31D38914600F1F631 /* AViewController.m in Sources */,
+				836835B31D3B59DC0065017C /* AnimatorBaseTransition.m in Sources */,
 				8368359C1D39D6200065017C /* DemoViewControllerTransitionTableViewController.m in Sources */,
 				A4DD33A11D3890A700F1F631 /* ViewController.m in Sources */,
 				8368359F1D39D6970065017C /* DemoViewControllerTransitionViewController.m in Sources */,

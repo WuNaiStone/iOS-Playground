@@ -6,12 +6,8 @@
 //  Copyright © 2016年 icetime17. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "AnimatorBaseTransition.h"
 
-@interface AnimatorPresentTransition : NSObject <
-
-    UIViewControllerAnimatedTransitioning
->
+@interface AnimatorPresentTransition : AnimatorBaseTransition
 
 @end

@@ -6,13 +6,9 @@
 //  Copyright © 2016年 icetime17. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "AnimatorBaseTransition.h"
 
-@interface AnimatorBubbleTransition : NSObject <
-
-    UIViewControllerAnimatedTransitioning
->
+@interface AnimatorBubbleTransition : AnimatorBaseTransition
 
 
 @property (nonatomic, assign) CGPoint bubbleCenter;
