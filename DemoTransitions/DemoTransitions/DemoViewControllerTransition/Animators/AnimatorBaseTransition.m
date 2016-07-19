@@ -38,6 +38,10 @@
         [self animationPresent];
     } else if (self.animatorTransitionType == kAnimatorTransitionTypeDismiss) {
         [self animationDismiss];
+    } else if (self.animatorTransitionType == kAnimatorTransitionTypePush) {
+        [self animationPush];
+    } else if (self.animatorTransitionType == kAnimatorTransitionTypePop) {
+        [self animationPop];
     }
 }
 
@@ -47,6 +51,14 @@
 
 - (void)animationDismiss {
 
+}
+
+- (void)animationPush {
+    
+}
+
+- (void)animationPop {
+    
 }
 
 // This is a convenience and if implemented will be invoked by the system when the transition context's completeTransition: method is invoked.

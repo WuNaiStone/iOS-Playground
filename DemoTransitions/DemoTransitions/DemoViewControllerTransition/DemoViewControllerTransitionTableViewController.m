@@ -8,6 +8,7 @@
 
 #import "DemoViewControllerTransitionTableViewController.h"
 #import "DemoViewControllerTransitionViewController.h"
+#import "DemoCollectionViewController.h"
 
 #define CellReuseIdentifier @"CellReuseIdentifier"
 
@@ -34,6 +35,7 @@
     _demos = @[
                @"Present",
                @"Bubble",
+               @"Push/Pop",
                ];
 }
 
@@ -61,10 +63,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DemoViewControllerTransitionViewController *demoVC = [[DemoViewControllerTransitionViewController alloc] init];
-    demoVC.demoType = indexPath.row;
-    demoVC.navigationItem.title = _demos[indexPath.row];
-    [self.navigationController pushViewController:demoVC animated:YES];
+    if (indexPath.row != _demos.count - 1) {
+        DemoViewControllerTransitionViewController *demoVC = [[DemoViewControllerTransitionViewController alloc] init];
+        demoVC.demoType = indexPath.row;
+        demoVC.navigationItem.title = _demos[indexPath.row];
+        [self.navigationController pushViewController:demoVC animated:YES];
+    } else {
+        DemoCollectionViewController *collectionVC = [[DemoCollectionViewController alloc] init];
+        collectionVC.navigationItem.title = _demos[indexPath.row];
+        [self.navigationController pushViewController:collectionVC animated:YES];
+    }
 }
 
 @end

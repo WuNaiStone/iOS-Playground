@@ -26,6 +26,9 @@
 		A4DD33C01D38DBA100F1F631 /* ViewCATransition_Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33BF1D38DBA100F1F631 /* ViewCATransition_Fade.m */; };
 		A4DD33C61D38F47300F1F631 /* DemoCATransitionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33C51D38F47300F1F631 /* DemoCATransitionTableViewController.m */; };
 		A4DD33C91D38F74400F1F631 /* DemoCATransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33C81D38F74400F1F631 /* DemoCATransitionViewController.m */; };
+		A4DD33D31D3CBCFF00F1F631 /* AnimatorPushPopTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33D21D3CBCFF00F1F631 /* AnimatorPushPopTransition.m */; };
+		A4DD33DA1D3DC35900F1F631 /* DemoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33D91D3DC35900F1F631 /* DemoCollectionViewController.m */; };
+		A4DD33DD1D3DC37700F1F631 /* CollectionViewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33DC1D3DC37700F1F631 /* CollectionViewItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,12 @@
 		A4DD33C51D38F47300F1F631 /* DemoCATransitionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCATransitionTableViewController.m; sourceTree = "<group>"; };
 		A4DD33C71D38F74400F1F631 /* DemoCATransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCATransitionViewController.h; sourceTree = "<group>"; };
 		A4DD33C81D38F74400F1F631 /* DemoCATransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCATransitionViewController.m; sourceTree = "<group>"; };
+		A4DD33D11D3CBCFF00F1F631 /* AnimatorPushPopTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatorPushPopTransition.h; sourceTree = "<group>"; };
+		A4DD33D21D3CBCFF00F1F631 /* AnimatorPushPopTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatorPushPopTransition.m; sourceTree = "<group>"; };
+		A4DD33D81D3DC35900F1F631 /* DemoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCollectionViewController.h; sourceTree = "<group>"; };
+		A4DD33D91D3DC35900F1F631 /* DemoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCollectionViewController.m; sourceTree = "<group>"; };
+		A4DD33DB1D3DC37700F1F631 /* CollectionViewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewItemViewController.h; sourceTree = "<group>"; };
+		A4DD33DC1D3DC37700F1F631 /* CollectionViewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,7 @@
 		836835991D39D5EF0065017C /* DemoViewControllerTransition */ = {
 			isa = PBXGroup;
 			children = (
+				A4DD33D71D3DC35900F1F631 /* PushPop */,
 				836835AA1D39E4040065017C /* Animators */,
 				8368359A1D39D6200065017C /* DemoViewControllerTransitionTableViewController.h */,
 				8368359B1D39D6200065017C /* DemoViewControllerTransitionTableViewController.m */,
@@ -101,6 +111,8 @@
 				836835AC1D39E4190065017C /* AnimatorPresentTransition.m */,
 				836835AE1D3B20700065017C /* AnimatorBubbleTransition.h */,
 				836835AF1D3B20700065017C /* AnimatorBubbleTransition.m */,
+				A4DD33D11D3CBCFF00F1F631 /* AnimatorPushPopTransition.h */,
+				A4DD33D21D3CBCFF00F1F631 /* AnimatorPushPopTransition.m */,
 			);
 			path = Animators;
 			sourceTree = "<group>";
@@ -174,6 +186,17 @@
 				A4DD33BF1D38DBA100F1F631 /* ViewCATransition_Fade.m */,
 			);
 			path = DemoCATransition;
+			sourceTree = "<group>";
+		};
+		A4DD33D71D3DC35900F1F631 /* PushPop */ = {
+			isa = PBXGroup;
+			children = (
+				A4DD33D81D3DC35900F1F631 /* DemoCollectionViewController.h */,
+				A4DD33D91D3DC35900F1F631 /* DemoCollectionViewController.m */,
+				A4DD33DB1D3DC37700F1F631 /* CollectionViewItemViewController.h */,
+				A4DD33DC1D3DC37700F1F631 /* CollectionViewItemViewController.m */,
+			);
+			path = PushPop;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,13 +278,16 @@
 				A4DD33A11D3890A700F1F631 /* ViewController.m in Sources */,
 				8368359F1D39D6970065017C /* DemoViewControllerTransitionViewController.m in Sources */,
 				836835A21D39DC540065017C /* DemoViewControllerTransitionPresentedViewController.m in Sources */,
+				A4DD33D31D3CBCFF00F1F631 /* AnimatorPushPopTransition.m in Sources */,
 				A4DD33BC1D38C72500F1F631 /* ChildViewController.m in Sources */,
+				A4DD33DA1D3DC35900F1F631 /* DemoCollectionViewController.m in Sources */,
 				A4DD33C01D38DBA100F1F631 /* ViewCATransition_Fade.m in Sources */,
 				A4DD33B91D38BCFC00F1F631 /* CViewController.m in Sources */,
 				A4DD339E1D3890A700F1F631 /* AppDelegate.m in Sources */,
 				836835B01D3B20700065017C /* AnimatorBubbleTransition.m in Sources */,
 				A4DD33B61D38BCF400F1F631 /* BViewController.m in Sources */,
 				A4DD339B1D3890A700F1F631 /* main.m in Sources */,
+				A4DD33DD1D3DC37700F1F631 /* CollectionViewItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
