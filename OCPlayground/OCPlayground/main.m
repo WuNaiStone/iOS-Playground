@@ -87,6 +87,13 @@ void testPerformSelector() {
 
 #pragma mark - main
 
+#define disaptch_main_sync_safe(block)\
+    if ([NSThread isMainThread]) {\
+        block();\
+    } else {\
+        dispatch_sync(dispatch_get_main_queue(), block);\
+    }
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         testNSStringCompare();
@@ -94,6 +101,13 @@ int main(int argc, const char * argv[]) {
         testNSUserDefaults();
         testNSLocale();
         testPerformSelector();
+        NSLog(@"1");
+        
+        disaptch_main_sync_safe(^{
+               NSLog(@"2");
+        });
+        
+        NSLog(@"3");
     }
     return 0;
 }
