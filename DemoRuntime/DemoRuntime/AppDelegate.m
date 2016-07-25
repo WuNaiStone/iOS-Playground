@@ -17,8 +17,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self simpleNilTest];
+    
     return YES;
 }
+
+- (void)simpleNilTest {
+    /**
+     *  nil：defines the id of a null instance, 指向一个实例对象的空指针。
+     *  Nil：defines the id of a null class, 指向一个类的空指针
+     *  NULL: 指向其他类型（基本类型，C类型）的空指针
+     *  NSNull：集合中的空值
+     */
+    
+    NSString *string = nil;
+    // 给nil发送消息，不会crash。
+    // 因为执行 id objc_msgSend(id self, SEL op, ...)方法时，如果self为nil，函数不执行任何有意义的操作而直接返回。
+    BOOL b1 = [string hasPrefix:@"prefix"];
+    NSLog(@"b1 : %d", b1);
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
