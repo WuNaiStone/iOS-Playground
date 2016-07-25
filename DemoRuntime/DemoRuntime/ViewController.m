@@ -29,6 +29,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) NSString *myName;
+
 @end
 
 @implementation ViewController {
@@ -68,11 +70,23 @@
     // 获取所有成员变量，对于属性会自动生成_成员变量
     Ivar *ivars = class_copyIvarList([UIView class], &count);
     for (int i = 0; i < count; i++) {
-        const char *ivarName = ivar_getName(ivars[i]); // runtime是用C写的。
-        NSString *str = [NSString stringWithCString:ivarName encoding:NSUTF8StringEncoding];
-        NSLog(@"ivarName : %@", str);
+        Ivar ivar = ivars[i];
+        const char *ivarName = ivar_getName(ivar); // runtime是用C写的。
+        const char *ivarType = ivar_getTypeEncoding(ivar);
+        NSString *strName = [NSString stringWithCString:ivarName encoding:NSUTF8StringEncoding];
+        NSString *strType = [NSString stringWithCString:ivarType encoding:NSUTF8StringEncoding];
+        NSLog(@"ivarName : %@", strName);
+        NSLog(@"ivarType : %@", strType);
     }
+    
+    Ivar _ivarMyName = class_getInstanceVariable([self class], "_myName");
+    NSLog(@"_ivarMyName : %@", object_getIvar(self, _ivarMyName));
+    object_setIvar(self, _ivarMyName, @"MyName");
+    NSLog(@"_ivarMyName : %@", object_getIvar(self, _ivarMyName));
+    
     free(ivars);
+    
+    NSLog(@"\n\n");
 }
 
 - (void)printPropertyList {
@@ -81,11 +95,28 @@
     // 获取所有属性
     objc_property_t *properties = class_copyPropertyList([UIView class], &count);
     for (int i = 0; i < count; i++) {
-        const char *propertyName = property_getName(properties[i]);
-        NSString *str = [NSString stringWithCString:propertyName encoding:NSUTF8StringEncoding];
-        NSLog(@"propertyName : %@", str);
+        objc_property_t property = properties[i];
+        const char *propertyName = property_getName(property);
+        const char *propertyAttr = property_getAttributes(property);
+        NSString *strName = [NSString stringWithCString:propertyName encoding:NSUTF8StringEncoding];
+        NSString *strAttr = [NSString stringWithCString:propertyAttr encoding:NSUTF8StringEncoding];
+        NSLog(@"propertyName : %@", strName);
+        NSLog(@"propertyAttr : %@", strAttr);
+        
+        u_int attrCount = 0;
+        objc_property_attribute_t *attrs = property_copyAttributeList(property, &attrCount);
+        for (int j = 0; j < attrCount; j++) {
+            objc_property_attribute_t attr = attrs[j];
+            const char *attrName = attr.name;
+            const char *attrValue = attr.value;
+            NSLog(@"attrName: %s", attrName);
+            NSLog(@"attrValue: %s", attrValue);
+        }
+        free(attrs);
     }
     free(properties);
+    
+    NSLog(@"\n\n");
 }
 
 - (void)printMethodList {
@@ -115,6 +146,8 @@
 //        }
     }
     free(methods);
+    
+    NSLog(@"\n\n");
 }
 
 - (void)setBtnBackgroundColor {
