@@ -12,6 +12,8 @@
 #import "UIButton+CS_BackgroundColor/UIButton+CS_BackgroundColor.h"
 #import "UIControl+CS_FixMultiClick/UIControl+CS_FixMultiClick.h"
 
+#import "PersonModel.h"
+
 @interface NSObject (Associate)
 
 + (void)test;
@@ -49,6 +51,8 @@
     [self setBtnBackgroundColor];
     
     [self fixUIButtonClickIssue];
+    
+    [self json2Model];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -210,5 +214,18 @@
 }
 
 #pragma mark - 使用runtime来控制, 见UIButton的CS_FixMultiClick category.
+
+#pragma mark - 使用runtime将JSON转成Model
+
+- (void)json2Model {
+    NSString *file = [[NSBundle mainBundle] pathForResource:@"Persons" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:file];
+    NSMutableArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    
+    for (NSDictionary *model in array) {
+        PersonModel *person = [[PersonModel alloc] initWithNSDictionary:model];
+        NSLog(@"%@, %ld, %@, %@", person.name, (long)person.age, person.city, person.job);
+    }
+}
 
 @end

@@ -15,6 +15,8 @@
 		A446193B1BBD1F04006139CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44619391BBD1F04006139CF /* LaunchScreen.storyboard */; };
 		A485D6C01D22759D00D3A86B /* UIControl+CS_FixMultiClick.m in Sources */ = {isa = PBXBuildFile; fileRef = A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */; };
 		A4DD33101D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD330F1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m */; };
+		A4DD33E61D460DDE00F1F631 /* Persons.json in Resources */ = {isa = PBXBuildFile; fileRef = A4DD33E51D460DDE00F1F631 /* Persons.json */; };
+		A4DD33E91D460E8C00F1F631 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33E81D460E8C00F1F631 /* PersonModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,9 @@
 		A485D6BF1D22759D00D3A86B /* UIControl+CS_FixMultiClick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+CS_FixMultiClick.m"; sourceTree = "<group>"; };
 		A4DD330E1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CS_BackgroundColor.h"; sourceTree = "<group>"; };
 		A4DD330F1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CS_BackgroundColor.m"; sourceTree = "<group>"; };
+		A4DD33E51D460DDE00F1F631 /* Persons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Persons.json; sourceTree = "<group>"; };
+		A4DD33E71D460E8C00F1F631 /* PersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonModel.h; sourceTree = "<group>"; };
+		A4DD33E81D460E8C00F1F631 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 		A446192A1BBD1F04006139CF /* DemoRuntime */ = {
 			isa = PBXGroup;
 			children = (
+				A4DD33E41D460DB500F1F631 /* JSONModel */,
 				A4DD330D1D2E413B00F1F631 /* UIButton+CS_BackgroundColor */,
 				A485D6BD1D22758E00D3A86B /* UIControl+CS_FixMultiClick */,
 				A446192E1BBD1F04006139CF /* AppDelegate.h */,
@@ -103,6 +109,16 @@
 				A4DD330F1D2E413B00F1F631 /* UIButton+CS_BackgroundColor.m */,
 			);
 			path = "UIButton+CS_BackgroundColor";
+			sourceTree = "<group>";
+		};
+		A4DD33E41D460DB500F1F631 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				A4DD33E51D460DDE00F1F631 /* Persons.json */,
+				A4DD33E71D460E8C00F1F631 /* PersonModel.h */,
+				A4DD33E81D460E8C00F1F631 /* PersonModel.m */,
+			);
+			path = JSONModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +181,7 @@
 				A446193B1BBD1F04006139CF /* LaunchScreen.storyboard in Resources */,
 				A44619381BBD1F04006139CF /* Assets.xcassets in Resources */,
 				A44619361BBD1F04006139CF /* Main.storyboard in Resources */,
+				A4DD33E61D460DDE00F1F631 /* Persons.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DD33E91D460E8C00F1F631 /* PersonModel.m in Sources */,
 				A44619331BBD1F04006139CF /* ViewController.m in Sources */,
 				A44619301BBD1F04006139CF /* AppDelegate.m in Sources */,
 				A485D6C01D22759D00D3A86B /* UIControl+CS_FixMultiClick.m in Sources */,
