@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "NSString+ReverseString.h"
 #import "MyClass.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 #pragma mark - NSString
 
@@ -85,6 +86,44 @@ void testPerformSelector() {
     }
 }
 
+#pragma mark - JavaScriptCore
+
+// JavaScriptCore, JSContext, JSValue, JSExport
+void testJavaScriptCore() {
+    JSContext *context = [[JSContext alloc] init];
+    context.exceptionHandler = ^(JSContext *context, JSValue *exception) {
+        NSLog(@"exception : %@", exception);
+    };
+    
+    
+    JSValue *value = [context evaluateScript:@"1 + 2"];
+    NSLog(@"value : %f", [value toDouble]);
+    
+    
+    // 在context中预定义一个sum函数，
+    NSString *script = @"function sum(a, b) { return a + b; }";
+    [context evaluateScript:script];
+    
+    JSValue *sum = context[@"sum"];
+    // 传递参数到sum中
+    value = [sum callWithArguments:@[@1, @2]];
+    
+    
+    JSValue *intVar = [JSValue valueWithInt32:100 inContext:context];
+    context[@"bar"] = intVar; // 变量或方法在context中是全局存在的。
+    [context evaluateScript:@"bar++"];
+    // 等同于
+    [context evaluateScript:@"var bar = 100;"];
+    
+    
+    
+    context[@"sum"] = ^(int a, int b) {
+        return a + b;
+    };
+    [context evaluateScript:@"sum(1, 2)"];
+    
+}
+
 #pragma mark - main
 
 #define disaptch_main_sync_safe(block)\
@@ -96,11 +135,15 @@ void testPerformSelector() {
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        /*
         testNSStringCompare();
         testNSStringReverseCategory();
         testNSUserDefaults();
         testNSLocale();
         testPerformSelector();
+         */
+        testJavaScriptCore();
+        
         NSLog(@"1");
         
         disaptch_main_sync_safe(^{
