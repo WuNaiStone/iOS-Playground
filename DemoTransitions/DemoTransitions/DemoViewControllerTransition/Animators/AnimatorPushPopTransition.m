@@ -18,99 +18,78 @@
     return self;
 }
 
-// 动画的持续时间
-// This is used for percent driven interactive transitions, as well as for container controllers that have companion animations that might need to
-// synchronize with the main animation.
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
     return 0.5;
 }
 
-// This method can only be a nop if the transition is interactive and not a percentDriven interactive transition.
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
     [super animateTransition:transitionContext];
 }
 
 - (void)animationPush {
-    // 实际上, 在toView的下边, 添加了一个bubbleView, 从最初的bubble的center位置开始, 通过scale动画呈现出来.
-    // BubbleView与toView的背景色一致.
-    UIView *bubbleView = [[UIView alloc] init];
-    bubbleView.backgroundColor = self.toView.backgroundColor; // [UIColor purpleColor];
-    CGSize toViewSize = self.toView.frame.size;
-    CGFloat x = fmax(_itemCenter.x, toViewSize.width);
-    CGFloat y = fmax(_itemCenter.y, toViewSize.height);
-    CGFloat radius = sqrt(x * x + y * y);
-    bubbleView.frame = CGRectMake(0, 0, radius * 2, radius * 2);
-    bubbleView.layer.cornerRadius = CGRectGetHeight(bubbleView.frame) / 2;
-    bubbleView.transform = CGAffineTransformMakeScale(0.001, 0.001);
-    bubbleView.center = _itemCenter;
-    [self.containerView addSubview:bubbleView];
+    self.containerView.backgroundColor = self.toView.backgroundColor;
     
-    // toView要跟随bubbleView一起做动画
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
+    imageView.image = [UIImage imageNamed:_imageName];
+    [self.containerView addSubview:imageView];
+    imageView.center = _itemCenter;
+    
+    CGFloat initialScale = _itemSize.width / CGRectGetWidth(imageView.frame);
+    imageView.transform = CGAffineTransformMakeScale(initialScale, initialScale);
+    
+    NSLog(@"y : %f", imageView.center.y);
+    
+    // toView在UIImageView到达最终位置，动画完成之后再显示出来
     self.toView.frame = [self.transitionContext finalFrameForViewController:self.to];
-    CGPoint toViewFinalCenter = self.toView.center;
-    self.toView.transform = CGAffineTransformMakeScale(0.001, 0.001);
-    self.toView.center = _itemCenter;
-    self.toView.alpha = 0.0;
     [self.containerView addSubview:self.toView];
+    CGPoint toViewFinalCenter = self.toView.center;
+    self.toView.center = toViewFinalCenter;
+    self.toView.alpha = 0.0f;
     
     
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     typeof (&*self) __weak weakSelf = self;
     
-    [UIView animateWithDuration:duration animations:^{
-        bubbleView.transform = CGAffineTransformIdentity;
+    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        imageView.transform = CGAffineTransformIdentity;
+        imageView.center = toViewFinalCenter;
         
-        weakSelf.toView.transform = CGAffineTransformIdentity;
-        weakSelf.toView.alpha = 1.0f;
-        weakSelf.toView.center = toViewFinalCenter;
+        self.fromView.alpha = 0.0f; // fromView 渐隐
     } completion:^(BOOL finished) {
+        [imageView removeFromSuperview];
+        
+        weakSelf.toView.alpha = 1.0f;
+        weakSelf.fromView.alpha = 1.0f;
+        
         [weakSelf.transitionContext completeTransition:![weakSelf.transitionContext transitionWasCancelled]];
     }];
-    
-    //    [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0 options:UIViewAnimationOptionCurveLinear animations:^{
-    //        bubbleView.transform = CGAffineTransformIdentity;
-    //        weakSelf.toView.transform = CGAffineTransformIdentity;
-    //        weakSelf.toView.alpha = 1.0f;
-    //        weakSelf.toView.center = toViewFinalCenter;
-    //    } completion:^(BOOL finished) {
-    //        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-    //    }];
-    
 }
 
 - (void)animationPop {
     self.toView.frame = [self.transitionContext finalFrameForViewController:self.to];
     [self.containerView insertSubview:self.toView belowSubview:self.fromView];
     
-    // 与present bubble时的过程相反.
-    UIView *bubbleView = [[UIView alloc] init];
-    bubbleView.backgroundColor = self.fromView.backgroundColor;
-    CGSize fromViewSize = self.fromView.frame.size;
-    CGFloat x = fmax(_itemCenter.x, fromViewSize.width);
-    CGFloat y = fmax(_itemCenter.y, fromViewSize.height);
-    CGFloat radius = sqrt(x * x + y * y);
-    bubbleView.frame = CGRectMake(0, 0, radius * 2, radius * 2);
-    bubbleView.layer.cornerRadius = radius;
-    bubbleView.transform = CGAffineTransformIdentity;
-    bubbleView.center = _itemCenter;
-    [self.containerView insertSubview:bubbleView belowSubview:self.fromView];
+    self.toView.alpha = 0.0f;
     
+    self.fromView.backgroundColor = [UIColor clearColor];
     
     NSTimeInterval duration = [self transitionDuration:self.transitionContext];
     typeof (&*self) __weak weakSelf = self;
     
+    
     [UIView animateWithDuration:duration animations:^{
-        bubbleView.transform = CGAffineTransformMakeScale(0.001, 0.001);
-        
-        weakSelf.fromView.transform = CGAffineTransformMakeScale(0.001, 0.001);
+        CGFloat initialScale = _itemSize.width / 200;
+        weakSelf.fromView.transform = CGAffineTransformMakeScale(initialScale, initialScale);
         weakSelf.fromView.center = weakSelf.itemCenter;
+        
+        weakSelf.toView.alpha = 1.0f;
     } completion:^(BOOL finished) {
+        weakSelf.fromView.alpha = 0.0f;
+        
         [weakSelf.transitionContext completeTransition:![weakSelf.transitionContext transitionWasCancelled]];
     }];
 }
 
-// @optional
-// This is a convenience and if implemented will be invoked by the system when the transition context's completeTransition: method is invoked.
 - (void)animationEnded:(BOOL) transitionCompleted {
     NSLog(@"%s", __func__);
 }

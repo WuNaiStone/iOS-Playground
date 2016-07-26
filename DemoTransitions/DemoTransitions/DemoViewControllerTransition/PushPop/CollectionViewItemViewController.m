@@ -19,7 +19,7 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 250, 300)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 300)];
     imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld", _imageIndex]];
     [self.view addSubview:imageView];
     

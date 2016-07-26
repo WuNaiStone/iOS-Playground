@@ -14,4 +14,6 @@
 
 @property (nonatomic, assign) CGPoint itemCenter;
 
+@property (nonatomic, copy) NSString *imageName;
+
 @end

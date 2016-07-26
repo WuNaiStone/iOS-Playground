@@ -37,10 +37,12 @@ static NSString * const reuseIdentifier = @"Cell";
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.itemSize = CGSizeMake(100, 150);
     
-    _collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
+    CGRect frame = CGRectMake(0, 100, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 100);
+    _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     [self.view addSubview:_collectionView];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     _collectionView.backgroundColor = [UIColor whiteColor];
     
     _collectionView.dataSource = self;
@@ -81,6 +83,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewItemViewController *itemVC = [[CollectionViewItemViewController alloc] init];
     itemVC.navigationItem.title = @"CollectionViewItemViewController";
+    itemVC.imageIndex = indexPath.item;
     
     self.navigationController.delegate = self;
     [self.navigationController pushViewController:itemVC animated:YES];
@@ -108,10 +111,13 @@ static NSString * const reuseIdentifier = @"Cell";
         return nil;
     }
     
-    UICollectionViewCell *cell = [_collectionView cellForItemAtIndexPath:indexPaths[0]];
+    NSIndexPath *selectedIndexPath = indexPaths[0];
+    UICollectionViewCell *cell = [_collectionView cellForItemAtIndexPath:selectedIndexPath];
     
-    pushPopTransition.itemCenter = cell.center;
+    // 一定要加上convertPoint:toView:操作
+    pushPopTransition.itemCenter = [_collectionView convertPoint:cell.center toView:self.view];
     pushPopTransition.itemSize = cell.frame.size;
+    pushPopTransition.imageName = [NSString stringWithFormat:@"%ld", (long)selectedIndexPath.item];
     
     return pushPopTransition;
 }
