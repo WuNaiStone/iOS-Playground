@@ -2,7 +2,7 @@
 //  ViewController.m
 //  DemoKVC
 //
-//  Created by zj－db0465 on 16/1/28.
+//  Created by Chris Hu on 16/1/28.
 //  Copyright © 2016年 icetime17. All rights reserved.
 //
 
@@ -19,6 +19,41 @@
 @implementation MyObject
 
 @end
+
+
+#pragma mark - Dog
+
+@interface Dog : NSObject
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) NSInteger age;
+@property (nonatomic, copy) NSString *city;
+
+@end
+
+@implementation Dog
+
+@end
+
+
+
+#pragma mark - Person
+
+@interface Person : NSObject
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) NSInteger age;
+
+@property (nonatomic, strong) Dog *dog;
+
+@property (nonatomic, strong) NSArray<Dog *> *dogs;
+
+@end
+
+@implementation Person
+
+@end
+
 
 
 @interface ViewController ()
@@ -49,6 +84,10 @@
     [self testKVC];
  
     [self testKVCInObject];
+    
+    [self testKeyPath];
+    
+    [self testBatchOperation];
 }
 
 - (void)testNonKVC {
@@ -148,9 +187,91 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)testKeyPath {
+    Dog *aDog = [[Dog alloc] init];
+    aDog.name = @"My Dog";
+    aDog.age = 2;
+    
+    Person *aPerson = [[Person alloc] init];
+    aPerson.name = @"Chris";
+    aPerson.age = 18;
+    aPerson.dog = aDog;
+    
+    NSString *name = [aPerson valueForKeyPath:@"name"];
+    NSInteger age = [[aPerson valueForKeyPath:@"age"] integerValue];
+    NSString *dogName = [aPerson valueForKeyPath:@"dog.name"];
+    NSInteger dogAge = [[aPerson valueForKeyPath:@"dog.age"] integerValue];
+    NSLog(@"testKeyPath: name : %@, age : %ld", name, age);
+    NSLog(@"testKeyPath: dogName : %@, dogAge : %ld", dogName, dogAge);
+}
+
+- (void)testBatchOperation {
+    Dog *dog1 = [[Dog alloc] init];
+    dog1.name = @"Dog 1";
+    dog1.age = 1;
+    dog1.city = @"Shanghai";
+    
+    Dog *dog2 = [[Dog alloc] init];
+    dog2.name = @"Dog 2";
+    dog2.age = 2;
+    dog2.city = @"Shanghai";
+    
+    Dog *dog3 = [[Dog alloc] init];
+    dog3.name = @"Dog 3";
+    dog3.age = 3;
+    dog3.city = @"Beijing";
+    
+    Person *aPerson = [[Person alloc] init];
+    aPerson.name = @"Chris";
+    aPerson.age = 18;
+    aPerson.dogs = @[dog1, dog2, dog3];
+    
+    //NSArray实现valueForKeyPath:的方法是循环遍历它的内容并向每个对象发送消息.
+    NSArray *dogNames = [aPerson valueForKeyPath:@"dogs.name"];
+    NSArray *dogAges = [aPerson valueForKeyPath:@"dogs.age"];
+    NSMutableString *str = [[NSMutableString alloc] init];
+    [str appendString:@"dogNames :"];
+    for (NSInteger i = 0; i < dogNames.count; i++) {
+        [str appendFormat:@" %@, %ld years old. ", dogNames[i], [dogAges[i] integerValue]];
+    }
+    
+    NSLog(@"%@", str);
+    
+    // dogs表示取出内容, @count即进行计算, 通知KVC机制进行键路径左侧值的对象总数
+    NSNumber *countOfDogs = [aPerson valueForKeyPath:@"dogs.@count"];
+    NSLog(@"count of dogs : %@", countOfDogs);
+    
+    // 获取@sum左侧的集合, 对集合中的每个对象执行右侧操作age, 将结果组成一个集合并返回.
+    NSNumber *ageCountOfDogs = [aPerson valueForKeyPath:@"dogs.@sum.age"];
+    NSLog(@"ageCountOfDogs of dogs : %@", ageCountOfDogs);
+    
+    NSNumber *ageAvgOfDogs = [aPerson valueForKeyPath:@"dogs.@avg.age"];
+    NSLog(@"age avg of dogs : %@", ageAvgOfDogs);
+    NSLog(@"age min : %@, max : %@", [aPerson valueForKeyPath:@"dogs.@min.age"], [aPerson valueForKeyPath:@"dogs.@max.age"]);
+    
+    // 获取唯一值
+    NSArray *cities = [aPerson valueForKeyPath:@"dogs.@distinctUnionOfObjects.city"];
+    NSLog(@"cities : %@", cities);
+    
+    // 批量修改
+    [aPerson setValue:@"Xiamen" forKeyPath:@"dogs.city"];
+    
+    cities = [aPerson valueForKeyPath:@"dogs.@distinctUnionOfObjects.city"];
+    NSLog(@"cities : %@", cities);
+    
+    // 根据设置的key, 来进行组合结果.
+    Dog *lastDog = [[aPerson valueForKeyPath:@"dogs"] lastObject];
+    NSArray *keys = @[@"name"];
+    NSDictionary *values = [lastDog dictionaryWithValuesForKeys:keys];
+    NSLog(@"values : %@", values);
+    
+    // 使用setValuesForKeysWithDictionary根据字典对Dog进行修改
+    NSDictionary *newValues = @{@"name": @"My Dog"};
+    [lastDog setValuesForKeysWithDictionary:newValues];
+    values = [lastDog dictionaryWithValuesForKeys:keys];
+    NSLog(@"values : %@", values);
+    
+    // 不要滥用KVC, KVC需要解析字符串来计算需要的结果, 因此速度较慢. 且无法进行错误检查.
 }
 
 @end
