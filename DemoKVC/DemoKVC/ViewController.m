@@ -191,6 +191,9 @@
     Dog *aDog = [[Dog alloc] init];
     aDog.name = @"My Dog";
     aDog.age = 2;
+    NSString *dogName = [aDog valueForKey:@"name"];
+    NSInteger dogAge = [[aDog valueForKey:@"age"] integerValue];
+    NSLog(@"dogName : %@, dogAge : %ld", dogName, dogAge);
     
     Person *aPerson = [[Person alloc] init];
     aPerson.name = @"Chris";
@@ -199,8 +202,8 @@
     
     NSString *name = [aPerson valueForKeyPath:@"name"];
     NSInteger age = [[aPerson valueForKeyPath:@"age"] integerValue];
-    NSString *dogName = [aPerson valueForKeyPath:@"dog.name"];
-    NSInteger dogAge = [[aPerson valueForKeyPath:@"dog.age"] integerValue];
+    dogName = [aPerson valueForKeyPath:@"dog.name"];
+    dogAge = [[aPerson valueForKeyPath:@"dog.age"] integerValue];
     NSLog(@"testKeyPath: name : %@, age : %ld", name, age);
     NSLog(@"testKeyPath: dogName : %@, dogAge : %ld", dogName, dogAge);
 }
