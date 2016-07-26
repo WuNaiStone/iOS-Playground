@@ -22,7 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    
+    CGRect frame = CGRectMake(0, 64, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame) - 64);
+    _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
@@ -32,6 +36,8 @@
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self addNavigationItemAvatar];
+    
+//    [self replaceNavigationBar];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -45,8 +51,9 @@
     return cell;
 }
 
+// statusBar：20，navigationBar：44
 - (BOOL)prefersStatusBarHidden {
-    return YES;
+    return NO;
 }
 
 - (void)addNavigationItemAvatar {
@@ -62,6 +69,19 @@
     _imageViewAvatar.center = CGPointMake(titleView.center.x, 22);
     
     [titleView addSubview:_imageViewAvatar];
+}
+
+- (void)replaceNavigationBar {
+    self.navigationController.navigationBarHidden = YES;
+    
+    UIView *aView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.view.frame), 44)];
+    aView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:aView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:aView.bounds];
+    label.text = @"This is new navigation bar";
+    label.textAlignment = NSTextAlignmentCenter;
+    [aView addSubview:label];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
