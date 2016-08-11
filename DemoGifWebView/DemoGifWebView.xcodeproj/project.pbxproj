@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		83B3FD1B1CB29B3F004489FF /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 83B3FD1A1CB29B3F004489FF /* demo.gif */; };
+		A42D28EB1D5C85FB00FEE114 /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A42D28EA1D5C85FB00FEE114 /* Model.jpg */; };
 		A4DA01271BD9F21D007F7701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA01261BD9F21D007F7701 /* AppDelegate.swift */; };
 		A4DA01291BD9F21D007F7701 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DA01281BD9F21D007F7701 /* ViewController.swift */; };
 		A4DA012C1BD9F21D007F7701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DA012A1BD9F21D007F7701 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		83B3FD1A1CB29B3F004489FF /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
+		A42D28EA1D5C85FB00FEE114 /* Model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model.jpg; sourceTree = "<group>"; };
 		A4DA01231BD9F21D007F7701 /* DemoGifWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoGifWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DA01261BD9F21D007F7701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4DA01281BD9F21D007F7701 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		A4DA01251BD9F21D007F7701 /* DemoGifWebView */ = {
 			isa = PBXGroup;
 			children = (
+				A42D28EA1D5C85FB00FEE114 /* Model.jpg */,
 				83B3FD1A1CB29B3F004489FF /* demo.gif */,
 				A4DA01381BD9F230007F7701 /* railway.gif */,
 				A4DA01261BD9F21D007F7701 /* AppDelegate.swift */,
@@ -130,6 +133,7 @@
 				A4DA01391BD9F230007F7701 /* railway.gif in Resources */,
 				A4DA01311BD9F21D007F7701 /* LaunchScreen.storyboard in Resources */,
 				83B3FD1B1CB29B3F004489FF /* demo.gif in Resources */,
+				A42D28EB1D5C85FB00FEE114 /* Model.jpg in Resources */,
 				A4DA012E1BD9F21D007F7701 /* Assets.xcassets in Resources */,
 				A4DA012C1BD9F21D007F7701 /* Main.storyboard in Resources */,
 			);
