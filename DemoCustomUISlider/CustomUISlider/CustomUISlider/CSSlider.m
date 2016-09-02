@@ -68,6 +68,18 @@
     _csMaximumTrackTintColor = csMaximumTrackTintColor;
 }
 
+- (void)setSliderDirection:(CSSliderDirection)sliderDirection {
+    switch (sliderDirection) {
+        case CSSliderDirection_Horizontal:
+            break;
+        case CSSliderDirection_Vertical:
+            self.transform = CGAffineTransformMakeRotation(M_PI_2);
+            break;
+        default:
+            break;
+    }
+}
+
 - (void)setTrackTintType:(CSSliderTrackTintType)trackTintType {
     switch (trackTintType) {
         case CSSliderTrackTintType_Linear:
@@ -76,7 +88,7 @@
             break;
         case CSSliderTrackTintType_Divide:
         {   
-            CGRect frame = CGRectMake(0, (CGRectGetHeight(self.frame) - 2 ) / 2, CGRectGetWidth(self.frame), 2);
+            CGRect frame = CGRectMake(0, (CGRectGetHeight(self.bounds) - 2 ) / 2, CGRectGetWidth(self.bounds), 2);
             bgView = [[UIView alloc] initWithFrame:frame];
             bgView.backgroundColor = [self colorWithLeft:_csMinimumTrackTintColor right:_csMaximumTrackTintColor];
             [self addSubview:bgView];
@@ -102,11 +114,11 @@
     UIGraphicsBeginImageContext(self.frame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    CGRect leftRect     = CGRectMake(0, 0, self.frame.size.width / 2, self.frame.size.height);
+    CGRect leftRect     = CGRectMake(0, 0, self.bounds.size.width / 2, self.bounds.size.height);
     CGContextSetFillColorWithColor(context, leftColor.CGColor);
     CGContextFillRect(context, leftRect);
     
-    CGRect rightRect    = CGRectMake(self.frame.size.width / 2, 0, self.frame.size.width / 2, self.frame.size.height);
+    CGRect rightRect    = CGRectMake(self.bounds.size.width / 2, 0, self.bounds.size.width / 2, self.bounds.size.height);
     CGContextSetFillColorWithColor(context, rightColor.CGColor);
     CGContextFillRect(context, rightRect);
     
@@ -126,11 +138,8 @@
 - (void)adjustTrackViewViaSliderValue {
     float scale = (self.value - self.minimumValue) / (self.maximumValue - self.minimumValue);
     CGRect rect = trackView.frame;
-    rect.size.width = scale * self.frame.size.width;
+    rect.size.width = scale * self.bounds.size.width;
     trackView.frame = rect;
-    
-    //    bgView.center = self.center;
-    //    trackView.center = CGPointMake(trackView.center.x, self.center.y);
 }
 
 #pragma mark - target events

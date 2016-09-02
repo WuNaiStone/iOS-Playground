@@ -10,6 +10,11 @@
 
 @protocol CSSliderDelegate;
 
+typedef NS_ENUM(NSInteger, CSSliderDirection) {
+    CSSliderDirection_Horizontal = 0,
+    CSSliderDirection_Vertical,
+};
+
 typedef NS_ENUM(NSInteger, CSSliderTrackTintType) {
     CSSliderTrackTintType_Linear = 0,
     CSSliderTrackTintType_Divide,
@@ -20,6 +25,8 @@ typedef NS_ENUM(NSInteger, CSSliderTrackTintType) {
 @property (nonatomic, weak) id<CSSliderDelegate> delegate;
 
 @property (nonatomic, assign) float middleVaule;
+
+@property (nonatomic, assign) CSSliderDirection sliderDirection;
 
 @property (nonatomic, assign) CSSliderTrackTintType trackTintType;
 
