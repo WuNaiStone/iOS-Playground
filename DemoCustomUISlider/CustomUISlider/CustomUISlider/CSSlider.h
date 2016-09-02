@@ -28,6 +28,9 @@ typedef NS_ENUM(NSInteger, CSSliderTrackTintType) {
 
 @property (nonatomic, assign) CSSliderDirection sliderDirection;
 
+// Please use CSSliderTrackTintType in viewDidAppear method.
+// Please use CSSliderTrackTintType after csMinimumTrackTintColor and csMaximumTrackTintColor set already if you do not want to use the default color.
+// Please do not set minimumValueImage and maximumValueImage before fully test.
 @property (nonatomic, assign) CSSliderTrackTintType trackTintType;
 
 @property (nonatomic, strong) UIImage *csThumbImage;
@@ -43,6 +46,8 @@ typedef NS_ENUM(NSInteger, CSSliderTrackTintType) {
 @protocol CSSliderDelegate <NSObject>
 
 - (void)CSSliderValueChanged:(CSSlider *)sender;
+
+@optional
 - (void)CSSliderTouchDown:(CSSlider *)sender;
 - (void)CSSliderTouchUp:(CSSlider *)sender;
 - (void)CSSliderTouchCancel:(CSSlider *)sender;

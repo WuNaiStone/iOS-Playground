@@ -37,7 +37,7 @@
     csSlider.csMinimumTrackTintColor = [UIColor redColor];
     csSlider.csMaximumTrackTintColor = [UIColor lightGrayColor];
     // Please use CSSliderTrackTintType_Divide after csMinimumTrackTintColor and csMaximumTrackTintColor set already. Please do not set minimumValueImage and maximumValueImage.
-    csSlider.trackTintType = CSSliderTrackTintType_Divide;
+    csSlider.trackTintType = CSSliderTrackTintType_Linear;
     
     csSlider.sliderDirection = CSSliderDirection_Vertical;
     

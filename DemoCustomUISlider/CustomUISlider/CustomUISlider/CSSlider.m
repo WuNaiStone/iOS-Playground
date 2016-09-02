@@ -73,7 +73,7 @@
         case CSSliderDirection_Horizontal:
             break;
         case CSSliderDirection_Vertical:
-            self.transform = CGAffineTransformMakeRotation(M_PI_2);
+            self.transform = CGAffineTransformMakeRotation(-M_PI_2);
             break;
         default:
             break;
