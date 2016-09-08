@@ -315,6 +315,7 @@
 				A43510BA1D76BD230019EA9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

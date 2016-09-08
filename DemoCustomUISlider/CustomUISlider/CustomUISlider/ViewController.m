@@ -37,9 +37,9 @@
     csSlider.csMinimumTrackTintColor = [UIColor redColor];
     csSlider.csMaximumTrackTintColor = [UIColor lightGrayColor];
     // Please use CSSliderTrackTintType_Divide after csMinimumTrackTintColor and csMaximumTrackTintColor set already. Please do not set minimumValueImage and maximumValueImage.
-    csSlider.trackTintType = CSSliderTrackTintType_Linear;
+    csSlider.trackTintType = CSSliderTrackTintType_Divide;
     
-    csSlider.sliderDirection = CSSliderDirection_Vertical;
+//    csSlider.sliderDirection = CSSliderDirection_Vertical;
     
     
     label = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 30)];

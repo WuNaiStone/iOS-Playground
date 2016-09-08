@@ -16,6 +16,8 @@
 #define RGBHEX(hex)       RGBA((float)((hex & 0xFF0000) >> 16),(float)((hex & 0xFF00) >> 8),(float)(hex & 0xFF),1.f)
 #define RGBAHEX(hex,a)    RGBA((float)((hex & 0xFF0000) >> 16),(float)((hex & 0xFF00) >> 8),(float)(hex & 0xFF),a)
 
+static CGFloat heightLine = 2.0f; // slider的中间线height
+
 @interface CSSlider ()
 
 @end
@@ -50,6 +52,9 @@
     self.minimumValue = 0.0f;
     self.maximumValue = 1.0f;
     self.middleVaule = (self.maximumValue - self.minimumValue) / 2;
+    
+    self.csMinimumTrackTintColor = RGBHEX(0xFF813C);
+    self.csMaximumTrackTintColor = RGBHEX(0xDBDBDB);
 }
 
 - (void)setCsThumbImage:(UIImage *)csThumbImage {
@@ -69,9 +74,9 @@
 }
 
 - (void)setSliderDirection:(CSSliderDirection)sliderDirection {
+    _sliderDirection = sliderDirection;
+    
     switch (sliderDirection) {
-        case CSSliderDirection_Horizontal:
-            break;
         case CSSliderDirection_Vertical:
             self.transform = CGAffineTransformMakeRotation(-M_PI_2);
             break;
@@ -81,33 +86,34 @@
 }
 
 - (void)setTrackTintType:(CSSliderTrackTintType)trackTintType {
+    _trackTintType = trackTintType;
+    
+    CGRect frame = CGRectMake(0, (CGRectGetHeight(self.frame) - heightLine) / 2, CGRectGetWidth(self.frame), heightLine);
+    
+    if (!trackView) {
+        trackView = [[UIView alloc] initWithFrame:frame];
+        [self addSubview:trackView];
+        [self sendSubviewToBack:trackView];
+    }
+    
+    if (!bgView) {
+        bgView = [[UIView alloc] initWithFrame:frame];
+        [self addSubview:bgView];
+        [self sendSubviewToBack:bgView];
+    }
+    
     switch (trackTintType) {
-        case CSSliderTrackTintType_Linear:
-            self.minimumTrackTintColor = _csMinimumTrackTintColor;
-            self.maximumTrackTintColor = _csMaximumTrackTintColor;
-            break;
         case CSSliderTrackTintType_Divide:
-        {   
-            CGRect frame = CGRectMake(0, (CGRectGetHeight(self.bounds) - 2 ) / 2, CGRectGetWidth(self.bounds), 2);
-            bgView = [[UIView alloc] initWithFrame:frame];
             bgView.backgroundColor = [self colorWithLeft:_csMinimumTrackTintColor right:_csMaximumTrackTintColor];
-            [self addSubview:bgView];
-            
-            trackView = [[UIView alloc] initWithFrame:frame];
             trackView.backgroundColor = [self colorWithLeft:_csMaximumTrackTintColor right:_csMinimumTrackTintColor];
-            [self addSubview:trackView];
-            
-            [self sendSubviewToBack:trackView];
-            [self sendSubviewToBack:bgView];
-            
-            [self adjustTrackViewViaSliderValue];
             break;
-        }
         default:
-            self.minimumTrackTintColor = _csMinimumTrackTintColor;
-            self.maximumTrackTintColor = _csMaximumTrackTintColor;
+            bgView.backgroundColor = _csMaximumTrackTintColor;
+            trackView.backgroundColor = _csMinimumTrackTintColor;
             break;
     }
+    
+    [self adjustTrackViewViaSliderValue];
 }
 
 - (UIColor *)colorWithLeft:(UIColor *)leftColor right:(UIColor *)rightColor {
@@ -136,10 +142,37 @@
 
 //  根据value修正trackView的frame
 - (void)adjustTrackViewViaSliderValue {
-    float scale = (self.value - self.minimumValue) / (self.maximumValue - self.minimumValue);
-    CGRect rect = trackView.frame;
-    rect.size.width = scale * self.bounds.size.width;
-    trackView.frame = rect;
+    switch (_trackTintType) {
+        case CSSliderTrackTintType_Divide:
+        {
+            float scale = (self.value - self.minimumValue) / (self.maximumValue - self.minimumValue);
+            CGRect rect = trackView.frame;
+            // 根据bgView来计算，self的frame因为transform而导致计算不正确。
+            rect.size.width = scale * bgView.frame.size.width;
+            trackView.frame = rect;
+            break;
+        }
+        default:
+        {
+            // Linear类型的slider，与Divide类型不一样。
+            CGRect trackRect = [self trackRectForBounds:self.bounds];
+            CGRect thumbRect = [self thumbRectForBounds:self.bounds trackRect:trackRect value:self.value];
+            
+            CGFloat originalY = (CGRectGetHeight(self.frame) - heightLine) / 2;
+            CGFloat offset = 2.0f;
+            CGFloat widthTrackView = MAX(CGRectGetMinX(thumbRect) - offset, 0);
+            CGFloat widthBgView = MAX(CGRectGetWidth(self.frame) - CGRectGetMaxX(thumbRect) - offset, 0);
+            
+            if (_sliderDirection == CSSliderDirection_Vertical) {
+                originalY = (CGRectGetWidth(self.frame) - heightLine) / 2;
+                widthBgView = MAX(CGRectGetHeight(self.frame) - CGRectGetMaxX(thumbRect) - offset, 0);
+            }
+            
+            trackView.frame = CGRectMake(0, originalY, widthTrackView, heightLine);
+            bgView.frame = CGRectMake(CGRectGetMaxX(thumbRect) + offset, originalY, widthBgView, heightLine);
+            break;
+        }
+    }
 }
 
 #pragma mark - target events
