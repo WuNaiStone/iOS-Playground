@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CAShapeLayer+ViewMask.h"
 #import "ViewCAShapeLayerAnimation.h"
 
 @interface ViewController () <
@@ -26,12 +27,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
  
-    _viewAnima = [[ViewCAShapeLayerAnimation alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    _viewAnima = [[ViewCAShapeLayerAnimation alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
     [self.view addSubview:_viewAnima];
-    _viewAnima.center = self.view.center;
     _viewAnima.delegate = self;
     
     [self addBtns];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self testMask];
+    });
+}
+
+- (void)testMask {
+    UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    bgView.backgroundColor = [UIColor lightGrayColor];
+    bgView.center = self.view.center;
+    [self.view addSubview:bgView];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    view.backgroundColor = [UIColor redColor];
+    view.center = self.view.center;
+    [self.view addSubview:view];
+    
+    CGRect beginRect = CGRectMake(0, 0, 20, 20);
+    CGRect endRect = CGRectMake(0, 0, 100, 100);
+    UIBezierPath *beginPath = [UIBezierPath bezierPathWithRect:beginRect];
+    UIBezierPath *endPath = [UIBezierPath bezierPathWithRect:endRect];
+    
+    // layer.mask的区域即为实际屏幕上能看到的区域
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = endPath.CGPath;
+    view.layer.mask = maskLayer;
+    
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"path"];
+    anim.fromValue = (__bridge id)(beginPath.CGPath);
+    anim.toValue = (__bridge id)(endPath.CGPath);
+    anim.duration = 5;
+    [maskLayer addAnimation:anim forKey:@"path"];
 }
 
 - (void)addBtns{

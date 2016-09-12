@@ -14,6 +14,8 @@
 		A4DD337A1D34A91B00F1F631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DD33791D34A91B00F1F631 /* Assets.xcassets */; };
 		A4DD337D1D34A91B00F1F631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD337B1D34A91B00F1F631 /* LaunchScreen.storyboard */; };
 		A4DD33861D34CA5000F1F631 /* ViewCAShapeLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33851D34CA5000F1F631 /* ViewCAShapeLayerAnimation.m */; };
+		A4DD33891D34DBF300F1F631 /* CAShapeLayer+ViewMask.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33881D34DBF300F1F631 /* CAShapeLayer+ViewMask.m */; };
+		A4DD338C1D34EC3C00F1F631 /* ViewStar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD338B1D34EC3C00F1F631 /* ViewStar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		A4DD337E1D34A91B00F1F631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DD33841D34CA5000F1F631 /* ViewCAShapeLayerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCAShapeLayerAnimation.h; sourceTree = "<group>"; };
 		A4DD33851D34CA5000F1F631 /* ViewCAShapeLayerAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCAShapeLayerAnimation.m; sourceTree = "<group>"; };
+		A4DD33871D34DBF300F1F631 /* CAShapeLayer+ViewMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAShapeLayer+ViewMask.h"; sourceTree = "<group>"; };
+		A4DD33881D34DBF300F1F631 /* CAShapeLayer+ViewMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+ViewMask.m"; sourceTree = "<group>"; };
+		A4DD338A1D34EC3C00F1F631 /* ViewStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewStar.h; sourceTree = "<group>"; };
+		A4DD338B1D34EC3C00F1F631 /* ViewStar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewStar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +71,12 @@
 				A4DD33711D34A91B00F1F631 /* AppDelegate.m */,
 				A4DD33731D34A91B00F1F631 /* ViewController.h */,
 				A4DD33741D34A91B00F1F631 /* ViewController.m */,
+				A4DD338A1D34EC3C00F1F631 /* ViewStar.h */,
+				A4DD338B1D34EC3C00F1F631 /* ViewStar.m */,
 				A4DD33841D34CA5000F1F631 /* ViewCAShapeLayerAnimation.h */,
 				A4DD33851D34CA5000F1F631 /* ViewCAShapeLayerAnimation.m */,
+				A4DD33871D34DBF300F1F631 /* CAShapeLayer+ViewMask.h */,
+				A4DD33881D34DBF300F1F631 /* CAShapeLayer+ViewMask.m */,
 				A4DD33761D34A91B00F1F631 /* Main.storyboard */,
 				A4DD33791D34A91B00F1F631 /* Assets.xcassets */,
 				A4DD337B1D34A91B00F1F631 /* LaunchScreen.storyboard */,
@@ -154,6 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DD338C1D34EC3C00F1F631 /* ViewStar.m in Sources */,
+				A4DD33891D34DBF300F1F631 /* CAShapeLayer+ViewMask.m in Sources */,
 				A4DD33751D34A91B00F1F631 /* ViewController.m in Sources */,
 				A4DD33721D34A91B00F1F631 /* AppDelegate.m in Sources */,
 				A4DD336F1D34A91B00F1F631 /* main.m in Sources */,
