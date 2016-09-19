@@ -2,7 +2,7 @@
 //  ScrollViewAndCollectionViewController.h
 //  DemoPhotoKit
 //
-//  Created by zj－db0465 on 15/11/9.
+//  Created by Chris Hu on 15/11/9.
 //  Copyright © 2015年 icetime17. All rights reserved.
 //
 

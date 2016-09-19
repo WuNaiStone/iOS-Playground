@@ -2,7 +2,7 @@
 //  AssetsCollectionViewController.m
 //  DemoPhotoKit
 //
-//  Created by zj－db0465 on 15/11/6.
+//  Created by Chris Hu on 15/11/6.
 //  Copyright © 2015年 icetime17. All rights reserved.
 //
 
@@ -34,6 +34,20 @@ static NSString * const reuseIdentifier = @"Cell";
     [self initNavigationBar];
     
     [self loadAssets];
+    
+    [self createAlbum];
+}
+
+- (void)createAlbum {
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+//        [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:@"MyTestAlbum"];
+        
+        [PHAssetChangeRequest creationRequestForAssetFromImage:[UIImage imageNamed:@"Model.jpg"]];
+        
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        
+    }];
+    // PHAssetCollectionChangeRequest can only be created or used within a -[PHPhotoLibrary performChanges:] or -[PHPhotoLibrary performChangesAndWait:] block.
 }
 
 #pragma mark - navigation bar

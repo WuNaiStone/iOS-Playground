@@ -2,7 +2,7 @@
 //  ViewController.m
 //  DemoPhotoKit
 //
-//  Created by zj－db0465 on 15/11/2.
+//  Created by Chris Hu on 15/11/2.
 //  Copyright © 2015年 icetime17. All rights reserved.
 //
 
@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [self testPhotoKit];
+    [self listAllAlbums];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 50)];
     [btn setTitle:@"选择照片" forState:UIControlStateNormal];
@@ -44,6 +47,114 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)testPhotoKit {
+    PHAuthorizationStatus authorizationStatus = [PHPhotoLibrary authorizationStatus];
+    if (authorizationStatus != PHAuthorizationStatusAuthorized) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (status == PHAuthorizationStatusAuthorized) {
+                    NSLog(@"PHAuthorizationStatusAuthorized");
+                    [self listAllAlbums];
+                } else {
+                    NSLog(@"Not PHAuthorizationStatusAuthorized");
+                }
+            });
+        }];
+    }
+}
+
+- (void)listAllAlbums {
+    PHFetchResult *albums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum
+                                                                          subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    NSLog(@"albums : %d", albums.count);
+    
+    
+    
+    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
+                                                                          subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    NSLog(@"smartAlbums : %d", smartAlbums.count);
+    
+    
+    
+    PHFetchResult *momentAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeMoment
+                                                                          subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    NSLog(@"momentAlbums : %d", momentAlbums.count);
+    
+    
+    
+    PHFetchResult *topLevelUserCollections = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
+    NSLog(@"topLevelUserCollections : %d", topLevelUserCollections.count);
+    PHAssetCollection *myAlbum1 = (PHAssetCollection *)[topLevelUserCollections firstObject];
+    for (PHAssetCollection *collection in topLevelUserCollections) {
+        PHFetchResult *results = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
+        NSLog(@"results : %d", results.count);
+        for (PHAsset *asset in results) {
+//            PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+//            options.synchronous = YES;
+//            options.resizeMode = PHImageRequestOptionsResizeModeExact;
+//            options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+            [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(100, 100) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+                [self.view addSubview:imageView];
+                imageView.image = result;
+            }];
+        }
+    }
+    
+    
+    // 获取所有资源的集合，并按资源的创建时间排序
+    PHFetchOptions *options = [[PHFetchOptions alloc] init];
+    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+    // 获取所有资源，包括图片和视频
+    PHFetchResult *assetsFetchResults = [PHAsset fetchAssetsWithOptions:options];
+    
+//    PHFetchOptions *option = [[PHFetchOptions alloc] init];
+//    // 1图片，2视频，3音频
+//    option.predicate = [NSPredicate predicateWithFormat:@"self.mediaType==1"];
+//    option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+    
+    // 在资源的集合中获取第一个集合，并获取其中的图片
+    PHCachingImageManager *imageManager = [[PHCachingImageManager alloc] init];
+    PHAsset *asset = [assetsFetchResults firstObject];
+    NSLog(@"%@, %@", asset.location, asset.localIdentifier);
+    
+    PHImageRequestID imageRequestID1 = [imageManager requestImageForAsset:asset
+                                                              targetSize:CGSizeMake(100, 100)
+                                                             contentMode:PHImageContentModeAspectFill
+                                                                 options:nil
+                                                           resultHandler:^(UIImage *result, NSDictionary *info) {
+        NSLog(@"imageRequestID1");
+    }];
+    
+    // 主要用于缓存PHAsset，这样可以快速获取照片或视频。
+    [imageManager startCachingImagesForAssets:(NSArray *)assetsFetchResults targetSize:CGSizeMake(100, 100) contentMode:PHImageContentModeAspectFill options:nil];
+    
+    
+    
+    PHImageRequestID imageRequestID2 = [[PHImageManager defaultManager] requestImageForAsset:asset
+                                               targetSize:CGSizeMake(100, 100)
+                                              contentMode:PHImageContentModeAspectFill
+                                                  options:nil
+                                            resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        NSLog(@"imageRequestID2");
+    }];
+    
+    NSLog(@"Done");
+}
+
+- (void)testCamera {
+    AVAuthorizationStatus authorizationStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authorizationStatus == AVAuthorizationStatusNotDetermined) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            
+        }];
+    } else if (authorizationStatus == AVAuthorizationStatusAuthorized) {
+        
+    } else {
+        
+    }
 }
 
 - (void)loadOnePhoto {

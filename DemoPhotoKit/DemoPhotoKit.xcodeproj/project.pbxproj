@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A45C1FE81D8EADC6007DA35D /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A45C1FE71D8EADC6007DA35D /* Model.jpg */; };
 		A4AE47561BECABD9007D3B22 /* AssetsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AE47551BECABD9007D3B22 /* AssetsCollectionViewController.m */; };
 		A4AE47591BECABEA007D3B22 /* AssetView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AE47581BECABEA007D3B22 /* AssetView.m */; };
 		A4AE475C1BF02721007D3B22 /* ScrollViewAndCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AE475B1BF02721007D3B22 /* ScrollViewAndCollectionViewController.m */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A45C1FE71D8EADC6007DA35D /* Model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model.jpg; sourceTree = "<group>"; };
+		A45C1FEA1D8FE42D007DA35D /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		A4AE47541BECABD9007D3B22 /* AssetsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsCollectionViewController.h; sourceTree = "<group>"; };
 		A4AE47551BECABD9007D3B22 /* AssetsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsCollectionViewController.m; sourceTree = "<group>"; };
 		A4AE47571BECABEA007D3B22 /* AssetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetView.h; sourceTree = "<group>"; };
@@ -48,11 +51,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A45C1FE91D8FE42C007DA35D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A45C1FEA1D8FE42D007DA35D /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4F5E9A71BE6F59A003029ED = {
 			isa = PBXGroup;
 			children = (
 				A4F5E9B21BE6F59A003029ED /* DemoPhotoKit */,
 				A4F5E9B11BE6F59A003029ED /* Products */,
+				A45C1FE91D8FE42C007DA35D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +79,7 @@
 		A4F5E9B21BE6F59A003029ED /* DemoPhotoKit */ = {
 			isa = PBXGroup;
 			children = (
+				A45C1FE71D8EADC6007DA35D /* Model.jpg */,
 				A4F5E9B61BE6F59A003029ED /* AppDelegate.h */,
 				A4F5E9B71BE6F59A003029ED /* AppDelegate.m */,
 				A4F5E9B91BE6F59A003029ED /* ViewController.h */,
@@ -125,6 +138,7 @@
 				TargetAttributes = {
 					A4F5E9AF1BE6F59A003029ED = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = NYXX2N95WM;
 					};
 				};
 			};
@@ -152,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F5E9C31BE6F59B003029ED /* LaunchScreen.storyboard in Resources */,
+				A45C1FE81D8EADC6007DA35D /* Model.jpg in Resources */,
 				A4F5E9C01BE6F59A003029ED /* Assets.xcassets in Resources */,
 				A4F5E9BE1BE6F59A003029ED /* Main.storyboard in Resources */,
 			);
@@ -279,6 +294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NYXX2N95WM;
 				INFOPLIST_FILE = DemoPhotoKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -291,6 +307,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NYXX2N95WM;
 				INFOPLIST_FILE = DemoPhotoKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
