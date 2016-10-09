@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "CAShapeLayer+ViewMask.h"
 #import "ViewCAShapeLayerAnimation.h"
+#import "CSPieProgress.h"
 
 @interface ViewController () <
     ViewCAShapeLayerAnimationDelegate
@@ -21,17 +22,50 @@
     UIButton *btn;
     
     ViewCAShapeLayerAnimation *_viewAnima;
+    
+    CSPieProgress *_pieProgress;
+    
+    CADisplayLink *_displayLinkLoading;
+    
+    UISlider *_sliderProgress;
+    
+    CGFloat _startProgress;
+    CGFloat _stopProgress;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];
  
     _viewAnima = [[ViewCAShapeLayerAnimation alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
     [self.view addSubview:_viewAnima];
     _viewAnima.delegate = self;
     
     [self addBtns];
+    
+    [self addSliderProgress];
+    
+    [self testPieProgress];
+}
+
+- (void)testPieProgress
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
+    [self.view addSubview:imageView];
+    imageView.image = [UIImage imageNamed:@"Model.jpg"];
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    
+    UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
+    [self.view addSubview:maskView];
+    maskView.backgroundColor = [UIColor blackColor];
+    maskView.alpha = 0.4f;
+    maskView.center = imageView.center;
+    
+    _pieProgress = [[CSPieProgress alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [self.view addSubview:_pieProgress];
+    _pieProgress.backgroundColor = [UIColor clearColor];
+    _pieProgress.center = maskView.center;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -83,6 +117,46 @@
 
 - (void)actionCAShapeLayer:(UIButton *)sender {
     [_viewAnima startAnimation];
+    
+    
+    _startProgress = 0.f;
+    _stopProgress = 1.f;
+    
+//    if (!_displayLinkLoading) {
+//        _displayLinkLoading = [CADisplayLink displayLinkWithTarget:self selector:@selector(actionLoadingProgress:)];
+//        [_displayLinkLoading addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+//    } else {
+//        [_displayLinkLoading invalidate];
+//        _displayLinkLoading = nil;
+//        
+//        _viewLoading.progressValue = _startProgress;
+//    }
+}
+
+- (void)addSliderProgress
+{
+    _sliderProgress = [[UISlider alloc] initWithFrame:CGRectMake(50, self.view.frame.size.height - 150, self.view.frame.size.width - 100, 50)];
+    [self.view addSubview:_sliderProgress];
+    _sliderProgress.value = 0.f;
+    _sliderProgress.minimumValue = 0.f;
+    _sliderProgress.maximumValue = 1.f;
+    [_sliderProgress addTarget:self action:@selector(actionSliderProgress:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)actionSliderProgress:(UISlider *)sender
+{
+    _pieProgress.progressValue = sender.value;
+}
+
+- (void)actionLoadingProgress:(CADisplayLink *)sender
+{
+    _pieProgress.progressValue = _startProgress;
+    _startProgress += 0.01f;
+    
+    if (_startProgress == _stopProgress) {
+        [sender invalidate];
+        sender = nil;
+    }
 }
 
 #pragma mark - <ViewCAShapeLayerAnimationDelegate>
@@ -105,4 +179,17 @@
     });
 }
 
+#pragma mark - <ViewLoadingAnimationDelegate>
+
+- (void)ViewLoadingAnimationDidStart
+{
+
+}
+
+- (void)ViewLoadingAnimationDidStop
+{
+
+}
+
 @end
+

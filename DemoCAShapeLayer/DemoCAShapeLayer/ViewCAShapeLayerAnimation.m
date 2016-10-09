@@ -8,6 +8,13 @@
 
 #import "ViewCAShapeLayerAnimation.h"
 
+@interface ViewCAShapeLayerAnimation ()
+<
+    CAAnimationDelegate
+>
+
+@end
+
 @implementation ViewCAShapeLayerAnimation {
     CAShapeLayer *_shapeLayer;
 }
