@@ -10,6 +10,7 @@
 #import "CAShapeLayer+ViewMask.h"
 #import "ViewCAShapeLayerAnimation.h"
 #import "CSPieProgress.h"
+#import "CSPieShapeLayer.h"
 
 @interface ViewController () <
     ViewCAShapeLayerAnimationDelegate
@@ -25,6 +26,8 @@
     
     CSPieProgress *_pieProgress;
     
+    CSPieShapeLayer *_pieShapeLayer;
+    
     CADisplayLink *_displayLinkLoading;
     
     UISlider *_sliderProgress;
@@ -38,7 +41,7 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
  
-    _viewAnima = [[ViewCAShapeLayerAnimation alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
+    _viewAnima = [[ViewCAShapeLayerAnimation alloc] initWithFrame:CGRectMake(50, 50, 50, 50)];
     [self.view addSubview:_viewAnima];
     _viewAnima.delegate = self;
     
@@ -47,16 +50,18 @@
     [self addSliderProgress];
     
     [self testPieProgress];
+    
+    [self testPieShapeLayer];
 }
 
 - (void)testPieProgress
 {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     [self.view addSubview:imageView];
     imageView.image = [UIImage imageNamed:@"Model.jpg"];
     imageView.contentMode = UIViewContentModeScaleToFill;
     
-    UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
+    UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     [self.view addSubview:maskView];
     maskView.backgroundColor = [UIColor blackColor];
     maskView.alpha = 0.4f;
@@ -66,6 +71,25 @@
     [self.view addSubview:_pieProgress];
     _pieProgress.backgroundColor = [UIColor clearColor];
     _pieProgress.center = maskView.center;
+}
+
+- (void)testPieShapeLayer
+{
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(220, 100, 100, 100)];
+    [self.view addSubview:imageView];
+    imageView.image = [UIImage imageNamed:@"Model.jpg"];
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    
+    UIView *maskView = [[UIView alloc] initWithFrame:CGRectMake(220, 100, 100, 100)];
+    [self.view addSubview:maskView];
+    maskView.backgroundColor = [UIColor blackColor];
+    maskView.alpha = 0.4f;
+    maskView.center = imageView.center;
+    
+    _pieShapeLayer = [[CSPieShapeLayer alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    [self.view addSubview:_pieShapeLayer];
+    _pieShapeLayer.center = maskView.center;
+    _pieShapeLayer.transform = CGAffineTransformMakeRotation(-M_PI_2);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -146,6 +170,8 @@
 - (void)actionSliderProgress:(UISlider *)sender
 {
     _pieProgress.progressValue = sender.value;
+    
+    _pieShapeLayer.progressValue = sender.value;
 }
 
 - (void)actionLoadingProgress:(CADisplayLink *)sender

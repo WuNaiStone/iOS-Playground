@@ -83,6 +83,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.layer.contentsScale = [UIScreen mainScreen].scale;
+        
         [self.layer setNeedsDisplay];
     }
     return self;
