@@ -146,6 +146,7 @@
 				TargetAttributes = {
 					A4DD33691D34A91B00F1F631 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GGVWN85K85;
 					};
 				};
 			};
@@ -305,6 +306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				INFOPLIST_FILE = DemoCAShapeLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoCAShapeLayer;
@@ -316,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				INFOPLIST_FILE = DemoCAShapeLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoCAShapeLayer;
