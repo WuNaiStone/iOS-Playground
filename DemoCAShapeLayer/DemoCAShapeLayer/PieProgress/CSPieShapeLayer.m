@@ -66,7 +66,7 @@ static CGFloat offset = 2.f;
                   endAngle:0
                  clockwise:YES];
 //    [path addLineToPoint:radiusCenter];
-    [path closePath];
+    [path closePath]; // 使用closePath也可以
     
     _shapeLayer.path = path.CGPath;
     _shapeLayer.strokeColor = [UIColor clearColor].CGColor;
@@ -84,8 +84,6 @@ static CGFloat offset = 2.f;
                 startAngle:0
                   endAngle:2 * M_PI * _progressValue
                  clockwise:YES];
-//    [path addLineToPoint:radiusCenter];
-    [path closePath];
     
     _shapeLayer.path = path.CGPath;
     [_shapeLayer setNeedsDisplay];

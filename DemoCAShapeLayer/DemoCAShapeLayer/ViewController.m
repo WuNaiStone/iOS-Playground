@@ -11,6 +11,7 @@
 #import "ViewCAShapeLayerAnimation.h"
 #import "CSPieProgress.h"
 #import "CSPieShapeLayer.h"
+#import "CSLoopView.h"
 
 @interface ViewController () <
     ViewCAShapeLayerAnimationDelegate
@@ -34,6 +35,8 @@
     
     CGFloat _startProgress;
     CGFloat _stopProgress;
+    
+    CSLoopView *_loopView;
 }
 
 - (void)viewDidLoad {
@@ -52,6 +55,8 @@
     [self testPieProgress];
     
     [self testPieShapeLayer];
+    
+    [self testLoopView];
 }
 
 - (void)testPieProgress
@@ -97,6 +102,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self testMask];
+        [_loopView beginCaptureAnimation];
     });
 }
 
@@ -140,6 +146,9 @@
 }
 
 - (void)actionCAShapeLayer:(UIButton *)sender {
+    [_loopView beginCaptureAnimation];
+    
+    
     [_viewAnima startAnimation];
     
     
@@ -172,6 +181,8 @@
     _pieProgress.progressValue = sender.value;
     
     _pieShapeLayer.progressValue = sender.value;
+    
+    _loopView.progressValue = sender.value;
 }
 
 - (void)actionLoadingProgress:(CADisplayLink *)sender
@@ -183,6 +194,16 @@
         [sender invalidate];
         sender = nil;
     }
+}
+
+#pragma mark - Loop View
+
+- (void)testLoopView
+{
+    _loopView = [[CSLoopView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    _loopView.layer.cornerRadius = _loopView.frame.size.height / 2;
+    [self.view addSubview:_loopView];
+    _loopView.center = CGPointMake(self.view.center.x, self.view.center.y + 150);
 }
 
 #pragma mark - <ViewCAShapeLayerAnimationDelegate>

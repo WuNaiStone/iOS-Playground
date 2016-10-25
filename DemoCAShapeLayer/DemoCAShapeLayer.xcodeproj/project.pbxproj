@@ -17,6 +17,7 @@
 		A4DD33861D34CA5000F1F631 /* ViewCAShapeLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33851D34CA5000F1F631 /* ViewCAShapeLayerAnimation.m */; };
 		A4DD33891D34DBF300F1F631 /* CAShapeLayer+ViewMask.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD33881D34DBF300F1F631 /* CAShapeLayer+ViewMask.m */; };
 		A4DD338C1D34EC3C00F1F631 /* ViewStar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD338B1D34EC3C00F1F631 /* ViewStar.m */; };
+		A4DE3B4D1DBF4A1800CC8896 /* CSLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DE3B4C1DBF4A1800CC8896 /* CSLoopView.m */; };
 		A4E2E08B1DAA35C0005F552C /* CSPieProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E08A1DAA35C0005F552C /* CSPieProgress.m */; };
 		A4E2E08E1DAA35E5005F552C /* CSPieShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2E08D1DAA35E5005F552C /* CSPieShapeLayer.m */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,8 @@
 		A4DD33881D34DBF300F1F631 /* CAShapeLayer+ViewMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+ViewMask.m"; sourceTree = "<group>"; };
 		A4DD338A1D34EC3C00F1F631 /* ViewStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewStar.h; sourceTree = "<group>"; };
 		A4DD338B1D34EC3C00F1F631 /* ViewStar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewStar.m; sourceTree = "<group>"; };
+		A4DE3B4B1DBF4A1800CC8896 /* CSLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSLoopView.h; sourceTree = "<group>"; };
+		A4DE3B4C1DBF4A1800CC8896 /* CSLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSLoopView.m; sourceTree = "<group>"; };
 		A4E2E0891DAA35C0005F552C /* CSPieProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPieProgress.h; sourceTree = "<group>"; };
 		A4E2E08A1DAA35C0005F552C /* CSPieProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPieProgress.m; sourceTree = "<group>"; };
 		A4E2E08C1DAA35E5005F552C /* CSPieShapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPieShapeLayer.h; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				A4E2E08A1DAA35C0005F552C /* CSPieProgress.m */,
 				A4E2E08C1DAA35E5005F552C /* CSPieShapeLayer.h */,
 				A4E2E08D1DAA35E5005F552C /* CSPieShapeLayer.m */,
+				A4DE3B4B1DBF4A1800CC8896 /* CSLoopView.h */,
+				A4DE3B4C1DBF4A1800CC8896 /* CSLoopView.m */,
 			);
 			path = PieProgress;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				A4DD33891D34DBF300F1F631 /* CAShapeLayer+ViewMask.m in Sources */,
 				A4DD33751D34A91B00F1F631 /* ViewController.m in Sources */,
 				A4DD33721D34A91B00F1F631 /* AppDelegate.m in Sources */,
+				A4DE3B4D1DBF4A1800CC8896 /* CSLoopView.m in Sources */,
 				A4DD336F1D34A91B00F1F631 /* main.m in Sources */,
 				A4E2E08E1DAA35E5005F552C /* CSPieShapeLayer.m in Sources */,
 				A4DD33861D34CA5000F1F631 /* ViewCAShapeLayerAnimation.m in Sources */,
