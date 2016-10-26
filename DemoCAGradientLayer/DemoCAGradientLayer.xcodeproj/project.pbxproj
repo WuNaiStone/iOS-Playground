@@ -13,6 +13,8 @@
 		836DC1FB1D71DEEA007FC2E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836DC1F91D71DEEA007FC2E7 /* Main.storyboard */; };
 		836DC1FD1D71DEEA007FC2E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 836DC1FC1D71DEEA007FC2E7 /* Assets.xcassets */; };
 		836DC2001D71DEEA007FC2E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 836DC1FE1D71DEEA007FC2E7 /* LaunchScreen.storyboard */; };
+		A4DE3B501DC03EC200CC8896 /* CAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DE3B4F1DC03EC200CC8896 /* CAGradientView.m */; };
+		A4DE3B521DC03F3E00CC8896 /* 66.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4DE3B511DC03F3E00CC8896 /* 66.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		836DC1FC1D71DEEA007FC2E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		836DC1FF1D71DEEA007FC2E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		836DC2011D71DEEA007FC2E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4DE3B4E1DC03EC200CC8896 /* CAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAGradientView.h; sourceTree = "<group>"; };
+		A4DE3B4F1DC03EC200CC8896 /* CAGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAGradientView.m; sourceTree = "<group>"; };
+		A4DE3B511DC03F3E00CC8896 /* 66.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 66.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +67,9 @@
 				836DC1F41D71DEEA007FC2E7 /* AppDelegate.m */,
 				836DC1F61D71DEEA007FC2E7 /* ViewController.h */,
 				836DC1F71D71DEEA007FC2E7 /* ViewController.m */,
+				A4DE3B4E1DC03EC200CC8896 /* CAGradientView.h */,
+				A4DE3B4F1DC03EC200CC8896 /* CAGradientView.m */,
+				A4DE3B511DC03F3E00CC8896 /* 66.jpg */,
 				836DC1F91D71DEEA007FC2E7 /* Main.storyboard */,
 				836DC1FC1D71DEEA007FC2E7 /* Assets.xcassets */,
 				836DC1FE1D71DEEA007FC2E7 /* LaunchScreen.storyboard */,
@@ -110,6 +118,7 @@
 				TargetAttributes = {
 					836DC1EC1D71DEEA007FC2E7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GGVWN85K85;
 					};
 				};
 			};
@@ -137,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				836DC2001D71DEEA007FC2E7 /* LaunchScreen.storyboard in Resources */,
+				A4DE3B521DC03F3E00CC8896 /* 66.jpg in Resources */,
 				836DC1FD1D71DEEA007FC2E7 /* Assets.xcassets in Resources */,
 				836DC1FB1D71DEEA007FC2E7 /* Main.storyboard in Resources */,
 			);
@@ -149,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DE3B501DC03EC200CC8896 /* CAGradientView.m in Sources */,
 				836DC1F81D71DEEA007FC2E7 /* ViewController.m in Sources */,
 				836DC1F51D71DEEA007FC2E7 /* AppDelegate.m in Sources */,
 				836DC1F21D71DEEA007FC2E7 /* main.m in Sources */,
@@ -263,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				INFOPLIST_FILE = DemoCAGradientLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoCAGradientLayer;
@@ -274,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				INFOPLIST_FILE = DemoCAGradientLayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoCAGradientLayer;
@@ -300,6 +313,7 @@
 				836DC2061D71DEEA007FC2E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
