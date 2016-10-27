@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ql-8y-vb8">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="x5R-LO-Lws"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m4d-cU-V8d">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yKj-cm-dif"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sNk-yh-2K7">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="CEt-28-Nma"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="m4d-cU-V8d" firstAttribute="top" secondItem="7Ql-8y-vb8" secondAttribute="bottom" constant="100" id="4l7-6E-n1S"/>
+                            <constraint firstItem="7Ql-8y-vb8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="8Tu-nQ-bya"/>
+                            <constraint firstItem="m4d-cU-V8d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G8d-vh-Mu0"/>
+                            <constraint firstItem="m4d-cU-V8d" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="HAp-RA-kyN"/>
+                            <constraint firstItem="sNk-yh-2K7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MQo-i9-Puo"/>
+                            <constraint firstItem="7Ql-8y-vb8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="arU-wQ-wja"/>
+                            <constraint firstItem="sNk-yh-2K7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="c1e-eE-5yv"/>
+                            <constraint firstAttribute="bottom" secondItem="sNk-yh-2K7" secondAttribute="bottom" id="fK0-7K-ymZ"/>
+                            <constraint firstItem="7Ql-8y-vb8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jjb-nF-0OU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
