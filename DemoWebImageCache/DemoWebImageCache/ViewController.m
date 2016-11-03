@@ -172,11 +172,20 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     cell.urlLabel.text = url;
     cell.iconView.image = [UIImage imageNamed:@"placeholder.png"];
     
-    // 先从缓存中取图
+    // 先从memory缓存中取图
     UIImage *memImage = [_imagesCache objectForKey:url];
     if (memImage) {
         MTLog(@"memImage %@", url);
         cell.iconView.image = memImage;
+        return cell;
+    }
+    
+    // 再次disk缓存中取图
+    UIImage *diskImage = [UIImage imageWithContentsOfFile:[self pathForImageCache:url]];
+    if (diskImage) {
+        MTLog(@"diskImage %@", url);
+        [_imagesCache setObject:diskImage forKey:url];
+        cell.iconView.image = diskImage;
         return cell;
     }
     
@@ -186,6 +195,7 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
         return cell;
     }
     
+    // 最后从网络获取图片
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         MTLog(@"download %@", url);
         
@@ -194,6 +204,12 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
         
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
         UIImage *image = [UIImage imageWithData:imageData];
+        
+        if (image) {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [imageData writeToFile:[self pathForImageCache:url] atomically:YES];
+            });
+        }
         
         // 主线程的queue
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -217,6 +233,13 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     [_queue addOperation:operation];
     
     return cell;
+}
+
+- (NSString *)pathForImageCache:(NSString *)url
+{
+    NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    NSString *imageName = url.lastPathComponent;
+    return [cachePath stringByAppendingPathComponent:imageName];
 }
 
 @end
