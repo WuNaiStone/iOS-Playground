@@ -15,6 +15,9 @@
 		837EC8F61DCA27AF0029A770 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837EC8F51DCA27AF0029A770 /* Assets.xcassets */; };
 		837EC8F91DCA27AF0029A770 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837EC8F71DCA27AF0029A770 /* LaunchScreen.storyboard */; };
 		837EC9021DCA298D0029A770 /* AppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 837EC9011DCA298D0029A770 /* AppModel.m */; };
+		A47C6DA41DCACA3C00997DD2 /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47C6DA31DCACA3C00997DD2 /* MyTableViewCell.m */; };
+		A47C6DA61DCAF55100997DD2 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47C6DA51DCAF55100997DD2 /* MyTableViewCell.xib */; };
+		A47C6DA81DCAF86F00997DD2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = A47C6DA71DCAF86F00997DD2 /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,10 @@
 		837EC9001DCA298D0029A770 /* AppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppModel.h; sourceTree = "<group>"; };
 		837EC9011DCA298D0029A770 /* AppModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppModel.m; sourceTree = "<group>"; };
 		8CCCB2CCFB725D7D5FB441C9 /* Pods-DemoWebImageCache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoWebImageCache.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoWebImageCache/Pods-DemoWebImageCache.release.xcconfig"; sourceTree = "<group>"; };
+		A47C6DA21DCACA3C00997DD2 /* MyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
+		A47C6DA31DCACA3C00997DD2 /* MyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
+		A47C6DA51DCAF55100997DD2 /* MyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
+		A47C6DA71DCAF86F00997DD2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		D698BF0EAFA3718AA6FBEA4B /* Pods-DemoWebImageCache.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoWebImageCache.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoWebImageCache/Pods-DemoWebImageCache.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,8 +88,12 @@
 				837EC8ED1DCA27AF0029A770 /* AppDelegate.m */,
 				837EC8EF1DCA27AF0029A770 /* ViewController.h */,
 				837EC8F01DCA27AF0029A770 /* ViewController.m */,
+				A47C6DA21DCACA3C00997DD2 /* MyTableViewCell.h */,
+				A47C6DA31DCACA3C00997DD2 /* MyTableViewCell.m */,
+				A47C6DA51DCAF55100997DD2 /* MyTableViewCell.xib */,
 				837EC9001DCA298D0029A770 /* AppModel.h */,
 				837EC9011DCA298D0029A770 /* AppModel.m */,
+				A47C6DA71DCAF86F00997DD2 /* placeholder.png */,
 				837EC8F21DCA27AF0029A770 /* Main.storyboard */,
 				837EC8F51DCA27AF0029A770 /* Assets.xcassets */,
 				837EC8F71DCA27AF0029A770 /* LaunchScreen.storyboard */,
@@ -171,7 +182,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				837EC8F91DCA27AF0029A770 /* LaunchScreen.storyboard in Resources */,
+				A47C6DA61DCAF55100997DD2 /* MyTableViewCell.xib in Resources */,
 				837EC8F61DCA27AF0029A770 /* Assets.xcassets in Resources */,
+				A47C6DA81DCAF86F00997DD2 /* placeholder.png in Resources */,
 				837EC8F41DCA27AF0029A770 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +248,7 @@
 				837EC8EE1DCA27AF0029A770 /* AppDelegate.m in Sources */,
 				837EC8EB1DCA27AF0029A770 /* main.m in Sources */,
 				837EC9021DCA298D0029A770 /* AppModel.m in Sources */,
+				A47C6DA41DCACA3C00997DD2 /* MyTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

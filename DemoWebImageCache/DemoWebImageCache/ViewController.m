@@ -8,7 +8,12 @@
 
 #import "ViewController.h"
 #import <AFNetworking/AFNetworking.h>
+
 #import "AppModel.h"
+#import "MyTableViewCell.h"
+
+#define MTString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
+#define MTLog( ... ) printf("%s-%d: %s\n", [MTString UTF8String], __LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
 
 static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777480/FYLoadImage/master/apps.json";
 
@@ -30,6 +35,8 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     UITableView *_tableView;
     
     NSOperationQueue *_queue;
+    
+    NSMutableDictionary *_imagesCache;
 }
 
 - (void)viewDidLoad {
@@ -63,6 +70,8 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
             @"http://p16.qhimg.com/dr/48_48_/t01c3f62a27c3de7af5.png",
               ];
     
+    _imagesCache = [NSMutableDictionary dictionary];
+    
 //    _appsList = [NSMutableArray array];
 //    
 //    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -94,7 +103,8 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+//    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"MyTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyTableViewCell"];
     
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -108,8 +118,14 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     return _urls.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    return 60;
+}
+
+- (MyTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /*
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
 //    AppModel *model = [_appsList objectAtIndex:indexPath.row];
@@ -131,6 +147,49 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     }];
     
     // 自定义的queue
+    [_queue addOperation:operation];
+    
+    return cell;
+     */
+    
+    
+    MyTableViewCell *cell = (MyTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MyTableViewCell" forIndexPath:indexPath];
+    
+    NSString *url = [_urls objectAtIndex:indexPath.row];
+    cell.urlLabel.text = url;
+    cell.iconView.image = [UIImage imageNamed:@"placeholder.png"];
+    
+    // 先从缓存中取图
+    UIImage *memImage = [_imagesCache objectForKey:url];
+    if (memImage) {
+        MTLog(@"memImage %@", url);
+        cell.iconView.image = memImage;
+        return cell;
+    }
+    
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        MTLog(@"download %@", url);
+        
+        // 模拟网络延迟
+        [NSThread sleepForTimeInterval:1.f];
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+        UIImage *image = [UIImage imageWithData:imageData];
+        
+        // 主线程的queue
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            cell.iconView.image = image;
+            
+            // 缓存image
+            if (image) {
+                [_imagesCache setObject:image forKey:url];
+                
+                // 刷新对应的row
+                [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }];
+    }];
+    
     [_queue addOperation:operation];
     
     return cell;
