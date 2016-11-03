@@ -37,6 +37,8 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     NSOperationQueue *_queue;
     
     NSMutableDictionary *_imagesCache;
+    
+    NSMutableDictionary *_operationsCache;
 }
 
 - (void)viewDidLoad {
@@ -47,6 +49,15 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
     [self initOperationQueue];
     
     [self initTableView];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+
+    [_imagesCache removeAllObjects];
+    [_operationsCache removeAllObjects];
+    [_queue cancelAllOperations];
 }
 
 - (void)loadJsonData
@@ -71,6 +82,8 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
               ];
     
     _imagesCache = [NSMutableDictionary dictionary];
+    
+    _operationsCache = [NSMutableDictionary dictionary];
     
 //    _appsList = [NSMutableArray array];
 //    
@@ -167,6 +180,12 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
         return cell;
     }
     
+    // 正在下载
+    if ([_operationsCache objectForKey:url]) {
+        MTLog(@"downloading %@", url);
+        return cell;
+    }
+    
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         MTLog(@"download %@", url);
         
@@ -186,9 +205,14 @@ static NSString *const imageURLs = @"https://raw.githubusercontent.com/lcy237777
                 
                 // 刷新对应的row
                 [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                
+                // 下载完成移除operation
+                [_operationsCache removeObjectForKey:url];
             }
         }];
     }];
+    
+    [_operationsCache setObject:operation forKey:url];
     
     [_queue addOperation:operation];
     
