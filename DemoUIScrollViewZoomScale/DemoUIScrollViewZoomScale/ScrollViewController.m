@@ -74,8 +74,16 @@
     NSLog(@"contentOffset : %@", NSStringFromCGPoint(scrollView.contentOffset));
 }
 
-- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-    NSLog(@"zoomScale : %f", scrollView.zoomScale);
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    // imageView
+    UIView *subView = [scrollView.subviews objectAtIndex:0];
+    
+    CGFloat offsetX = MAX((scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5, 0.0);
+    CGFloat offsetY = MAX((scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5, 0.0);
+    
+    subView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
+                                 scrollView.contentSize.height * 0.5 + offsetY);
 }
 
 #pragma mark - button back
