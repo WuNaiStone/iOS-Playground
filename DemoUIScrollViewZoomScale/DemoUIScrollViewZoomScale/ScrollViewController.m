@@ -77,10 +77,10 @@
 
 - (void)actionTapGesture:(UITapGestureRecognizer *)sender
 {
-    if (_scrollView.zoomScale == 1) {
-        [_scrollView setZoomScale:5.f animated:YES];
+    if (_scrollView.zoomScale > _scrollView.minimumZoomScale) {
+        [_scrollView setZoomScale:_scrollView.minimumZoomScale animated:YES];
     } else {
-        [_scrollView setZoomScale:1.f animated:YES];
+        [_scrollView setZoomScale:_scrollView.maximumZoomScale animated:YES];
     }
 }
 
