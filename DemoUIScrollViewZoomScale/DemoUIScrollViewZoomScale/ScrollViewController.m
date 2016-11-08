@@ -17,6 +17,7 @@
     UIScrollView *_scrollView;
     UIImageView *_imageView;
 
+    UITapGestureRecognizer *_tapGesture;
 }
 
 - (void)viewDidLoad {
@@ -25,8 +26,11 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self addScrollView];
     [self addBtnBack];
+    
+    [self addScrollView];
+    
+    [self initGesture];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -56,12 +60,28 @@
     _scrollView.bounces = NO;
     _scrollView.delegate = self;
     _scrollView.minimumZoomScale = 1.f;
-    _scrollView.maximumZoomScale = 10.f;
+    _scrollView.maximumZoomScale = 5.f;
     [self.view addSubview:_scrollView];
     
     _imageView = [[UIImageView alloc] initWithFrame:_scrollView.bounds];
     _imageView.image = [UIImage imageNamed:@"Model.jpg"];
     [_scrollView addSubview:_imageView];
+}
+
+- (void)initGesture
+{
+    _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionTapGesture:)];
+    _tapGesture.numberOfTapsRequired = 2;
+    [_scrollView addGestureRecognizer:_tapGesture];
+}
+
+- (void)actionTapGesture:(UITapGestureRecognizer *)sender
+{
+    if (_scrollView.zoomScale == 1) {
+        [_scrollView setZoomScale:5.f animated:YES];
+    } else {
+        [_scrollView setZoomScale:1.f animated:YES];
+    }
 }
 
 #pragma mark - <UIScrollViewDelegate>
