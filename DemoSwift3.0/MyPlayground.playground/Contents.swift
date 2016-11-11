@@ -299,7 +299,217 @@ MyClass.className
 MyClass.classFunc()
 MyClass.classFunc2()
 
+var myClass = MyClass()
+myClass.myFunc()
+myClass.name = "name"
+myClass.name.capitalized
+myClass.nameOptional1 = "nameOptional1"
+myClass.nameOptional1
+myClass.nameOptional1?.capitalized
 
+myClass.nameOptional2 = "nameOptional2"
+myClass.nameOptional2
+myClass.nameOptional2.capitalized
+
+
+class MyClass1 {
+    var name = "MyClass1"
+    
+    fileprivate var fileprivateName = "fileprivateName"
+    private var privateName = "privateName"
+    
+}
+var myClass1 = MyClass1()
+myClass1.name
+myClass1.fileprivateName
+//myClass1.privateName
+
+class MyClass3 {
+    var classes = Array<String>()
+    subscript(index: Int) -> String {
+        get {
+            return classes[index]
+        }
+        set {
+            if index < classes.count {
+                classes[index] = newValue
+            } else {
+                classes.append(newValue)
+            }
+        }
+    }
+}
+
+var myClass3 = MyClass3()
+myClass3.classes = ["a", "b", "c"]
+myClass3.classes
+myClass3.classes[0]
+myClass3.classes[0] = "A"
+//myClass3.classes[3] = "d"
+//myClass3.classes
+
+
+
+// Class与Protocol
+
+protocol AnimalProtocol {
+    var animalName: String { get }
+    func animalSleep() -> String
+}
+
+class Cat : AnimalProtocol {
+    var name: String!
+    
+    var hasNickname: Bool = false
+    var nickname: String {
+        get {
+            return "my cat"
+        }
+        set {
+            hasNickname = true
+            print(hasNickname)
+        }
+    }
+    
+    func sleep() -> String {
+        return "cat sleep"
+    }
+    
+    // AnimalProtocol
+    var animalName: String {
+        get {
+            return "animal"
+        }
+    }
+    
+    func animalSleep() -> String {
+        return "animal sleep"
+    }
+}
+
+var cat = Cat()
+cat.name
+cat.hasNickname
+cat.nickname
+cat.hasNickname
+cat.nickname = "your cat"
+cat.hasNickname
+cat.nickname
+
+cat.sleep()
+cat.animalSleep()
+
+// 协议作为变量(继承了该协议的类)
+var cat2: AnimalProtocol = Cat()
+cat2.animalName
+cat2.animalSleep()
+
+
+// Struct与Protocol
+protocol Named {
+    var name: String { get }
+}
+protocol Aged {
+    var age: Int { get }
+}
+struct StructPerson: Named, Aged {
+    var name: String
+    var age: Int
+}
+func wishHappyBirthday(who: Named & Aged) {
+    print("Happy birthday to \(who.name). You're \(who.age) years old.")
+}
+let person = StructPerson(name: "Chris", age: 18)
+wishHappyBirthday(who: person)
+
+
+
+// 泛型
+func aSwap(a: inout Int, b: inout Int) {
+    let tmp = a
+    a = b
+    b = tmp
+}
+var aInt = 3
+var bInt = 107
+print("aInt is now \(aInt), and bInt is now \(bInt)")
+aSwap(a: &aInt, b: &bInt)
+print("aInt is now \(aInt), and bInt is now \(bInt)")
+
+
+func aSwapT<T>(a: inout T, b: inout T) {
+    let tmp = a
+    a = b
+    b = tmp
+}
+var aStr = "hello"
+var bStr = "world"
+print("aString is now \(aStr), and bString is now \(bStr)")
+aSwapT(a: &aStr, b: &bStr)
+print("aString is now \(aStr), and bString is now \(bStr)")
+
+
+// Tuple
+func swapTuple<T>(a: inout T, b: inout T) {
+    (a,b)=(b,a)
+}
+print("aString is now \(aStr), and bString is now \(bStr)")
+swapTuple(a: &aStr, b: &bStr)
+print("aString is now \(aStr), and bString is now \(bStr)")
+
+// Stack
+// 值类型struct, 在实例方法中修改属性要加mutating关键字
+struct Stack<T> {
+    var items = Array<T>()
+    mutating func push(item: T) {
+        items.append(item)
+    }
+    mutating func pop() -> T {
+        return items.removeLast()
+    }
+}
+var intStack = Stack(items: [1,3,5,7,9])
+intStack.items
+intStack.push(item: 11)
+intStack.items
+intStack.pop()
+intStack.items
+
+var strStack = Stack(items: ["a", "b", "c"])
+strStack.items
+strStack.push(item: "d")
+strStack.items
+strStack.pop()
+strStack.items
+
+
+// MARK - Other
+var btn = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+btn.setTitle("Button", for: .normal)
+btn.setTitleColor(UIColor.red, for: .normal)
+btn.layer.borderColor = UIColor.blue.cgColor
+btn.layer.borderWidth = 2.0
+btn.layer.cornerRadius = 10.0
+btn
+btn is UIButton
+btn is UILabel
+
+
+UIColor.red
+NSURL(string: "https://www.dianping.com")
+var url = NSURL(string: "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=4201714548,3253979110&fm=80")
+UIImage(data: NSData(contentsOf: url as! URL) as! Data)
+
+
+// MARK - 运算符重载
+// 中间：计算平方和，左结合，优先级255
+infix operator +++ {associativity left precedence 255}
+
+func +++(left: Double, right: Double) -> Double {
+    return left*left + right*right
+}
+
+print(1+++3)
 
 
 
