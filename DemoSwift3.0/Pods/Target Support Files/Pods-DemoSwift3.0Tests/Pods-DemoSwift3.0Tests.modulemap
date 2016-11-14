@@ -1,0 +1,6 @@
+framework module Pods_DemoSwift3_0Tests {
+  umbrella header "Pods-DemoSwift3.0Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
