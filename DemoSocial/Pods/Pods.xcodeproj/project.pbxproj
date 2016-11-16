@@ -1,0 +1,364 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E0F0BE9F9EFF8CE4B77570E5F920F452 /* Pods-DemoSocial-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7233391865C941BC15DAA4DD921E68C0 /* Pods-DemoSocial-dummy.m */; };
+		EE79110752C000FD0DFEE41C440173D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		019DE415DF6FD3A8B232C4C3D033208B /* WBHttpRequest+WeiboShare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboShare.h"; path = "libWeiboSDK/WBHttpRequest+WeiboShare.h"; sourceTree = "<group>"; };
+		0E202E733A7B62DB6537DBF7EFA88AE4 /* WeiboUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WeiboUser.h; path = libWeiboSDK/WeiboUser.h; sourceTree = "<group>"; };
+		1926C31DEE2F17F515E9C241A2970CCB /* WBSDKCommentButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBSDKCommentButton.h; path = libWeiboSDK/WBSDKCommentButton.h; sourceTree = "<group>"; };
+		21D5F24BD9D67C821B5C54319D000B22 /* Pods-DemoSocial-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DemoSocial-resources.sh"; sourceTree = "<group>"; };
+		24F5E04B76B4AFFC529B61A8DEA01D65 /* Pods-DemoSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoSocial.release.xcconfig"; sourceTree = "<group>"; };
+		4B3257116667935AB2366FD84A4EC54E /* libPods-DemoSocial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-DemoSocial.a"; path = "libPods-DemoSocial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B90B2949404B0DC71D5FF8CB16C84F9 /* WBHttpRequest+WeiboUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboUser.h"; path = "libWeiboSDK/WBHttpRequest+WeiboUser.h"; sourceTree = "<group>"; };
+		7233391865C941BC15DAA4DD921E68C0 /* Pods-DemoSocial-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DemoSocial-dummy.m"; sourceTree = "<group>"; };
+		79BC54F4F819DA8DAAE1751602859DEA /* Pods-DemoSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoSocial.debug.xcconfig"; sourceTree = "<group>"; };
+		932C724088DECF58D244DBBB321F1587 /* WBHttpRequest+WeiboGame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboGame.h"; path = "libWeiboSDK/WBHttpRequest+WeiboGame.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A564403593673836DDD368FC0C642A94 /* WBSDKBasicButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBSDKBasicButton.h; path = libWeiboSDK/WBSDKBasicButton.h; sourceTree = "<group>"; };
+		A9EEC7E717AF23A96B2E907C08FF5121 /* libWeiboSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = libWeiboSDK/libWeiboSDK.a; sourceTree = "<group>"; };
+		B41E0574DC135C74304B1D83EA0D947C /* WBSDKRelationshipButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBSDKRelationshipButton.h; path = libWeiboSDK/WBSDKRelationshipButton.h; sourceTree = "<group>"; };
+		B764F57D5621600F6DEB1E346CDCFC4A /* WeiboSDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = WeiboSDK.bundle; path = libWeiboSDK/WeiboSDK.bundle; sourceTree = "<group>"; };
+		BE752B22CDB13B6CD3A368226D795C8E /* Pods-DemoSocial-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DemoSocial-frameworks.sh"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D3BDB19FB6A2538CBF52CEB31A43313B /* WBHttpRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WBHttpRequest.h; path = libWeiboSDK/WBHttpRequest.h; sourceTree = "<group>"; };
+		ECAD6E0862B6573B73060D722EE3D5C5 /* WeiboSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WeiboSDK.h; path = libWeiboSDK/WeiboSDK.h; sourceTree = "<group>"; };
+		F4301B74B7D5D7820E32AECF1864A2C9 /* WBHttpRequest+WeiboToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "WBHttpRequest+WeiboToken.h"; path = "libWeiboSDK/WBHttpRequest+WeiboToken.h"; sourceTree = "<group>"; };
+		F4E5C61494ECE6B2938C88A63EC0B580 /* Pods-DemoSocial-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DemoSocial-acknowledgements.plist"; sourceTree = "<group>"; };
+		F56336740265285E135A387304EB570C /* Pods-DemoSocial-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DemoSocial-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA360DC6D4991FE3B0B4E34B25A7D284 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE79110752C000FD0DFEE41C440173D8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5530E413BCA9A70D0570DC66E78D454C /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3E822C81DD47BE0245676655FD25C9A /* Pods-DemoSocial */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		701BF6474753601C1A1EDFF4E7DD0400 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9EEC7E717AF23A96B2E907C08FF5121 /* libWeiboSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				E8ED466043F861EC3B34B1B4D35F1900 /* Pods */,
+				DE0084D8FA54949A3201B1D7DFBE8E93 /* Products */,
+				5530E413BCA9A70D0570DC66E78D454C /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		807667A161480F15773498E06FBFDE1C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B764F57D5621600F6DEB1E346CDCFC4A /* WeiboSDK.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A3E822C81DD47BE0245676655FD25C9A /* Pods-DemoSocial */ = {
+			isa = PBXGroup;
+			children = (
+				F56336740265285E135A387304EB570C /* Pods-DemoSocial-acknowledgements.markdown */,
+				F4E5C61494ECE6B2938C88A63EC0B580 /* Pods-DemoSocial-acknowledgements.plist */,
+				7233391865C941BC15DAA4DD921E68C0 /* Pods-DemoSocial-dummy.m */,
+				BE752B22CDB13B6CD3A368226D795C8E /* Pods-DemoSocial-frameworks.sh */,
+				21D5F24BD9D67C821B5C54319D000B22 /* Pods-DemoSocial-resources.sh */,
+				79BC54F4F819DA8DAAE1751602859DEA /* Pods-DemoSocial.debug.xcconfig */,
+				24F5E04B76B4AFFC529B61A8DEA01D65 /* Pods-DemoSocial.release.xcconfig */,
+			);
+			name = "Pods-DemoSocial";
+			path = "Target Support Files/Pods-DemoSocial";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE0084D8FA54949A3201B1D7DFBE8E93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B3257116667935AB2366FD84A4EC54E /* libPods-DemoSocial.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8ED466043F861EC3B34B1B4D35F1900 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F63B9E44DF8BF18A0CC6179217DB1FE6 /* WeiboSDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F63B9E44DF8BF18A0CC6179217DB1FE6 /* WeiboSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D3BDB19FB6A2538CBF52CEB31A43313B /* WBHttpRequest.h */,
+				932C724088DECF58D244DBBB321F1587 /* WBHttpRequest+WeiboGame.h */,
+				019DE415DF6FD3A8B232C4C3D033208B /* WBHttpRequest+WeiboShare.h */,
+				F4301B74B7D5D7820E32AECF1864A2C9 /* WBHttpRequest+WeiboToken.h */,
+				6B90B2949404B0DC71D5FF8CB16C84F9 /* WBHttpRequest+WeiboUser.h */,
+				A564403593673836DDD368FC0C642A94 /* WBSDKBasicButton.h */,
+				1926C31DEE2F17F515E9C241A2970CCB /* WBSDKCommentButton.h */,
+				B41E0574DC135C74304B1D83EA0D947C /* WBSDKRelationshipButton.h */,
+				ECAD6E0862B6573B73060D722EE3D5C5 /* WeiboSDK.h */,
+				0E202E733A7B62DB6537DBF7EFA88AE4 /* WeiboUser.h */,
+				701BF6474753601C1A1EDFF4E7DD0400 /* Frameworks */,
+				807667A161480F15773498E06FBFDE1C /* Resources */,
+			);
+			name = WeiboSDK;
+			path = WeiboSDK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5502CC90B95D79214F98AA72BC2C826 /* Pods-DemoSocial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24EC5CC1A336A1CEB57ABC71494A0FEA /* Build configuration list for PBXNativeTarget "Pods-DemoSocial" */;
+			buildPhases = (
+				5C722C13376B1FBE44FA4EF24BE4DDE4 /* Sources */,
+				CA360DC6D4991FE3B0B4E34B25A7D284 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-DemoSocial";
+			productName = "Pods-DemoSocial";
+			productReference = 4B3257116667935AB2366FD84A4EC54E /* libPods-DemoSocial.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = DE0084D8FA54949A3201B1D7DFBE8E93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5502CC90B95D79214F98AA72BC2C826 /* Pods-DemoSocial */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C722C13376B1FBE44FA4EF24BE4DDE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0F0BE9F9EFF8CE4B77570E5F920F452 /* Pods-DemoSocial-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		167E05A62D7EE3E4111F5718C56EEACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F5E04B76B4AFFC529B61A8DEA01D65 /* Pods-DemoSocial.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B6D5248C4AEEAACC9E6CB1A995E73EE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79BC54F4F819DA8DAAE1751602859DEA /* Pods-DemoSocial.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24EC5CC1A336A1CEB57ABC71494A0FEA /* Build configuration list for PBXNativeTarget "Pods-DemoSocial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6D5248C4AEEAACC9E6CB1A995E73EE8 /* Debug */,
+				167E05A62D7EE3E4111F5718C56EEACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E96A645A77DAD1FD4F541F18F5DDBF /* Debug */,
+				862AF3139CD84E18D34FAF2F43CD0DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

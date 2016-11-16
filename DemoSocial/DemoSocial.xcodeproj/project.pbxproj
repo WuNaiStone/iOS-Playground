@@ -21,9 +21,13 @@
 		A4403C241CD1BDAF009CAD38 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4403C231CD1BDAF009CAD38 /* libc++.tbd */; };
 		A4403C261CD1BDBB009CAD38 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4403C251CD1BDBB009CAD38 /* SystemConfiguration.framework */; };
 		A4403C281CD1BDC2009CAD38 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4403C271CD1BDC2009CAD38 /* CoreTelephony.framework */; };
+		A48B73F61DDC0C30001F2743 /* City.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A48B73F51DDC0C30001F2743 /* City.jpg */; };
+		B667227511043E3BF5E6F5E9 /* libPods-DemoSocial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 154266F9317D4C904C797A25 /* libPods-DemoSocial.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		154266F9317D4C904C797A25 /* libPods-DemoSocial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoSocial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F045073F782D210EEBDA94B /* Pods-DemoSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSocial/Pods-DemoSocial.debug.xcconfig"; sourceTree = "<group>"; };
 		A4403BFB1CD0BFA7009CAD38 /* DemoSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4403BFF1CD0BFA7009CAD38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4403C011CD0BFA7009CAD38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +49,8 @@
 		A4403C231CD1BDAF009CAD38 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A4403C251CD1BDBB009CAD38 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A4403C271CD1BDC2009CAD38 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A48B73F51DDC0C30001F2743 /* City.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = City.jpg; sourceTree = "<group>"; };
+		CA843A0B3885DC28986C4F13 /* Pods-DemoSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoSocial/Pods-DemoSocial.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +65,30 @@
 				A4403C261CD1BDBB009CAD38 /* SystemConfiguration.framework in Frameworks */,
 				A4403C1D1CD1BC93009CAD38 /* libWeChatSDK.a in Frameworks */,
 				A4403C161CD0BFE6009CAD38 /* Social.framework in Frameworks */,
+				B667227511043E3BF5E6F5E9 /* libPods-DemoSocial.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		172697331022C85E5F490171 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F045073F782D210EEBDA94B /* Pods-DemoSocial.debug.xcconfig */,
+				CA843A0B3885DC28986C4F13 /* Pods-DemoSocial.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		51727D2FD14789FF62DFEBEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				154266F9317D4C904C797A25 /* libPods-DemoSocial.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A4403BF21CD0BFA7009CAD38 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +100,8 @@
 				A4403C151CD0BFE6009CAD38 /* Social.framework */,
 				A4403BFD1CD0BFA7009CAD38 /* DemoSocial */,
 				A4403BFC1CD0BFA7009CAD38 /* Products */,
+				172697331022C85E5F490171 /* Pods */,
+				51727D2FD14789FF62DFEBEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +121,7 @@
 				A4403C021CD0BFA7009CAD38 /* AppDelegate.m */,
 				A4403C041CD0BFA7009CAD38 /* ViewController.h */,
 				A4403C051CD0BFA7009CAD38 /* ViewController.m */,
+				A48B73F51DDC0C30001F2743 /* City.jpg */,
 				A4403C071CD0BFA7009CAD38 /* Main.storyboard */,
 				A4403C0A1CD0BFA7009CAD38 /* Assets.xcassets */,
 				A4403C0C1CD0BFA7009CAD38 /* LaunchScreen.storyboard */,
@@ -131,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4403C121CD0BFA7009CAD38 /* Build configuration list for PBXNativeTarget "DemoSocial" */;
 			buildPhases = (
+				F197699B583C758D26E4B59C /* [CP] Check Pods Manifest.lock */,
 				A4403BF71CD0BFA7009CAD38 /* Sources */,
 				A4403BF81CD0BFA7009CAD38 /* Frameworks */,
 				A4403BF91CD0BFA7009CAD38 /* Resources */,
+				C05EFF11BFC83F8FFDD72073 /* [CP] Embed Pods Frameworks */,
+				4F2D5697ED8103A6C7DE737F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,6 +185,7 @@
 				TargetAttributes = {
 					A4403BFA1CD0BFA7009CAD38 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = GGVWN85K85;
 					};
 				};
 			};
@@ -183,12 +214,61 @@
 			files = (
 				A4403C0E1CD0BFA7009CAD38 /* LaunchScreen.storyboard in Resources */,
 				A4403C0B1CD0BFA7009CAD38 /* Assets.xcassets in Resources */,
+				A48B73F61DDC0C30001F2743 /* City.jpg in Resources */,
 				A4403C1E1CD1BC93009CAD38 /* read_me.txt in Resources */,
 				A4403C091CD0BFA7009CAD38 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F2D5697ED8103A6C7DE737F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoSocial/Pods-DemoSocial-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C05EFF11BFC83F8FFDD72073 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoSocial/Pods-DemoSocial-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F197699B583C758D26E4B59C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A4403BF71CD0BFA7009CAD38 /* Sources */ = {
@@ -307,10 +387,13 @@
 		};
 		A4403C131CD0BFA7009CAD38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F045073F782D210EEBDA94B /* Pods-DemoSocial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = DemoSocial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -323,10 +406,13 @@
 		};
 		A4403C141CD0BFA7009CAD38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA843A0B3885DC28986C4F13 /* Pods-DemoSocial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = DemoSocial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

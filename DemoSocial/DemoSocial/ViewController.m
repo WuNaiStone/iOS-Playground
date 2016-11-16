@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Social/Social.h>
 #import "WeChatSDK/WXApi.h"
+#import <WeiboSDK/WeiboSDK.h>
 
 static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
 
@@ -38,7 +39,7 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
     _tableView.dataSource = self;
     _tableView.delegate = self;
     
-    _items = @[@"Twitter", @"Facebook", @"SinaWeibo", @"TencentWeibo", @"WeChat Session", @"WeChat Moment"];
+    _items = @[@"Twitter", @"Facebook", @"SinaWeibo", @"weiboSDK", @"TencentWeibo", @"WeChat Session", @"WeChat Moment"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -63,12 +64,15 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
             [self shareToSinaWeibo];
             break;
         case 3:
-            [self shareToTencentWeibo];
+            [self shareToWeiboSDK];
             break;
         case 4:
-            [self shareToWeChatSession];
+            [self shareToTencentWeibo];
             break;
         case 5:
+            [self shareToWeChatSession];
+            break;
+        case 6:
             [self shareToWeChatMoment];
             break;
         default:
@@ -111,6 +115,25 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
     
     [sl addURL:[NSURL URLWithString:url]];
     [self presentViewController:sl animated:YES completion:nil];
+}
+
+- (void)shareToWeiboSDK {
+    UIImage *image = [UIImage imageNamed:@"City.jpg"];
+    
+    WBMessageObject *message = [WBMessageObject message];
+    message.text = @"This is a city image.";
+    WBImageObject *imageObject = [WBImageObject object];
+    imageObject.imageData = UIImageJPEGRepresentation(image, 1.0);
+    message.imageObject = imageObject;
+    
+#define kWeiboRedirectURI    @"https://itunes.apple.com/app/id998411110"
+    
+    WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+    authRequest.redirectURI = kWeiboRedirectURI;
+    authRequest.scope = @"all";
+    
+    WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message authInfo:authRequest access_token:nil];
+    [WeiboSDK sendRequest:request];
 }
 
 - (void)shareToTencentWeibo {
