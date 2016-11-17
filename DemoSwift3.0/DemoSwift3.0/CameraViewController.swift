@@ -59,7 +59,7 @@ class CameraViewController: UIViewController {
     func initCameraView() {
         previewView = GPUImageView(frame: view.frame)
         previewView.backgroundColor = .black
-        previewView.fillMode = .preserveAspectRatioAndFill
+        previewView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
         view.insertSubview(previewView, at: 0)
         
         maskViewCapture = UIView(frame: previewView.bounds)
@@ -110,7 +110,7 @@ class CameraViewController: UIViewController {
                 currentFilter.addTarget(previewView)
                 stillCamera.addTarget(currentFilter)
             case .Moonlight:
-                filterGroup = GPUImageFilterGroup()
+//                filterGroup = GPUImageFilterGroup()
                 
 //                let lookupImageSource = GPUImagePicture(image: UIImage(named: "LUT_Moonlight.png"))
 //                let lookupFilter = GPUImageLookupFilter()
@@ -123,7 +123,11 @@ class CameraViewController: UIViewController {
 //                filterGroup.initialFilters = [lookupFilter]
 //                filterGroup.terminalFilter = lookupFilter
                 
-                filterGroup = GPUImageAmatorkaFilter()
+//                filterGroup = GPUImageAmatorkaFilter()
+                
+//                filterGroup = MyFilter()
+                
+                filterGroup = MyFilter(LUTImage: UIImage(named: "LUT_Moonlight.png")!)
                 
                 filterGroup.addTarget(previewView)
                 stillCamera.addTarget(filterGroup)
@@ -202,7 +206,7 @@ extension CameraViewController {
     }
     
     func capturePhoto() {
-        stillCamera.capturePhotoAsImageProcessedUp(toFilter: currentFilter, with: .up) { (image: UIImage?, error: Error?) in
+        stillCamera.capturePhotoAsImageProcessedUp(toFilter: filterGroup, with: .up) { (image: UIImage?, error: Error?) in
             self.stillCamera.pauseCapture()
             
             if error == nil {

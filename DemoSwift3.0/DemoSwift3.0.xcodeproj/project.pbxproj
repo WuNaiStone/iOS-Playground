@@ -16,6 +16,7 @@
 		A4AEA0131DD5B23700832412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4AEA0121DD5B23700832412 /* Assets.xcassets */; };
 		A4AEA0161DD5B23700832412 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4AEA0141DD5B23700832412 /* LaunchScreen.storyboard */; };
 		A4AEA0211DD5B23700832412 /* DemoSwift3_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AEA0201DD5B23700832412 /* DemoSwift3_0Tests.swift */; };
+		A4D325A61DDDBAB20034120B /* MyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D325A51DDDBAB20034120B /* MyFilter.swift */; };
 		DD0B0132C3557C7C09722581 /* Pods_DemoSwift3_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F845BD274CA42281951BFD /* Pods_DemoSwift3_0Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		A4AEA0201DD5B23700832412 /* DemoSwift3_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSwift3_0Tests.swift; sourceTree = "<group>"; };
 		A4AEA0221DD5B23700832412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4AEA02B1DD5B25000832412 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		A4D325A51DDDBAB20034120B /* MyFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFilter.swift; sourceTree = "<group>"; };
 		A6F845BD274CA42281951BFD /* Pods_DemoSwift3_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoSwift3_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0763FE986278288AF20C62F /* Pods_DemoSwift3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoSwift3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				A43E04991DD9C1850024BAB6 /* LUT_Moonlight.png */,
 				A4AEA00B1DD5B23700832412 /* AppDelegate.swift */,
 				A4AEA00D1DD5B23700832412 /* CameraViewController.swift */,
+				A4D325A51DDDBAB20034120B /* MyFilter.swift */,
 				A4AEA00F1DD5B23700832412 /* Main.storyboard */,
 				A4AEA0121DD5B23700832412 /* Assets.xcassets */,
 				A4AEA0141DD5B23700832412 /* LaunchScreen.storyboard */,
@@ -272,7 +275,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5B1720F747EFC79FF602ADA8 /* [CP] Copy Pods Resources */ = {
@@ -317,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AB4A92D45193F114040AD4EB /* [CP] Copy Pods Resources */ = {
@@ -344,6 +347,7 @@
 			files = (
 				A4AEA00E1DD5B23700832412 /* CameraViewController.swift in Sources */,
 				A4AEA00C1DD5B23700832412 /* AppDelegate.swift in Sources */,
+				A4D325A61DDDBAB20034120B /* MyFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
