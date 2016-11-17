@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <WeiboSDK/WeiboSDK.h>
+#import <libWeChatSDK/WXApi.h>
 
 @interface AppDelegate ()
 <
@@ -20,6 +21,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [WXApi registerApp:@"wxde0194728b1f5f34"];
     
     [WeiboSDK registerApp:@"2158684538"];
     

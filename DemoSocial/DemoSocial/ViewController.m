@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <Social/Social.h>
-#import "WeChatSDK/WXApi.h"
+#import <libWeChatSDK/WXApi.h>
 #import <WeiboSDK/WeiboSDK.h>
 
 static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbrush/download/en";
