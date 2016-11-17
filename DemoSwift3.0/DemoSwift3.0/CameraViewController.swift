@@ -46,6 +46,8 @@ class CameraViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        filterType = .Moonlight
+        
         stillCamera.startCapture()
     }
     
@@ -57,7 +59,7 @@ class CameraViewController: UIViewController {
     func initCameraView() {
         previewView = GPUImageView(frame: view.frame)
         previewView.backgroundColor = .black
-        previewView.fillMode = kGPUImageFillModePreserveAspectRatioAndFill
+        previewView.fillMode = .preserveAspectRatioAndFill
         view.insertSubview(previewView, at: 0)
         
         maskViewCapture = UIView(frame: previewView.bounds)
@@ -69,8 +71,6 @@ class CameraViewController: UIViewController {
         stillCamera.outputImageOrientation = UIInterfaceOrientation.portrait
         stillCamera.horizontallyMirrorFrontFacingCamera = true
         stillCamera.delegate = self
-        
-        filterType = .None
         
         // 默认focusPoint
         let focusPoint = CGPoint(x: 0.5, y: 0.5)
@@ -110,11 +110,10 @@ class CameraViewController: UIViewController {
                 currentFilter.addTarget(previewView)
                 stillCamera.addTarget(currentFilter)
             case .Moonlight:
-//                let filterGroup = GPUImageFilterGroup()
-//                
+                filterGroup = GPUImageFilterGroup()
+                
 //                let lookupImageSource = GPUImagePicture(image: UIImage(named: "LUT_Moonlight.png"))
 //                let lookupFilter = GPUImageLookupFilter()
-//                filterGroup.useNextFrameForImageCapture()
 //                
 //                filterGroup.addFilter(lookupFilter)
 //                
