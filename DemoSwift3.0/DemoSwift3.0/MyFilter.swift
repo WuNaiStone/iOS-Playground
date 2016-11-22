@@ -13,18 +13,18 @@ class MyFilter: GPUImageFilterGroup {
     
     var lookupImageSource:GPUImagePicture!
     
-    required override init() {
-        super.init()
-        
-        let image:UIImage = UIImage(named: "LUT_Moonlight.png")!
-        self.lookupImageSource = GPUImagePicture(image: image)
-        let lookupFilter = GPUImageLookupFilter()
-        self.addFilter(lookupFilter)
-        self.lookupImageSource.addTarget(lookupFilter, atTextureLocation: 1)
-        lookupImageSource.processImage()
-        self.initialFilters = [lookupFilter]
-        self.terminalFilter = lookupFilter
-    }
+//    required override init() {
+//        super.init()
+//        
+//        let image:UIImage = UIImage(named: "LUT_Moonlight.png")!
+//        self.lookupImageSource = GPUImagePicture(image: image)
+//        let lookupFilter = GPUImageLookupFilter()
+//        self.addFilter(lookupFilter)
+//        self.lookupImageSource.addTarget(lookupFilter, atTextureLocation: 1)
+//        lookupImageSource.processImage()
+//        self.initialFilters = [lookupFilter]
+//        self.terminalFilter = lookupFilter
+//    }
     
     convenience init(LUTImage: UIImage!) {
         self.init()
