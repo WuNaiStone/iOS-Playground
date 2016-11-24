@@ -1,0 +1,76 @@
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+// 泛型
+func aSwap(a: inout Int, b: inout Int) {
+    let tmp = a
+    a = b
+    b = tmp
+}
+var aInt = 3
+var bInt = 107
+print("aInt is now \(aInt), and bInt is now \(bInt)")
+aSwap(a: &aInt, b: &bInt)
+print("aInt is now \(aInt), and bInt is now \(bInt)")
+
+
+func aSwapT<T>(a: inout T, b: inout T) {
+    let tmp = a
+    a = b
+    b = tmp
+}
+var aStr = "hello"
+var bStr = "world"
+print("aString is now \(aStr), and bString is now \(bStr)")
+aSwapT(a: &aStr, b: &bStr)
+print("aString is now \(aStr), and bString is now \(bStr)")
+
+
+// Tuple
+func swapTuple<T>(a: inout T, b: inout T) {
+    (a,b)=(b,a)
+}
+print("aString is now \(aStr), and bString is now \(bStr)")
+swapTuple(a: &aStr, b: &bStr)
+print("aString is now \(aStr), and bString is now \(bStr)")
+
+// Array
+func swapArray<T>(arr: inout [T], _ a: Int, _ b: Int) {
+    let tmp = arr[a]
+    arr[a] = arr[b]
+    arr[b] = tmp
+}
+var arrInt = [1,2,3]
+swapArray(arr: &arrInt, 1, 2)
+var arrStr = ["a", "b", "c"]
+swapArray(arr: &arrStr, 1, 2)
+var arrTuple = [(200, "ok"), (404, "not found"), (500, "error")]
+swapArray(arr: &arrTuple, 1, 2)
+
+
+// Stack
+// 值类型struct, 在实例方法中修改属性要加mutating关键字
+struct Stack<T> {
+    var items = Array<T>()
+    mutating func push(item: T) {
+        items.append(item)
+    }
+    mutating func pop() -> T {
+        return items.removeLast()
+    }
+}
+var intStack = Stack(items: [1,3,5,7,9])
+intStack.items
+intStack.push(item: 11)
+intStack.items
+intStack.pop()
+intStack.items
+
+var strStack = Stack(items: ["a", "b", "c"])
+strStack.items
+strStack.push(item: "d")
+strStack.items
+strStack.pop()
+strStack.items
+

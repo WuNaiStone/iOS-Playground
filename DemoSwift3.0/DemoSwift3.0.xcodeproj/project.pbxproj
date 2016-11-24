@@ -47,8 +47,22 @@
 		A4AEA01C1DD5B23700832412 /* DemoSwift3.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoSwift3.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AEA0201DD5B23700832412 /* DemoSwift3_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSwift3_0Tests.swift; sourceTree = "<group>"; };
 		A4AEA0221DD5B23700832412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4AEA02B1DD5B25000832412 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		A4D325A51DDDBAB20034120B /* MyFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFilter.swift; sourceTree = "<group>"; };
+		A4D3927A1DE6BDD100DA2879 /* Array.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Array.playground; sourceTree = "<group>"; };
+		A4D3927B1DE6BDD100DA2879 /* Class.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Class.playground; sourceTree = "<group>"; };
+		A4D3927C1DE6BDD100DA2879 /* Closure.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Closure.playground; sourceTree = "<group>"; };
+		A4D3927D1DE6BDD100DA2879 /* Dictionary.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Dictionary.playground; sourceTree = "<group>"; };
+		A4D3927E1DE6BDD100DA2879 /* Enum.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Enum.playground; sourceTree = "<group>"; };
+		A4D3927F1DE6BDD100DA2879 /* Function.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Function.playground; sourceTree = "<group>"; };
+		A4D392811DE6BDD100DA2879 /* NSPredicate.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = NSPredicate.playground; sourceTree = "<group>"; };
+		A4D392821DE6BDD100DA2879 /* 其他.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "其他.playground"; sourceTree = "<group>"; };
+		A4D392831DE6BDD100DA2879 /* 泛型.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "泛型.playground"; sourceTree = "<group>"; };
+		A4D392841DE6BDD100DA2879 /* 运算符重载.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "运算符重载.playground"; sourceTree = "<group>"; };
+		A4D392851DE6BE3800DA2879 /* Struct.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Struct.playground; sourceTree = "<group>"; };
+		A4D392861DE6BE4F00DA2879 /* Protocol.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Protocol.playground; sourceTree = "<group>"; };
+		A4D392871DE6BE6700DA2879 /* String.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = String.playground; sourceTree = "<group>"; };
+		A4D392881DE6BE8A00DA2879 /* Switch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Switch.playground; sourceTree = "<group>"; };
+		A4D392891DE6BE9B00DA2879 /* Tuple.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Tuple.playground; sourceTree = "<group>"; };
 		A6F845BD274CA42281951BFD /* Pods_DemoSwift3_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoSwift3_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0763FE986278288AF20C62F /* Pods_DemoSwift3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoSwift3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -87,7 +101,7 @@
 		A4AE9FFF1DD5B23700832412 = {
 			isa = PBXGroup;
 			children = (
-				A4AEA02B1DD5B25000832412 /* MyPlayground.playground */,
+				A4D392791DE6BDD100DA2879 /* Playgrounds */,
 				A4AEA00A1DD5B23700832412 /* DemoSwift3.0 */,
 				A4AEA01F1DD5B23700832412 /* DemoSwift3.0Tests */,
 				A4AEA0091DD5B23700832412 /* Products */,
@@ -128,6 +142,28 @@
 				A4AEA0221DD5B23700832412 /* Info.plist */,
 			);
 			path = DemoSwift3.0Tests;
+			sourceTree = "<group>";
+		};
+		A4D392791DE6BDD100DA2879 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				A4D392871DE6BE6700DA2879 /* String.playground */,
+				A4D3927A1DE6BDD100DA2879 /* Array.playground */,
+				A4D3927D1DE6BDD100DA2879 /* Dictionary.playground */,
+				A4D392891DE6BE9B00DA2879 /* Tuple.playground */,
+				A4D3927E1DE6BDD100DA2879 /* Enum.playground */,
+				A4D3927B1DE6BDD100DA2879 /* Class.playground */,
+				A4D392851DE6BE3800DA2879 /* Struct.playground */,
+				A4D3927C1DE6BDD100DA2879 /* Closure.playground */,
+				A4D3927F1DE6BDD100DA2879 /* Function.playground */,
+				A4D392811DE6BDD100DA2879 /* NSPredicate.playground */,
+				A4D392821DE6BDD100DA2879 /* 其他.playground */,
+				A4D392831DE6BDD100DA2879 /* 泛型.playground */,
+				A4D392841DE6BDD100DA2879 /* 运算符重载.playground */,
+				A4D392861DE6BE4F00DA2879 /* Protocol.playground */,
+				A4D392881DE6BE8A00DA2879 /* Switch.playground */,
+			);
+			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 		B63E7630BC395A9AC9B08A75 /* Frameworks */ = {
