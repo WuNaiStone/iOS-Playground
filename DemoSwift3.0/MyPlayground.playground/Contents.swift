@@ -2,6 +2,9 @@
 
 import UIKit
 
+"B" > "A"
+"A" > "B"
+
 // MARK - String
 var str = "Hello, playground"
 str += " how are you"
@@ -71,6 +74,15 @@ print(array)
 [100, 1, -5, 9, -20].sorted { (x, y) -> Bool in
     x*x < y*y
 }
+
+[1,2,3,4,5].reduce(0) { (result, element) -> Int in
+    return result + element
+}
+[1,2,3,4,5].reduce(100) { (result, element) -> Int in
+    return result + element
+}
+
+
 
 
 // MARK - Dictionary
@@ -456,6 +468,20 @@ func swapTuple<T>(a: inout T, b: inout T) {
 print("aString is now \(aStr), and bString is now \(bStr)")
 swapTuple(a: &aStr, b: &bStr)
 print("aString is now \(aStr), and bString is now \(bStr)")
+
+// Array
+func swapArray<T>(arr: inout [T], _ a: Int, _ b: Int) {
+    let tmp = arr[a]
+    arr[a] = arr[b]
+    arr[b] = tmp
+}
+var arrInt = [1,2,3]
+swapArray(arr: &arrInt, 1, 2)
+var arrStr = ["a", "b", "c"]
+swapArray(arr: &arrStr, 1, 2)
+var arrTuple = [(200, "ok"), (404, "not found"), (500, "error")]
+swapArray(arr: &arrTuple, 1, 2)
+
 
 // Stack
 // 值类型struct, 在实例方法中修改属性要加mutating关键字
