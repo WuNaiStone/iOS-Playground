@@ -149,10 +149,19 @@ static const NSString *url = @"http://xiuxiu.mobile.meitudata.com/tuiguang/airbr
 }
 
 - (void)shareToWeChatSession {
+    WXImageObject *image = [WXImageObject object];
+    image.imageData = UIImageJPEGRepresentation([UIImage imageNamed:@"City.jpg"], 0.5);
+    
+    WXMediaMessage *mediaMessage = [WXMediaMessage message];
+//    mediaMessage.title = @"mediaMessage title";
+    mediaMessage.mediaObject = image;
+//    [mediaMessage setThumbImage:[UIImage imageNamed:@"City.jpg"]];
+    
     SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
     req.scene = WXSceneSession;
     req.text = @"This is my site";
-    req.bText = YES;
+    req.message = mediaMessage;
+    req.bText = NO;
     [WXApi sendReq:req];
 }
 
