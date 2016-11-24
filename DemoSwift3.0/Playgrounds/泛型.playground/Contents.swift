@@ -74,3 +74,15 @@ strStack.items
 strStack.pop()
 strStack.items
 
+
+
+func isExist<T: Equatable>(value: T, forKey key: String) -> Bool {
+    return (UserDefaults.standard.array(forKey: key) as? [T] ?? []).filter({ (aValue: T) -> Bool in
+        return aValue = value
+    }).count > 0
+}
+
+func models<T: FMDBTable>(withId id: String, cls: T.Type) -> [T] {
+    return SQLManager.manager.selectModels(type: cls, key: "id", value: id).first as? [T] ?? []
+}
+

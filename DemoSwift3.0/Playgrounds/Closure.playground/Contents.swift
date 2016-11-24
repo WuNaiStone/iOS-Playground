@@ -42,3 +42,11 @@ let ret2 = peoples.map { (name, age) -> String in
     return ""
 }
 ret2
+
+
+let setBool: (Bool, String) -> Void = UserDefaults.standard.set
+let getBool: (String) -> Bool = UserDefaults.standard.bool
+
+setBool(true, "key1")
+getBool("key1")
+
