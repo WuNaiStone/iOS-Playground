@@ -16,6 +16,18 @@ closureFunc(index: 3) {
     $0 * 10
 }
 
+var myClosure = { (idx:Int) -> Int in
+    return 1
+}
+
+
+
+func sayHello(to name: String) {
+    print(name)
+}
+sayHello(to: "chris")
+
+
 func closureFunc2(closure: () -> String) {
     closure()
 }

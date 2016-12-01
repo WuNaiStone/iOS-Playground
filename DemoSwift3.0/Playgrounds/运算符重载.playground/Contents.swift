@@ -11,3 +11,13 @@ func +++(left: Double, right: Double) -> Double {
 }
 
 print(1+++3)
+
+
+// MARK - GPUImage相关
+infix operator ---> {associativity left precedence 255}
+func --->(left: GPUImageOutput, right: GPUImageInput) {
+    left.addTarget(right)
+}
+stillCamera.addTarget(cameraView)
+stillCamera--->cameraView
+

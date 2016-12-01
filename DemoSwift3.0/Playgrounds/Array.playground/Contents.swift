@@ -63,3 +63,14 @@ print(array)
     return result + element
 }
 
+
+var arr1 = ["a", "b", "c", "d", "e", "f"]
+var arr2 = ["g", "h", "i", "j"]
+arr1 += arr2
+arr2 += arr1
+
+
+var arr = [1,2,3].reversed()
+Array(arr)
+
+

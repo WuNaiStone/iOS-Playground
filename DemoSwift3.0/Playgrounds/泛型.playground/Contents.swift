@@ -3,7 +3,7 @@
 import UIKit
 
 // 泛型
-func aSwap(a: inout Int, b: inout Int) {
+func aSwap(_ a: inout Int, _ b: inout Int) {
     let tmp = a
     a = b
     b = tmp
@@ -11,11 +11,11 @@ func aSwap(a: inout Int, b: inout Int) {
 var aInt = 3
 var bInt = 107
 print("aInt is now \(aInt), and bInt is now \(bInt)")
-aSwap(a: &aInt, b: &bInt)
+aSwap(&aInt, &bInt)
 print("aInt is now \(aInt), and bInt is now \(bInt)")
 
 
-func aSwapT<T>(a: inout T, b: inout T) {
+func aSwapT<T>(_ a: inout T, _ b: inout T) {
     let tmp = a
     a = b
     b = tmp
@@ -23,30 +23,30 @@ func aSwapT<T>(a: inout T, b: inout T) {
 var aStr = "hello"
 var bStr = "world"
 print("aString is now \(aStr), and bString is now \(bStr)")
-aSwapT(a: &aStr, b: &bStr)
+aSwapT(&aStr, &bStr)
 print("aString is now \(aStr), and bString is now \(bStr)")
 
 
 // Tuple
-func swapTuple<T>(a: inout T, b: inout T) {
+func swapTuple<T>(_ a: inout T, _ b: inout T) {
     (a,b)=(b,a)
 }
 print("aString is now \(aStr), and bString is now \(bStr)")
-swapTuple(a: &aStr, b: &bStr)
+swapTuple(&aStr, &bStr)
 print("aString is now \(aStr), and bString is now \(bStr)")
 
 // Array
-func swapArray<T>(arr: inout [T], _ a: Int, _ b: Int) {
+func swapArray<T>(_ arr: inout [T], _ a: Int, _ b: Int) {
     let tmp = arr[a]
     arr[a] = arr[b]
     arr[b] = tmp
 }
 var arrInt = [1,2,3]
-swapArray(arr: &arrInt, 1, 2)
+swapArray(&arrInt, 1, 2)
 var arrStr = ["a", "b", "c"]
-swapArray(arr: &arrStr, 1, 2)
+swapArray(&arrStr, 1, 2)
 var arrTuple = [(200, "ok"), (404, "not found"), (500, "error")]
-swapArray(arr: &arrTuple, 1, 2)
+swapArray(&arrTuple, 1, 2)
 
 
 // Stack
@@ -76,13 +76,13 @@ strStack.items
 
 
 
-func isExist<T: Equatable>(value: T, forKey key: String) -> Bool {
-    return (UserDefaults.standard.array(forKey: key) as? [T] ?? []).filter({ (aValue: T) -> Bool in
-        return aValue = value
-    }).count > 0
-}
+//func isExist<T: Equatable>(value: T, forKey key: String) -> Bool {
+//    return (UserDefaults.standard.array(forKey: key) as? [T] ?? []).filter({ (aValue: T) -> Bool in
+//        return aValue = value
+//    }).count > 0
+//}
 
-func models<T: FMDBTable>(withId id: String, cls: T.Type) -> [T] {
-    return SQLManager.manager.selectModels(type: cls, key: "id", value: id).first as? [T] ?? []
-}
+//func models<T: FMDBTable>(withId id: String, cls: T.Type) -> [T] {
+//    return SQLManager.manager.selectModels(type: cls, key: "id", value: id).first as? [T] ?? []
+//}
 
