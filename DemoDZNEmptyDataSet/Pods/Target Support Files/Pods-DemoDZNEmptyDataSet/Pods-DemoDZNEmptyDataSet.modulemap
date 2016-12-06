@@ -1,0 +1,6 @@
+framework module Pods_DemoDZNEmptyDataSet {
+  umbrella header "Pods-DemoDZNEmptyDataSet-umbrella.h"
+
+  export *
+  module * { export * }
+}
