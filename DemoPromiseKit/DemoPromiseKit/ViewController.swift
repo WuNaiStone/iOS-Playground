@@ -12,6 +12,7 @@ import CoreLocation
 
 import PromiseKit
 
+
 class ViewController: UIViewController {
 
     @IBAction func actionBtnPromise(_ sender: UIButton) { actionPromise() }
@@ -28,50 +29,65 @@ class ViewController: UIViewController {
 
 }
 
+
+enum AuthorizationError: Error {
+    case cameraNotAuthorized
+    case photosNotAuthorized
+    case locationNotAuthorized
+}
+
 extension ViewController {
     func actionPromise() {
+
         
-        PHPhotoLibrary.requestAuthorization().then { status in
+/*
+        PHPhotoLibrary.requestAuthorization().then { (status) -> Void in
             print(status)  // => true or false
         }
+*/
         
         
-        
-        /*
-         http://promisekit.org/docs/
-         
-         PHPhotoLibrary.requestAuthorization().then { authorized -> Void in
-         guard authorized else { throw MyError.unauthorized }
-         // …
-         }.catch { error in
-         UIAlertView(/*…*/).show()
-         }
- */
+        // http://promisekit.org/docs/
         
         /*
-         PHPhotoLibrary.requestAuthorization().then { authorized -> Promise in
-         
-         guard authorized else { throw MyError.unauthorized }
-         
-         // returning a promise in a `then` handler waits on that
-         // promise before continuing to the next handler
-         return CLLocationManager.promise()
-         
-         // if the above promise fails, execution jumps to the catch below
-         
-         }.then { location -> Void in
-         
-         // if anything throws in this handler execution also jumps to the `catch`
-         
-         }.catch { error in
-         switch error {
-         case MyError.unauthorized:
-         //…
-         case is CLError:
-         //…
-         }
-         }
- */
+        PHPhotoLibrary.requestAuthorization().then { (authorized) -> Void in
+            guard authorized == .authorized else { throw AuthorizationError.photosNotAuthorized }
+        }.catch { (error) in
+            print(error)
+        }
+        */
+        
+        
+        
+        PHPhotoLibrary.requestAuthorization().then { (authorized) -> Promise<CLLocation> in
+            
+            guard authorized == .authorized else { throw AuthorizationError.photosNotAuthorized }
+            
+            // returning a promise in a `then` handler waits on that
+            // promise before continuing to the next handler
+            return CLLocationManager.promise(.always)
+            
+            // if the above promise fails, execution jumps to the catch below
+            
+        }.then { (location) -> Void in
+            
+            // if anything throws in this handler execution also jumps to the `catch`
+            print(location)
+            
+        }.catch { (error) in
+            switch error {
+            case AuthorizationError.cameraNotAuthorized:
+                print("camera")
+            case AuthorizationError.photosNotAuthorized:
+                print("photos")
+            case AuthorizationError.locationNotAuthorized:
+                print("location")
+            default:
+                print("location : \(error)")
+            }
+        }
+        
+ 
     }
 }
 
