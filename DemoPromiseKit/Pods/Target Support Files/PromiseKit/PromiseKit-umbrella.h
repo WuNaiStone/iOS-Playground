@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "AVAudioSession+AnyPromise.h"
 #import "CLGeocoder+AnyPromise.h"
 #import "CLLocationManager+AnyPromise.h"
 #import "PMKCoreLocation.h"
