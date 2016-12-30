@@ -8,6 +8,7 @@
 
 import UIKit
 import SwifterSwift
+import CSSwiftExtension
 
 
 class ViewController: UIViewController {
@@ -21,6 +22,9 @@ class ViewController: UIViewController {
         
         let strArr = "hello world".splited(by: " ")
         print(strArr)
+        
+        let strTrimed = " hello world ".cs_trim()
+        print(strTrimed!)
     }
 
 }

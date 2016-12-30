@@ -14,6 +14,7 @@
 		A40D582B1E16528700763603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40D58291E16528700763603 /* LaunchScreen.storyboard */; };
 		A40D583A1E16548F00763603 /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40D58391E16548F00763603 /* SwifterSwift.framework */; };
 		A40D583E1E16559D00763603 /* SwifterSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = A40D583D1E16559D00763603 /* SwifterSwift.framework.dSYM */; };
+		A40D585F1E16689300763603 /* CSSwiftExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40D585E1E16689300763603 /* CSSwiftExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		A40D582C1E16528700763603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A40D58391E16548F00763603 /* SwifterSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwifterSwift.framework; path = Carthage/Build/iOS/SwifterSwift.framework; sourceTree = "<group>"; };
 		A40D583D1E16559D00763603 /* SwifterSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwifterSwift.framework.dSYM; path = Carthage/Build/iOS/SwifterSwift.framework.dSYM; sourceTree = "<group>"; };
+		A40D585E1E16689300763603 /* CSSwiftExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSSwiftExtension.framework; path = Carthage/Build/iOS/CSSwiftExtension.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A40D585F1E16689300763603 /* CSSwiftExtension.framework in Frameworks */,
 				A40D583A1E16548F00763603 /* SwifterSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +90,7 @@
 		A40D58381E16548F00763603 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A40D585E1E16689300763603 /* CSSwiftExtension.framework */,
 				A40D58391E16548F00763603 /* SwifterSwift.framework */,
 			);
 			name = Frameworks;
@@ -170,6 +174,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwifterSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CSSwiftExtension.framework",
 			);
 			outputPaths = (
 			);
