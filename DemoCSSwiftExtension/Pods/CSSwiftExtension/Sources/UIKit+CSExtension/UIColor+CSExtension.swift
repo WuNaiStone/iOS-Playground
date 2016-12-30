@@ -2,8 +2,8 @@
 //  UIColor+CSExtension.swift
 //  CSSwiftExtension
 //
-//  Created by Chris Hu on 16/6/20.
-//  Copyright © 2016年 icetime17. All rights reserved.
+//  Created by Chris Hu on 16/12/25.
+//  Copyright © 2016年 com.icetime17. All rights reserved.
 //
 
 import UIKit

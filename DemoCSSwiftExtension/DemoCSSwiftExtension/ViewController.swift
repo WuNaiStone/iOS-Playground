@@ -19,30 +19,28 @@ class ViewController: UIViewController {
         print("abc123".cs_intValue()!)
         print("abc123".cs_stringValue()!)
         
-        CSNetworkManager.cs_GET("https://www.baidu.com") { (jsonObject) in
-            print(jsonObject)
-        }
-        
-        self.testUIButton()
-    }
-
-    func testUIButton() {
-        let btn = UIButton(frame: CGRectMake(0, self.view.frame.size.height - 100, self.view.frame.size.width, 50))
-        btn.setTitle("UIButton BackgroundColor", forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
-        self.view.addSubview(btn)
-        
-        btn.backgroundColor = UIColor.greenColor()
-        btn.cs_setBackgroundColor(UIColor.greenColor(), forState: .Normal)
-        btn.cs_setBackgroundColor(UIColor.blueColor(), forState: .Highlighted)
+        testBlurImageView()
+        testAnotherImageView()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func testBlurImageView() {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 500), blurEffectStyle: .light)
+        imageView.backgroundColor = UIColor(hexString: 0x123456, alpha: 0.5)
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        imageView.center = view.center
+        imageView.image = UIImage(named: "Model.jpg")
     }
-
+    
+    private func testAnotherImageView() {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 500))
+        imageView.backgroundColor = UIColor(hexString: 0x123456, alpha: 0.5)
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        imageView.center = view.center
+        imageView.image = UIImage(named: "Model.jpg")?.cs_imageMirrored()
+        imageView.alpha = 0.5
+    }
 
 }
 

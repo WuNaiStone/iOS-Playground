@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0213E38A67CF15CC2126173B /* Pods_DemoCSSwiftExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A7D7FC9E187F8A9ED2382E /* Pods_DemoCSSwiftExtension.framework */; };
 		0DF085F89A9F966F5E49581F /* Pods_DemoCSSwiftExtensionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B39FE4574C2B2C94D3F3CB9 /* Pods_DemoCSSwiftExtensionTests.framework */; };
+		A40D58131E1641B200763603 /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A40D58121E1641B200763603 /* Model.jpg */; };
 		A485D69A1D2235B100D3A86B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A485D6991D2235B100D3A86B /* AppDelegate.swift */; };
 		A485D69C1D2235B100D3A86B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A485D69B1D2235B100D3A86B /* ViewController.swift */; };
 		A485D69F1D2235B100D3A86B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A485D69D1D2235B100D3A86B /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		38A7D7FC9E187F8A9ED2382E /* Pods_DemoCSSwiftExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoCSSwiftExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CCBA017ECF3D4D784865C12 /* Pods-DemoCSSwiftExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoCSSwiftExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoCSSwiftExtension/Pods-DemoCSSwiftExtension.release.xcconfig"; sourceTree = "<group>"; };
 		9B39FE4574C2B2C94D3F3CB9 /* Pods_DemoCSSwiftExtensionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoCSSwiftExtensionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40D58121E1641B200763603 /* Model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model.jpg; sourceTree = "<group>"; };
 		A485D6961D2235B100D3A86B /* DemoCSSwiftExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoCSSwiftExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A485D6991D2235B100D3A86B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A485D69B1D2235B100D3A86B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		A485D6981D2235B100D3A86B /* DemoCSSwiftExtension */ = {
 			isa = PBXGroup;
 			children = (
+				A40D58121E1641B200763603 /* Model.jpg */,
 				A485D6991D2235B100D3A86B /* AppDelegate.swift */,
 				A485D69B1D2235B100D3A86B /* ViewController.swift */,
 				A485D69D1D2235B100D3A86B /* Main.storyboard */,
@@ -187,9 +190,12 @@
 				TargetAttributes = {
 					A485D6951D2235B100D3A86B = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = GGVWN85K85;
+						LastSwiftMigration = 0820;
 					};
 					A485D6AC1D2235B100D3A86B = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = A485D6951D2235B100D3A86B;
 					};
 				};
@@ -219,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A485D6A71D2235B100D3A86B /* LaunchScreen.storyboard in Resources */,
+				A40D58131E1641B200763603 /* Model.jpg in Resources */,
 				A485D6A41D2235B100D3A86B /* Assets.xcassets in Resources */,
 				A485D69F1D2235B100D3A86B /* Main.storyboard in Resources */,
 			);
@@ -261,7 +268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6FC78707AC8E904C95A94EBC /* [CP] Copy Pods Resources */ = {
@@ -306,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8C924A0B5302480B2F6FA277 /* [CP] Embed Pods Frameworks */ = {
@@ -463,10 +470,12 @@
 			baseConfigurationReference = EB6A7A3290407D953909CECC /* Pods-DemoCSSwiftExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				INFOPLIST_FILE = DemoCSSwiftExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoCSSwiftExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -475,10 +484,12 @@
 			baseConfigurationReference = 5CCBA017ECF3D4D784865C12 /* Pods-DemoCSSwiftExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
 				INFOPLIST_FILE = DemoCSSwiftExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoCSSwiftExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -491,6 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoCSSwiftExtensionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoCSSwiftExtension.app/DemoCSSwiftExtension";
 			};
 			name = Debug;
@@ -504,6 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoCSSwiftExtensionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoCSSwiftExtension.app/DemoCSSwiftExtension";
 			};
 			name = Release;

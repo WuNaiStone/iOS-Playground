@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0EA4DCD61B14B7395AE6431B720191BC'
+               BlueprintIdentifier = 'DAAA9854C52C106A8BB29F9EC1EB7F6B'
                BlueprintName = 'CSSwiftExtension'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'CSSwiftExtension.framework'>

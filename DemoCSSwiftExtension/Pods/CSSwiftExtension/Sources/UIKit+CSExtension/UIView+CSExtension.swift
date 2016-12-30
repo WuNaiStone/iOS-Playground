@@ -2,8 +2,8 @@
 //  UIView+CSExtension.swift
 //  CSSwiftExtension
 //
-//  Created by Chris Hu on 16/6/20.
-//  Copyright © 2016年 icetime17. All rights reserved.
+//  Created by Chris Hu on 16/12/25.
+//  Copyright © 2016年 com.icetime17. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ public extension UIView {
 
     var cs_left : CGFloat {
         get {
-            return CGRectGetMinX(self.frame)
+            return self.frame.minX
         }
         
         set(newValue) {
@@ -26,7 +26,7 @@ public extension UIView {
     
     var cs_right : CGFloat {
         get {
-            return CGRectGetMaxX(self.frame)
+            return self.frame.maxX
         }
         
         set(newValue) {
@@ -38,7 +38,7 @@ public extension UIView {
     
     var cs_top : CGFloat {
         get {
-            return CGRectGetMinY(self.frame)
+            return self.frame.minY
         }
         
         set(newValue) {
@@ -50,7 +50,7 @@ public extension UIView {
     
     var cs_bottom : CGFloat {
         get {
-            return CGRectGetMaxY(self.frame)
+            return self.frame.maxY
         }
         
         set(newValue) {
@@ -62,7 +62,7 @@ public extension UIView {
     
     var cs_width : CGFloat {
         get {
-            return CGRectGetWidth(self.frame)
+            return self.frame.width
         }
         
         set(newValue) {
@@ -74,7 +74,7 @@ public extension UIView {
     
     var cs_height : CGFloat {
         get {
-            return CGRectGetHeight(self.frame)
+            return self.frame.height
         }
         
         set(newValue) {
@@ -91,10 +91,10 @@ public extension UIView {
 
 public extension UIView {
     
-    func cs_snapShot() -> UIImage {
+    public func cs_snapShot() -> UIImage {
         UIGraphicsBeginImageContext(self.bounds.size)
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let snapShot: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let snapShot: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return snapShot
     }
