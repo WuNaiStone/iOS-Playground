@@ -4,7 +4,7 @@
 platform :ios, '8.0'
 
 
-pod 'CSSwiftExtension'
+pod 'CSSwiftExtension', '~> 0.0.9'
 
 
 target 'DemoCSSwiftExtension' do

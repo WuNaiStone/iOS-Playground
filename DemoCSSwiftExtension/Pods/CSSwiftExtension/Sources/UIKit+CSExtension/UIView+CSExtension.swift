@@ -12,91 +12,116 @@ import UIKit
 
 public extension UIView {
 
-    var cs_left : CGFloat {
+    public var cs_left: CGFloat {
         get {
-            return self.frame.minX
+            return frame.minX
         }
-        
-        set(newValue) {
-            var frame = self.frame
+        set {
             frame.origin.x = newValue
-            self.frame = frame
         }
     }
     
-    var cs_right : CGFloat {
+    public var cs_right: CGFloat {
         get {
-            return self.frame.maxX
+            return frame.maxX
         }
-        
-        set(newValue) {
-            var frame = self.frame
-            frame.origin.x = newValue - frame.size.width
-            self.frame = frame
+        set {
+            frame.origin.x = newValue - frame.width
         }
     }
     
-    var cs_top : CGFloat {
+    public var cs_top: CGFloat {
         get {
-            return self.frame.minY
+            return frame.minY
         }
-        
-        set(newValue) {
-            var frame = self.frame
+        set {
             frame.origin.y = newValue
-            self.frame = frame
         }
     }
     
-    var cs_bottom : CGFloat {
+    public var cs_bottom: CGFloat {
         get {
-            return self.frame.maxY
+            return frame.maxY
         }
-        
-        set(newValue) {
-            var frame = self.frame
-            frame.origin.y = newValue - frame.size.height
-            self.frame = frame
+        set {
+            frame.origin.y = newValue - frame.height
         }
     }
     
-    var cs_width : CGFloat {
+    public var cs_width: CGFloat {
         get {
-            return self.frame.width
+            return frame.width
         }
-        
-        set(newValue) {
-            var frame = self.frame
+        set {
             frame.size.width = newValue
-            self.frame = frame
         }
     }
     
-    var cs_height : CGFloat {
+    public var cs_height: CGFloat {
         get {
-            return self.frame.height
+            return frame.height
         }
-        
-        set(newValue) {
-            var frame = self.frame
+        set {
             frame.size.height = newValue
-            self.frame = frame
+        }
+    }
+    
+    public var cs_size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            frame.size = newValue
         }
     }
     
 }
 
-
-// MARK: - snapShot
 
 public extension UIView {
     
-    public func cs_snapShot() -> UIImage {
-        UIGraphicsBeginImageContext(self.bounds.size)
-        self.layer.render(in: UIGraphicsGetCurrentContext()!)
-        let snapShot: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return snapShot
+    public var cs_snapshot: UIImage? {
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        layer.render(in: context)
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
 }
+
+
+public extension UIView {
+    
+    // add corner radius
+    // aView.cs_cornerRadius(corners: [.bottomLeft, .bottomRight], radius: 20)
+    public func cs_cornerRadius(corners: UIRectCorner, radius: CGFloat) {
+        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let shape = CAShapeLayer()
+        shape.path = maskPath.cgPath
+        layer.mask = shape
+    }
+    
+}
+
+
+public extension UIView {
+    
+    // init UIView from a nib file
+    // let aView = AView.cs_loadFromNib("AView") as? AView
+    public class func cs_loadFromNib(_ nibName: String, bundle: Bundle? = nil) -> UIView? {
+        return UINib(nibName: nibName, bundle: bundle).instantiate(withOwner: nil, options: nil).first as? UIView
+    }
+}
+
+
+public extension UIView {
+    public func cs_removeGestureRecognizers() {
+        gestureRecognizers?.forEach(removeGestureRecognizer)
+    }
+}
+

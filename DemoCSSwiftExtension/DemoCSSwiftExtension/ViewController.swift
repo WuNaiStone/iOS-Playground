@@ -19,6 +19,10 @@ class ViewController: UIViewController {
         print("abc123".cs_intValue()!)
         print("abc123".cs_stringValue()!)
         
+        "hello".cs_length
+        var array = ["a", "b", "c", "a"]
+        array.cs_removeDuplicates()        
+        
         testBlurImageView()
         testAnotherImageView()
     }
