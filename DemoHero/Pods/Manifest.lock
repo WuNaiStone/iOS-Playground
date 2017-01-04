@@ -1,0 +1,15 @@
+PODS:
+  - Hero (0.0.3)
+  - Kingfisher (3.2.4)
+
+DEPENDENCIES:
+  - Hero
+  - Kingfisher
+
+SPEC CHECKSUMS:
+  Hero: 003c60877d8200cbafae0c40c4ee71e9b7cb64f8
+  Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
+
+PODFILE CHECKSUM: 3da5b83156b364592af085d8b92fda767004822c
+
+COCOAPODS: 1.2.0.beta.1

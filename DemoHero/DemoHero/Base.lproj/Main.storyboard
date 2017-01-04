@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DemoHero" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TXt-ib-Gsz">
+                                <rect key="frame" x="94" y="167" width="187.5" height="333.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187.5" id="Fvd-ym-syY"/>
+                                    <constraint firstAttribute="height" constant="333.5" id="OLQ-v1-V2Q"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="Model"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kb-UD-2kF">
+                                <rect key="frame" x="265" y="30" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.83529411760000005" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Av1-19-RIi"/>
+                                    <constraint firstAttribute="width" constant="100" id="JiI-Wj-RPU"/>
+                                </constraints>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="TestBtn"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Wsw-Ld-rnx" kind="presentation" id="seE-L3-csU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0Q-YG-XeL">
+                                <rect key="frame" x="0.0" y="120" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rQ0-HH-Xb3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Kb-UD-2kF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="7zO-Az-wlG"/>
+                            <constraint firstAttribute="trailing" secondItem="U0Q-YG-XeL" secondAttribute="trailing" id="8EO-fa-ZrG"/>
+                            <constraint firstAttribute="trailing" secondItem="1Kb-UD-2kF" secondAttribute="trailing" constant="10" id="KzO-bn-8w1"/>
+                            <constraint firstItem="TXt-ib-Gsz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cj7-Al-aaz"/>
+                            <constraint firstItem="TXt-ib-Gsz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hBS-gX-8XI"/>
+                            <constraint firstItem="U0Q-YG-XeL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sAK-fg-DRA"/>
+                            <constraint firstItem="U0Q-YG-XeL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="seE-mv-uWn"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="imageView" destination="TXt-ib-Gsz" id="2QU-32-igB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PF6-O9-TBl">
+            <objects>
+                <viewController id="Wsw-Ld-rnx" customClass="AViewController" customModule="DemoHero" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5VF-tX-eRA"/>
+                        <viewControllerLayoutGuide type="bottom" id="uhJ-HJ-r68"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mqT-5x-Qf0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ncf-i7-BlD">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="Model"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWE-Lt-Xlw">
+                                <rect key="frame" x="137.5" y="318.5" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.83529411760000005" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9CF-JH-eVy"/>
+                                    <constraint firstAttribute="width" constant="100" id="hms-dx-lv0"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="TestBtn"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionBtnBack:" destination="Wsw-Ld-rnx" eventType="touchUpInside" id="iqf-Zo-o7U"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCF-YQ-CPE">
+                                <rect key="frame" x="0.0" y="120" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Z54-VR-Z3M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lWE-Lt-Xlw" firstAttribute="centerX" secondItem="mqT-5x-Qf0" secondAttribute="centerX" id="3Wg-Bk-qIE"/>
+                            <constraint firstAttribute="trailing" secondItem="MCF-YQ-CPE" secondAttribute="trailing" id="9Mf-bf-tkc"/>
+                            <constraint firstItem="MCF-YQ-CPE" firstAttribute="top" secondItem="5VF-tX-eRA" secondAttribute="bottom" constant="100" id="JKi-Fp-qK1"/>
+                            <constraint firstItem="MCF-YQ-CPE" firstAttribute="leading" secondItem="mqT-5x-Qf0" secondAttribute="leading" id="K8f-Ss-68u"/>
+                            <constraint firstItem="ncf-i7-BlD" firstAttribute="centerY" secondItem="mqT-5x-Qf0" secondAttribute="centerY" id="TYf-Pc-9NL"/>
+                            <constraint firstItem="ncf-i7-BlD" firstAttribute="centerX" secondItem="mqT-5x-Qf0" secondAttribute="centerX" id="YPx-Mg-KRK"/>
+                            <constraint firstItem="lWE-Lt-Xlw" firstAttribute="centerY" secondItem="mqT-5x-Qf0" secondAttribute="centerY" id="Zo4-I3-GeZ"/>
+                            <constraint firstItem="ncf-i7-BlD" firstAttribute="height" secondItem="mqT-5x-Qf0" secondAttribute="height" id="hRo-du-NYg"/>
+                            <constraint firstItem="ncf-i7-BlD" firstAttribute="width" secondItem="mqT-5x-Qf0" secondAttribute="width" id="pth-Xv-AJ2"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="imageView" destination="ncf-i7-BlD" id="0Pa-zV-OWF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgQ-51-FBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="60"/>
+        </scene>
+    </scenes>
+</document>
