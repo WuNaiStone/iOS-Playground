@@ -1,12 +1,12 @@
 PODS:
-  - CSSwiftExtension (0.0.9)
+  - CSSwiftExtension (0.1.0)
 
 DEPENDENCIES:
-  - CSSwiftExtension (~> 0.0.9)
+  - CSSwiftExtension (~> 0.1.0)
 
 SPEC CHECKSUMS:
-  CSSwiftExtension: c0cba570eca8abde2d18cf202ff597c77eb16e43
+  CSSwiftExtension: 00dbaa433b0395039b441a1d2e79056e4a5bb655
 
-PODFILE CHECKSUM: 6e607558391097f1d847b853130d9d2fc720032c
+PODFILE CHECKSUM: 597865cbcc179b931ca2028c60cb39fec6b0bece
 
 COCOAPODS: 1.2.0.beta.1

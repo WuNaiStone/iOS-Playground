@@ -16,12 +16,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print("abc123".cs_intValue()!)
-        print("abc123".cs_stringValue()!)
+        print("abc123".cs_intValue!)
+        print("abc123".cs_stringValue!)
         
         "hello".cs_length
         var array = ["a", "b", "c", "a"]
-        array.cs_removeDuplicates()        
+        array.cs_removeDuplicates()
+        " hello ".cs_trimmed
+        "hello".cs_utf8String
         
         testBlurImageView()
         testAnotherImageView()
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.center = view.center
-        imageView.image = UIImage(named: "Model.jpg")?.cs_imageMirrored()
+        imageView.image = UIImage(named: "Model.jpg")?.cs_imageMirrored
         imageView.alpha = 0.5
     }
 
