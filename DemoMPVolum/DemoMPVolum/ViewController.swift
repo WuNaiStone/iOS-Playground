@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  DemoMPVolum
 //
-//  Created by zj－db0465 on 15/10/14.
+//  Created by Chris Hu on 15/10/14.
 //  Copyright © 2015年 icetime17. All rights reserved.
 //
 
@@ -19,13 +19,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let btn: UIButton = UIButton(frame: CGRectMake(0, 200, self.view.frame.width, 50))
-        btn.setTitle("Volume View", forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-        btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Highlighted)
-        btn.layer.borderColor = UIColor.redColor().CGColor
+        let btn: UIButton = UIButton(frame: CGRect(x: 0, y: 200, width: self.view.frame.width, height: 50))
+        btn.setTitle("Volume View", for: UIControlState())
+        btn.setTitleColor(UIColor.blue, for: UIControlState())
+        btn.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btn.layer.borderColor = UIColor.red.cgColor
         btn.layer.borderWidth = 2.0
-        btn.addTarget(self, action: Selector("actionVolumPlus"), forControlEvents: UIControlEvents.TouchUpInside);
+        btn.addTarget(self, action: #selector(ViewController.actionVolumPlus), for: UIControlEvents.touchUpInside);
         self.view.addSubview(btn)
     }
 
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func actionVolumPlus() {
-        if AVAudioSession.sharedInstance().otherAudioPlaying {
+        if AVAudioSession.sharedInstance().isOtherAudioPlaying {
             do {
                 try AVAudioSession.sharedInstance().setActive(false)
             } catch {
@@ -48,34 +48,34 @@ class ViewController: UIViewController {
         }
 
         if (mpVolumeView == nil) {
-            volumeLabel = UILabel(frame: CGRectMake(0, 100, self.view.frame.width, 30))
-            volumeLabel.textAlignment = NSTextAlignment.Center
+            volumeLabel = UILabel(frame: CGRect(x: 0, y: 100, width: self.view.frame.width, height: 30))
+            volumeLabel.textAlignment = NSTextAlignment.center
             self.view.addSubview(volumeLabel)
             
-            mpVolumeView = MPVolumeView(frame: CGRectMake(20, 150, self.view.frame.width - 40, 30))
+            mpVolumeView = MPVolumeView(frame: CGRect(x: 20, y: 150, width: self.view.frame.width - 40, height: 30))
             self.view.addSubview(mpVolumeView)
             
-            for var view: UIView in mpVolumeView.subviews {
+            for view: UIView in mpVolumeView.subviews {
                 if (NSStringFromClass(view.classForCoder) == "MPVolumeSlider") {
                     volumeSlider = view as! UISlider;
-                    volumeSlider.sendActionsForControlEvents(.TouchUpInside)
-                    volumeSlider.addTarget(self, action: Selector("actionSliderChanged:"), forControlEvents: UIControlEvents.AllTouchEvents)
+                    volumeSlider.sendActions(for: .touchUpInside)
+                    volumeSlider.addTarget(self, action: #selector(ViewController.actionSliderChanged(_:)), for: UIControlEvents.allTouchEvents)
                     
                     volumeLabel.text = "\(volumeSlider.value)"
                 }
             }
             
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("volumeChanged:"), name: "AVSystemController_SystemVolumeDidChangeNotification", object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(ViewController.volumeChanged(_:)), name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)
         }
     }
     
-    func actionSliderChanged(sender: UISlider) {
+    func actionSliderChanged(_ sender: UISlider) {
         volumeLabel.text = "\(volumeSlider.value)"
     }
     
-    func volumeChanged(notification: NSNotification) {
+    func volumeChanged(_ notification: Notification) {
         print(notification)
-        var userInfo: Dictionary = notification.userInfo! as Dictionary
+        let userInfo: Dictionary = notification.userInfo! as Dictionary
         print(userInfo)
         print(userInfo.keys)
         print(userInfo.values)
