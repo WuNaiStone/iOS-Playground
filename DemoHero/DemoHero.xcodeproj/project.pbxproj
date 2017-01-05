@@ -14,6 +14,8 @@
 		A47EAB121E1C899200D25169 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A47EAB101E1C899200D25169 /* LaunchScreen.storyboard */; };
 		A47EAB1C1E1C9B7B00D25169 /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47EAB1B1E1C9B7B00D25169 /* AViewController.swift */; };
 		A47EAB201E1CECBC00D25169 /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A47EAB1F1E1CECBC00D25169 /* Model.jpg */; };
+		A47EAB2C1E1DE9C400D25169 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47EAB2A1E1DE9C400D25169 /* CollectionViewCell.swift */; };
+		A47EAB2D1E1DE9C400D25169 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47EAB2B1E1DE9C400D25169 /* CollectionViewCell.xib */; };
 		D122D093E50B88B477C0AD20 /* Pods_DemoHero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD42E42E1C4B21AD61FD6CA /* Pods_DemoHero.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		A47EAB131E1C899200D25169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A47EAB1B1E1C9B7B00D25169 /* AViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
 		A47EAB1F1E1CECBC00D25169 /* Model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model.jpg; sourceTree = "<group>"; };
+		A47EAB2A1E1DE9C400D25169 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A47EAB2B1E1DE9C400D25169 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		D71EA80442DFD09693C7C265 /* Pods-DemoHero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoHero.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoHero/Pods-DemoHero.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +79,8 @@
 			children = (
 				A47EAB071E1C899200D25169 /* AppDelegate.swift */,
 				A47EAB091E1C899200D25169 /* ViewController.swift */,
+				A47EAB2A1E1DE9C400D25169 /* CollectionViewCell.swift */,
+				A47EAB2B1E1DE9C400D25169 /* CollectionViewCell.xib */,
 				A47EAB1B1E1C9B7B00D25169 /* AViewController.swift */,
 				A47EAB0B1E1C899200D25169 /* Main.storyboard */,
 				A47EAB1F1E1CECBC00D25169 /* Model.jpg */,
@@ -161,6 +167,7 @@
 				A47EAB201E1CECBC00D25169 /* Model.jpg in Resources */,
 				A47EAB0F1E1C899200D25169 /* Assets.xcassets in Resources */,
 				A47EAB0D1E1C899200D25169 /* Main.storyboard in Resources */,
+				A47EAB2D1E1DE9C400D25169 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +228,7 @@
 			files = (
 				A47EAB0A1E1C899200D25169 /* ViewController.swift in Sources */,
 				A47EAB1C1E1C9B7B00D25169 /* AViewController.swift in Sources */,
+				A47EAB2C1E1DE9C400D25169 /* CollectionViewCell.swift in Sources */,
 				A47EAB081E1C899200D25169 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

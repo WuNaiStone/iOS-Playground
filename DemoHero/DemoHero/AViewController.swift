@@ -12,9 +12,9 @@ import Kingfisher
 
 class AViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
+    var indexPath: IndexPath!
     
-    let urlString = "http://httpbin.org/image/jpeg"
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,14 @@ class AViewController: UIViewController {
         
         print(cache.isImageCached(forKey: urlString))
         
-        let url = URL(string: self.urlString)
+//        let url = URL(string: self.urlString)
+//        imageView.kf.setImage(with: url)
+        
+        
+        imageView.heroID = "hero-\(indexPath.item)"
+//        imageView.image = UIImage(named: "Model.jpg")
+        
+        let url = URL(string: urlString)
         imageView.kf.setImage(with: url)
     }
 

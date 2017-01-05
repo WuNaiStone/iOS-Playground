@@ -43,9 +43,6 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="TestBtn"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="Wsw-Ld-rnx" kind="presentation" id="seE-L3-csU"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0Q-YG-XeL">
                                 <rect key="frame" x="0.0" y="120" width="375" height="21"/>
@@ -81,7 +78,7 @@
         <!--View Controller-->
         <scene sceneID="PF6-O9-TBl">
             <objects>
-                <viewController id="Wsw-Ld-rnx" customClass="AViewController" customModule="DemoHero" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AViewController" id="Wsw-Ld-rnx" customClass="AViewController" customModule="DemoHero" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5VF-tX-eRA"/>
                         <viewControllerLayoutGuide type="bottom" id="uhJ-HJ-r68"/>
@@ -145,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgQ-51-FBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="60"/>
+            <point key="canvasLocation" x="820" y="35"/>
         </scene>
     </scenes>
 </document>
