@@ -23,8 +23,10 @@ class ViewController: UIViewController {
         let strArr = "hello world".splited(by: " ")
         print(strArr)
         
-        let strTrimed = " hello world ".cs_trim()
-        print(strTrimed!)
+        let strTrimed = " hello world ".cs_trimmed
+        print(strTrimed)
+        
+        print("hello".cs_utf8String)
     }
 
 }

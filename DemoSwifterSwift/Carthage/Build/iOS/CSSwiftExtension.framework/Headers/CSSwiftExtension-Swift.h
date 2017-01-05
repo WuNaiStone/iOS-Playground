@@ -124,16 +124,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 
 @interface NSFileManager (SWIFT_EXTENSION(CSSwiftExtension))
-- (NSString * _Nonnull)cs_homeDirectory;
-- (NSString * _Nonnull)cs_tempDirectory;
-- (NSString * _Nonnull)cs_documentsDirectory;
-- (NSString * _Nonnull)cs_libraryDirectory;
-- (NSString * _Nonnull)cs_cacheDirectory;
-@end
-
-
-@interface UIApplication (SWIFT_EXTENSION(CSSwiftExtension))
-- (NSString * _Nonnull)cs_appVersion;
+@property (nonatomic, readonly, copy) NSString * _Nonnull cs_homeDirectory;
+@property (nonatomic, readonly, copy) NSString * _Nonnull cs_tempDirectory;
+@property (nonatomic, readonly, copy) NSString * _Nonnull cs_documentsDirectory;
+@property (nonatomic, readonly, copy) NSString * _Nonnull cs_libraryDirectory;
+@property (nonatomic, readonly, copy) NSString * _Nonnull cs_cacheDirectory;
 @end
 
 @class UIView;
@@ -143,39 +138,34 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 - (UIImage * _Nonnull)cs_snapShot:(UIView * _Nonnull)inView;
 @end
 
+
+@interface UIApplication (SWIFT_EXTENSION(CSSwiftExtension))
+@property (nonatomic, readonly, copy) NSString * _Nonnull cs_appVersion;
+@end
+
 @protocol UIApplicationDelegate;
 @class UIViewController;
 
 @interface UIApplication (SWIFT_EXTENSION(CSSwiftExtension))
-- (id <UIApplicationDelegate> _Nonnull)cs_appDelegate;
-- (UIViewController * _Nonnull)cs_currentViewController;
+@property (nonatomic, readonly, strong) id <UIApplicationDelegate> _Nonnull cs_appDelegate;
+@property (nonatomic, readonly, strong) UIViewController * _Nonnull cs_currentViewController;
 @end
 
 
 @interface UIColor (SWIFT_EXTENSION(CSSwiftExtension))
 - (nonnull instancetype)initWithHexString:(uint32_t)hexString alpha:(CGFloat)alpha;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull cs_random;)
++ (UIColor * _Nonnull)cs_random;
 @end
 
 
 @interface UIDevice (SWIFT_EXTENSION(CSSwiftExtension))
-- (NSString * _Nonnull)cs_currentLanguage;
-- (BOOL)cs_isCurrentLanguage_en;
-- (BOOL)cs_isCurrentLanguage_zh_Hans;
-- (BOOL)cs_isCurrentLanguage_zh_Hant;
-- (BOOL)cs_isCurrentLanguage_ja;
-- (BOOL)cs_isCurrentLanguage_ko;
-@end
-
-
-@interface UIDevice (SWIFT_EXTENSION(CSSwiftExtension))
-- (CGSize)cs_screenSize;
-- (BOOL)cs_isIPhone4s;
-- (BOOL)cs_isIPhone5;
-- (BOOL)cs_isIPhone6;
-- (BOOL)cs_isIPhone6Plus;
-- (BOOL)cs_isIPhone6PlusBigMode;
-- (BOOL)cs_isIPadAir2;
-- (BOOL)cs_isIPadPro;
+@property (nonatomic, readonly, copy) NSString * _Nonnull cs_currentLanguage;
+@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_en;
+@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_zh_Hans;
+@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_zh_Hant;
+@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_ja;
+@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_ko;
 @end
 
 
@@ -191,11 +181,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
   true or false
 */
 - (BOOL)cs_saveImageToFileWithFilePath:(NSString * _Nonnull)filePath compressionFactor:(CGFloat)compressionFactor;
-@end
-
-
-@interface UIImage (SWIFT_EXTENSION(CSSwiftExtension))
-- (UIImage * _Nonnull)cs_wechatShareThumbnail;
 @end
 
 
@@ -224,6 +209,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 @interface UIImage (SWIFT_EXTENSION(CSSwiftExtension))
+@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_wechatShareThumbnail;
+@end
+
+
+@interface UIImage (SWIFT_EXTENSION(CSSwiftExtension))
 /**
   Crop UIImage
 
@@ -244,7 +234,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
   returns:
   UIImage mirrored
 */
-- (UIImage * _Nonnull)cs_imageMirrored;
+@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_imageMirrored;
 /**
   Rotate UIImage to specified degress
   \param degress degress to rotate
@@ -275,8 +265,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
   UIImage
 */
 - (UIImage * _Nonnull)cs_imageWithCornerRadiusWithCornerRadius:(CGFloat)cornerRadius;
-- (UIImage * _Nonnull)cs_imageWithNormalOrientation;
-- (UIImage * _Nonnull)cs_grayScale;
+@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_imageWithNormalOrientation;
+@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_grayScale;
 @end
 
 
@@ -286,7 +276,23 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 @interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
-- (UIImage * _Nonnull)cs_snapShot;
+- (void)cs_cornerRadiusWithCorners:(UIRectCorner)corners radius:(CGFloat)radius;
+@end
+
+@class NSBundle;
+
+@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
++ (UIView * _Nullable)cs_loadFromNib:(NSString * _Nonnull)nibName bundle:(NSBundle * _Nullable)bundle;
+@end
+
+
+@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
+- (void)cs_removeGestureRecognizers;
+@end
+
+
+@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
+@property (nonatomic, readonly, strong) UIImage * _Nullable cs_snapshot;
 @end
 
 
@@ -297,6 +303,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @property (nonatomic) CGFloat cs_bottom;
 @property (nonatomic) CGFloat cs_width;
 @property (nonatomic) CGFloat cs_height;
+@property (nonatomic) CGSize cs_size;
 @end
 
 #pragma clang diagnostic pop

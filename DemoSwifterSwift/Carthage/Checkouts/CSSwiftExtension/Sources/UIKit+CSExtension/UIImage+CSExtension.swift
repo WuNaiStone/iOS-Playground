@@ -33,17 +33,14 @@ extension UIImage {
      - returns: UIImage
      */
     public convenience init(pureColor: UIColor, targetSize: CGSize) {
-        let rect = CGRect(x: 0, y: 0, width: targetSize.width, height: targetSize.height)
-        
-        UIGraphicsBeginImageContextWithOptions(targetSize, false, 0)
-        let context = UIGraphicsGetCurrentContext()
-        context?.setFillColor(pureColor.cgColor)
-        context?.fill(rect)
-        let imageWithPureColor: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        let imageData = UIImagePNGRepresentation(imageWithPureColor)
-        self.init(data: imageData!)!
+        UIGraphicsBeginImageContextWithOptions(targetSize, false, 1)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        pureColor.setFill()
+        UIRectFill(CGRect(origin: CGPoint.zero, size: targetSize))
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        self.init(cgImage: image.cgImage!)
     }
     
 }
@@ -131,7 +128,7 @@ extension UIImage {
      
      - returns: UIImage mirrored
      */
-    public func cs_imageMirrored() -> UIImage {
+    public var cs_imageMirrored: UIImage {
         let width = size.width
         let height = size.height
         
@@ -241,7 +238,7 @@ extension UIImage {
         return imageWithCornerRadius!
     }
     
-    public func cs_imageWithNormalOrientation() -> UIImage {
+    public var cs_imageWithNormalOrientation: UIImage {
         if imageOrientation == UIImageOrientation.up {
             return self
         }
@@ -253,7 +250,7 @@ extension UIImage {
         return normalizedImage!
     }
     
-    public func cs_grayScale() -> UIImage {
+    public var cs_grayScale: UIImage {
         // Create image rectangle with current image width/height
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height);
         // Grayscale color space
@@ -280,7 +277,7 @@ extension UIImage {
 
 // MARK: - 微信分享缩略图
 extension UIImage {
-    public func cs_wechatShareThumbnail() -> UIImage {
+    public var cs_wechatShareThumbnail: UIImage {
         var scale: CGFloat = 0
         var isNeedCut = false
         var imageSize = CGSize.zero
