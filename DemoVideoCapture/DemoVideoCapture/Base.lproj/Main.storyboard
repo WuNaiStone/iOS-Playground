@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fs1-ce-daL">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video Camera View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="VideoCameraViewController" id="BYZ-38-t0r" customClass="VideoCameraViewController" customModule="DemoVideoCapture" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdB-GR-AeI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Te8-CQ-Dqy">
+                                        <rect key="frame" x="320" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Te8-CQ-Dqy" secondAttribute="height" id="2c2-tX-1xo"/>
+                                        </constraints>
+                                        <state key="normal" image="btnRotate"/>
+                                        <connections>
+                                            <action selector="actionBtnRotate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ekm-Fe-Q8B"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Te8-CQ-Dqy" secondAttribute="bottom" id="72u-wc-2bz"/>
+                                    <constraint firstItem="Te8-CQ-Dqy" firstAttribute="top" secondItem="OdB-GR-AeI" secondAttribute="top" id="DMK-1s-PBK"/>
+                                    <constraint firstAttribute="trailing" secondItem="Te8-CQ-Dqy" secondAttribute="trailing" constant="5" id="rGs-NQ-dIX"/>
+                                    <constraint firstAttribute="height" constant="50" id="xse-iO-LYC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCG-Le-f4x">
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOp-8f-VV6">
+                                        <rect key="frame" x="137.5" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="IOp-8f-VV6" secondAttribute="height" id="MXX-KG-gsg"/>
+                                        </constraints>
+                                        <state key="normal" image="btnCapture"/>
+                                        <connections>
+                                            <action selector="actionBtnCapture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sDq-jf-HS7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="IOp-8f-VV6" firstAttribute="height" secondItem="mCG-Le-f4x" secondAttribute="height" id="OGf-Gu-UNa"/>
+                                    <constraint firstAttribute="height" constant="100" id="YLo-7d-kzc"/>
+                                    <constraint firstItem="IOp-8f-VV6" firstAttribute="centerY" secondItem="mCG-Le-f4x" secondAttribute="centerY" id="cwH-pI-wtI"/>
+                                    <constraint firstItem="IOp-8f-VV6" firstAttribute="centerX" secondItem="mCG-Le-f4x" secondAttribute="centerX" id="eQ0-wb-I9n"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OdB-GR-AeI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7a3-Ez-Ut4"/>
+                            <constraint firstItem="mCG-Le-f4x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LKI-cl-9fS"/>
+                            <constraint firstAttribute="trailing" secondItem="OdB-GR-AeI" secondAttribute="trailing" id="Olt-EB-gTo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mCG-Le-f4x" secondAttribute="bottom" id="dEV-f7-TzS"/>
+                            <constraint firstAttribute="trailing" secondItem="mCG-Le-f4x" secondAttribute="trailing" id="mgx-Jo-Tjr"/>
+                            <constraint firstItem="OdB-GR-AeI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s4G-Ib-b9o"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JeE-WA-YgH"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="btnRotate" destination="Te8-CQ-Dqy" id="qfT-Sb-h7d"/>
+                        <outlet property="toolBar" destination="mCG-Le-f4x" id="Qxy-hv-uIR"/>
+                        <outlet property="topBar" destination="OdB-GR-AeI" id="9Ba-yC-52Z"/>
+                        <segue destination="Uok-zW-Qcs" kind="show" identifier="segueVideoCaptureDone" id="CTj-v7-LoS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="43.628185907046479"/>
+        </scene>
+        <!--Video Play View Controller-->
+        <scene sceneID="OCK-D0-juW">
+            <objects>
+                <viewController storyboardIdentifier="VideoPlayViewController" id="Uok-zW-Qcs" customClass="VideoPlayViewController" customModule="DemoVideoCapture" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e9v-5w-zGS"/>
+                        <viewControllerLayoutGuide type="bottom" id="SkJ-0L-aau"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EiM-8N-feD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWx-b9-A6D">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="eFA-ne-UY8"/>
+                                    <constraint firstAttribute="height" constant="50" id="hxY-Ah-hfV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionBtnBack:" destination="Uok-zW-Qcs" eventType="touchUpInside" id="NsA-ub-mLF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1n5-G9-3WC">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1n5-G9-3WC" secondAttribute="height" id="2pI-pV-fIx"/>
+                                    <constraint firstAttribute="height" constant="100" id="MA0-Cf-0ba"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionBtnPlay:" destination="Uok-zW-Qcs" eventType="touchUpInside" id="hzX-LR-rR7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zWx-b9-A6D" firstAttribute="top" secondItem="e9v-5w-zGS" secondAttribute="bottom" id="0QK-ga-FuU"/>
+                            <constraint firstItem="zWx-b9-A6D" firstAttribute="leading" secondItem="EiM-8N-feD" secondAttribute="leading" id="GaU-ev-Jzr"/>
+                            <constraint firstItem="1n5-G9-3WC" firstAttribute="centerX" secondItem="EiM-8N-feD" secondAttribute="centerX" id="MOx-bf-3S2"/>
+                            <constraint firstItem="1n5-G9-3WC" firstAttribute="centerY" secondItem="EiM-8N-feD" secondAttribute="centerY" id="a2D-z1-9vX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnBack" destination="zWx-b9-A6D" id="lut-3g-1UP"/>
+                        <outlet property="btnPlay" destination="1n5-G9-3WC" id="3Pz-uO-Luj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3y-98-zx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1826" y="44"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Eon-sJ-C3n">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Fs1-ce-daL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uqo-nz-oea">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="d7M-Np-Mag"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcS-Qy-VnU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222" y="44"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btnCapture" width="70" height="70"/>
+        <image name="btnRotate" width="33" height="33"/>
+    </resources>
+</document>
