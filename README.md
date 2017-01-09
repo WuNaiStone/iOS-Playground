@@ -34,6 +34,9 @@ iOS设备的电量汇报小工具, 定时向服务端汇报设备电量.
 请参考博客:
 - [iOS --- 获取iOS设备的电量信息：Battery Level](http://blog.csdn.net/icetime17/article/details/45057721)
 
+### DemoBezierPath
+贝塞尔曲线的基本使用
+
 ### DemoBlock
 请参考博客:
 - [iOS --- 关于block的常见使用方法](http://blog.csdn.net/icetime17/article/details/48946843)
@@ -47,10 +50,11 @@ iOS设备的电量汇报小工具, 定时向服务端汇报设备电量.
 - [iOS---使用CAEmitterLayer制作发射粒子的特效](http://blog.csdn.net/icetime17/article/details/51704712)
 
 ### DemoCAShapeLayer
+CAShapeLayer的基本使用
 
 ### DemoCSSwiftExtension
-主要介绍了如何在CocoaPods上发布自己的项目.
-请参考博客:
+[CSSwiftExtension](https://github.com/icetime17/CSSwiftExtension)是非常有用的Swift extension集合，支持Swift 3.0.
+如何在CocoaPods上发布自己的项目, 请参考博客:
 - [iOS---如何在CocoaPods上发布自己的项目](http://blog.csdn.net/icetime17/article/details/51779775)
 
 ### DemoCharts
@@ -70,6 +74,15 @@ iOS设备的电量汇报小工具, 定时向服务端汇报设备电量.
 ### DemoCoreMotion
 ### DemoCornerRadius
 为UIView添加圆角.
+
+### DemoCustomHUD
+自定义的HUD
+
+### DemoCustomUISlider
+自定义的UISlider
+
+### DemoDZNEmptyDataSet
+DZNEmptyDataSet可用于在UITableView的dataSource为空时展示一个精美的提示view
 
 ### DemoDataPersistence
 iOS开发中的一些持久化技术的简单Demo, 包括Sandbox, NSUserDefaults, NSKeyedArchiver, CoreData, MagicalRecord, SQLite, FMDB, Realm, Keychain, iCloud.
@@ -93,15 +106,27 @@ iOS开发中的一些持久化技术的简单Demo, 包括Sandbox, NSUserDefaults
 ### DemoGoogleAnalytics
 使用GoogleAnalytics统计平台的demo.
 
+### DemoHero
+[Hero](https://github.com/lkzhao/Hero)是一个非常强大的转场动画类库，基于Swift.
+
 ### DemoHttpRequest
 请参考博客:
 - [iOS --- NSURLRequest 和 NSURLConnection 的网络操作](http://blog.csdn.net/icetime17/article/details/41292615)
 - [iOS --- 强大的网络通信类库AFNetworking](http://blog.csdn.net/icetime17/article/details/41294935)
 - [iOS --- 使用RestKit与RESTful web服务器进行简单交互](http://blog.csdn.net/icetime17/article/details/48260695)
 
+### DemoIQKeyboardManager
+[IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager)可用于在键盘弹出时，动态调整输入框的高度.
+
+### DemoImagePreview
+提供了图片预览的一个UIView，支持pinch缩放和双击缩放.
+
 ### DemoImageViewAnimation
 请参考博客:
 - [iOS --- 使用UIImageView来实现倒计时动画](http://blog.csdn.net/icetime17/article/details/49463971)
+
+### DemoInsGPUImageFilter
+一系列滤镜效果
 
 ### DemoKVC
 ### DemoKVO
@@ -127,6 +152,9 @@ iOS开发中的一些持久化技术的简单Demo, 包括Sandbox, NSUserDefaults
 请参考博客:
 - [iOS --- 本地推送通知 UILocalNotification](http://blog.csdn.net/icetime17/article/details/50651097)
 
+### DemoMLeaksFinder
+[MLeaksFinder](https://github.com/Zepo/MLeaksFinder)可用于检测内存泄露
+
 ### DemoMPVolum
 请参考博客:
 - [iOS --- 音量调节视图MPVolumeView的使用](http://blog.csdn.net/icetime17/article/details/49328585)
@@ -138,6 +166,8 @@ MagicalRecord是基于Objective-C的CoreData封装类库, 使用非常方便.
 Masonry是基于Objective-C的自动布局Auto Layout框架.
 
 ### DemoMaterial
+[Material](https://github.com/CosmicMind/Material)，在iOS中添加Material Design效果.
+
 ### DemoMixpanel
 请参考博客:
 - [iOS --- 使用Mixpanel来统计和分析移动APP的用户数据](http://blog.csdn.net/icetime17/article/details/48530709)
@@ -180,6 +210,9 @@ NSUserDefaults可用于持久化一些APP配置信息或用户保存的数据, �
 - [iOS --- 使用openURL调用iOS系统应用](http://blog.csdn.net/icetime17/article/details/49257197)
 - [iOS --- 通过openURL实现APP之间跳转并传递数据](http://blog.csdn.net/icetime17/article/details/51056923)
 
+### DemoPKHUD
+PKHUD也是一个HUD类库.
+
 ### DemoPNChartSwift
 PNChart可用于绘制一些图表.
 
@@ -190,6 +223,12 @@ PhotoKit框架的简单demo, PhotoKit提供了访问iOS设备的照片应用中�
 请参考博客:
 - [iOS --- 使用ALAssetsLibrary访问设备中的所有照片信息](http://blog.csdn.net/icetime17/article/details/47789471)
 - [iOS --- 使用PhotoKit代替ALAssetsLibrary来管理相册资源](http://blog.csdn.net/icetime17/article/details/49745055)
+
+### DemoPromiseKit
+[PromiseKit](https://github.com/mxcl/PromiseKit)用于在Swift代码中执行异步方式的编程.
+
+### DemoQiniu
+七牛SDK的简单使用
 
 ### DemoReachability
 Reachability可用于测试网络连接情况, 也可以使用AFNetworking.
@@ -222,6 +261,9 @@ SQLite3数据库的小demo, 待完善.
 请参考博客:
 - [iOS --- UIScrollView和UIPageControl的简单使用](http://blog.csdn.net/icetime17/article/details/48948139)
 
+### DemoSearchController
+SearchControlelr的简单使用
+
 ### DemoShimmer
 请参考博客:
 - [iOS --- 使用Shimmer来在Swift工程中添加微光闪烁的特效](http://blog.csdn.net/icetime17/article/details/49871531)
@@ -240,19 +282,41 @@ Social分享框架的demo.
 ### DemoSwift
 一些Swift的小demo.
 
+### DemoSwift3.0
+Swift 3.0的相关内容.
+
+### DemoSwifterSwift
+[SwifterSwift](https://github.com/omaralbeik/SwifterSwift)是一个Swift extension的集合.
+另外，可参考[CSSwiftExtension](https://github.com/icetime17/CSSwiftExtension).
+
 ### DemoTelCall
 ### DemoTestCarrier
 请参考博客:
 - [iOS --- 使用CoreTelephony来获取运营商信息](http://blog.csdn.net/icetime17/article/details/49254401)
 
+### DemoTextFieldEffects
+[TextFieldEffects](https://github.com/raulriera/TextFieldEffects)提供了非常惊艳的TextField效果
+
 ### DemoTimeline
 使用ISTimeline的Demo.
+
+### DemoTransitions
+一些简单的转场，更完整的版本请参考[iOS-TransitionAnimation](https://github.com/icetime17/iOS-TransitionAnimation).
+
+### DemoUIActivityIndicatorView
+UIActivityIndicatorView的简单使用
 
 ### DemoUIActivityViewController
 
 ### DemoUIButtonBackgroundColor
 请参考博客:
 - [iOS --- 为UIButton添加setBackgroundColor:forState:方法(包含OC和Swift两个版本)](http://blog.csdn.net/icetime17/article/details/51854559)
+后来证实：使用runtime会带来一些很tricky的异常问题，如设置UIButton等的image失效。
+所以，推荐使用[CSSwiftExtension](https://github.com/icetime17/CSSwiftExtension)中的一种方式，如下：
+```Swift
+btnTest.cs_setBackgroundColor(UIColor.blue, for: .normal) // set backgroundColor
+btnTest.cs_setBackgroundColor(UIColor.red, for: .highlighted)
+```
 
 ### DemoUIGestureRecognizer
 关于iOS中一些手势的demo.
@@ -261,6 +325,9 @@ Social分享框架的demo.
 UIImagePicker用于启动系统相机拍照或从系统相册中选取照片.
 
 ### DemoUILabel
+### DemoUIPasteboard
+UIPasteboard可以做到非常强大的功能，如淘宝的淘口令，Pin即对iOS的剪贴板做了非常多的使用场景开发。
+
 ### DemoUIScrollViewZoomScale
 ### DemoUISlider
 请参考博客:
@@ -280,12 +347,22 @@ UIImagePicker用于启动系统相机拍照或从系统相册中选取照片.
 请参考博客:
 - [iOS --- 使用XCTest进行单元测试](http://blog.csdn.net/icetime17/article/details/49893847)
 
+### DemoWebImageCache
+自己试着实现Memory+Disk的图片缓存机制.
+
 ### DemoXXNibBridge
 ### DemoYYText
 ### DemoiCarousel
 iCarousel, 现在可用UICollectionView来实现.
 
 ### DesignPattern
+
+### DynamicCollectionViewCellHeightAutoLayout
+动态计算UICollectionView中的cell高度，使用constraint.
+
+### DynamicCollectionViewCellHeightSnapKit
+动态计算UICollectionView中的cell高度，使用SnapKit.
+
 ### OCPlayground
 ### DBFM
 简单的 ***仿豆瓣FM*** iOS客户端.
