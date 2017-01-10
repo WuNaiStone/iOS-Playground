@@ -40,6 +40,12 @@ class VideoPlayViewController: UIViewController {
     @IBOutlet weak var btnPlayVideoNetwork: UIButton!
     @IBAction func actionBtnPlayVideoNetwork(_ sender: UIButton) { actionPlayVideoNetwork() }
     
+    @IBOutlet weak var btnNextVideoNetwork: UIButton!
+    @IBAction func actionBtnNextVideoNetwork(_ sender: UIButton) { actionNextVideoNetwork() }
+    
+    @IBOutlet weak var btnLastVideoNetwork: UIButton!
+    @IBAction func actionBtnLastVideoNetwork(_ sender: UIButton) { actionLastVideoNetwork() }
+    
     // 进度条
     @IBOutlet weak var progressViewVideoNetwork: UIProgressView!
     
@@ -119,6 +125,12 @@ class VideoPlayViewController: UIViewController {
                     self.progressViewVideoNetwork.progress = current / total
                 }
                 
+                if self.progressViewVideoNetwork.progress == 1 {
+                    print("Done")
+                    self.btnPlayVideoNetwork.setImage(UIImage(named: "btnPlay"), for: .normal)
+                    self.progressViewVideoNetwork.progress = 0
+                }
+                
             })
             
             // 播放的layer层
@@ -146,6 +158,37 @@ class VideoPlayViewController: UIViewController {
                 btnPlayVideoNetwork.setImage(UIImage(named: "btnPlay"), for: .normal)
             }
         }
+    }
+    
+    func actionNextVideoNetwork() {
+        avPlayer.pause()
+        
+        videoURLString = "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+        
+        let videoURL = URL(string: videoURLString)
+        
+        // 视频的一些信息
+        let avPlayerItem = AVPlayerItem(url: videoURL!)
+        
+        // 使用replace item即可切换视频
+        avPlayer.replaceCurrentItem(with: avPlayerItem)
+        
+        avPlayer.play()
+    }
+    
+    func actionLastVideoNetwork() {
+        avPlayer.pause()
+        
+        videoURLString = "http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4"
+        
+        let videoURL = URL(string: videoURLString)
+        
+        // 视频的一些信息
+        let avPlayerItem = AVPlayerItem(url: videoURL!)
+        
+        avPlayer.replaceCurrentItem(with: avPlayerItem)
+        
+        avPlayer.play()
     }
     
     func actionTapGesture(_ sender: UITapGestureRecognizer) {
