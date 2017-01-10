@@ -13,22 +13,36 @@ import AVFoundation
 class VideoPlayViewController: UIViewController {
 
     var videoPath = ""
-    var avPlayer: AVPlayerViewController!
+    var avPlayerVC: AVPlayerViewController!
+    var avPlayer: AVPlayer!
     
+    var videoURLString = ""
     
     @IBOutlet weak var btnBack: UIButton!
     @IBAction func actionBtnBack(_ sender: UIButton) {
         _ = navigationController?.popViewController(animated: true)
     }
     
-    @IBOutlet weak var btnPlay: UIButton!
     
-    @IBAction func actionBtnPlay(_ sender: UIButton) { actionPlay() }
+    // 拍摄的视频
+    @IBOutlet weak var viewVideoCapture: UIView!
+    @IBOutlet weak var btnPlayVideoCapture: UIButton!
+    @IBAction func actionPlayVideoCapture(_ sender: UIButton) { actionPlayVideoCapture() }
+    
+    
+    // 网络请求的视频
+    @IBOutlet weak var viewVideoNetwork: UIView!
+    @IBOutlet weak var btnPlayVideoNetwork: UIButton!
+    @IBAction func actionBtnPlayVideoNetwork(_ sender: UIButton) { actionPlayVideoNetwork() }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,16 +52,59 @@ class VideoPlayViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool { return true }
     
-    
-    func actionPlay() {
-        let avPlayerVC = AVPlayerViewController()
-        
-        let avPlayer = AVPlayer(url: URL(fileURLWithPath: videoPath))
-        avPlayerVC.player = avPlayer
-        
-        present(avPlayerVC, animated: true) { 
-            avPlayer.play()
+    private func actionPlayVideoCapture() {
+        if avPlayer != nil {
+            avPlayer.pause()
+            viewVideoNetwork.bringSubview(toFront: btnPlayVideoNetwork)
         }
+        
+        videoURLString = videoPath
+        
+        // 录制的视频
+        let videoURL = URL(fileURLWithPath: videoURLString)
+        
+        // 视频的一些信息，一个item对应一个视频资源
+        let avPlayerItem = AVPlayerItem(url: videoURL)
+        avPlayer = AVPlayer(playerItem: avPlayerItem)
+        
+        // 播放的layer层
+        let avPlayerLayer = AVPlayerLayer(player: avPlayer)
+        avPlayerLayer.frame = viewVideoCapture.bounds
+        avPlayerLayer.backgroundColor = UIColor.black.cgColor
+        avPlayerLayer.videoGravity = AVLayerVideoGravityResize
+        viewVideoCapture.layer.addSublayer(avPlayerLayer)
+        
+        self.avPlayer.play()
+    }
+    
+    private func actionPlayVideoNetwork() {
+        if avPlayer != nil {
+            avPlayer.pause()
+            viewVideoCapture.bringSubview(toFront: btnPlayVideoCapture)
+        }
+        
+        // 网络请求的视频
+        videoURLString = "http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4"
+        
+        let videoURL = URL(string: videoURLString)
+        
+        // 视频的一些信息
+        let avPlayerItem = AVPlayerItem(url: videoURL!)
+        avPlayer = AVPlayer(playerItem: avPlayerItem)
+        
+        // 播放的layer层
+        let avPlayerLayer = AVPlayerLayer(player: avPlayer)
+        avPlayerLayer.frame = viewVideoNetwork.bounds
+        avPlayerLayer.backgroundColor = UIColor.black.cgColor
+        avPlayerLayer.videoGravity = AVLayerVideoGravityResize
+        viewVideoNetwork.layer.addSublayer(avPlayerLayer)
+        
+//        avPlayerVC = AVPlayerViewController()
+//        avPlayerVC.player = avPlayer
+        
+        //        present(avPlayerVC, animated: true) {
+        self.avPlayer.play()
+        //        }
     }
 
 }
