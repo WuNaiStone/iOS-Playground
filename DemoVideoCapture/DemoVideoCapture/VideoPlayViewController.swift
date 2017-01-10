@@ -27,6 +27,7 @@ class VideoPlayViewController: UIViewController {
     
     
     // 拍摄的视频
+    
     @IBOutlet weak var viewVideoCapture: UIView!
     @IBOutlet weak var btnPlayVideoCapture: UIButton!
     @IBAction func actionPlayVideoCapture(_ sender: UIButton) { actionPlayVideoCapture() }
@@ -38,6 +39,8 @@ class VideoPlayViewController: UIViewController {
     @IBOutlet weak var btnPlayVideoNetwork: UIButton!
     @IBAction func actionBtnPlayVideoNetwork(_ sender: UIButton) { actionPlayVideoNetwork() }
     
+    // 进度条
+    @IBOutlet weak var progressViewVideoNetwork: UIProgressView!
     
     
     override func viewDidLoad() {
@@ -108,6 +111,17 @@ class VideoPlayViewController: UIViewController {
             // 视频的一些信息
             let avPlayerItem = AVPlayerItem(url: videoURL!)
             avPlayer = AVPlayer(playerItem: avPlayerItem)
+            
+            // 监听播放进度
+            avPlayer.addPeriodicTimeObserver(forInterval: CMTime(value: 1, timescale: 1), queue: DispatchQueue.main, using: { (time) in
+                
+                let total = Float(CMTimeGetSeconds(avPlayerItem.duration))
+                let current = Float(CMTimeGetSeconds(time))
+                if current > 0 {
+                    self.progressViewVideoNetwork.progress = current / total
+                }
+                
+            })
             
             // 播放的layer层
             let avPlayerLayer = AVPlayerLayer(player: avPlayer)

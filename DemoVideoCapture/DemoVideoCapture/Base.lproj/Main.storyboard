@@ -151,6 +151,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-5A-Ibe">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                         <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bX3-zE-3CQ">
+                                                <rect key="frame" x="20" y="178" width="335" height="2"/>
+                                                <color key="progressTintColor" red="0.99215686274509807" green="0.40784313725490196" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg5-R2-rJQ">
                                                 <rect key="frame" x="137.5" y="50" width="100" height="100"/>
                                                 <constraints>
@@ -165,8 +169,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="bX3-zE-3CQ" secondAttribute="trailing" constant="20" id="1Ym-gU-Nx0"/>
                                             <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerY" secondItem="dBT-5A-Ibe" secondAttribute="centerY" id="IDJ-a7-7bN"/>
                                             <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerX" secondItem="dBT-5A-Ibe" secondAttribute="centerX" id="aeQ-Us-9X5"/>
+                                            <constraint firstItem="bX3-zE-3CQ" firstAttribute="leading" secondItem="dBT-5A-Ibe" secondAttribute="leading" constant="20" id="lP2-CI-aas"/>
+                                            <constraint firstAttribute="bottom" secondItem="bX3-zE-3CQ" secondAttribute="bottom" constant="20" id="w3K-S4-ZP5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -200,6 +207,7 @@
                         <outlet property="btnBack" destination="zWx-b9-A6D" id="lut-3g-1UP"/>
                         <outlet property="btnPlayVideoCapture" destination="1n5-G9-3WC" id="9n3-tR-dg3"/>
                         <outlet property="btnPlayVideoNetwork" destination="cg5-R2-rJQ" id="XrY-Vi-FNf"/>
+                        <outlet property="progressViewVideoNetwork" destination="bX3-zE-3CQ" id="tLU-Cj-Pem"/>
                         <outlet property="viewVideoCapture" destination="aJ0-yc-234" id="Owh-m9-2XM"/>
                         <outlet property="viewVideoNetwork" destination="1xc-Ij-p8A" id="3Gi-0n-hvW"/>
                         <outlet property="viewVideoNetworkOperation" destination="dBT-5A-Ibe" id="qlx-8X-1Xv"/>
