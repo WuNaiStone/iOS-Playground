@@ -17,6 +17,7 @@ class VideoPlayViewController: UIViewController {
     var avPlayer: AVPlayer!
     
     var isVideoPlaying = false
+    var isOperationShowing = true
     
     var videoURLString = ""
     
@@ -49,9 +50,6 @@ class VideoPlayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(VideoPlayViewController.actionTapGesture(_:)))
-        viewVideoNetworkOperation.addGestureRecognizer(tapGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -133,6 +131,9 @@ class VideoPlayViewController: UIViewController {
             avPlayer.play()
             
             btnPlayVideoNetwork.setImage(UIImage(named: "btnPause"), for: .normal)
+            
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(VideoPlayViewController.actionTapGesture(_:)))
+            viewVideoNetworkOperation.addGestureRecognizer(tapGesture)
         } else {
             if isVideoPlaying {
                 // 可通过avPlayer.rate == 1.0来判断
@@ -149,7 +150,10 @@ class VideoPlayViewController: UIViewController {
     
     func actionTapGesture(_ sender: UITapGestureRecognizer) {
         if isVideoPlaying {
-            btnPlayVideoNetwork.alpha = 1
+            isOperationShowing = !isOperationShowing
+            
+            btnPlayVideoNetwork.isHidden = isOperationShowing
+            progressViewVideoNetwork.isHidden = isOperationShowing
         }
     }
 
