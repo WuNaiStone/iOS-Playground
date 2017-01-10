@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -127,7 +126,7 @@
                                             <constraint firstAttribute="width" secondItem="1n5-G9-3WC" secondAttribute="height" id="2pI-pV-fIx"/>
                                             <constraint firstAttribute="height" constant="100" id="MA0-Cf-0ba"/>
                                         </constraints>
-                                        <state key="normal" image="Video-播放">
+                                        <state key="normal" image="btnPlay">
                                             <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -142,36 +141,56 @@
                                     <constraint firstAttribute="height" constant="200" id="scx-rd-p3y"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xc-Ij-p8A">
-                                <rect key="frame" x="0.0" y="350" width="375" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIK-jq-VkO">
+                                <rect key="frame" x="0.0" y="300" width="375" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg5-R2-rJQ">
-                                        <rect key="frame" x="138" y="50.5" width="100" height="100"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xc-Ij-p8A">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-5A-Ibe">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cg5-R2-rJQ">
+                                                <rect key="frame" x="137.5" y="50" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cg5-R2-rJQ" secondAttribute="height" id="FD9-ZJ-eAx"/>
+                                                    <constraint firstAttribute="height" constant="100" id="XmN-w3-Ug1"/>
+                                                </constraints>
+                                                <state key="normal" image="btnPlay"/>
+                                                <connections>
+                                                    <action selector="actionBtnPlayVideoNetwork:" destination="Uok-zW-Qcs" eventType="touchUpInside" id="zw9-JG-vO5"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="cg5-R2-rJQ" secondAttribute="height" id="FD9-ZJ-eAx"/>
-                                            <constraint firstAttribute="height" constant="100" id="XmN-w3-Ug1"/>
+                                            <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerY" secondItem="dBT-5A-Ibe" secondAttribute="centerY" id="IDJ-a7-7bN"/>
+                                            <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerX" secondItem="dBT-5A-Ibe" secondAttribute="centerX" id="aeQ-Us-9X5"/>
                                         </constraints>
-                                        <state key="normal" image="Video-播放"/>
-                                        <connections>
-                                            <action selector="actionBtnPlayVideoNetwork:" destination="Uok-zW-Qcs" eventType="touchUpInside" id="zw9-JG-vO5"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerY" secondItem="1xc-Ij-p8A" secondAttribute="centerY" id="5Rg-VT-ms4"/>
-                                    <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerX" secondItem="1xc-Ij-p8A" secondAttribute="centerX" id="AOV-kW-Eq4"/>
-                                    <constraint firstAttribute="height" constant="200" id="L1E-NX-Scw"/>
+                                    <constraint firstItem="dBT-5A-Ibe" firstAttribute="height" secondItem="uIK-jq-VkO" secondAttribute="height" id="3tf-Ed-qbO"/>
+                                    <constraint firstItem="dBT-5A-Ibe" firstAttribute="centerX" secondItem="uIK-jq-VkO" secondAttribute="centerX" id="Fkt-wn-VBt"/>
+                                    <constraint firstItem="1xc-Ij-p8A" firstAttribute="width" secondItem="uIK-jq-VkO" secondAttribute="width" id="IW7-Le-bcS"/>
+                                    <constraint firstItem="1xc-Ij-p8A" firstAttribute="centerX" secondItem="uIK-jq-VkO" secondAttribute="centerX" id="LY1-LY-k7I"/>
+                                    <constraint firstItem="dBT-5A-Ibe" firstAttribute="centerY" secondItem="uIK-jq-VkO" secondAttribute="centerY" id="WVi-Mz-5gr"/>
+                                    <constraint firstItem="1xc-Ij-p8A" firstAttribute="height" secondItem="uIK-jq-VkO" secondAttribute="height" id="hl2-4C-vBK"/>
+                                    <constraint firstItem="dBT-5A-Ibe" firstAttribute="width" secondItem="uIK-jq-VkO" secondAttribute="width" id="nay-g0-qPA"/>
+                                    <constraint firstItem="1xc-Ij-p8A" firstAttribute="centerY" secondItem="uIK-jq-VkO" secondAttribute="centerY" id="pBo-ch-2Zl"/>
+                                    <constraint firstAttribute="height" constant="200" id="xmU-1z-lvI"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zWx-b9-A6D" firstAttribute="top" secondItem="e9v-5w-zGS" secondAttribute="bottom" id="0QK-ga-FuU"/>
+                            <constraint firstAttribute="trailing" secondItem="uIK-jq-VkO" secondAttribute="trailing" id="1uA-Ny-gGb"/>
                             <constraint firstItem="zWx-b9-A6D" firstAttribute="leading" secondItem="EiM-8N-feD" secondAttribute="leading" id="GaU-ev-Jzr"/>
-                            <constraint firstItem="1xc-Ij-p8A" firstAttribute="top" secondItem="aJ0-yc-234" secondAttribute="bottom" constant="100" id="Iqk-rr-LRo"/>
-                            <constraint firstAttribute="trailing" secondItem="1xc-Ij-p8A" secondAttribute="trailing" id="Wge-Vv-rdl"/>
-                            <constraint firstItem="1xc-Ij-p8A" firstAttribute="leading" secondItem="EiM-8N-feD" secondAttribute="leading" id="cu2-I2-lMZ"/>
+                            <constraint firstItem="uIK-jq-VkO" firstAttribute="top" secondItem="aJ0-yc-234" secondAttribute="bottom" constant="50" id="NBL-jb-B72"/>
+                            <constraint firstItem="uIK-jq-VkO" firstAttribute="leading" secondItem="EiM-8N-feD" secondAttribute="leading" id="ZC9-2s-J0j"/>
                             <constraint firstItem="aJ0-yc-234" firstAttribute="top" secondItem="e9v-5w-zGS" secondAttribute="bottom" constant="50" id="hGD-5s-60D"/>
                             <constraint firstItem="aJ0-yc-234" firstAttribute="leading" secondItem="EiM-8N-feD" secondAttribute="leading" id="j4v-VP-VQ7"/>
                             <constraint firstAttribute="trailing" secondItem="aJ0-yc-234" secondAttribute="trailing" id="pWG-Li-hdk"/>
@@ -183,6 +202,7 @@
                         <outlet property="btnPlayVideoNetwork" destination="cg5-R2-rJQ" id="XrY-Vi-FNf"/>
                         <outlet property="viewVideoCapture" destination="aJ0-yc-234" id="Owh-m9-2XM"/>
                         <outlet property="viewVideoNetwork" destination="1xc-Ij-p8A" id="3Gi-0n-hvW"/>
+                        <outlet property="viewVideoNetworkOperation" destination="dBT-5A-Ibe" id="qlx-8X-1Xv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3y-98-zx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -212,8 +232,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Video-播放" width="79" height="79"/>
         <image name="btnCapture" width="70" height="70"/>
+        <image name="btnPlay" width="79" height="79"/>
         <image name="btnRotate" width="33" height="33"/>
     </resources>
 </document>
