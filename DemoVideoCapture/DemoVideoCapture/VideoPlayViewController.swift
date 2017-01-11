@@ -226,6 +226,8 @@ class VideoPlayViewController: UIViewController {
             isOperationShowing = !isOperationShowing
             
             btnPlayVideoNetwork.isHidden = isOperationShowing
+            btnLastVideoNetwork.isHidden = isOperationShowing
+            btnNextVideoNetwork.isHidden = isOperationShowing
             progressViewVideoNetwork.isHidden = isOperationShowing
             lbProgress.isHidden = isOperationShowing
         }
