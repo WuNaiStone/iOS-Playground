@@ -48,6 +48,7 @@ class VideoPlayViewController: UIViewController {
     
     // 进度条
     @IBOutlet weak var progressViewVideoNetwork: UIProgressView!
+    @IBOutlet weak var lbProgress: UILabel!
     
     
     override func viewDidLoad() {
@@ -56,6 +57,14 @@ class VideoPlayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(VideoPlayViewController.actionPlayVideoNetworkDone(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,6 +112,25 @@ class VideoPlayViewController: UIViewController {
 //        }
     }
     
+    func timeString(_ time: Int) -> String {
+        let hour = time / 3600
+        let min = time / 60
+        let sec = time % 60
+        
+        var minStr = ""
+        var secStr = ""
+        minStr = min > 9 ? "\(min)" : "0\(min)"
+        secStr = sec > 9 ? "\(sec)" : "0\(sec)"
+        
+        if hour == 0 {
+            return "\(minStr):\(secStr)"
+        } else {
+            var hourStr = ""
+            hourStr = hour > 9 ? "\(hour)" : "0\(hour)"
+            return "\(hourStr):\(minStr):\(secStr)"
+        }
+    }
+    
     private func actionPlayVideoNetwork() {
         isVideoPlaying = !isVideoPlaying
         
@@ -119,14 +147,16 @@ class VideoPlayViewController: UIViewController {
             // 监听播放进度
             avPlayer.addPeriodicTimeObserver(forInterval: CMTime(value: 1, timescale: 1), queue: DispatchQueue.main, using: { (time) in
                 
-                let total = Float(CMTimeGetSeconds(avPlayerItem.duration))
-                let current = Float(CMTimeGetSeconds(time))
+                let total = lroundf(Float(CMTimeGetSeconds(avPlayerItem.duration)))
+                let current = lroundf(Float(CMTimeGetSeconds(time)))
                 if current > 0 {
-                    self.progressViewVideoNetwork.progress = current / total
+                    self.progressViewVideoNetwork.progress = Float(current) / Float(total)
+                    
+                    self.lbProgress.text = self.timeString(total - current)
                 }
                 
+                // 也可以使用AVPlayerItemDidPlayToEndTime通知
                 if self.progressViewVideoNetwork.progress == 1 {
-                    print("Done")
                     self.btnPlayVideoNetwork.setImage(UIImage(named: "btnPlay"), for: .normal)
                     self.progressViewVideoNetwork.progress = 0
                 }
@@ -197,7 +227,12 @@ class VideoPlayViewController: UIViewController {
             
             btnPlayVideoNetwork.isHidden = isOperationShowing
             progressViewVideoNetwork.isHidden = isOperationShowing
+            lbProgress.isHidden = isOperationShowing
         }
+    }
+    
+    func actionPlayVideoNetworkDone(_ sender: Notification) {
+        print("Done")
     }
 
 }
