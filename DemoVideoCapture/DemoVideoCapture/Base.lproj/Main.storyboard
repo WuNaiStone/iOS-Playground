@@ -155,6 +155,11 @@
                                                 <rect key="frame" x="20" y="178" width="275" height="2"/>
                                                 <color key="progressTintColor" red="0.99215686274509807" green="0.40784313725490196" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                             </progressView>
+                                            <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fp5-Po-Mzd">
+                                                <rect key="frame" x="18" y="164" width="279" height="31"/>
+                                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5Q-SK-hsG">
                                                 <rect key="frame" x="305" y="169" width="60" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -202,9 +207,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="bX3-zE-3CQ" secondAttribute="trailing" constant="80" id="1Ym-gU-Nx0"/>
+                                            <constraint firstItem="Fp5-Po-Mzd" firstAttribute="centerY" secondItem="bX3-zE-3CQ" secondAttribute="centerY" id="46Z-gE-edJ"/>
                                             <constraint firstItem="x5Q-SK-hsG" firstAttribute="leading" secondItem="bX3-zE-3CQ" secondAttribute="trailing" constant="10" id="AiL-EK-oj2"/>
                                             <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerY" secondItem="dBT-5A-Ibe" secondAttribute="centerY" id="IDJ-a7-7bN"/>
                                             <constraint firstItem="jML-jp-ueV" firstAttribute="centerY" secondItem="cg5-R2-rJQ" secondAttribute="centerY" id="Ri0-5p-HWr"/>
+                                            <constraint firstItem="Fp5-Po-Mzd" firstAttribute="centerX" secondItem="bX3-zE-3CQ" secondAttribute="centerX" id="Wfr-Cf-Bdf"/>
                                             <constraint firstItem="Vkp-EM-c9U" firstAttribute="centerY" secondItem="cg5-R2-rJQ" secondAttribute="centerY" id="Z0Y-yo-jb7"/>
                                             <constraint firstItem="cg5-R2-rJQ" firstAttribute="centerX" secondItem="dBT-5A-Ibe" secondAttribute="centerX" id="aeQ-Us-9X5"/>
                                             <constraint firstItem="Vkp-EM-c9U" firstAttribute="leading" secondItem="cg5-R2-rJQ" secondAttribute="trailing" constant="20" id="cW3-iN-9gk"/>
@@ -212,6 +219,7 @@
                                             <constraint firstItem="bX3-zE-3CQ" firstAttribute="leading" secondItem="dBT-5A-Ibe" secondAttribute="leading" constant="20" id="lP2-CI-aas"/>
                                             <constraint firstItem="x5Q-SK-hsG" firstAttribute="centerY" secondItem="bX3-zE-3CQ" secondAttribute="centerY" id="mbd-Hf-ooq"/>
                                             <constraint firstAttribute="trailing" secondItem="x5Q-SK-hsG" secondAttribute="trailing" constant="10" id="nKT-gN-AYd"/>
+                                            <constraint firstItem="Fp5-Po-Mzd" firstAttribute="width" secondItem="bX3-zE-3CQ" secondAttribute="width" id="twB-EF-dA3"/>
                                             <constraint firstAttribute="bottom" secondItem="bX3-zE-3CQ" secondAttribute="bottom" constant="20" id="w3K-S4-ZP5"/>
                                         </constraints>
                                     </view>
@@ -248,8 +256,9 @@
                         <outlet property="btnNextVideoNetwork" destination="Vkp-EM-c9U" id="YiQ-7q-LH9"/>
                         <outlet property="btnPlayVideoCapture" destination="1n5-G9-3WC" id="9n3-tR-dg3"/>
                         <outlet property="btnPlayVideoNetwork" destination="cg5-R2-rJQ" id="XrY-Vi-FNf"/>
-                        <outlet property="lbProgress" destination="x5Q-SK-hsG" id="PUI-Fn-DXb"/>
-                        <outlet property="progressViewVideoNetwork" destination="bX3-zE-3CQ" id="tLU-Cj-Pem"/>
+                        <outlet property="lbPlayProgress" destination="x5Q-SK-hsG" id="H0r-5m-IK0"/>
+                        <outlet property="progressViewVideoNetworkLoading" destination="bX3-zE-3CQ" id="cnO-UM-Eo1"/>
+                        <outlet property="sliderPlayProgress" destination="Fp5-Po-Mzd" id="47E-b6-qPn"/>
                         <outlet property="viewVideoCapture" destination="aJ0-yc-234" id="Owh-m9-2XM"/>
                         <outlet property="viewVideoNetwork" destination="1xc-Ij-p8A" id="3Gi-0n-hvW"/>
                         <outlet property="viewVideoNetworkOperation" destination="dBT-5A-Ibe" id="qlx-8X-1Xv"/>

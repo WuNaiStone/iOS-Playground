@@ -46,9 +46,12 @@ class VideoPlayViewController: UIViewController {
     @IBOutlet weak var btnLastVideoNetwork: UIButton!
     @IBAction func actionBtnLastVideoNetwork(_ sender: UIButton) { actionLastVideoNetwork() }
     
-    // 进度条
-    @IBOutlet weak var progressViewVideoNetwork: UIProgressView!
-    @IBOutlet weak var lbProgress: UILabel!
+    // 缓冲进度条
+    @IBOutlet weak var progressViewVideoNetworkLoading: UIProgressView!
+    
+    // 播放进度条
+    @IBOutlet weak var sliderPlayProgress: UISlider!
+    @IBOutlet weak var lbPlayProgress: UILabel!
     
     
     override func viewDidLoad() {
@@ -142,6 +145,10 @@ class VideoPlayViewController: UIViewController {
             
             // 视频的一些信息
             let avPlayerItem = AVPlayerItem(url: videoURL!)
+            // 通过status来查看是否可以播放，即检测到AVPlayerStatusReadyToPlay之后调用play即可
+            // loadedTimeRanges代表已经缓冲的进度，通过KVO来监控缓冲进度即可
+            avPlayerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: .new, context: nil)
+            
             avPlayer = AVPlayer(playerItem: avPlayerItem)
             
             // 监听播放进度
@@ -150,15 +157,15 @@ class VideoPlayViewController: UIViewController {
                 let total = lroundf(Float(CMTimeGetSeconds(avPlayerItem.duration)))
                 let current = lroundf(Float(CMTimeGetSeconds(time)))
                 if current > 0 {
-                    self.progressViewVideoNetwork.progress = Float(current) / Float(total)
+                    self.sliderPlayProgress.value = Float(current) / Float(total)
                     
-                    self.lbProgress.text = self.timeString(total - current)
+                    self.lbPlayProgress.text = self.timeString(total - current)
                 }
                 
                 // 也可以使用AVPlayerItemDidPlayToEndTime通知
-                if self.progressViewVideoNetwork.progress == 1 {
+                if self.sliderPlayProgress.value == 1 {
                     self.btnPlayVideoNetwork.setImage(UIImage(named: "btnPlay"), for: .normal)
-                    self.progressViewVideoNetwork.progress = 0
+                    self.sliderPlayProgress.value = 0
                 }
                 
             })
@@ -228,8 +235,9 @@ class VideoPlayViewController: UIViewController {
             btnPlayVideoNetwork.isHidden = isOperationShowing
             btnLastVideoNetwork.isHidden = isOperationShowing
             btnNextVideoNetwork.isHidden = isOperationShowing
-            progressViewVideoNetwork.isHidden = isOperationShowing
-            lbProgress.isHidden = isOperationShowing
+            sliderPlayProgress.isHidden = isOperationShowing
+            progressViewVideoNetworkLoading.isHidden = isOperationShowing
+            lbPlayProgress.isHidden = isOperationShowing
         }
     }
     
@@ -238,3 +246,23 @@ class VideoPlayViewController: UIViewController {
     }
 
 }
+
+// MARK: - 通过KVO的方式来监控缓冲进度
+extension VideoPlayViewController {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        let loadedTimeRanges = avPlayer.currentItem?.loadedTimeRanges
+        guard let timeRange = loadedTimeRanges?.first else { return }// 缓冲区域
+        let cmTimeRange = timeRange as CMTimeRange
+        let start = cmTimeRange.start
+        let duration = cmTimeRange.duration
+        let loading = lroundf(Float(start.value) + Float(duration.value))
+        let total = lroundf(Float(CMTimeGetSeconds((avPlayer.currentItem?.duration)!)))
+        
+        progressViewVideoNetworkLoading.progress = Float(loading) / Float(total)
+        
+    }
+}
+
+
+
