@@ -13,7 +13,9 @@
 		A418FB581E2321D3005BE849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A418FB571E2321D3005BE849 /* Assets.xcassets */; };
 		A418FB5B1E2321D3005BE849 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A418FB591E2321D3005BE849 /* LaunchScreen.storyboard */; };
 		A418FB631E23229E005BE849 /* MyZoomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A418FB621E23229E005BE849 /* MyZoomScrollView.swift */; };
-		A418FB651E2323B4005BE849 /* Model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A418FB641E2323B4005BE849 /* Model.jpg */; };
+		A4F9E0361E28B12D0073423E /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F9E0351E28B12D0073423E /* CropViewController.swift */; };
+		A4F9E0381E28C3130073423E /* Model2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F9E0371E28C3130073423E /* Model2.png */; };
+		A4F9E03A1E28C3460073423E /* Model.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F9E0391E28C3460073423E /* Model.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,9 @@
 		A418FB5A1E2321D3005BE849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A418FB5C1E2321D3005BE849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A418FB621E23229E005BE849 /* MyZoomScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyZoomScrollView.swift; sourceTree = "<group>"; };
-		A418FB641E2323B4005BE849 /* Model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Model.jpg; sourceTree = "<group>"; };
+		A4F9E0351E28B12D0073423E /* CropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		A4F9E0371E28C3130073423E /* Model2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Model2.png; sourceTree = "<group>"; };
+		A4F9E0391E28C3460073423E /* Model.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Model.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +62,12 @@
 		A418FB4F1E2321D3005BE849 /* DemoImagePreview */ = {
 			isa = PBXGroup;
 			children = (
-				A418FB641E2323B4005BE849 /* Model.jpg */,
+				A4F9E0391E28C3460073423E /* Model.png */,
+				A4F9E0371E28C3130073423E /* Model2.png */,
 				A418FB501E2321D3005BE849 /* AppDelegate.swift */,
 				A418FB521E2321D3005BE849 /* ViewController.swift */,
 				A418FB621E23229E005BE849 /* MyZoomScrollView.swift */,
+				A4F9E0351E28B12D0073423E /* CropViewController.swift */,
 				A418FB541E2321D3005BE849 /* Main.storyboard */,
 				A418FB571E2321D3005BE849 /* Assets.xcassets */,
 				A418FB591E2321D3005BE849 /* LaunchScreen.storyboard */,
@@ -131,9 +137,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A418FB5B1E2321D3005BE849 /* LaunchScreen.storyboard in Resources */,
-				A418FB651E2323B4005BE849 /* Model.jpg in Resources */,
+				A4F9E0381E28C3130073423E /* Model2.png in Resources */,
 				A418FB581E2321D3005BE849 /* Assets.xcassets in Resources */,
 				A418FB561E2321D3005BE849 /* Main.storyboard in Resources */,
+				A4F9E03A1E28C3460073423E /* Model.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +153,7 @@
 			files = (
 				A418FB531E2321D3005BE849 /* ViewController.swift in Sources */,
 				A418FB511E2321D3005BE849 /* AppDelegate.swift in Sources */,
+				A4F9E0361E28B12D0073423E /* CropViewController.swift in Sources */,
 				A418FB631E23229E005BE849 /* MyZoomScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +318,7 @@
 				A418FB611E2321D3005BE849 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
