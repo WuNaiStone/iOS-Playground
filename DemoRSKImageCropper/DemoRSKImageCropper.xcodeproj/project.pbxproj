@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		550D994D5D7E46986B69E849 /* Pods_DemoRSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99ADE11D6CC4D858797A361 /* Pods_DemoRSKImageCropper.framework */; };
+		A4F9E0481E28D0130073423E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F9E0471E28D0130073423E /* AppDelegate.swift */; };
+		A4F9E04A1E28D0130073423E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F9E0491E28D0130073423E /* ViewController.swift */; };
+		A4F9E04D1E28D0130073423E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F9E04B1E28D0130073423E /* Main.storyboard */; };
+		A4F9E04F1E28D0130073423E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F9E04E1E28D0130073423E /* Assets.xcassets */; };
+		A4F9E0521E28D0130073423E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4F9E0501E28D0130073423E /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A4F9E0441E28D0130073423E /* DemoRSKImageCropper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoRSKImageCropper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4F9E0471E28D0130073423E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A4F9E0491E28D0130073423E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A4F9E04C1E28D0130073423E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4F9E04E1E28D0130073423E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4F9E0511E28D0130073423E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4F9E0531E28D0130073423E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5B0B9498401E7608012E6FC /* Pods-DemoRSKImageCropper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoRSKImageCropper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoRSKImageCropper/Pods-DemoRSKImageCropper.debug.xcconfig"; sourceTree = "<group>"; };
+		C99ADE11D6CC4D858797A361 /* Pods_DemoRSKImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoRSKImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D858390093D528FD7136E1EB /* Pods-DemoRSKImageCropper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoRSKImageCropper.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoRSKImageCropper/Pods-DemoRSKImageCropper.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4F9E0411E28D0130073423E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				550D994D5D7E46986B69E849 /* Pods_DemoRSKImageCropper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3760C13BC8FE8F2BBC052AE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C99ADE11D6CC4D858797A361 /* Pods_DemoRSKImageCropper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		82C90EBEC91E1E83D11BBB86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5B0B9498401E7608012E6FC /* Pods-DemoRSKImageCropper.debug.xcconfig */,
+				D858390093D528FD7136E1EB /* Pods-DemoRSKImageCropper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4F9E03B1E28D0130073423E = {
+			isa = PBXGroup;
+			children = (
+				A4F9E0461E28D0130073423E /* DemoRSKImageCropper */,
+				A4F9E0451E28D0130073423E /* Products */,
+				82C90EBEC91E1E83D11BBB86 /* Pods */,
+				3760C13BC8FE8F2BBC052AE4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A4F9E0451E28D0130073423E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4F9E0441E28D0130073423E /* DemoRSKImageCropper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4F9E0461E28D0130073423E /* DemoRSKImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				A4F9E0471E28D0130073423E /* AppDelegate.swift */,
+				A4F9E0491E28D0130073423E /* ViewController.swift */,
+				A4F9E04B1E28D0130073423E /* Main.storyboard */,
+				A4F9E04E1E28D0130073423E /* Assets.xcassets */,
+				A4F9E0501E28D0130073423E /* LaunchScreen.storyboard */,
+				A4F9E0531E28D0130073423E /* Info.plist */,
+			);
+			path = DemoRSKImageCropper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4F9E0431E28D0130073423E /* DemoRSKImageCropper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4F9E0561E28D0130073423E /* Build configuration list for PBXNativeTarget "DemoRSKImageCropper" */;
+			buildPhases = (
+				9518995D4C9F32243DBE0B4C /* [CP] Check Pods Manifest.lock */,
+				A4F9E0401E28D0130073423E /* Sources */,
+				A4F9E0411E28D0130073423E /* Frameworks */,
+				A4F9E0421E28D0130073423E /* Resources */,
+				287B5B0CABE5FCB772DE9205 /* [CP] Embed Pods Frameworks */,
+				C6CD1758435AA0521CD17793 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoRSKImageCropper;
+			productName = DemoRSKImageCropper;
+			productReference = A4F9E0441E28D0130073423E /* DemoRSKImageCropper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4F9E03C1E28D0130073423E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = com.icetime17;
+				TargetAttributes = {
+					A4F9E0431E28D0130073423E = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GGVWN85K85;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A4F9E03F1E28D0130073423E /* Build configuration list for PBXProject "DemoRSKImageCropper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4F9E03B1E28D0130073423E;
+			productRefGroup = A4F9E0451E28D0130073423E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4F9E0431E28D0130073423E /* DemoRSKImageCropper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4F9E0421E28D0130073423E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4F9E0521E28D0130073423E /* LaunchScreen.storyboard in Resources */,
+				A4F9E04F1E28D0130073423E /* Assets.xcassets in Resources */,
+				A4F9E04D1E28D0130073423E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		287B5B0CABE5FCB772DE9205 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoRSKImageCropper/Pods-DemoRSKImageCropper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9518995D4C9F32243DBE0B4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6CD1758435AA0521CD17793 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoRSKImageCropper/Pods-DemoRSKImageCropper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4F9E0401E28D0130073423E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4F9E04A1E28D0130073423E /* ViewController.swift in Sources */,
+				A4F9E0481E28D0130073423E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A4F9E04B1E28D0130073423E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4F9E04C1E28D0130073423E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A4F9E0501E28D0130073423E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4F9E0511E28D0130073423E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4F9E0541E28D0130073423E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A4F9E0551E28D0130073423E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4F9E0571E28D0130073423E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5B0B9498401E7608012E6FC /* Pods-DemoRSKImageCropper.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
+				INFOPLIST_FILE = DemoRSKImageCropper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoRSKImageCropper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A4F9E0581E28D0130073423E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D858390093D528FD7136E1EB /* Pods-DemoRSKImageCropper.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GGVWN85K85;
+				INFOPLIST_FILE = DemoRSKImageCropper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime17.DemoRSKImageCropper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4F9E03F1E28D0130073423E /* Build configuration list for PBXProject "DemoRSKImageCropper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4F9E0541E28D0130073423E /* Debug */,
+				A4F9E0551E28D0130073423E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4F9E0561E28D0130073423E /* Build configuration list for PBXNativeTarget "DemoRSKImageCropper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4F9E0571E28D0130073423E /* Debug */,
+				A4F9E0581E28D0130073423E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4F9E03C1E28D0130073423E /* Project object */;
+}
