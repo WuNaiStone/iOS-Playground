@@ -22,24 +22,32 @@
 
 import UIKit
 
-public class ViewToViewPreprocessor:HeroPreprocessor {
+public class IgnoreSubviewModifiersPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for tv in toViews{
-      guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
-      context[tv, "matchedHeroID"] = []
-      context[tv, "sourceID"] = [id]
-      if let zPos = context[tv, "zPositionIfMatched"]?.getCGFloat(0){
-        context[tv, "zPosition"] = ["\(zPos)"]
+    process(context:context, views:fromViews)
+    process(context:context, views:toViews)
+  }
+  
+  private func process(context:HeroContext, views:[UIView]){
+    for (viewIndex, view) in views.enumerated(){
+      guard let recursive = context[view]?.ignoreSubviewModifiers else { continue }
+      var parentView = view
+      if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
+        parentView = wrapperView
       }
       
-      context[fv] = context[tv] as HeroModifiers?
-      
-      context[tv, "fade"] = []
-      if let _ = fv as? UILabel, !fv.isOpaque{
-        // cross fade if toView is a label
-        context[fv, "fade"] = []
+      if recursive {
+        for i in (viewIndex+1)..<views.count{
+          let childView = views[i]
+          if childView.superview == view.superview {
+            break
+          }
+          context[childView] = nil
+        }
       } else {
-        context[fv, "fade"] = nil
+        for subview in parentView.subviews{
+          context[subview] = nil
+        }
       }
     }
   }

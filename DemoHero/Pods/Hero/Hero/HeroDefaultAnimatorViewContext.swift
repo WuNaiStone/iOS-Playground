@@ -24,20 +24,16 @@ import UIKit
 
 internal class HeroDefaultAnimatorViewContext {
   weak var animator:HeroDefaultAnimator?
-  var view:UIView
   var snapshot:UIView
   var state = [String:(Any, Any)]()
-  var parameters = [String:[String]] ()
-  var baseDelay:TimeInterval = 0
   var duration:TimeInterval = 0
   
-  var parsedDuration:TimeInterval?
-  var parsedTimingFunction:CAMediaTimingFunction?
+  var targetState:HeroTargetState
   var defaultTiming:(TimeInterval, CAMediaTimingFunction)!
   
   // computed
-  var contentLayer:CALayer{
-    return snapshot.subviews[0].layer
+  var contentLayer:CALayer?{
+    return snapshot.layer.sublayers?.get(0)
   }
   var currentTime:TimeInterval{
     return snapshot.layer.convertTime(CACurrentMediaTime(), from: nil)
@@ -81,17 +77,15 @@ internal class HeroDefaultAnimatorViewContext {
     let (delay, duration, timingFunction) = (0.0, defaultTiming.0, defaultTiming.1)
     // getTiming(key: key, fromValue: fromValue, toValue: toValue)
     
-    if !ignoreArc, key == "position", let arcOptions = parameters["arc"],
+    if !ignoreArc, key == "position", let arcIntensity = targetState.arc,
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
       let toPos = (toValue as? NSValue)?.cgPointValue,
       abs(fromPos.x - toPos.x) >= 1, abs(fromPos.y - toPos.y) >= 1 {
-      let arcIntensity = arcOptions.getCGFloat(0) ?? 1
       let kanim = CAKeyframeAnimation(keyPath: key)
       
       let path = CGMutablePath()
       let maxControl = fromPos.y > toPos.y ? CGPoint(x: toPos.x, y: fromPos.y) : CGPoint(x: fromPos.x, y: toPos.y)
       let minControl = (toPos - fromPos) / 2 + fromPos
-      let diff = abs(toPos - fromPos)
       
       path.move(to: fromPos)
       path.addQuadCurve(to: toPos, control: minControl + (maxControl - minControl) * arcIntensity)
@@ -101,10 +95,10 @@ internal class HeroDefaultAnimatorViewContext {
       kanim.duration = duration
       kanim.timingFunctions = [timingFunction]
       anim = kanim
-    } else if #available(iOS 9.0, *), key != "cornerRadius", let springOptions = parameters["spring"] {
+    } else if #available(iOS 9.0, *), key != "cornerRadius", let (stiffness, damping) = targetState.spring {
       let sanim = CASpringAnimation(keyPath: key)
-      sanim.stiffness = (springOptions.getCGFloat(0) ?? 250)
-      sanim.damping = (springOptions.getCGFloat(1) ?? 30)
+      sanim.stiffness = stiffness
+      sanim.damping = damping
       sanim.duration = sanim.settlingDuration * 0.9
       sanim.fromValue = fromValue
       sanim.toValue = toValue
@@ -125,12 +119,12 @@ internal class HeroDefaultAnimatorViewContext {
   }
   
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
-  func addAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?) -> TimeInterval{
+  @discardableResult func addAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?) -> TimeInterval{
     let anim = getAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
     
     snapshot.layer.add(anim, forKey: key)
     if key == "cornerRadius"{
-      contentLayer.add(anim, forKey: key)
+      contentLayer?.add(anim, forKey: key)
     } else if key == "bounds.size"{
       let fromSize = (fromValue as! NSValue).cgSizeValue
       let toSize = (toValue as! NSValue).cgSizeValue
@@ -148,11 +142,35 @@ internal class HeroDefaultAnimatorViewContext {
       positionAnim.timingFunction = anim.timingFunction
       positionAnim.duration = anim.duration
       
-      contentLayer.add(positionAnim, forKey: "position")
-      contentLayer.add(anim, forKey: key)
+      contentLayer?.add(positionAnim, forKey: "position")
+      contentLayer?.add(anim, forKey: key)
     }
     
     return anim.duration + anim.beginTime - beginTime
+  }
+  
+  /**
+   - Returns: a CALayer [keyPath:value] map for animation
+   */
+  func viewState(targetState:HeroTargetState) -> [String:Any]{
+    var rtn = [String:Any]()
+    
+    if let size = targetState.size{
+      rtn["bounds.size"] = NSValue(cgSize:size)
+    }
+    if let position = targetState.position{
+      rtn["position"] = NSValue(cgPoint:position)
+    }
+    if let opacity = targetState.opacity{
+      rtn["opacity"] = NSNumber(value: opacity.native)
+    }
+    if let cornerRadius = targetState.cornerRadius{
+      rtn["cornerRadius"] = NSNumber(value: cornerRadius.native)
+    }
+    if let transform = targetState.transform{
+      rtn["transform"] = NSValue(caTransform3D:transform)
+    }
+    return rtn
   }
   
   func animate(delay:TimeInterval) {
@@ -168,8 +186,8 @@ internal class HeroDefaultAnimatorViewContext {
     let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
     let realToPos = CGPoint.zero.transform(toTransform) + toPos
     
-    if let parsedTimingFunction = parsedTimingFunction{
-      defaultTimingFunction = parsedTimingFunction
+    if let timingFunction = targetState.timingFunction{
+      defaultTimingFunction = timingFunction
     } else if !container.bounds.contains(realToPos){
       // acceleration if leaving screen
       defaultTimingFunction = .acceleration
@@ -180,15 +198,15 @@ internal class HeroDefaultAnimatorViewContext {
       defaultTimingFunction = .standard
     }
 
-    if let parsedDuration = parsedDuration {
-      defaultDuration = parsedDuration
+    if let duration = targetState.duration {
+      defaultDuration = duration
     } else {
       let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? snapshot.layer.bounds.size
       let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? fromSize
       let realFromSize = fromSize.transform(fromTransform)
       let realToSize = toSize.transform(toTransform)
       
-      var movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
+      let movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
       
       // duration is 0.2 @ 0 to 0.375 @ 500
       defaultDuration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
@@ -204,11 +222,11 @@ internal class HeroDefaultAnimatorViewContext {
     }
   }
   
-  func temporarilySet(modifiers:HeroModifiers){
-    let targetState = viewState(for: view, with: modifiers)
+  func temporarilySet(targetState:HeroTargetState){
+    let targetState = viewState(targetState: targetState)
     for (key, targetValue) in targetState{
       if state[key] == nil{
-        let currentValue = snapshot.layer.value(forKeyPath: key)
+        let currentValue = snapshot.layer.value(forKeyPath: key)!
         state[key] = (currentValue, currentValue)
       }
       addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
@@ -217,17 +235,17 @@ internal class HeroDefaultAnimatorViewContext {
   
   func resume(timePassed:TimeInterval, reverse:Bool){
     for (key, (fromValue, toValue)) in state{
-      var realToValue = !reverse ? toValue : fromValue
-      var realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
+      let realToValue = !reverse ? toValue : fromValue
+      let realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)!
       state[key] = (realFromValue, realToValue)
     }
     
-    var realDelay = max(0, baseDelay - timePassed)
+    let realDelay = max(0, targetState.delay - timePassed)
     animate(delay: realDelay)
   }
   
   func seek(layer:CALayer, timePassed:TimeInterval){
-    let timeOffset = timePassed - baseDelay
+    let timeOffset = timePassed - targetState.delay
     for (key, anim) in layer.animations {
       anim.speed = 0
       anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
@@ -238,42 +256,25 @@ internal class HeroDefaultAnimatorViewContext {
   
   func seek(timePassed:TimeInterval){
     seek(layer:snapshot.layer, timePassed:timePassed)
-    seek(layer:contentLayer, timePassed:timePassed)
+    if let contentLayer = contentLayer {
+      seek(layer:contentLayer, timePassed:timePassed)
+    }
   }
   
-  init(animator:HeroDefaultAnimator, view:UIView, snapshot:UIView, modifiers:HeroModifiers, appearing:Bool){
+  init(animator:HeroDefaultAnimator, snapshot:UIView, targetState:HeroTargetState, appearing:Bool){
     self.animator = animator
-    self.view = view
     self.snapshot = snapshot
+    self.targetState = targetState
     
-    for (key, param) in modifiers {
-      parameters[key] = param
-    }
-    
-    parsedDuration = parameters["duration"]?.getDouble(0)
-    if let curveOptions = parameters["curve"]{
-      if let c1 = curveOptions.getFloat(0),
-        let c2 = curveOptions.getFloat(1),
-        let c3 = curveOptions.getFloat(2),
-        let c4 = curveOptions.getFloat(3){
-        parsedTimingFunction = CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
-      } else if let ease = curveOptions.get(0), let tf = CAMediaTimingFunction.from(name:ease){
-        parsedTimingFunction = tf
-      }
-    }
-    
-    if let value = parameters["delay"]?.getFloat(0){
-      baseDelay = TimeInterval(value)
-    }
-    
-    let disappeared = viewState(for: view, with: modifiers)
-    for (key, disappearedState) in disappeared{
-      let appearingState = snapshot.layer.value(forKeyPath: key)
+    let disappeared = viewState(targetState: targetState)
+
+    for (key, disappearedState) in disappeared {
+      let appearingState = snapshot.layer.value(forKeyPath: key)!
       let toValue = appearing ? appearingState : disappearedState
       let fromValue = !appearing ? appearingState : disappearedState
       state[key] = (fromValue, toValue)
     }
     
-    animate(delay: baseDelay)
+    animate(delay: targetState.delay)
   }
 }

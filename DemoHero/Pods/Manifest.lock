@@ -1,5 +1,5 @@
 PODS:
-  - Hero (0.0.3)
+  - Hero (0.1.0)
   - Kingfisher (3.2.4)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - Kingfisher
 
 SPEC CHECKSUMS:
-  Hero: 003c60877d8200cbafae0c40c4ee71e9b7cb64f8
+  Hero: 14038043c41ea53ba1aa43b4d3655f377d78bea6
   Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
 
 PODFILE CHECKSUM: 3da5b83156b364592af085d8b92fda767004822c

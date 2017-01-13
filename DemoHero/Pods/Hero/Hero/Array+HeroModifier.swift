@@ -22,29 +22,48 @@
 
 import UIKit
 
-public protocol HeroPreprocessor {
-  func process(context:HeroContext, fromViews:[UIView], toViews:[UIView])
-}
-
-public protocol HeroAnimator {
-  func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool
-  func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval
-  func clean()
+internal extension Array{
+  func get(_ index:Int) -> Element?{
+    if index < count{
+      return self[index]
+    }
+    return nil
+  }
+  func getCGFloat(_ index:Int) -> CGFloat?{
+    if index < count, let s = self[index] as? String, let f = Float(s){
+      return CGFloat(f)
+    }
+    return nil
+  }
+  func getDouble(_ index:Int) -> Double?{
+    if index < count, let s = self[index] as? String, let f = Double(s){
+      return f
+    }
+    return nil
+  }
+  func getFloat(_ index:Int) -> Float?{
+    if index < count, let s = self[index] as? String, let f = Float(s){
+      return f
+    }
+    return nil
+  }
+  func getBool(_ index:Int) -> Bool?{
+    if index < count, let s = self[index] as? String, let f = Bool(s){
+      return f
+    }
+    return nil
+  }
   
-  func seekTo(timePassed:TimeInterval)
-  func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval
-  func temporarilySet(view:UIView, targetState:HeroTargetState)
-}
-
-@objc public protocol HeroViewControllerDelegate{
-  @objc optional func wantInteractiveHeroTransition() -> Bool
-
-  @objc optional func heroWillStartAnimatingFrom(viewController:UIViewController)
-  @objc optional func heroDidEndAnimatingFrom(viewController:UIViewController)
-  
-  @objc optional func heroWillStartTransition()
-  @objc optional func heroDidEndTransition()
-  
-  @objc optional func heroWillStartAnimatingTo(viewController:UIViewController)
-  @objc optional func heroDidEndAnimatingTo(viewController:UIViewController)
+  mutating func filterInPlace(_ comparator:(Element)->Bool) -> Array<Element>{
+    var array2:Array<Element> = []
+    self = self.filter { (element) -> Bool in
+      if comparator(element) {
+        return true
+      } else{
+        array2.append(element)
+        return false
+      }
+    }
+    return array2
+  }
 }

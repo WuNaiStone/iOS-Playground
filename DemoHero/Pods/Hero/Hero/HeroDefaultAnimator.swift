@@ -24,7 +24,6 @@ import UIKit
 
 public class HeroDefaultAnimator:HeroAnimator{
   var context:HeroContext!
-  let animatableOptions:Set<String> = ["fade", "opacity", "position", "size", "cornerRadius", "transform", "scale", "translate", "rotate"]
   var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
 
   public func seekTo(timePassed:TimeInterval) {
@@ -42,62 +41,21 @@ public class HeroDefaultAnimator:HeroAnimator{
     return duration
   }
   
-  public func temporarilySet(view:UIView, to modifiers:HeroModifiers){
+  public func temporarilySet(view:UIView, targetState:HeroTargetState){
     guard viewContexts[view] != nil else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
       return
     }
-    viewContexts[view]!.temporarilySet(modifiers:modifiers)
+    viewContexts[view]!.temporarilySet(targetState:targetState)
   }
 
   public func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool{
-    if let modifierNames = context.modifierNames(for: view){
-      return self.animatableOptions.intersection(Set(modifierNames)).count > 0
-    }
-    return false
-  }
-  
-  public func takeSnapshot(for v:UIView) -> UIView{
-    v.isHidden = false
-    
-    // capture a snapshot without cornerRadius
-    let oldCornerRadius = v.layer.cornerRadius
-    v.layer.cornerRadius = 0
-    let snapshot = v.snapshotView(afterScreenUpdates: true)!
-    v.layer.cornerRadius = oldCornerRadius
-    
-    // the Snapshot's contentView must have hold the cornerRadius value,
-    // since the snapshot might not have maskToBounds set
-    let contentView = snapshot.subviews[0]
-    contentView.layer.cornerRadius = v.layer.cornerRadius
-    contentView.layer.masksToBounds = true
-    
-    snapshot.layer.cornerRadius = v.layer.cornerRadius
-    if let zPos = context[v, "zPosition"]?.getCGFloat(0){
-      snapshot.layer.zPosition = zPos
-    } else {
-      snapshot.layer.zPosition = v.layer.zPosition
-    }
-    snapshot.layer.opacity = v.layer.opacity
-    snapshot.layer.isOpaque = v.layer.isOpaque
-    snapshot.layer.anchorPoint = v.layer.anchorPoint
-    snapshot.layer.masksToBounds = v.layer.masksToBounds
-    snapshot.layer.borderColor = v.layer.borderColor
-    snapshot.layer.borderWidth = v.layer.borderWidth
-    snapshot.layer.transform = v.layer.transform
-    snapshot.layer.shadowRadius = v.layer.shadowRadius
-    snapshot.layer.shadowOpacity = v.layer.shadowOpacity
-    snapshot.layer.shadowColor = v.layer.shadowColor
-    snapshot.layer.shadowOffset = v.layer.shadowOffset
-    
-    snapshot.frame = context.container.convert(v.bounds, from: v)
-    snapshot.heroID = v.heroID
-
-    v.isHidden = true
-
-    context.container.addSubview(snapshot)
-    
-    return snapshot
+    guard let state = context[view] else { return false }
+    return state.position != nil ||
+           state.size != nil ||
+           state.transform != nil ||
+           state.cornerRadius != nil ||
+           state.opacity != nil
   }
 
   public func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
@@ -121,8 +79,8 @@ public class HeroDefaultAnimator:HeroAnimator{
   }
   
   func animate(view:UIView, appearing:Bool){
-    let snapshot = takeSnapshot(for: view)
-    let viewContext = HeroDefaultAnimatorViewContext(animator:self, view: view, snapshot: snapshot, modifiers: context[view]!, appearing: appearing)
+    let snapshot = context.snapshotView(for: view)
+    let viewContext = HeroDefaultAnimatorViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
   }
   

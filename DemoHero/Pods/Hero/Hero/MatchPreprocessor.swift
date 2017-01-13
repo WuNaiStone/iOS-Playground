@@ -22,16 +22,28 @@
 
 import UIKit
 
-public class ClearModifierPreprocessor:HeroPreprocessor {
+public class MatchPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for view in fromViews + toViews{
-      guard context[view, "clearSubviewModifiers"] != nil else { continue }
-      var parentView = view
-      if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
-        parentView = wrapperView
+    for tv in toViews{
+      guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
+      if context[tv] == nil {
+        context[tv] = HeroTargetState()
       }
-      for subview in parentView.subviews{
-        context[subview] = nil
+      
+      if let zPosition = context[tv]!.zPositionIfMatched {
+        context[tv]!.zPosition = zPosition
+      }
+
+      context[tv]!.source = id
+      
+      context[fv] = context[tv]
+      
+      context[tv]!.opacity = 0
+      if let _ = fv as? UILabel, !fv.isOpaque{
+        // cross fade if toView is a label
+        context[fv]!.opacity = 0
+      } else {
+        context[fv]!.opacity = nil
       }
     }
   }
