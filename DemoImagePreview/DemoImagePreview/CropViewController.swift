@@ -8,62 +8,96 @@
 
 import UIKit
 
-class CropViewController: UIViewController {
 
-    var imageView: UIImageView!
-    var maskView: UIView!
-    var ratioView: UIView!
+private let offset: CGFloat = 10.0
+
+class CropViewController: UIViewController {
     
-    var imageOriginal: UIImage!    // 原图
-    var imageCropped: UIImage!     // 裁剪结果图
+    var topBar: UIView!
+    var btnRight: UIButton!
     
+    var myZoomScrollView: MyZoomScrollView! // 原图的scrollView
+    var cropMaskView: UIView!           // 裁剪的maskView
+    var ratioView: UIView!              // 裁剪框
     
+    var imageOriginal: UIImage!         // 原图
+    var imageCropped: UIImage!          // 裁剪结果图
+    
+}
+
+// MARK: - VC生命周期
+extension CropViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-
+        view.backgroundColor = UIColor.black
+        
         imageOriginal = UIImage(named: "Model.png")
         
-        initImageView()
+        initTopBar()
+        
+        initMyZoomScrollView()
         
         initCropMaskView()
         
         initRatioView()
         
         maskClipping()
+        
     }
-
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
-// MARK: - 裁剪操作
-let height = CGFloat(300)
+// MARK: - topBar
+extension CropViewController {
+    func initTopBar() {
+        topBar = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+        topBar.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        view.addSubview(topBar)
+        
+        btnRight = UIButton(frame: CGRect(x: topBar.frame.width - 70, y: 0, width: 70, height: topBar.frame.height))
+        btnRight.setTitle("裁剪", for: .normal)
+        btnRight.addTarget(self, action: #selector(CropViewController.actionBtnRight), for: .touchUpInside)
+        topBar.addSubview(btnRight)
+    }
+    
+    func actionBtnRight() {
+        // TODO 裁剪操作
+        let image = cropImage()
+        print(image?.size)
+    }
+    
+}
+
 extension CropViewController {
     
-    func initImageView() {
-        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: height))
-        imageView.center = view.center
-        imageView.image = imageOriginal
-        view.insertSubview(imageView, at: 0)
-        imageView.isUserInteractionEnabled = true
+    func initMyZoomScrollView() {
+        let height = view.frame.height - topBar.frame.height - 250 - offset * 3
+        
+        myZoomScrollView = MyZoomScrollView(frame: CGRect(x: 0, y: topBar.frame.height + offset, width: view.frame.width, height: height))
+        view.addSubview(myZoomScrollView)
+        myZoomScrollView.backgroundColor = UIColor.red
+        myZoomScrollView.image = imageOriginal
     }
     
     func initCropMaskView() {
-        maskView = UIView(frame: view.bounds)
-        view.addSubview(maskView)
-        maskView.backgroundColor = UIColor.black
-        maskView.alpha = 0.2
-        maskView.center = view.center
-        maskView.isUserInteractionEnabled = false
+        cropMaskView = UIView(frame: view.bounds)
+        cropMaskView.backgroundColor = UIColor.green
+        cropMaskView.alpha = 0.2
+        view.addSubview(cropMaskView)
+        cropMaskView.isUserInteractionEnabled = false
     }
     
     func initRatioView() {
-        let height = 200
-        let width = height / 16 * 9
-        ratioView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        let height = myZoomScrollView.frame.height + 4
+        let width = CGFloat(height / 16 * 9)
+        ratioView = UIView(frame: CGRect(x: (view.frame.width - width) / 2, y: topBar.frame.height + offset - 2, width: width, height: height))
         ratioView.layer.borderColor = UIColor.yellow.cgColor
         ratioView.layer.borderWidth = 1
-        ratioView.center = imageView.center
+        ratioView.center = myZoomScrollView.center
         view.addSubview(ratioView)
         ratioView.isUserInteractionEnabled = false
     }
@@ -71,33 +105,23 @@ extension CropViewController {
     func maskClipping() {
         let maskLayer = CAShapeLayer()
         let path = CGMutablePath()
-        let left = CGRect(x: 0, y: 0, width: ratioView.frame.minX, height: maskView.frame.height)
-        let right = CGRect(x: ratioView.frame.maxX, y: 0, width: maskView.frame.width - ratioView.frame.maxX, height: maskView.frame.height)
-        let top = CGRect(x: 0, y: 0, width: maskView.frame.width, height: ratioView.frame.minY)
-        let bottom = CGRect(x: 0, y: ratioView.frame.maxY, width: maskView.frame.size.width, height: maskView.frame.height - ratioView.frame.maxY)
+        let left = CGRect(x: 0, y: 0, width: ratioView.frame.minX, height: cropMaskView.frame.height)
+        let right = CGRect(x: ratioView.frame.maxX, y: 0, width: cropMaskView.frame.width - ratioView.frame.maxX, height: cropMaskView.frame.height)
+        let top = CGRect(x: 0, y: 0, width: cropMaskView.frame.width, height: ratioView.frame.minY)
+        let bottom = CGRect(x: 0, y: ratioView.frame.maxY, width: cropMaskView.frame.size.width, height: cropMaskView.frame.height - ratioView.frame.maxY)
         path.addRects([left, right, top, bottom])
         maskLayer.path = path
-        maskView.layer.mask = maskLayer;
+        cropMaskView.layer.mask = maskLayer
     }
     
 }
 
 extension CropViewController {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-        guard let touch = touches.first else { return }
-        let touchPoint = touch.location(in: view)
-        imageView.center = touchPoint
+    
+    func cropImage() -> UIImage? {
+        return imageOriginal
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesMoved(touches, with: event)
-        
-        guard let touch = touches.first else { return }
-        let touchPoint = touch.location(in: view)
-        imageView.center = touchPoint
-    }
 }
 
 extension UIImage {
@@ -112,3 +136,4 @@ extension UIImage {
         return imageCropped
     }
 }
+
