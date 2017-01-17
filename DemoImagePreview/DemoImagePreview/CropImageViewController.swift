@@ -86,8 +86,10 @@ extension CropImageViewController {
                                height: ratioView.frame.height - 4)
         // 注意convert的写法, 以view的坐标系为参考
         var rect = view.convert(ratioRect, to: cropImageView)
-        rect = CGRect(x: rect.origin.x * scaleImage / cropImageView.imageScale,
-                      y: rect.origin.y * scaleImage / cropImageView.imageScale,
+        print(cropImageView.imageViewOffset)
+        // 考虑imageView的偏移
+        rect = CGRect(x: (rect.origin.x - cropImageView.imageViewOffset.x) * scaleImage / cropImageView.imageScale,
+                      y: (rect.origin.y - cropImageView.imageViewOffset.y) * scaleImage / cropImageView.imageScale,
                       width: rect.width * scaleImage / cropImageView.imageScale,
                       height: rect.height * scaleImage / cropImageView.imageScale)
         
