@@ -40,6 +40,9 @@ class CropImageView: UIView {
     fileprivate var minFrame: CGRect!    // 图片缩放的极限值
     fileprivate var maxFrame: CGRect!
     
+    // 平移的极限值
+    var maxScrollOffset = CGPoint.zero
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,7 +73,7 @@ class CropImageView: UIView {
         imageView.addGestureRecognizer(panGesture)
         
         pinchGesture = UIPinchGestureRecognizer(target: self, action: .actionPinchGesture)
-        imageView.addGestureRecognizer(pinchGesture)
+//        imageView.addGestureRecognizer(pinchGesture)
         
         rotationGesture = UIRotationGestureRecognizer(target: self, action: .actionRotationGesture)
 //        imageView.addGestureRecognizer(rotationGesture)
@@ -95,13 +98,18 @@ private var lastRotation = CGFloat(0.0)
 extension CropImageView {
     
     private func finalAdjustImageView() {
-        // 平移的极限值
-        let offsetY = imageView.frame.height - frame.height
-        if imageView.frame.minY < -offsetY {
-            imageView.frame.origin.y = -offsetY
+        if imageView.frame.minX < -maxScrollOffset.x {
+            imageView.frame.origin.x = -maxScrollOffset.x
         }
-        if imageView.frame.maxY > frame.height + offsetY {
-            imageView.frame.origin.y = 0
+        if imageView.frame.maxX > frame.width + maxScrollOffset.x {
+            imageView.frame.origin.x = maxScrollOffset.x
+        }
+        
+        if imageView.frame.minY < -maxScrollOffset.y {
+            imageView.frame.origin.y = -maxScrollOffset.y
+        }
+        if imageView.frame.maxY > frame.height + maxScrollOffset.y {
+            imageView.frame.origin.y = maxScrollOffset.y
         }
     }
     

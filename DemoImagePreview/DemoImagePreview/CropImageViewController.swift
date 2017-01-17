@@ -71,6 +71,8 @@ class CropImageViewController: UIViewController {
         ratioView.center = cropImageView.center
         view.addSubview(ratioView)
         ratioView.isUserInteractionEnabled = false
+        
+        cropImageView.maxScrollOffset = CGPoint(x: (cropImageView.frame.width - ratioView.frame.width) / 2, y: 0)
     }
     
 }
