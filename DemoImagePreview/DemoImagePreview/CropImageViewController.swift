@@ -79,14 +79,20 @@ extension CropImageViewController {
     
     func cropImage() -> UIImage? {
         let scaleImage = imageOriginal.size.height / cropImageView.frame.height
-        // 注意convert的写法
         // 注意2的offset
-        let ratioRect = CGRect(x: ratioView.frame.origin.x, y: ratioView.frame.origin.y + 2, width: ratioView.frame.width, height: ratioView.frame.height - 4)
-        var rect = ratioView.convert(ratioRect, to: cropImageView)
-        rect = CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width * scaleImage, height: rect.height * scaleImage)
+        let ratioRect = CGRect(x: ratioView.frame.origin.x,
+                               y: ratioView.frame.origin.y + 2,
+                               width: ratioView.frame.width,
+                               height: ratioView.frame.height - 4)
+        // 注意convert的写法, 以view的坐标系为参考
+        var rect = view.convert(ratioRect, to: cropImageView)
+        rect = CGRect(x: rect.origin.x * scaleImage / cropImageView.imageScale,
+                      y: rect.origin.y * scaleImage / cropImageView.imageScale,
+                      width: rect.width * scaleImage / cropImageView.imageScale,
+                      height: rect.height * scaleImage / cropImageView.imageScale)
         
-        imageCropped = imageOriginal.imageCropped(bounds: rect)
-        return imageCropped
+        let image = imageOriginal.imageCropped(bounds: rect)
+        return image
     }
     
 }

@@ -13,18 +13,32 @@ class CropImageView: UIView {
     var originImage: UIImage! {
         didSet {
             imageView.image = originImage
+            
+            // 根据实际图片的大小更新frame
+            let originWidth = frame.width
+            let newWidth = frame.height / originImage.size.height * originImage.size.width
+            frame = CGRect(x: (originWidth - newWidth) / 2, y: frame.minY, width: newWidth, height: frame.height)
+            imageView.frame = bounds
         }
     }
     var croppedImage: UIImage!
+    var imageScale: CGFloat = 1.0 // 裁剪时要考虑图片缩放
+    fileprivate let minImageScale: CGFloat = 1.0
+    fileprivate let maxImageScale: CGFloat = 3.0
     
     
     fileprivate var imageView: UIImageView!
+    var imageViewOffset: CGPoint {
+        return CGPoint(x: imageView.frame.minX, y: imageView.frame.minY)
+    }
+    
+    
     fileprivate var panGesture: UIPanGestureRecognizer!
     fileprivate var pinchGesture: UIPinchGestureRecognizer!
     fileprivate var rotationGesture: UIRotationGestureRecognizer!
     
-    var minFrame: CGRect!    // 图片缩放的极限值
-    var maxFrame: CGRect!
+    fileprivate var minFrame: CGRect!    // 图片缩放的极限值
+    fileprivate var maxFrame: CGRect!
     
     
     override init(frame: CGRect) {
@@ -42,7 +56,10 @@ class CropImageView: UIView {
     
     fileprivate func initImageView() {
         minFrame = bounds
-        maxFrame = CGRect(x: -minFrame.width, y: -minFrame.height, width: minFrame.width * 3, height: minFrame.height * 3)
+        maxFrame = CGRect(x: -minFrame.width,
+                          y: -minFrame.height,
+                          width: minFrame.width * maxImageScale,
+                          height: minFrame.height * maxImageScale)
         
         imageView = UIImageView(frame: bounds)
         imageView.isUserInteractionEnabled = true
@@ -115,16 +132,20 @@ extension CropImageView {
         imageView.transform = newTransform
         lastScale = sender.scale
         
+        imageScale = lastScale * scale
+        
         // 缩放的极限值
         if sender.state == .ended {
             if imageView.frame.height < minFrame.height {
                 UIView.animate(withDuration: 0.3, animations: { 
                     self.imageView.frame = self.minFrame
+                    self.imageScale = self.minImageScale
                 })
             }
             if imageView.frame.height > maxFrame.height {
                 UIView.animate(withDuration: 0.3, animations: {
                     self.imageView.frame = self.maxFrame
+                    self.imageScale = self.maxImageScale
                 })
             }
             
