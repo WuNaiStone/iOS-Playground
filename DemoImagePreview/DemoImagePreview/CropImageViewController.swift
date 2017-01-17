@@ -1,58 +1,42 @@
 //
-//  CropViewController.swift
+//  CropImageViewController.swift
 //  DemoImagePreview
 //
-//  Created by Chris Hu on 17/1/13.
+//  Created by Chris Hu on 17/1/17.
 //  Copyright © 2017年 com.icetime17. All rights reserved.
 //
 
 import UIKit
 
-
 private let offset: CGFloat = 10.0
 
-class CropViewController: UIViewController {
-    
+class CropImageViewController: UIViewController {
+
     var topBar: UIView!
     var btnRight: UIButton!
     
-    var myZoomScrollView: MyZoomScrollView! // 原图的scrollView
-    var cropMaskView: UIView!           // 裁剪的maskView
+    var cropImageView: CropImageView!
     var ratioView: UIView!              // 裁剪框
     
     var imageOriginal: UIImage!         // 原图
     var imageCropped: UIImage!          // 裁剪结果图
     
-}
-
-// MARK: - VC生命周期
-extension CropViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = UIColor.black
         
         imageOriginal = UIImage(named: "Model.png")
         
         initTopBar()
         
-        initMyZoomScrollView()
-        
-        initCropMaskView()
+        initCropImageView()
         
         initRatioView()
-        
-        maskClipping()
-        
     }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-}
 
-// MARK: - topBar
-extension CropViewController {
+    // MARK: - topBar
     func initTopBar() {
         topBar = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
         topBar.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
@@ -70,56 +54,39 @@ extension CropViewController {
         print(image?.size)
     }
     
-}
-
-extension CropViewController {
-    
-    func initMyZoomScrollView() {
+    func initCropImageView() {
         let height = view.frame.height - topBar.frame.height - 250 - offset * 3
         
-        myZoomScrollView = MyZoomScrollView(frame: CGRect(x: 0, y: topBar.frame.height + offset, width: view.frame.width, height: height))
-        view.addSubview(myZoomScrollView)
-        myZoomScrollView.backgroundColor = UIColor.red
-        myZoomScrollView.image = imageOriginal
-    }
-    
-    func initCropMaskView() {
-        cropMaskView = UIView(frame: view.bounds)
-        cropMaskView.backgroundColor = UIColor.green
-        cropMaskView.alpha = 0.2
-        view.addSubview(cropMaskView)
-        cropMaskView.isUserInteractionEnabled = false
+        cropImageView = CropImageView(frame: CGRect(x: 0, y: topBar.frame.height + offset, width: view.frame.width, height: height))
+        view.addSubview(cropImageView)
+        cropImageView.originImage = imageOriginal
     }
     
     func initRatioView() {
-        let height = myZoomScrollView.frame.height + 4
+        let height = cropImageView.frame.height + 4
         let width = CGFloat(height / 16 * 9)
         ratioView = UIView(frame: CGRect(x: (view.frame.width - width) / 2, y: topBar.frame.height + offset - 2, width: width, height: height))
         ratioView.layer.borderColor = UIColor.yellow.cgColor
         ratioView.layer.borderWidth = 1
-        ratioView.center = myZoomScrollView.center
+        ratioView.center = cropImageView.center
         view.addSubview(ratioView)
         ratioView.isUserInteractionEnabled = false
     }
     
-    func maskClipping() {
-        let maskLayer = CAShapeLayer()
-        let path = CGMutablePath()
-        let left = CGRect(x: 0, y: 0, width: ratioView.frame.minX, height: cropMaskView.frame.height)
-        let right = CGRect(x: ratioView.frame.maxX, y: 0, width: cropMaskView.frame.width - ratioView.frame.maxX, height: cropMaskView.frame.height)
-        let top = CGRect(x: 0, y: 0, width: cropMaskView.frame.width, height: ratioView.frame.minY)
-        let bottom = CGRect(x: 0, y: ratioView.frame.maxY, width: cropMaskView.frame.size.width, height: cropMaskView.frame.height - ratioView.frame.maxY)
-        path.addRects([left, right, top, bottom])
-        maskLayer.path = path
-        cropMaskView.layer.mask = maskLayer
-    }
-    
 }
 
-extension CropViewController {
+extension CropImageViewController {
     
     func cropImage() -> UIImage? {
-        return imageOriginal
+        let scaleImage = imageOriginal.size.height / cropImageView.frame.height
+        // 注意convert的写法
+        // 注意2的offset
+        let ratioRect = CGRect(x: ratioView.frame.origin.x, y: ratioView.frame.origin.y + 2, width: ratioView.frame.width, height: ratioView.frame.height - 4)
+        var rect = ratioView.convert(ratioRect, to: cropImageView)
+        rect = CGRect(x: rect.origin.x, y: rect.origin.y, width: rect.width * scaleImage, height: rect.height * scaleImage)
+        
+        imageCropped = imageOriginal.imageCropped(bounds: rect)
+        return imageCropped
     }
     
 }
