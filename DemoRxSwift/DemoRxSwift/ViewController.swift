@@ -19,27 +19,55 @@ class ViewController: UIViewController {
     // 指定tableView的dataSource中包含的对象
     // 包含SectionModel，以String作为section name，User作为item类型。
     // String作为section的名字，User作为item的类型
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, User>>()
+//    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, User>>()
     
     
-    let viewModel = ViewModel()
+//    let viewModel = ViewModel()
+    
+    
     let disposeBag = DisposeBag()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
      
-        dataSource.configureCell = { dataSource, table, indexPath, user in
-            let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            let string = "\(user.screenName) is following \(user.followingCount) users and is followed by \(user.followersCount) users."
-            cell.textLabel?.text = string
-            cell.textLabel?.numberOfLines = 0
-            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.white : UIColor(red: 0, green: 0, blue: 0, alpha: 0.05)
-            return cell
-        }
+//        dataSource.configureCell = { dataSource, table, indexPath, user in
+//            let cell = table.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//            let string = "\(user.screenName) is following \(user.followingCount) users and is followed by \(user.followersCount) users."
+//            cell.textLabel?.text = string
+//            cell.textLabel?.numberOfLines = 0
+//            cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.white : UIColor(red: 0, green: 0, blue: 0, alpha: 0.05)
+//            return cell
+//        }
+//        
+//        viewModel.getUsers()
+//            .bindTo(tableView.rx.items(dataSource: dataSource))
+//            .addDisposableTo(disposeBag)
         
-        viewModel.getUsers()
-            .bindTo(tableView.rx.items(dataSource: dataSource))
+        
+        let items = Observable.just(
+            (0..<10).map({
+                "\($0)"
+            })
+        )
+        
+        items.bindTo(tableView.rx.items(cellIdentifier: "Cell", cellType: UITableViewCell.self)) {
+            (row, element, cell) in
+            cell.textLabel?.text = "\(element) - \(row)"
+        }.addDisposableTo(disposeBag)
+        
+        tableView.rx
+            .modelSelected(String.self)
+            .subscribe(onNext:  { value in
+                print(value)
+            })
+            .addDisposableTo(disposeBag)
+        
+        tableView.rx
+            .itemAccessoryButtonTapped
+            .subscribe(onNext: { indexPath in
+                print(indexPath)
+            })
             .addDisposableTo(disposeBag)
     }
     

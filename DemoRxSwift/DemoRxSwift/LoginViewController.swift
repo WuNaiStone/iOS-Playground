@@ -38,7 +38,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        // 声明Observable
         let userValidation = textFieldUsername.rx.text.orEmpty
             .map { (user) -> Bool in
                 let length = user.characters.count
@@ -53,12 +55,15 @@ class LoginViewController: UIViewController {
             }
             .shareReplay(1)
         
+        // 声明Observable
         let loginValidation = Observable.combineLatest(userValidation, passwdValidataion) {
             $0 && $1
         }.shareReplay(1)
         
         
         // bind
+        // 此处是将isEnabled视为一个Observer，接收userValidation的消息，做出响应
+        // 所以Observable发送的消息与Observer能接收的消息要对应起来（此处是Bool）
         userValidation
             .bindTo(textFieldPasswd.rx.isEnabled)
             .addDisposableTo(disposeBag)
@@ -74,10 +79,19 @@ class LoginViewController: UIViewController {
             .bindTo(btnLogin.rx.isEnabled)
             .addDisposableTo(disposeBag)
         
+        
+        // 将tap操作视为一个Observable，添加一些对应的响应操作（订阅），一旦tap执行（即发送消息），则会执行对应的响应代码
         btnLogin.rx.tap
-            .subscribe(onNext: { [weak self] in
-                self?.login()
-            })
+            .subscribe(
+                onNext: { [weak self] in
+                    print("onNext")
+                    self?.login()
+                },
+                onCompleted: { [weak self] in
+                    print("onCompleted")
+                    print(self!)
+                }
+            )
             .addDisposableTo(disposeBag)
     }
     
