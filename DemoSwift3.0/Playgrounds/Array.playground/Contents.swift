@@ -56,12 +56,33 @@ print(array)
     x*x < y*y
 }
 
+// 归纳
+// 依次遍历每个element，执行指定操作，返回组成一个数组
+// 在0的基础上，依次添加element
 [1,2,3,4,5].reduce(0) { (result, element) -> Int in
     return result + element
 }
+// 在100的基础上，依次添加element
 [1,2,3,4,5].reduce(100) { (result, element) -> Int in
     return result + element
 }
+// 去重
+[1,2,3,1,2].reduce([]) { (result, element) -> [Int] in
+    result.contains(element) ? result : result + [element]
+}
+// 去重
+[1,2,3,1,2].reduce([]) {
+    $0.contains($1) ? $0 : $0 + [$1]
+}
+// 去重
+["a", "b", "c", "d", "e", "f", "a", "b"].reduce([]) {
+    $0.contains($1) ? $0 : $0 + [$1]
+}
+// 去重
+["a", "b", "c", "d", "e", "f", "a", "b"].reduce([]) { (result, element) -> [String] in
+    result.contains(element) ? result : result + [element]
+}
+
 
 
 var arr1 = ["a", "b", "c", "d", "e", "f"]

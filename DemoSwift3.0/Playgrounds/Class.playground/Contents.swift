@@ -74,3 +74,6 @@ myClass3.classes[0]
 myClass3.classes[0] = "A"
 //myClass3.classes[3] = "d"
 //myClass3.classes
+// 通过subscript来指定下标
+myClass3[0]
+myClass3[2]

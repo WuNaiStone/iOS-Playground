@@ -44,6 +44,17 @@ do {
 
 
 do {
+    try login(user: "userNotFound", password: "passwd")
+} catch LoginError.UserNotFound {
+    print("UserNotFound")
+} catch LoginError.UserPasswordNotMatch {
+    print("UserPasswordNotMatch")
+} catch let err where err is LoginError {
+    (err as? LoginError)?.localizedDescription
+}
+
+
+do {
     try login(user: "abc", password: "123")
 } catch LoginError.UserNotFound {
     print("UserNotFound")
