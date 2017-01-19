@@ -125,6 +125,7 @@
 				TargetAttributes = {
 					A4CECE631BF9727C008BA502 = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -330,6 +331,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoShimmer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = DemoShimmer/DemoShimmerBridgingHeader.h;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -343,6 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = icetime17.DemoShimmer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = DemoShimmer/DemoShimmerBridgingHeader.h;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

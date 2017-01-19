@@ -14,29 +14,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let shimmerView = FBShimmeringView(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
+        let shimmerView = FBShimmeringView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50))
         shimmerView.center = self.view.center
         self.view.addSubview(shimmerView)
-        shimmerView.backgroundColor = UIColor.darkGrayColor()
-        shimmerView.shimmering = true
+        shimmerView.backgroundColor = UIColor.black
+        shimmerView.isShimmering = true
         
-        let label = UILabel(frame: CGRectMake(0, 200, self.view.frame.size.width, 50))
-        label.textAlignment = NSTextAlignment.Center
-        label.textColor = UIColor.whiteColor()
+        let label = UILabel(frame: CGRect(x: 0, y: 200, width: self.view.frame.size.width, height: 50))
+        label.textAlignment = NSTextAlignment.center
+        label.textColor = UIColor.white
         label.text = ">>>  Slide to unlock"
         shimmerView.contentView = label
         
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: Selector("unlock:"))
-        swipeGesture.direction = UISwipeGestureRecognizerDirection.Right
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.unlock(_:)))
+        swipeGesture.direction = UISwipeGestureRecognizerDirection.right
         shimmerView.addGestureRecognizer(swipeGesture)
     }
     
-    func unlock(sender: UISwipeGestureRecognizer) {
+    func unlock(_ sender: UISwipeGestureRecognizer) {
         print(sender)
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
 
