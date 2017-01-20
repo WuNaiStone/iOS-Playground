@@ -41,6 +41,7 @@ class LoginViewController: UIViewController {
         
         
         // 声明Observable，可观察对象
+        // username的text没有太多参考意义，因此使用map来加工，得到是否可用的消息
         let userValidation = textFieldUsername.rx.text.orEmpty
             .map { (user) -> Bool in
                 let length = user.characters.count
@@ -56,6 +57,7 @@ class LoginViewController: UIViewController {
             .shareReplay(1)
         
         // 声明Observable
+        // 组合两个Observable
         let loginValidation = Observable.combineLatest(userValidation, passwdValidataion) {
             $0 && $1
         }.shareReplay(1)
@@ -81,6 +83,7 @@ class LoginViewController: UIViewController {
         
         
         // 将tap操作视为一个Observable，添加一些对应的响应操作（订阅），一旦tap执行（即发送消息），则会执行对应的响应代码
+        // 直接使用subscribe来指定响应操作即可，不需要map之类的加工
         btnLogin.rx.tap
             .subscribe(
                 onNext: { [weak self] in

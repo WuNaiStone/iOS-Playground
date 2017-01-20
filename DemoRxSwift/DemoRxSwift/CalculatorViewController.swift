@@ -35,6 +35,7 @@ class CalculatorViewController: UIViewController {
                 return 0
             }
         }
+        // Observable发送的消息为Int，不能与text绑定，所以使用map进行加工
         .map { $0.description }
         // Obsever为result的text
         .bindTo(result.rx.text)
