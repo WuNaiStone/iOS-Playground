@@ -49,6 +49,19 @@ class TableViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         
+        tableView.rx
+            .modelSelected(User.self)
+            .subscribe(onNext: { user in
+                print(user)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.present(loginVC, animated: true, completion: nil)
+            })
+            .addDisposableTo(disposeBag)
+        
+        
+        
         
         /*
         // 构建一个Observable

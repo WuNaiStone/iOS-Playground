@@ -30,14 +30,30 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var btnLogin: UIButton!
     
+    @IBOutlet weak var btnClose: UIButton!
+    
+    
     var disposeBag = DisposeBag()
     
     
     var indicatorView: UIActivityIndicatorView!
     
     
+    deinit {
+        print("deinit: \(self.description)")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        btnClose.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .addDisposableTo(disposeBag)
+        
         
         
         // 声明Observable，可观察对象

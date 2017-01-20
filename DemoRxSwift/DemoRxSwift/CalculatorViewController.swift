@@ -21,11 +21,28 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var result: UILabel!
     
     
+    @IBOutlet weak var btnClose: UIButton!
+    
+    
+    
     let disposeBag = DisposeBag()
     
     
+    deinit {
+        print("deinit: \(self.description)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        btnClose.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .addDisposableTo(disposeBag)
+        
+        
         
         // 将number1，number2绑定到一起，构成一个Observable
         Observable.combineLatest(number1.rx.text, number2.rx.text) { (num1, num2) -> Int in
@@ -40,6 +57,7 @@ class CalculatorViewController: UIViewController {
         // Obsever为result的text
         .bindTo(result.rx.text)
         .addDisposableTo(disposeBag)
+        
     }
     
 }

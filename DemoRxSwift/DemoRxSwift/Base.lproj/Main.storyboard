@@ -12,7 +12,7 @@
         <!--Table View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TableViewController" customModule="DemoRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableViewController" id="BYZ-38-t0r" customClass="TableViewController" customModule="DemoRxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -67,7 +67,7 @@
         <!--Login View Controller-->
         <scene sceneID="MGn-kN-dsW">
             <objects>
-                <viewController id="6Sk-ng-t0s" customClass="LoginViewController" customModule="DemoRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="6Sk-ng-t0s" customClass="LoginViewController" customModule="DemoRxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gGY-aB-d5k"/>
                         <viewControllerLayoutGuide type="bottom" id="VGO-lx-4qc"/>
@@ -119,6 +119,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="登录"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lx2-Wa-qfP">
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="BEf-a0-Luv"/>
+                                    <constraint firstAttribute="height" constant="30" id="mu2-zC-Fmo"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -126,7 +134,9 @@
                             <constraint firstItem="ulp-zm-2Nr" firstAttribute="top" secondItem="2le-FL-xg5" secondAttribute="bottom" constant="50" id="CVI-S0-X2b"/>
                             <constraint firstItem="5pp-EX-ujd" firstAttribute="top" secondItem="gGY-aB-d5k" secondAttribute="bottom" constant="50" id="Kis-dQ-QgK"/>
                             <constraint firstItem="5pp-EX-ujd" firstAttribute="centerX" secondItem="gh0-GP-G43" secondAttribute="centerX" id="OXn-Ts-rEd"/>
+                            <constraint firstItem="Lx2-Wa-qfP" firstAttribute="top" secondItem="gGY-aB-d5k" secondAttribute="bottom" id="Or4-nB-Xrp"/>
                             <constraint firstItem="ulp-zm-2Nr" firstAttribute="centerX" secondItem="gh0-GP-G43" secondAttribute="centerX" id="PEB-R7-MGp"/>
+                            <constraint firstItem="Lx2-Wa-qfP" firstAttribute="leading" secondItem="gh0-GP-G43" secondAttribute="leading" id="SXD-Hd-NPT"/>
                             <constraint firstItem="foh-tP-u5Q" firstAttribute="width" secondItem="5pp-EX-ujd" secondAttribute="width" id="Udk-JJ-gt6"/>
                             <constraint firstItem="2le-FL-xg5" firstAttribute="centerX" secondItem="AVw-RH-doy" secondAttribute="centerX" id="b3w-Qx-vAv"/>
                             <constraint firstItem="foh-tP-u5Q" firstAttribute="top" secondItem="5pp-EX-ujd" secondAttribute="bottom" constant="10" id="dFa-5e-NH0"/>
@@ -142,6 +152,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnClose" destination="Lx2-Wa-qfP" id="S4z-gC-nEm"/>
                         <outlet property="btnLogin" destination="ulp-zm-2Nr" id="BIn-ua-8sf"/>
                         <outlet property="lbPasswdInfo" destination="2le-FL-xg5" id="LVS-Ay-vW2"/>
                         <outlet property="lbUsernameInfo" destination="foh-tP-u5Q" id="VtS-TD-0Rs"/>
@@ -156,7 +167,7 @@
         <!--Calculator View Controller-->
         <scene sceneID="yip-v6-hEI">
             <objects>
-                <viewController id="k81-1m-u7B" customClass="CalculatorViewController" customModule="DemoRxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalculatorViewController" id="k81-1m-u7B" customClass="CalculatorViewController" customModule="DemoRxSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nV6-h9-TKN"/>
                         <viewControllerLayoutGuide type="bottom" id="Qe0-Wi-nYJ"/>
@@ -200,11 +211,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMV-ow-AD0">
+                                <rect key="frame" x="0.0" y="0.0" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OLX-TY-2Vb"/>
+                                    <constraint firstAttribute="width" constant="70" id="fUm-i6-lUi"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HMV-ow-AD0" firstAttribute="top" secondItem="nV6-h9-TKN" secondAttribute="bottom" id="MV1-dt-3i3"/>
+                            <constraint firstItem="HMV-ow-AD0" firstAttribute="leading" secondItem="HgD-cJ-0xl" secondAttribute="leading" id="XmF-OP-t3u"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="btnClose" destination="HMV-ow-AD0" id="dfT-Se-Zvb"/>
                         <outlet property="number1" destination="Ljj-1A-ULD" id="JSW-OW-3DV"/>
                         <outlet property="number2" destination="fTH-r4-vAP" id="dKr-rp-wya"/>
                         <outlet property="result" destination="irY-Hq-WhO" id="cwC-5l-R35"/>
