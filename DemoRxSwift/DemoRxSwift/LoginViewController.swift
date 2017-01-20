@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         
-        // 声明Observable
+        // 声明Observable，可观察对象
         let userValidation = textFieldUsername.rx.text.orEmpty
             .map { (user) -> Bool in
                 let length = user.characters.count
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
         }.shareReplay(1)
         
         
-        // bind
+        // bind，即将Observable与Observer绑定，最终也会调用subscribe
         // 此处是将isEnabled视为一个Observer，接收userValidation的消息，做出响应
         // 所以Observable发送的消息与Observer能接收的消息要对应起来（此处是Bool）
         userValidation

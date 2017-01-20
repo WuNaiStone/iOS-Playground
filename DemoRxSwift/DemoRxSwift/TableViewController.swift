@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TableViewController.swift
 //  DemoRxSwift
 //
 //  Created by Chris Hu on 17/1/18.
@@ -11,7 +11,7 @@ import RxSwift
 import RxDataSources
 
 
-class ViewController: UIViewController {
+class TableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
