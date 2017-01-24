@@ -1,0 +1,6 @@
+framework module Pods_DemoGDPerformanceView {
+  umbrella header "Pods-DemoGDPerformanceView-umbrella.h"
+
+  export *
+  module * { export * }
+}
