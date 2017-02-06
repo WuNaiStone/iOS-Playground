@@ -10,11 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        imageView.image = UIImage(named: "1.png")
+        imageView.center = view.center
+        view.addSubview(imageView)
+        
         let btnTest = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-        btnTest.center = view.center
+        btnTest.center = CGPoint(x: imageView.center.x, y: imageView.center.y + imageView.frame.height/2 + 100)
         btnTest.backgroundColor = UIColor.gray
         btnTest.setTitleColor(UIColor.white, for: .normal)
         btnTest.setTitle("Loading", for: .normal)
@@ -24,10 +31,10 @@ class ViewController: UIViewController {
     }
     
     func actionBtnTest() {
-        CustomLoading.start()
+        CustomLoading2.start()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { 
-            CustomLoading.stop()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            CustomLoading2.stop()
         }
     }
 
