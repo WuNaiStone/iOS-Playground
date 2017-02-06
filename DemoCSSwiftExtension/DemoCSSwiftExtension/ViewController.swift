@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.center = view.center
-        imageView.image = UIImage(named: "Model.jpg")?.cs_imageMirrored
+        imageView.image = UIImage(named: "Model.jpg")?.cs.imageMirrored
         imageView.alpha = 0.5
     }
 
