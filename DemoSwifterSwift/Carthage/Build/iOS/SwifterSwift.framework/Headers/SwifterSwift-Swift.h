@@ -144,21 +144,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @interface NSAttributedString (SWIFT_EXTENSION(SwifterSwift))
 /**
-  SwifterSwift: Bold string
+  SwifterSwift: Bolded string.
 */
-@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull bold;
+@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull bolded;
 /**
-  SwifterSwift: Underlined string
+  SwifterSwift: Underlined string.
 */
-@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull underline;
+@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull underlined;
 /**
-  SwifterSwift: Italic string
+  SwifterSwift: Italicized string.
 */
-@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull italic;
+@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull italicized;
 /**
-  SwifterSwift: Strikethrough string
+  SwifterSwift: Struckthrough string.
 */
-@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull strikethrough;
+@property (nonatomic, readonly, strong) NSAttributedString * _Nonnull struckthrough;
 @end
 
 
@@ -292,7 +292,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
   returns:
   optional last indexPath for last item in section (if applicable).
 */
-- (NSIndexPath * _Nullable)indexPathForLastItemIn:(NSInteger)section;
+- (NSIndexPath * _Nullable)indexPathForLastItemInSection:(NSInteger)section;
 /**
   Reload data with a completion handler.
   \param completion completion handler to run after reloadData finishes.
@@ -327,10 +327,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 @interface UIColor (SWIFT_EXTENSION(SwifterSwift))
-@end
-
-
-@interface UIColor (SWIFT_EXTENSION(SwifterSwift))
 /**
   SwifterSwift: Blend two UIColors
   \param color1 first color to blend
@@ -350,6 +346,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 @interface UIColor (SWIFT_EXTENSION(SwifterSwift))
+@end
+
+
+@interface UIColor (SWIFT_EXTENSION(SwifterSwift))
 /**
   SwifterSwift: Create UIColor from hexadecimal value with optional transparency.
   \param hex hex Int (example: 0xDECEB5).
@@ -360,7 +360,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 - (nonnull instancetype)initWithHex:(NSInteger)hex transparency:(CGFloat)transparency;
 /**
   SwifterSwift: Create UIColor from hexadecimal string with optional transparency (if applicable).
-  \param hexString hexadecimal string (examples: EDE7F6, 0xEDE7F6, #EDE7F6, #0ff, 0xF0F, ..)
+  \param hexString hexadecimal string (examples: EDE7F6, 0xEDE7F6, #EDE7F6, #0ff, 0xF0F, ..).
 
   \param transparency optional transparency value (default is 1).
 
@@ -374,10 +374,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
   \param blue blue component.
 
-  \param transparency optional transparency value (default is 1)
+  \param transparency optional transparency value (default is 1).
 
 */
 - (nonnull instancetype)initWithRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue transparency:(CGFloat)transparency;
+/**
+  SwifterSwift: Create UIColor from a complementary of a UIColor (if applicable).
+  \param color color of which opposite color is desired.
+
+*/
+- (nullable instancetype)initWithComplementaryFor:(UIColor * _Nonnull)color;
 @end
 
 
@@ -411,6 +417,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 */
 @property (nonatomic, readonly, copy) NSString * _Nonnull shortHexOrHexString;
 /**
+  SwifterSwift: Get color complementary (read-only, if applicable).
+*/
+@property (nonatomic, readonly, strong) UIColor * _Nullable complementary;
+/**
   SwifterSwift: Random color.
 */
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull random;)
@@ -427,18 +437,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 
 */
 - (nonnull instancetype)initWithColor:(UIColor * _Nonnull)color size:(CGSize)size;
-@end
-
-
-@interface UIImage (SWIFT_EXTENSION(SwifterSwift))
-/**
-  SwifterSwift: Size in bytes of UIImage
-*/
-@property (nonatomic, readonly) NSInteger bytesSize;
-/**
-  SwifterSwift: Size in kilo bytes of UIImage
-*/
-@property (nonatomic, readonly) NSInteger kilobytesSize;
 @end
 
 
@@ -479,6 +477,26 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
   UIImage filled with given color.
 */
 - (UIImage * _Nonnull)filledWithColor:(UIColor * _Nonnull)color;
+@end
+
+
+@interface UIImage (SWIFT_EXTENSION(SwifterSwift))
+/**
+  SwifterSwift: Size in bytes of UIImage
+*/
+@property (nonatomic, readonly) NSInteger bytesSize;
+/**
+  SwifterSwift: Size in kilo bytes of UIImage
+*/
+@property (nonatomic, readonly) NSInteger kilobytesSize;
+/**
+  SwifterSwift: UIImage with .alwaysOriginal rendering mode.
+*/
+@property (nonatomic, readonly, strong) UIImage * _Nonnull original;
+/**
+  SwifterSwift: UIImage with .alwaysTemplate rendering mode.
+*/
+@property (nonatomic, readonly, strong, getter=template) UIImage * _Nonnull template_;
 @end
 
 
@@ -567,6 +585,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 - (void)replaceTitleWith:(UIImage * _Nonnull)image;
 @end
 
+
+@interface UISearchBar (SWIFT_EXTENSION(SwifterSwift))
+/**
+  SwifterSwift: Clear text.
+*/
+- (void)clear;
+@end
+
 @class UITextField;
 
 @interface UISearchBar (SWIFT_EXTENSION(SwifterSwift))
@@ -636,7 +662,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
   returns:
   optional last indexPath for last row in section (if applicable).
 */
-- (NSIndexPath * _Nullable)indexPathForLastRowIn:(NSInteger)section;
+- (NSIndexPath * _Nullable)indexPathForLastRowInSection:(NSInteger)section;
 /**
   Reload data with a completion handler.
   \param completion completion handler to run after reloadData finishes.
@@ -684,6 +710,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 
 @interface UITextField (SWIFT_EXTENSION(SwifterSwift))
 /**
+  SwifterSwift: Clear text.
+*/
+- (void)clear;
+/**
   SwifterSwift: Set placeholder text color.
   \param color placeholder text color.
 
@@ -707,6 +737,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 
 
 @interface UITextView (SWIFT_EXTENSION(SwifterSwift))
+/**
+  SwifterSwift: Clear text.
+*/
+- (void)clear;
 /**
   SwifterSwift: Scroll to the bottom of text view
 */

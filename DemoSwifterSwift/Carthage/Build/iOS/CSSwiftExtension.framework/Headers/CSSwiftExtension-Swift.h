@@ -115,72 +115,38 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_UNAVAILABLE __attribute__((unavailable))
 #endif
 #if defined(__has_feature) && __has_feature(modules)
-@import Foundation;
+@import ObjectiveC;
 @import UIKit;
+@import Foundation;
 @import CoreGraphics;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 
-@interface NSFileManager (SWIFT_EXTENSION(CSSwiftExtension))
-@property (nonatomic, readonly, copy) NSString * _Nonnull cs_homeDirectory;
-@property (nonatomic, readonly, copy) NSString * _Nonnull cs_tempDirectory;
-@property (nonatomic, readonly, copy) NSString * _Nonnull cs_documentsDirectory;
-@property (nonatomic, readonly, copy) NSString * _Nonnull cs_libraryDirectory;
-@property (nonatomic, readonly, copy) NSString * _Nonnull cs_cacheDirectory;
-@end
-
-@class UIView;
-@class UIImage;
-
-@interface UIApplication (SWIFT_EXTENSION(CSSwiftExtension))
-- (UIImage * _Nonnull)cs_snapShot:(UIView * _Nonnull)inView;
+@interface NSObject (SWIFT_EXTENSION(CSSwiftExtension))
 @end
 
 
-@interface UIApplication (SWIFT_EXTENSION(CSSwiftExtension))
-@property (nonatomic, readonly, copy) NSString * _Nonnull cs_appVersion;
+@interface UIButton (SWIFT_EXTENSION(CSSwiftExtension))
+@property (nonatomic) NSTimeInterval cs_acceptEventInterval;
 @end
 
-@protocol UIApplicationDelegate;
-@class UIViewController;
 
-@interface UIApplication (SWIFT_EXTENSION(CSSwiftExtension))
-@property (nonatomic, readonly, strong) id <UIApplicationDelegate> _Nonnull cs_appDelegate;
-@property (nonatomic, readonly, strong) UIViewController * _Nonnull cs_currentViewController;
+@interface UICollectionView (SWIFT_EXTENSION(CSSwiftExtension))
+@end
+
+
+@interface UICollectionViewCell (SWIFT_EXTENSION(CSSwiftExtension))
+@end
+
+
+@interface UICollectionViewCell (SWIFT_EXTENSION(CSSwiftExtension))
 @end
 
 
 @interface UIColor (SWIFT_EXTENSION(CSSwiftExtension))
 - (nonnull instancetype)initWithHexString:(uint32_t)hexString alpha:(CGFloat)alpha;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull cs_random;)
-+ (UIColor * _Nonnull)cs_random;
-@end
-
-
-@interface UIDevice (SWIFT_EXTENSION(CSSwiftExtension))
-@property (nonatomic, readonly, copy) NSString * _Nonnull cs_currentLanguage;
-@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_en;
-@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_zh_Hans;
-@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_zh_Hant;
-@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_ja;
-@property (nonatomic, readonly) BOOL cs_isCurrentLanguage_ko;
-@end
-
-
-@interface UIImage (SWIFT_EXTENSION(CSSwiftExtension))
-/**
-  Save UIImage to file
-  \param filePath file path
-
-  \param compressionFactor compression factor, only useful for JPEG format image.
-
-
-  returns:
-  true or false
-*/
-- (BOOL)cs_saveImageToFileWithFilePath:(NSString * _Nonnull)filePath compressionFactor:(CGFloat)compressionFactor;
 @end
 
 
@@ -209,64 +175,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 
 
 @interface UIImage (SWIFT_EXTENSION(CSSwiftExtension))
-@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_wechatShareThumbnail;
++ (UIImage * _Nullable)gifWithData:(NSData * _Nonnull)data;
++ (UIImage * _Nullable)gifWithUrl:(NSString * _Nonnull)url;
++ (UIImage * _Nullable)gifWithName:(NSString * _Nonnull)name;
 @end
 
 
-@interface UIImage (SWIFT_EXTENSION(CSSwiftExtension))
-/**
-  Crop UIImage
-
-  returns:
-  UIImage cropped
-*/
-- (UIImage * _Nonnull)cs_imageCroppedWithBounds:(CGRect)bounds;
-/**
-  Crop UIImage to fit target size
-
-  returns:
-  UIImage cropped
-*/
-- (UIImage * _Nonnull)cs_imageCroppedToFitWithTargetSize:(CGSize)targetSize;
-/**
-  Mirror UIImage
-
-  returns:
-  UIImage mirrored
-*/
-@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_imageMirrored;
-/**
-  Rotate UIImage to specified degress
-  \param degress degress to rotate
-
-
-  returns:
-  UIImage rotated
-*/
-- (UIImage * _Nonnull)cs_imageRotatedByDegreesWithDegrees:(CGFloat)degrees;
-/**
-  Scale UIImage to specified size.
-  \param targetSize targetSize
-
-  \param withOriginalRatio whether the result UIImage should keep the original ratio
-
-
-  returns:
-  UIImage scaled
-*/
-- (UIImage * _Nonnull)cs_imageScaledToSizeWithTargetSize:(CGSize)targetSize withOriginalRatio:(BOOL)withOriginalRatio;
-/**
-  UIImage with corner radius without Off-Screen Rendering.
-  Much better than setting layer.cornerRadius and layer.masksToBounds.
-  \param cornerRadius corner radius
-
-
-  returns:
-  UIImage
-*/
-- (UIImage * _Nonnull)cs_imageWithCornerRadiusWithCornerRadius:(CGFloat)cornerRadius;
-@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_imageWithNormalOrientation;
-@property (nonatomic, readonly, strong) UIImage * _Nonnull cs_grayScale;
+@interface UIImageView (SWIFT_EXTENSION(CSSwiftExtension))
+- (void)loadGifWithName:(NSString * _Nonnull)name;
 @end
 
 
@@ -275,35 +191,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 @end
 
 
-@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
-- (void)cs_cornerRadiusWithCorners:(UIRectCorner)corners radius:(CGFloat)radius;
-@end
-
-@class NSBundle;
-
-@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
-+ (UIView * _Nullable)cs_loadFromNib:(NSString * _Nonnull)nibName bundle:(NSBundle * _Nullable)bundle;
+@interface UITableView (SWIFT_EXTENSION(CSSwiftExtension))
 @end
 
 
-@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
-- (void)cs_removeGestureRecognizers;
+@interface UITableViewCell (SWIFT_EXTENSION(CSSwiftExtension))
 @end
 
 
-@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
-@property (nonatomic, readonly, strong) UIImage * _Nullable cs_snapshot;
-@end
-
-
-@interface UIView (SWIFT_EXTENSION(CSSwiftExtension))
-@property (nonatomic) CGFloat cs_left;
-@property (nonatomic) CGFloat cs_right;
-@property (nonatomic) CGFloat cs_top;
-@property (nonatomic) CGFloat cs_bottom;
-@property (nonatomic) CGFloat cs_width;
-@property (nonatomic) CGFloat cs_height;
-@property (nonatomic) CGSize cs_size;
+@interface UITableViewCell (SWIFT_EXTENSION(CSSwiftExtension))
 @end
 
 #pragma clang diagnostic pop

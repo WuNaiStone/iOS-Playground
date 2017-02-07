@@ -6,11 +6,16 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import UIKit
+#if os(macOS)
+	import Cocoa
+#else
+	import UIKit
+#endif
+
 
 // MARK: - Properties
 public extension Data {
-
+	
 	/// SwifterSwift: NSAttributedString from Data (if applicable).
 	var attributedString: NSAttributedString? {
 		// http://stackoverflow.com/questions/39248092/nsattributedstring-extension-in-swift-3
@@ -22,5 +27,6 @@ public extension Data {
 			return nil
 		}
 	}
-
+	
 }
+

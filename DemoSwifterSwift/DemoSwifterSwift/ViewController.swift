@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         array.removeDuplicates()
         print(array)
         
-        let strArr = "hello world".splited(by: " ")
+        let strArr = "hello world".splitted(by: " ")
         print(strArr)
         
         let strTrimed = " hello world ".cs_trimmed

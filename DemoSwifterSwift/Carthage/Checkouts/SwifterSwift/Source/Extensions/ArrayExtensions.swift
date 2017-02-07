@@ -18,15 +18,6 @@ public extension Array {
 		return self[index]
 	}
 	
-	/// SwifterSwift: Shuffled version of array.
-	public var shuffled: [Element] {
-		var arr = self
-		for _ in 0..<10 {
-			arr.sort { (_,_) in arc4random() < arc4random() }
-		}
-		return arr
-	}
-	
 }
 
 
@@ -75,6 +66,13 @@ public extension Array where Element: FloatingPoint {
 // MARK: - Properties (Equatable)
 public extension Array where Element: Equatable {
 	
+	/// SwifterSwift: Shuffled version of array.
+	public var shuffled: [Element] {
+		var arr = self
+		arr.shuffle()
+		return arr
+	}
+	
 	/// SwifterSwift: Array with all duplicates removed from it.
 	public var withoutDuplicates: [Element] {
 		// Thanks to https://github.com/sairamkotha for improving the preperty
@@ -92,7 +90,7 @@ public extension Array {
 	/// - Parameter index: index of element.
 	/// - Returns: optional element (if exists).
 	public func item(at index: Int) -> Element? {
-		guard index >= 0 && index < count else { return nil }
+		guard 0..<count ~= index else { return nil }
 		return self[index]
 	}
 	
@@ -132,9 +130,7 @@ public extension Array {
 	///
 	/// - Returns: last elemets in array (if applicable).
 	@discardableResult public mutating func pop() -> Element? {
-		guard self.count > 0 else {
-			return nil
-		}
+		guard !self.isEmpty else { return nil }
 		return removeLast()
 	}
 	
@@ -149,15 +145,7 @@ public extension Array {
 	///
 	/// - Parameter newElement: element to insert.
 	public mutating func push(_ newElement: Element) {
-		return append(newElement)
-	}
-	
-	/// SwifterSwift: Shuffle array.
-	public mutating func shuffle() {
-		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
-		for _ in 0..<10 {
-			sort { (_,_) in arc4random() < arc4random() }
-		}
+		append(newElement)
 	}
 	
 }
@@ -166,13 +154,25 @@ public extension Array {
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
 	
+	/// SwifterSwift: Shuffle array.
+	public mutating func shuffle() {
+		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
+		let arr = self
+		for _ in 0..<10 {
+			sort { (_,_) in arc4random() < arc4random() }
+		}
+		if self == arr {
+			shuffle()
+		}
+	}
+	
 	/// SwifterSwift: Check if array contains an array of elements.
 	///
 	/// - Parameter elements: array of elements to check.
 	/// - Returns: true if array contains all given items.
 	public func contains(_ elements: [Element]) -> Bool {
 		guard !elements.isEmpty else { // elements array is empty
-			return false
+			return true
 		}
 		var found = true
 		for element in elements {
