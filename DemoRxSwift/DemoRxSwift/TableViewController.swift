@@ -24,9 +24,6 @@ class TableViewController: UIViewController {
     let viewModel = ViewModel()
     
     
-    let disposeBag = DisposeBag()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,9 +43,11 @@ class TableViewController: UIViewController {
         // ViewModel中负责生成数据相关的Observable，然后跟Observer（items）绑定
         viewModel.getUsers()
             .bindTo(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         
+        // 通过modelSelected可直接拿到Model，
+        // 而itemSelected则是indexPath
         tableView.rx
             .modelSelected(User.self)
             .subscribe(onNext: { user in
@@ -58,7 +57,7 @@ class TableViewController: UIViewController {
                 let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
                 self.present(loginVC, animated: true, completion: nil)
             })
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         
         
@@ -75,7 +74,7 @@ class TableViewController: UIViewController {
         dataSource.bindTo(tableView.rx.items(cellIdentifier: "Cell", cellType: UITableViewCell.self)) {
             (row, element, cell) in
             cell.textLabel?.text = "\(element) - \(row)"
-        }.addDisposableTo(disposeBag)
+        }.addDisposableTo(CS_DisposeBag)
         
         // 点击cell
         tableView.rx
@@ -83,7 +82,7 @@ class TableViewController: UIViewController {
             .subscribe(onNext:  { value in
                 print(value)
             })
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         // 点击AccessoryButton
         tableView.rx
@@ -91,7 +90,7 @@ class TableViewController: UIViewController {
             .subscribe(onNext: { indexPath in
                 print(indexPath)
             })
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         // 监听contentOffset
         tableView.rx.contentOffset
@@ -99,7 +98,7 @@ class TableViewController: UIViewController {
             .subscribe(onNext: { (offset) in
                 print(offset)
             })
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         */
         
     }

@@ -33,12 +33,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnClose: UIButton!
     
     
-    var disposeBag = DisposeBag()
-    
-    
-    var indicatorView: UIActivityIndicatorView!
-    
-    
     deinit {
         print("deinit: \(self.description)")
     }
@@ -50,20 +44,22 @@ class LoginViewController: UIViewController {
         
         btnClose.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
+                guard let strongSelf = self else { return }
+                strongSelf.dismiss(animated: true, completion: nil)
             })
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         
         
         // 声明Observable，可观察对象
         // username的text没有太多参考意义，因此使用map来加工，得到是否可用的消息
         let userValidation = textFieldUsername.rx.text.orEmpty
+            // map的参数是一个closure，接收element
             .map { (user) -> Bool in
                 let length = user.characters.count
                 return length >= minUsernameLength && length <= maxUsernameLength
             }
-        .shareReplay(1)
+            .shareReplay(1)
         
         let passwdValidataion = textFieldPasswd.rx.text.orEmpty
             .map{ (passwd) -> Bool in
@@ -75,8 +71,9 @@ class LoginViewController: UIViewController {
         // 声明Observable
         // 组合两个Observable
         let loginValidation = Observable.combineLatest(userValidation, passwdValidataion) {
-            $0 && $1
-        }.shareReplay(1)
+                $0 && $1
+            }
+            .shareReplay(1)
         
         
         // bind，即将Observable与Observer绑定，最终也会调用subscribe
@@ -84,18 +81,18 @@ class LoginViewController: UIViewController {
         // 所以Observable发送的消息与Observer能接收的消息要对应起来（此处是Bool）
         userValidation
             .bindTo(textFieldPasswd.rx.isEnabled)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         userValidation
             .bindTo(lbUsernameInfo.rx.isHidden)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         passwdValidataion
             .bindTo(lbPasswdInfo.rx.isHidden)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         loginValidation
             .bindTo(btnLogin.rx.isEnabled)
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         
         // 将tap操作视为一个Observable，添加一些对应的响应操作（订阅），一旦tap执行（即发送消息），则会执行对应的响应代码
@@ -104,18 +101,20 @@ class LoginViewController: UIViewController {
             .subscribe(
                 onNext: { [weak self] in
                     print("onNext")
-                    self?.login()
+                    guard let strongSelf = self else { return }
+                    strongSelf.login()
                 },
                 onCompleted: { [weak self] in
                     print("onCompleted")
-                    print(self!)
+                    guard let strongSelf = self else { return }
+                    print(strongSelf)
                 }
             )
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
     }
     
     func login() {
-        indicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let indicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         view.addSubview(indicatorView)
         indicatorView.center = view.center
         
@@ -129,7 +128,7 @@ class LoginViewController: UIViewController {
             
             DispatchQueue.main.async {
                 print("Done")
-                self.indicatorView.stopAnimating()
+                indicatorView.stopAnimating()
             }
         }
     }

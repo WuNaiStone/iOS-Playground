@@ -17,6 +17,7 @@
 		A4B5F8031E2F7C8E005BA002 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5F8021E2F7C8E005BA002 /* ViewModel.swift */; };
 		A4B5F8061E306428005BA002 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5F8051E306428005BA002 /* LoginViewController.swift */; };
 		A4B5F8261E31A3CB005BA002 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5F8251E31A3CB005BA002 /* CalculatorViewController.swift */; };
+		A4E9F3B11E4968C400818627 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E9F3B01E4968C400818627 /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A4B5F8021E2F7C8E005BA002 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A4B5F8051E306428005BA002 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A4B5F8251E31A3CB005BA002 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		A4E9F3B01E4968C400818627 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		A4B5F7ED1E2F7AD3005BA002 /* DemoRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9F3B01E4968C400818627 /* Global.swift */,
 				A4B5F7EE1E2F7AD3005BA002 /* AppDelegate.swift */,
 				A4B5F7F01E2F7AD3005BA002 /* TableViewController.swift */,
 				A4B5F8051E306428005BA002 /* LoginViewController.swift */,
@@ -230,6 +233,7 @@
 				A4B5F8061E306428005BA002 /* LoginViewController.swift in Sources */,
 				A4B5F8261E31A3CB005BA002 /* CalculatorViewController.swift in Sources */,
 				A4B5F8011E2F7BF8005BA002 /* User.swift in Sources */,
+				A4E9F3B11E4968C400818627 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

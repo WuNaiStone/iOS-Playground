@@ -24,10 +24,6 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var btnClose: UIButton!
     
     
-    
-    let disposeBag = DisposeBag()
-    
-    
     deinit {
         print("deinit: \(self.description)")
     }
@@ -40,7 +36,7 @@ class CalculatorViewController: UIViewController {
             .subscribe(onNext: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
             })
-            .addDisposableTo(disposeBag)
+            .addDisposableTo(CS_DisposeBag)
         
         
         
@@ -56,7 +52,7 @@ class CalculatorViewController: UIViewController {
         .map { $0.description }
         // Obsever为result的text
         .bindTo(result.rx.text)
-        .addDisposableTo(disposeBag)
+        .addDisposableTo(CS_DisposeBag)
         
     }
     
