@@ -12,6 +12,8 @@ class CollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

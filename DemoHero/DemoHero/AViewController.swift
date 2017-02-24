@@ -16,6 +16,9 @@ class AViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var blurView: UIVisualEffectView!
+    var blurViewHeroID: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,8 +35,19 @@ class AViewController: UIViewController {
         
         let url = URL(string: urlString)
         imageView.kf.setImage(with: url)
+        
+        let blurEffect: UIBlurEffect = UIBlurEffect(style: .light)
+        blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = CGRect(x: 0, y: self.view.bounds.height - 100, width: self.view.bounds.width, height: 100)
+        self.view.insertSubview(blurView, aboveSubview: imageView)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        blurView.heroID = blurViewHeroID
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

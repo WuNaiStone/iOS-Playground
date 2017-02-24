@@ -84,9 +84,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         cell.imageView.heroID = "hero-\(indexPath.item)"
+        cell.blurView.heroID = "blurView"
         
         let aVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AViewController") as! AViewController
         aVC.indexPath = indexPath
+        aVC.blurViewHeroID = "blurView"
         present(aVC, animated: true, completion: nil)
     }
     
