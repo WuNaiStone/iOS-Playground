@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  UserViewModel.swift
 //  DemoRxSwift
 //
 //  Created by Chris Hu on 17/1/18.
@@ -13,7 +13,7 @@ import RxDataSources
 
 
 // 用于将data传递给dataSource
-class ViewModel {
+class UserViewModel {
     
     // 返回的Observable，其Element是[SectionModel<String, User>]对象，即多个sectionModel
     func getUsers() -> Observable<[SectionModel<String, User>]> {

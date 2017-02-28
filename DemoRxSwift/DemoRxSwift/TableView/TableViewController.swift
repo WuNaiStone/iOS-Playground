@@ -21,7 +21,7 @@ class TableViewController: UIViewController {
     // String作为section的名字，User作为item的类型
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, User>>()
     
-    let viewModel = ViewModel()
+    let userViewModel = UserViewModel()
     
     
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ class TableViewController: UIViewController {
         }
         
         // ViewModel中负责生成数据相关的Observable，然后跟Observer（items）绑定
-        viewModel.getUsers()
+        userViewModel.getUsers()
             .bindTo(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(CS_DisposeBag)
         
