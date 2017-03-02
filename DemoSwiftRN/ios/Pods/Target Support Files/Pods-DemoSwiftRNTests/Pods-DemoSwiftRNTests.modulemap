@@ -1,0 +1,6 @@
+framework module Pods_DemoSwiftRNTests {
+  umbrella header "Pods-DemoSwiftRNTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
