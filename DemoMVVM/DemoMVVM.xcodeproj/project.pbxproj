@@ -73,10 +73,10 @@
 				A480F8AC1F5D172A0023E8B3 /* ViewController.m */,
 				A480F8BC1F5D175E0023E8B3 /* ViewUserInfo.h */,
 				A480F8BD1F5D175E0023E8B3 /* ViewUserInfo.m */,
-				A480F8BF1F5D176E0023E8B3 /* ModelUserInfo.h */,
-				A480F8C01F5D176E0023E8B3 /* ModelUserInfo.m */,
 				A480F8C21F5D177A0023E8B3 /* ViewModelUserInfo.h */,
 				A480F8C31F5D177A0023E8B3 /* ViewModelUserInfo.m */,
+				A480F8BF1F5D176E0023E8B3 /* ModelUserInfo.h */,
+				A480F8C01F5D176E0023E8B3 /* ModelUserInfo.m */,
 				A480F8AE1F5D172A0023E8B3 /* Main.storyboard */,
 				A480F8B11F5D172A0023E8B3 /* Assets.xcassets */,
 				A480F8B31F5D172A0023E8B3 /* LaunchScreen.storyboard */,
@@ -125,7 +125,7 @@
 				TargetAttributes = {
 					A480F8A11F5D172A0023E8B3 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 4W7Y6S5CA2;
+						DevelopmentTeam = NZPBGBZZ28;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -291,7 +291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4W7Y6S5CA2;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
 				INFOPLIST_FILE = DemoMVVM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoMVVM;
@@ -303,7 +303,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4W7Y6S5CA2;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
 				INFOPLIST_FILE = DemoMVVM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoMVVM;
@@ -330,6 +330,7 @@
 				A480F8BB1F5D172A0023E8B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

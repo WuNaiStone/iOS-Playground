@@ -7,10 +7,15 @@
 //
 
 #import "ViewController.h"
-#import "ViewModelUserInfo.h"
+
+#import "ViewUserInfo.h"
 
 @interface ViewController ()
 
+/**
+ View持有ViewModel，ViewModel持有Model
+ */
+@property (nonatomic, strong) ViewUserInfo *viewUserInfo;
 @property (nonatomic, strong) ViewModelUserInfo *viewModelUserInfo;
 
 @property (nonatomic, strong) UIButton *btnUpdate;
@@ -21,22 +26,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-    self.viewModelUserInfo.viewUserInfo = [[ViewUserInfo alloc] initWithFrame:self.view.bounds];
-    self.viewModelUserInfo.modelUserInfo = [ModelUserInfo new];
-    [self.viewModelUserInfo bind];
-    
-    [self.view addSubview:self.viewModelUserInfo.viewUserInfo];
-    
+    [self.view addSubview:self.viewUserInfo];
+    self.viewUserInfo.viewModelUserInfo = self.viewModelUserInfo;
     
     [self.view addSubview:self.btnUpdate];
+}
+
+- (ViewUserInfo *)viewUserInfo
+{
+    if (!_viewUserInfo) {
+        _viewUserInfo = [[ViewUserInfo alloc] initWithFrame:self.view.bounds];
+    }
+    
+    return _viewUserInfo;
 }
 
 - (ViewModelUserInfo *)viewModelUserInfo
 {
     if (!_viewModelUserInfo) {
-        _viewModelUserInfo = [ViewModelUserInfo new];
+        _viewModelUserInfo = [[ViewModelUserInfo alloc] init];
     }
     
     return _viewModelUserInfo;
@@ -55,9 +64,9 @@
 
 - (void)actionUpdate:(UIButton *)sender
 {
-    self.viewModelUserInfo.modelUserInfo.name   = @"Chris";
-    self.viewModelUserInfo.modelUserInfo.age    = 18;
-    self.viewModelUserInfo.modelUserInfo.city   = @"Shanghai";
+    // Model -> View
+    NSLog(@"Model -> View");
+    [self.viewModelUserInfo updateModelFromMockWeb];
 }
 
 @end
