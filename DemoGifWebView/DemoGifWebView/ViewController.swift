@@ -16,32 +16,37 @@ class ViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let vFilter: UIView = UIView(frame: CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.height - 44))
-        vFilter.backgroundColor = UIColor.blackColor()
+        
+        let vFilter: UIView = UIView(frame: CGRect(x: 0, y: 44, width: self.view.frame.width, height: self.view.frame.height - 44))
+        vFilter.backgroundColor = UIColor.black
         vFilter.alpha = 0.05
         self.view.addSubview(vFilter)
         self.webView = UIWebView(frame: vFilter.frame)
         self.view.addSubview(self.webView)
         
 //        self.loadHTML()
-//        self.loadURL("http://www.baidu.com")
-        self.loadGif()        
+//        self.loadURL(url: "https://www.baidu.com")
+        self.loadGif()
     }
     
     func loadHTML() {
-        self.webView.loadHTMLString("<html><body><p>this is baidu!</p></body></html>", baseURL: NSURL(string: "http://www.baidu.com")!)
+        self.webView.loadHTMLString("<html><body><p>this is baidu!</p></body></html>", baseURL: URL(string: "https://www.baidu.com"))
     }
     
     func loadGif() {
-        let gifPath: String = NSBundle.mainBundle().pathForResource("demo", ofType: "gif")!
-        let gifData: NSData = NSData(contentsOfFile: gifPath)!
+        guard let gifPath: String = Bundle.main.path(forResource: "demo", ofType: "gif") else {
+            return
+        }
+        
+        guard let gifData: Data = try! Data(contentsOf: URL(fileURLWithPath: gifPath)) else {
+            return
+        }
 
-        self.webView.loadData(gifData, MIMEType: "image/gif", textEncodingName: String(), baseURL: NSURL())
-        self.webView.userInteractionEnabled = false
+        self.webView.load(gifData, mimeType: "image/gif", textEncodingName: "UTF-8", baseURL: URL(string: "https://www.baidu.com")!)
     }
     
     func loadURL(url: String) {
-        self.webView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+        self.webView.loadRequest(URLRequest(url: URL(string: url)!))
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,21 +54,22 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    func webViewDidStartLoad(webView: UIWebView) {
-        print("\(self.webView) : \(__FUNCTION__)")
-    }
-    
-    func webViewDidFinishLoad(webView: UIWebView) {
-        print("\(self.webView) : \(__FUNCTION__)")
-    }
-    
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        print("\(self.webView) : \(__FUNCTION__)")
+    public func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        print("\(self.webView) : \(#function)")
+        
         return true
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        print("\(self.webView) : \(__FUNCTION__)")
+    public func webViewDidStartLoad(_ webView: UIWebView) {
+        print("\(self.webView) : \(#function)")
+    }
+    
+    public func webViewDidFinishLoad(_ webView: UIWebView) {
+        print("\(self.webView) : \(#function)")
+    }
+    
+    public func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        print("\(self.webView) : \(#function)")
     }
 }
 
