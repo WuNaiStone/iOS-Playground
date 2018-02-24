@@ -17,6 +17,7 @@
 		A42BD2972020840A00E0E6D9 /* railway.gif in Resources */ = {isa = PBXBuildFile; fileRef = A42BD2942020840900E0E6D9 /* railway.gif */; };
 		A42BD2982020840A00E0E6D9 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = A42BD2952020840A00E0E6D9 /* demo.gif */; };
 		A42BD2B82020876B00E0E6D9 /* isa.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A42BD2B72020876B00E0E6D9 /* isa.pdf */; };
+		A4ADBB1D2031381A00C2D740 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A4ADBB1C2031381A00C2D740 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A42BD2942020840900E0E6D9 /* railway.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = railway.gif; sourceTree = "<group>"; };
 		A42BD2952020840A00E0E6D9 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		A42BD2B72020876B00E0E6D9 /* isa.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = isa.pdf; sourceTree = "<group>"; };
+		A4ADBB1C2031381A00C2D740 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				A42BD2932020840900E0E6D9 /* Model.jpg */,
 				A42BD2942020840900E0E6D9 /* railway.gif */,
 				A42BD2B72020876B00E0E6D9 /* isa.pdf */,
+				A4ADBB1C2031381A00C2D740 /* index.html */,
 				A42BD27D202083F000E0E6D9 /* AppDelegate.h */,
 				A42BD27E202083F000E0E6D9 /* AppDelegate.m */,
 				A42BD280202083F000E0E6D9 /* ViewController.h */,
@@ -146,6 +149,7 @@
 				A42BD2B82020876B00E0E6D9 /* isa.pdf in Resources */,
 				A42BD28A202083F000E0E6D9 /* LaunchScreen.storyboard in Resources */,
 				A42BD2962020840A00E0E6D9 /* Model.jpg in Resources */,
+				A4ADBB1D2031381A00C2D740 /* index.html in Resources */,
 				A42BD287202083F000E0E6D9 /* Assets.xcassets in Resources */,
 				A42BD285202083F000E0E6D9 /* Main.storyboard in Resources */,
 			);
