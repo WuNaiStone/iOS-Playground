@@ -8,34 +8,57 @@
 
 import UIKit
 
-struct User {
-    let name: String
-    let age: Int
+protocol Presentable {
+    var name: String { get }
+    var age: Int { get }
+    
+    var addtionalInfo: String { get }
+}
+
+struct User: Presentable {
+    var name: String
+    var age: Int
+    
+    var addtionalInfo: String {
+        return city
+    }
+    
     let city: String
+}
+
+struct Dog: Presentable {
+    var name: String
+    var age: Int
+    
+    var addtionalInfo: String {
+        return owner
+    }
+    
+    let owner: String
 }
 
 // Presenter接收view和model, 暴露一个指定方法用于设置view.
 
-protocol UserPresenterDelegate: class {
-    func showUserInfo(info: String)
+protocol PresenterDelegate: class {
+    func present(info: String)
 }
 
-class UserPresenter {
-    let user: User
-    let presenter: UserPresenterDelegate
+class Presenter {
+    let presentable: Presentable // object need to and can be presented (such as model object)
+    let presenter: PresenterDelegate // object to present something (such as UIView)
     
-    required init(user: User, presenter: UserPresenterDelegate) {
-        self.user = user
+    required init(presentable: Presentable, presenter: PresenterDelegate) {
+        self.presentable = presentable
         self.presenter = presenter
     }
     
-    func showUserInfo() {
-        let info = "\(user.name), \(user.age), \(user.city)"
-        self.presenter.showUserInfo(info: info)
+    func present() {
+        let info = "\(presentable.name), \(presentable.age), \(presentable.addtionalInfo)"
+        self.presenter.present(info: info)
     }
 }
 
-class MyView: UIView, UserPresenterDelegate {
+class MyView: UIView, PresenterDelegate {
     var lbInfo: UILabel!
     
     override init(frame: CGRect) {
@@ -54,28 +77,35 @@ class MyView: UIView, UserPresenterDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func showUserInfo(info: String) {
+    func present(info: String) {
         self.lbInfo.text = info
     }
 }
 
 class ViewController: UIViewController {
-    var userPresenter: UserPresenter!
+    var presenter: Presenter!
+    var myView: MyView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myView = MyView(frame: self.view.frame)
-        self.view.addSubview(myView)
+        myView = MyView(frame: self.view.frame)
+        view.addSubview(myView)
         
         let user = User(name: "Chris", age: 18, city: "Shanghai")
-        self.userPresenter = UserPresenter(user: user, presenter: myView)
+        presenter = Presenter(presentable: user, presenter: myView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.userPresenter.showUserInfo()
+        presenter.present()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let dog = Dog(name: "Doggee", age: 2, owner: "Chris")
+            self.presenter = Presenter(presentable: dog, presenter: self.myView)
+            self.presenter.present()
+        }
     }
 }
 

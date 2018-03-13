@@ -11,18 +11,20 @@ import XCTest
 
 class DemoMVPTests: XCTestCase {
     
-    var userPresenter: UserPresenter!
+    var presenter: Presenter!
     
-    var user: User!
     var myView: MyView!
+    var user: User!
+    var dog: Dog!
     
     override func setUp() {
         super.setUp()
         
-        user = User(name: "Chris", age: 18, city: "Shanghai")
         myView = MyView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        user = User(name: "Chris", age: 18, city: "Shanghai")
+        dog = Dog(name: "Doggee", age: 2, owner: "Chris")
         
-        userPresenter = UserPresenter(user: user, presenter: myView)
+        presenter = Presenter(presentable: user, presenter: myView)
     }
     
     override func tearDown() {
@@ -31,16 +33,21 @@ class DemoMVPTests: XCTestCase {
     }
     
     func testExample() {
-        userPresenter.showUserInfo()
+        presenter.present()
         
-        let info = "\(user.name), \(user.age), \(user.city)"
+        var info = "\(user.name), \(user.age), \(user.city)"
         
-        XCTAssert(myView.lbInfo.text == info, "myView中展示信息正确")
+        XCTAssert(myView.lbInfo.text == info, "myView中展示user信息")
         
         user = User(name: "Chris", age: 20, city: "Shanghai")
-        userPresenter = UserPresenter(user: user, presenter: myView)
-        userPresenter.showUserInfo()
-        XCTAssert(myView.lbInfo.text != info, "myView中展示信息正确")
+        presenter = Presenter(presentable: user, presenter: myView)
+        presenter.present()
+        XCTAssert(myView.lbInfo.text != info, "myView中展示信息已修改")
+        
+        info = "\(dog.name), \(dog.age), \(dog.owner)"
+        presenter = Presenter(presentable: dog, presenter: myView)
+        presenter.present()
+        XCTAssert(myView.lbInfo.text == info, "myView中展示dog信息")
     }
     
     func testPerformanceExample() {
