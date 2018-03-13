@@ -11,9 +11,10 @@ import XCTest
 
 class DemoMVPTests: XCTestCase {
     
+    var myView: MyView!
+    
     var presenter: Presenter!
     
-    var myView: MyView!
     var user: User!
     var dog: Dog!
     
@@ -21,10 +22,13 @@ class DemoMVPTests: XCTestCase {
         super.setUp()
         
         myView = MyView(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        
         user = User(name: "Chris", age: 18, city: "Shanghai")
         dog = Dog(name: "Doggee", age: 2, owner: "Chris")
         
-        presenter = Presenter(presentable: user, presenter: myView)
+        presenter = Presenter(presentable: user)
+        
+        myView.presenter = presenter
     }
     
     override func tearDown() {
@@ -33,20 +37,22 @@ class DemoMVPTests: XCTestCase {
     }
     
     func testExample() {
-        presenter.present()
+        myView.present()
         
         var info = "\(user.name), \(user.age), \(user.city)"
         
         XCTAssert(myView.lbInfo.text == info, "myView中展示user信息")
         
         user = User(name: "Chris", age: 20, city: "Shanghai")
-        presenter = Presenter(presentable: user, presenter: myView)
-        presenter.present()
+        presenter = Presenter(presentable: user)
+        myView.presenter = presenter
+        myView.present()
         XCTAssert(myView.lbInfo.text != info, "myView中展示信息已修改")
         
         info = "\(dog.name), \(dog.age), \(dog.owner)"
-        presenter = Presenter(presentable: dog, presenter: myView)
-        presenter.present()
+        presenter = Presenter(presentable: dog)
+        myView.presenter = presenter
+        myView.present()
         XCTAssert(myView.lbInfo.text == info, "myView中展示dog信息")
     }
     
