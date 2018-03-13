@@ -41,7 +41,7 @@ struct Dog: Presentable {
 
 // MARK: - Presenter
 
-// Presenter用于View和Model, View自身暴露一个指定方法用于更新UI.
+// Presenter用于连接View和Model, 而View自身暴露一个指定方法用于更新UI.
 // Presenter拥有Model
 class Presenter {
     // object need to and can be presented (such as model object)
