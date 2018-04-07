@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A4302DB42073154D003C498F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4302DB32073154D003C498F /* AppDelegate.m */; };
+		A4302DB72073154D003C498F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4302DB62073154D003C498F /* ViewController.m */; };
+		A4302DBA2073154D003C498F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4302DB82073154D003C498F /* Main.storyboard */; };
+		A4302DBC2073154D003C498F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4302DBB2073154D003C498F /* Assets.xcassets */; };
+		A4302DBF2073154D003C498F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4302DBD2073154D003C498F /* LaunchScreen.storyboard */; };
+		A4302DC22073154E003C498F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4302DC12073154E003C498F /* main.m */; };
+		A4302DCC2073154E003C498F /* DemoAudioPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4302DCB2073154E003C498F /* DemoAudioPlayerTests.m */; };
+		A4ED8D10207337720055F97A /* 1小时掌握TensorFlow模型原理.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D07207337720055F97A /* 1小时掌握TensorFlow模型原理.m4a */; };
+		A4ED8D11207337720055F97A /* 算法之美.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D08207337720055F97A /* 算法之美.m4a */; };
+		A4ED8D12207337720055F97A /* 设计.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D09207337720055F97A /* 设计.m4a */; };
+		A4ED8D13207337720055F97A /* AB测试的最佳实践.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D0A207337720055F97A /* AB测试的最佳实践.m4a */; };
+		A4ED8D14207337720055F97A /* 微信小程序.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D0B207337720055F97A /* 微信小程序.m4a */; };
+		A4ED8D15207337720055F97A /* 产品构建方法.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D0C207337720055F97A /* 产品构建方法.m4a */; };
+		A4ED8D16207337720055F97A /* 数字产品中的交互负担.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D0D207337720055F97A /* 数字产品中的交互负担.m4a */; };
+		A4ED8D17207337720055F97A /* 数据驱动下的产品决策.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D0E207337720055F97A /* 数据驱动下的产品决策.m4a */; };
+		A4ED8D18207337720055F97A /* 如何有效沟通.m4a in Resources */ = {isa = PBXBuildFile; fileRef = A4ED8D0F207337720055F97A /* 如何有效沟通.m4a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4302DC82073154E003C498F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4302DA72073154D003C498F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4302DAE2073154D003C498F;
+			remoteInfo = DemoAudioPlayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A4302DAF2073154D003C498F /* DemoAudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4302DB22073154D003C498F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A4302DB32073154D003C498F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A4302DB52073154D003C498F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A4302DB62073154D003C498F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A4302DB92073154D003C498F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4302DBB2073154D003C498F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4302DBE2073154D003C498F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4302DC02073154D003C498F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4302DC12073154E003C498F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4302DC72073154E003C498F /* DemoAudioPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoAudioPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4302DCB2073154E003C498F /* DemoAudioPlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoAudioPlayerTests.m; sourceTree = "<group>"; };
+		A4302DCD2073154E003C498F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4ED8D07207337720055F97A /* 1小时掌握TensorFlow模型原理.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1小时掌握TensorFlow模型原理.m4a"; sourceTree = "<group>"; };
+		A4ED8D08207337720055F97A /* 算法之美.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "算法之美.m4a"; sourceTree = "<group>"; };
+		A4ED8D09207337720055F97A /* 设计.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "设计.m4a"; sourceTree = "<group>"; };
+		A4ED8D0A207337720055F97A /* AB测试的最佳实践.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AB测试的最佳实践.m4a"; sourceTree = "<group>"; };
+		A4ED8D0B207337720055F97A /* 微信小程序.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "微信小程序.m4a"; sourceTree = "<group>"; };
+		A4ED8D0C207337720055F97A /* 产品构建方法.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "产品构建方法.m4a"; sourceTree = "<group>"; };
+		A4ED8D0D207337720055F97A /* 数字产品中的交互负担.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "数字产品中的交互负担.m4a"; sourceTree = "<group>"; };
+		A4ED8D0E207337720055F97A /* 数据驱动下的产品决策.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "数据驱动下的产品决策.m4a"; sourceTree = "<group>"; };
+		A4ED8D0F207337720055F97A /* 如何有效沟通.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "如何有效沟通.m4a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4302DAC2073154D003C498F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4302DC42073154E003C498F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A4302DA62073154D003C498F = {
+			isa = PBXGroup;
+			children = (
+				A4ED8D06207337720055F97A /* Audios */,
+				A4302DB12073154D003C498F /* DemoAudioPlayer */,
+				A4302DCA2073154E003C498F /* DemoAudioPlayerTests */,
+				A4302DB02073154D003C498F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A4302DB02073154D003C498F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4302DAF2073154D003C498F /* DemoAudioPlayer.app */,
+				A4302DC72073154E003C498F /* DemoAudioPlayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4302DB12073154D003C498F /* DemoAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				A4302DB22073154D003C498F /* AppDelegate.h */,
+				A4302DB32073154D003C498F /* AppDelegate.m */,
+				A4302DB52073154D003C498F /* ViewController.h */,
+				A4302DB62073154D003C498F /* ViewController.m */,
+				A4302DB82073154D003C498F /* Main.storyboard */,
+				A4302DBB2073154D003C498F /* Assets.xcassets */,
+				A4302DBD2073154D003C498F /* LaunchScreen.storyboard */,
+				A4302DC02073154D003C498F /* Info.plist */,
+				A4302DC12073154E003C498F /* main.m */,
+			);
+			path = DemoAudioPlayer;
+			sourceTree = "<group>";
+		};
+		A4302DCA2073154E003C498F /* DemoAudioPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4302DCB2073154E003C498F /* DemoAudioPlayerTests.m */,
+				A4302DCD2073154E003C498F /* Info.plist */,
+			);
+			path = DemoAudioPlayerTests;
+			sourceTree = "<group>";
+		};
+		A4ED8D06207337720055F97A /* Audios */ = {
+			isa = PBXGroup;
+			children = (
+				A4ED8D07207337720055F97A /* 1小时掌握TensorFlow模型原理.m4a */,
+				A4ED8D08207337720055F97A /* 算法之美.m4a */,
+				A4ED8D09207337720055F97A /* 设计.m4a */,
+				A4ED8D0A207337720055F97A /* AB测试的最佳实践.m4a */,
+				A4ED8D0B207337720055F97A /* 微信小程序.m4a */,
+				A4ED8D0C207337720055F97A /* 产品构建方法.m4a */,
+				A4ED8D0D207337720055F97A /* 数字产品中的交互负担.m4a */,
+				A4ED8D0E207337720055F97A /* 数据驱动下的产品决策.m4a */,
+				A4ED8D0F207337720055F97A /* 如何有效沟通.m4a */,
+			);
+			path = Audios;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4302DAE2073154D003C498F /* DemoAudioPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4302DD02073154E003C498F /* Build configuration list for PBXNativeTarget "DemoAudioPlayer" */;
+			buildPhases = (
+				A4302DAB2073154D003C498F /* Sources */,
+				A4302DAC2073154D003C498F /* Frameworks */,
+				A4302DAD2073154D003C498F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoAudioPlayer;
+			productName = DemoAudioPlayer;
+			productReference = A4302DAF2073154D003C498F /* DemoAudioPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A4302DC62073154E003C498F /* DemoAudioPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4302DD32073154E003C498F /* Build configuration list for PBXNativeTarget "DemoAudioPlayerTests" */;
+			buildPhases = (
+				A4302DC32073154E003C498F /* Sources */,
+				A4302DC42073154E003C498F /* Frameworks */,
+				A4302DC52073154E003C498F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4302DC92073154E003C498F /* PBXTargetDependency */,
+			);
+			name = DemoAudioPlayerTests;
+			productName = DemoAudioPlayerTests;
+			productReference = A4302DC72073154E003C498F /* DemoAudioPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4302DA72073154D003C498F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = com.icetime;
+				TargetAttributes = {
+					A4302DAE2073154D003C498F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					A4302DC62073154E003C498F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A4302DAE2073154D003C498F;
+					};
+				};
+			};
+			buildConfigurationList = A4302DAA2073154D003C498F /* Build configuration list for PBXProject "DemoAudioPlayer" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4302DA62073154D003C498F;
+			productRefGroup = A4302DB02073154D003C498F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4302DAE2073154D003C498F /* DemoAudioPlayer */,
+				A4302DC62073154E003C498F /* DemoAudioPlayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4302DAD2073154D003C498F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4302DBF2073154D003C498F /* LaunchScreen.storyboard in Resources */,
+				A4ED8D17207337720055F97A /* 数据驱动下的产品决策.m4a in Resources */,
+				A4ED8D14207337720055F97A /* 微信小程序.m4a in Resources */,
+				A4ED8D16207337720055F97A /* 数字产品中的交互负担.m4a in Resources */,
+				A4302DBC2073154D003C498F /* Assets.xcassets in Resources */,
+				A4ED8D15207337720055F97A /* 产品构建方法.m4a in Resources */,
+				A4ED8D10207337720055F97A /* 1小时掌握TensorFlow模型原理.m4a in Resources */,
+				A4ED8D13207337720055F97A /* AB测试的最佳实践.m4a in Resources */,
+				A4ED8D11207337720055F97A /* 算法之美.m4a in Resources */,
+				A4302DBA2073154D003C498F /* Main.storyboard in Resources */,
+				A4ED8D12207337720055F97A /* 设计.m4a in Resources */,
+				A4ED8D18207337720055F97A /* 如何有效沟通.m4a in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4302DC52073154E003C498F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4302DAB2073154D003C498F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4302DB72073154D003C498F /* ViewController.m in Sources */,
+				A4302DC22073154E003C498F /* main.m in Sources */,
+				A4302DB42073154D003C498F /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4302DC32073154E003C498F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4302DCC2073154E003C498F /* DemoAudioPlayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A4302DC92073154E003C498F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4302DAE2073154D003C498F /* DemoAudioPlayer */;
+			targetProxy = A4302DC82073154E003C498F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A4302DB82073154D003C498F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4302DB92073154D003C498F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A4302DBD2073154D003C498F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4302DBE2073154D003C498F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4302DCE2073154E003C498F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A4302DCF2073154E003C498F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4302DD12073154E003C498F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoAudioPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoAudioPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A4302DD22073154E003C498F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoAudioPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoAudioPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A4302DD42073154E003C498F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoAudioPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoAudioPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoAudioPlayer.app/DemoAudioPlayer";
+			};
+			name = Debug;
+		};
+		A4302DD52073154E003C498F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoAudioPlayerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoAudioPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoAudioPlayer.app/DemoAudioPlayer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4302DAA2073154D003C498F /* Build configuration list for PBXProject "DemoAudioPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4302DCE2073154E003C498F /* Debug */,
+				A4302DCF2073154E003C498F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4302DD02073154E003C498F /* Build configuration list for PBXNativeTarget "DemoAudioPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4302DD12073154E003C498F /* Debug */,
+				A4302DD22073154E003C498F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4302DD32073154E003C498F /* Build configuration list for PBXNativeTarget "DemoAudioPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4302DD42073154E003C498F /* Debug */,
+				A4302DD52073154E003C498F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4302DA72073154D003C498F /* Project object */;
+}
