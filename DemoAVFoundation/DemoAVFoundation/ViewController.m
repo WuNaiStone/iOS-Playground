@@ -8,12 +8,21 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
+
+typedef NS_ENUM(NSInteger, CameraMode) {
+    CameraMode_Photo = 0,
+    CameraMode_Video,
+};
 
 @interface ViewController () <
-    AVCapturePhotoCaptureDelegate
+    AVCapturePhotoCaptureDelegate,
+    AVCaptureVideoDataOutputSampleBufferDelegate
 >
 
 @property (nonatomic, strong) dispatch_queue_t cameraQueue;
+@property (nonatomic, strong) dispatch_queue_t videoWriterQueue;
+@property (nonatomic, strong) dispatch_queue_t audioWriterQueue;
 
 // 将deviceInput作为session的输入
 @property (nonatomic, strong) AVCaptureDevice *frontDevice;
@@ -29,6 +38,7 @@
 // AVCapturePhotoOutput
 // AVCaptureVideoDataOutput
 @property (nonatomic, strong) AVCapturePhotoOutput *photoOutput;
+@property (nonatomic, strong) AVCaptureVideoDataOutput *videoOutput;
 
 // 设置AVVideoCodecKey, flashMode等.
 @property (nonatomic, strong) AVCapturePhotoSettings *photoSettings;
@@ -37,11 +47,24 @@
 // 对于previewLayer上的点击需要转换到设备的坐标系统中, 如对焦.
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 
+// 将视频写入本地文件
+@property (nonatomic, strong) AVAssetWriter *videoWriter;
+@property (nonatomic, strong) AVAssetWriterInput *videoWriterInput;
+@property (nonatomic, strong) AVAssetWriterInput *audioWriterInput;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
+// 当前拍摄模式
+@property (nonatomic, assign) CameraMode currentCameraMode;
+@property (nonatomic, assign) BOOL isVideoRecording;
 
 // operation
 @property (nonatomic, strong) UIButton *btnCapture;
 @property (nonatomic, strong) UIButton *btnRotate;
 @property (nonatomic, strong) UIButton *btnFlash;
+
+@property (nonatomic, strong) UIButton *btnSwitchCameraMode;
+
+@property (nonatomic, strong) UILabel *lbVideoDuration;
 
 @end
 
@@ -60,6 +83,12 @@
     [self.view addSubview:self.btnCapture];
     [self.view addSubview:self.btnRotate];
     [self.view addSubview:self.btnFlash];
+    
+    [self.view addSubview:self.btnSwitchCameraMode];
+    [self.view addSubview:self.lbVideoDuration];
+    
+    self.currentCameraMode = CameraMode_Photo;
+    self.lbVideoDuration.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -113,14 +142,86 @@
     return _btnFlash;
 }
 
+- (UIButton *)btnSwitchCameraMode {
+    if (!_btnSwitchCameraMode) {
+        _btnSwitchCameraMode = [[UIButton alloc] initWithFrame:CGRectMake(20, self.view.frame.size.height - 60, 40, 40)];
+//        [_btnSwitchCameraMode setImage:[UIImage imageNamed:@"btn.camera.rotate"] forState:UIControlStateNormal];
+        [_btnSwitchCameraMode setTitle:@"视频" forState:UIControlStateNormal];
+        [_btnSwitchCameraMode addTarget:self action:@selector(actionBtnSwitchCameraMode:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _btnSwitchCameraMode;
+}
+
+- (UILabel *)lbVideoDuration {
+    if (!_lbVideoDuration) {
+        _lbVideoDuration = [[UILabel alloc] initWithFrame:CGRectMake((self.view.frame.size.width - 150) / 2, self.view.frame.size.height - 150, 150, 30)];
+        _lbVideoDuration.textAlignment = NSTextAlignmentCenter;
+        _lbVideoDuration.text = @"录制视频中...";
+        _lbVideoDuration.font = [UIFont systemFontOfSize:12.f];
+    }
+    return _lbVideoDuration;
+}
+
+- (AVAssetWriterInput *)videoWriterInput {
+    if (!_videoWriterInput) {
+        NSDictionary *settings = @{
+                                   AVVideoCodecKey: AVVideoCodecTypeH264,
+                                   AVVideoWidthKey: @600,
+                                   AVVideoHeightKey: @800
+                                   };
+        _videoWriterInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:settings];
+        _videoWriterInput.expectsMediaDataInRealTime = YES;
+        _videoWriterInput.transform = CGAffineTransformMakeRotation(M_PI / 2.f);
+    }
+    return _videoWriterInput;
+}
+
+- (AVAssetWriterInput *)audioWriterInput {
+    return nil;
+}
+
 // MARK: - actions
 
 - (void)actionBtnCapture:(UIButton *)sender {
-    dispatch_async(self.cameraQueue, ^{
-        // photoSettings不能re-use, 需要重新创建
-        AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettingsFromPhotoSettings:self.photoSettings];
-        [self.photoOutput capturePhotoWithSettings:photoSettings delegate:self];
-    });
+    switch (self.currentCameraMode) {
+        case CameraMode_Photo:
+        {
+            dispatch_async(self.cameraQueue, ^{
+                // photoSettings不能re-use, 需要重新创建
+                AVCapturePhotoSettings *photoSettings = [AVCapturePhotoSettings photoSettingsFromPhotoSettings:self.photoSettings];
+                [self.photoOutput capturePhotoWithSettings:photoSettings delegate:self];
+            });
+        }
+            break;
+        case CameraMode_Video:
+        {
+            if (self.isVideoRecording) {
+                NSLog(@"停止录制");
+                self.isVideoRecording = NO;
+                self.lbVideoDuration.hidden = YES;
+                
+                [self.videoWriterInput markAsFinished];
+                [self.videoWriter finishWritingWithCompletionHandler:^{
+                    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+                        [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:self.videoWriter.outputURL];
+                    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+                        NSLog(@"保存视频成功");
+                    }];
+                }];
+            } else {
+                NSLog(@"开始录制");
+                self.isVideoRecording = YES;
+                self.lbVideoDuration.hidden = NO;
+                
+                [self p_setupVideoWriter];
+                
+                [self.videoOutput setSampleBufferDelegate:self queue:self.cameraQueue];
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)actionBtnRotate:(UIButton *)sender {
@@ -167,12 +268,81 @@
     [self.btnFlash setImage:[UIImage imageNamed:imgFlash] forState:UIControlStateNormal];
 }
 
+- (void)actionBtnSwitchCameraMode:(UIButton *)sender {
+    [self.captureSession stopRunning];
+    [self.captureSession beginConfiguration];
+
+    switch (self.currentCameraMode) {
+        case CameraMode_Photo:
+            [self p_switchToVideoMode];
+            
+            NSLog(@"切换至视频模式");
+            [_btnSwitchCameraMode setTitle:@"照片" forState:UIControlStateNormal];
+            break;
+        case CameraMode_Video:
+            [self p_switchToPhotoMode];
+            
+            NSLog(@"切换至拍照模式");
+            [_btnSwitchCameraMode setTitle:@"视频" forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+    
+    [self.captureSession commitConfiguration];
+    [self.captureSession startRunning];
+}
+
+- (void)p_switchToPhotoMode {
+    [self.captureSession removeOutput:self.videoOutput];
+    
+    self.photoOutput = [AVCapturePhotoOutput new];
+    if (![self.captureSession canAddOutput:self.photoOutput]) {
+        NSLog(@"session can not add output photoOutput");
+        return;
+    }
+    [self.captureSession addOutput:self.photoOutput];
+    self.currentCameraMode = CameraMode_Photo;
+    
+    // 设置photoSettings
+    NSDictionary *settingsDict = @{
+                                   AVVideoCodecKey: AVVideoCodecTypeJPEG,
+                                   };
+    self.photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:settingsDict];
+    self.photoSettings.flashMode = AVCaptureFlashModeOff;
+}
+
+- (void)p_switchToVideoMode {
+    [self.captureSession removeOutput:self.photoOutput];
+    
+    self.videoOutput = [AVCaptureVideoDataOutput new];
+    [self.videoOutput setVideoSettings:@{(id)kCVPixelBufferPixelFormatTypeKey : [NSNumber numberWithInt:kCVPixelFormatType_32BGRA]}];
+//    [self.videoOutput setSampleBufferDelegate:self queue:self.cameraQueue];
+    if (![self.captureSession canAddOutput:self.videoOutput]) {
+        NSLog(@"session can not add output videoOutput");
+    }
+    [self.captureSession addOutput:self.videoOutput];
+    self.currentCameraMode = CameraMode_Video;
+    
+//    // 设置photoSettings
+//    NSDictionary *settingsDict = @{
+//                                   AVVideoCodecKey: AVVideoCodecTypeJPEG,
+//                                   };
+//    self.photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:settingsDict];
+//    self.photoSettings.flashMode = AVCaptureFlashModeOff;
+}
+
 // MARK: - AVCapturePhotoCaptureDelegate
 
 - (void)captureOutput:(AVCapturePhotoOutput *)output
 didFinishProcessingPhoto:(AVCapturePhoto *)photo
                 error:(nullable NSError *)error
 {
+    if (error) {
+        NSLog(@"fail to capture photo, due to %@", error.localizedDescription);
+        return;
+    }
+    
     NSData *data = [photo fileDataRepresentation];
     UIImage *image = [UIImage imageWithData:data];
     
@@ -182,7 +352,67 @@ didFinishProcessingPhoto:(AVCapturePhoto *)photo
         image = [[UIImage alloc] initWithCGImage:image.CGImage scale:1.f orientation:UIImageOrientationLeftMirrored];
     }
     
-    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+//    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    
+    NSError *errorOfSavingImage;
+    [[PHPhotoLibrary sharedPhotoLibrary] performChangesAndWait:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+    } error:&errorOfSavingImage];
+    if (errorOfSavingImage) {
+        NSLog(@"fail to save image to photos, due to %@", errorOfSavingImage.localizedDescription);
+    }
+}
+
+// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+
+- (void)captureOutput:(AVCaptureOutput *)output
+didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
+       fromConnection:(AVCaptureConnection *)connection
+{
+    NSLog(@"video output : %@", output);
+//    CFRetain(sampleBuffer);
+    
+//    dispatch_async(self.videoWriterQueue, ^{
+        //    [self.videoWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
+        
+//        [self.videoWriterInput appendSampleBuffer:sampleBuffer];
+    
+//        CFRelease(sampleBuffer);
+//    });
+    
+    switch (self.videoWriter.status) {
+        case AVAssetWriterStatusUnknown:
+        {
+//            dispatch_async(self.videoWriterQueue, ^{
+                [self.videoWriter startWriting];
+                [self.videoWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
+//            });
+        }
+            break;
+        case AVAssetWriterStatusWriting:
+        {
+//            dispatch_async(self.videoWriterQueue, ^{
+            // video recording
+            if (self.videoWriterInput.isReadyForMoreMediaData) {
+                [self.videoWriterInput appendSampleBuffer:sampleBuffer];
+            }
+//            });
+            
+//            dispatch_async(self.audioWriterQueue, ^{
+                // audio recording
+//            if (self.audioWriterInput.isReadyForMoreMediaData) {
+//                [self.audioWriterInput appendSampleBuffer:sampleBuffer];
+//            }
+//            });
+        }
+            break;
+        case AVAssetWriterStatusCompleted:
+            
+            break;
+        default:
+            break;
+    }
+    
 }
 
 // MARK: - private
@@ -251,6 +481,33 @@ didFinishProcessingPhoto:(AVCapturePhoto *)photo
     self.photoSettings.flashMode = AVCaptureFlashModeOff;
     
     self.cameraQueue = dispatch_queue_create("com.icetime.camera.capture_session_queue", DISPATCH_QUEUE_SERIAL);
+}
+
+- (NSDateFormatter *)dateFormatter {
+    if (!_dateFormatter) {
+        _dateFormatter = [[NSDateFormatter alloc] init];
+        _dateFormatter.dateFormat = @"yyyy-MM-dd h:m:s";
+    }
+    return _dateFormatter;
+}
+
+- (void)p_setupVideoWriter {
+    NSString *time = [self.dateFormatter stringFromDate:[NSDate date]];
+    
+    NSString *videoPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+    videoPath = [videoPath stringByAppendingString:[NSString stringWithFormat:@"/%@.mp4", time]];
+    _videoWriter = [AVAssetWriter assetWriterWithURL:[NSURL fileURLWithPath:videoPath] fileType:AVFileTypeMPEG4 error:nil];
+    _videoWriter.shouldOptimizeForNetworkUse = YES;
+    
+    if ([_videoWriter canAddInput:self.videoWriterInput]) {
+        [_videoWriter addInput:self.videoWriterInput];
+    }
+//    if ([_videoWriter canAddInput:self.audioWriterInput]) {
+//        [_videoWriter addInput:self.audioWriterInput];
+//    }
+    
+    self.videoWriterQueue = dispatch_queue_create("com.icetime.camera.video_writer_queue", DISPATCH_QUEUE_SERIAL);
+    self.audioWriterQueue = dispatch_queue_create("com.icetime.camera.audio_writer_queue", DISPATCH_QUEUE_SERIAL);
 }
 
 - (void)p_setupPreviewLayer {
