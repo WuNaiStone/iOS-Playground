@@ -1,0 +1,600 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37A3A61D7B278B8385A1E554 /* libPods-DemoRACTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BAF5AE6D9B6F8B362B90BE /* libPods-DemoRACTests.a */; };
+		4172CC8E7D281DA8EAE57138 /* libPods-DemoRAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF133F84122A8EDD0C9BA652 /* libPods-DemoRAC.a */; };
+		A42D80672079D9B3004EF815 /* DemoLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A42D80662079D9B3004EF815 /* DemoLocationViewController.m */; };
+		A4FD58CA2077473200DA23E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FD58C92077473200DA23E3 /* AppDelegate.m */; };
+		A4FD58CD2077473200DA23E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FD58CC2077473200DA23E3 /* ViewController.m */; };
+		A4FD58D02077473200DA23E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FD58CE2077473200DA23E3 /* Main.storyboard */; };
+		A4FD58D22077473200DA23E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4FD58D12077473200DA23E3 /* Assets.xcassets */; };
+		A4FD58D52077473200DA23E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4FD58D32077473200DA23E3 /* LaunchScreen.storyboard */; };
+		A4FD58D82077473200DA23E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FD58D72077473200DA23E3 /* main.m */; };
+		A4FD58E22077473200DA23E3 /* DemoRACTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FD58E12077473200DA23E3 /* DemoRACTests.m */; };
+		A4FD58EE2078D52600DA23E3 /* DemoURLRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FD58ED2078D52600DA23E3 /* DemoURLRequestViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A4FD58DE2077473200DA23E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4FD58BD2077473200DA23E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4FD58C42077473200DA23E3;
+			remoteInfo = DemoRAC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8CFCC6D9F712F4E2604A7982 /* Pods-DemoRACTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoRACTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoRACTests/Pods-DemoRACTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A42D80652079D9B3004EF815 /* DemoLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoLocationViewController.h; sourceTree = "<group>"; };
+		A42D80662079D9B3004EF815 /* DemoLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoLocationViewController.m; sourceTree = "<group>"; };
+		A4FD58C52077473200DA23E3 /* DemoRAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoRAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FD58C82077473200DA23E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A4FD58C92077473200DA23E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A4FD58CB2077473200DA23E3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A4FD58CC2077473200DA23E3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A4FD58CF2077473200DA23E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4FD58D12077473200DA23E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A4FD58D42077473200DA23E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4FD58D62077473200DA23E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4FD58D72077473200DA23E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A4FD58DD2077473200DA23E3 /* DemoRACTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoRACTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FD58E12077473200DA23E3 /* DemoRACTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoRACTests.m; sourceTree = "<group>"; };
+		A4FD58E32077473200DA23E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4FD58EC2078D52600DA23E3 /* DemoURLRequestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoURLRequestViewController.h; sourceTree = "<group>"; };
+		A4FD58ED2078D52600DA23E3 /* DemoURLRequestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoURLRequestViewController.m; sourceTree = "<group>"; };
+		AF133F84122A8EDD0C9BA652 /* libPods-DemoRAC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoRAC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4BAF5AE6D9B6F8B362B90BE /* libPods-DemoRACTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DemoRACTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD56B9B01730F2B62303B6D1 /* Pods-DemoRACTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoRACTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoRACTests/Pods-DemoRACTests.release.xcconfig"; sourceTree = "<group>"; };
+		D60B6EA75E49478686CDE247 /* Pods-DemoRAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoRAC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoRAC/Pods-DemoRAC.debug.xcconfig"; sourceTree = "<group>"; };
+		F660629AEB3FD6BBFE7493F1 /* Pods-DemoRAC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoRAC.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoRAC/Pods-DemoRAC.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4FD58C22077473200DA23E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4172CC8E7D281DA8EAE57138 /* libPods-DemoRAC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4FD58DA2077473200DA23E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37A3A61D7B278B8385A1E554 /* libPods-DemoRACTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D550B6F300D1885D8308236 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF133F84122A8EDD0C9BA652 /* libPods-DemoRAC.a */,
+				C4BAF5AE6D9B6F8B362B90BE /* libPods-DemoRACTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75E70A91E951744C686B3D00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D60B6EA75E49478686CDE247 /* Pods-DemoRAC.debug.xcconfig */,
+				F660629AEB3FD6BBFE7493F1 /* Pods-DemoRAC.release.xcconfig */,
+				8CFCC6D9F712F4E2604A7982 /* Pods-DemoRACTests.debug.xcconfig */,
+				CD56B9B01730F2B62303B6D1 /* Pods-DemoRACTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A4FD58BC2077473200DA23E3 = {
+			isa = PBXGroup;
+			children = (
+				A4FD58C72077473200DA23E3 /* DemoRAC */,
+				A4FD58E02077473200DA23E3 /* DemoRACTests */,
+				A4FD58C62077473200DA23E3 /* Products */,
+				75E70A91E951744C686B3D00 /* Pods */,
+				5D550B6F300D1885D8308236 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A4FD58C62077473200DA23E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A4FD58C52077473200DA23E3 /* DemoRAC.app */,
+				A4FD58DD2077473200DA23E3 /* DemoRACTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A4FD58C72077473200DA23E3 /* DemoRAC */ = {
+			isa = PBXGroup;
+			children = (
+				A4FD58C82077473200DA23E3 /* AppDelegate.h */,
+				A4FD58C92077473200DA23E3 /* AppDelegate.m */,
+				A4FD58CB2077473200DA23E3 /* ViewController.h */,
+				A4FD58CC2077473200DA23E3 /* ViewController.m */,
+				A4FD58EC2078D52600DA23E3 /* DemoURLRequestViewController.h */,
+				A4FD58ED2078D52600DA23E3 /* DemoURLRequestViewController.m */,
+				A42D80652079D9B3004EF815 /* DemoLocationViewController.h */,
+				A42D80662079D9B3004EF815 /* DemoLocationViewController.m */,
+				A4FD58CE2077473200DA23E3 /* Main.storyboard */,
+				A4FD58D12077473200DA23E3 /* Assets.xcassets */,
+				A4FD58D32077473200DA23E3 /* LaunchScreen.storyboard */,
+				A4FD58D62077473200DA23E3 /* Info.plist */,
+				A4FD58D72077473200DA23E3 /* main.m */,
+			);
+			path = DemoRAC;
+			sourceTree = "<group>";
+		};
+		A4FD58E02077473200DA23E3 /* DemoRACTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4FD58E12077473200DA23E3 /* DemoRACTests.m */,
+				A4FD58E32077473200DA23E3 /* Info.plist */,
+			);
+			path = DemoRACTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A4FD58C42077473200DA23E3 /* DemoRAC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4FD58E62077473200DA23E3 /* Build configuration list for PBXNativeTarget "DemoRAC" */;
+			buildPhases = (
+				2EE228F5AF9C23158C873EC6 /* [CP] Check Pods Manifest.lock */,
+				A4FD58C12077473200DA23E3 /* Sources */,
+				A4FD58C22077473200DA23E3 /* Frameworks */,
+				A4FD58C32077473200DA23E3 /* Resources */,
+				6FC963C5FBFE4810E43437B7 /* [CP] Embed Pods Frameworks */,
+				9FDCE4F93DC53A7A67E0C8F1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoRAC;
+			productName = DemoRAC;
+			productReference = A4FD58C52077473200DA23E3 /* DemoRAC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A4FD58DC2077473200DA23E3 /* DemoRACTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4FD58E92077473200DA23E3 /* Build configuration list for PBXNativeTarget "DemoRACTests" */;
+			buildPhases = (
+				FBF60016F31E35B83B7189FF /* [CP] Check Pods Manifest.lock */,
+				A4FD58D92077473200DA23E3 /* Sources */,
+				A4FD58DA2077473200DA23E3 /* Frameworks */,
+				A4FD58DB2077473200DA23E3 /* Resources */,
+				AAA6488A9A9EE3FFAE2BD5C0 /* [CP] Embed Pods Frameworks */,
+				5253CEBAEF2A70A889F498C6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A4FD58DF2077473200DA23E3 /* PBXTargetDependency */,
+			);
+			name = DemoRACTests;
+			productName = DemoRACTests;
+			productReference = A4FD58DD2077473200DA23E3 /* DemoRACTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A4FD58BD2077473200DA23E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = com.icetime;
+				TargetAttributes = {
+					A4FD58C42077473200DA23E3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					A4FD58DC2077473200DA23E3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A4FD58C42077473200DA23E3;
+					};
+				};
+			};
+			buildConfigurationList = A4FD58C02077473200DA23E3 /* Build configuration list for PBXProject "DemoRAC" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A4FD58BC2077473200DA23E3;
+			productRefGroup = A4FD58C62077473200DA23E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A4FD58C42077473200DA23E3 /* DemoRAC */,
+				A4FD58DC2077473200DA23E3 /* DemoRACTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A4FD58C32077473200DA23E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FD58D52077473200DA23E3 /* LaunchScreen.storyboard in Resources */,
+				A4FD58D22077473200DA23E3 /* Assets.xcassets in Resources */,
+				A4FD58D02077473200DA23E3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4FD58DB2077473200DA23E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EE228F5AF9C23158C873EC6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DemoRAC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5253CEBAEF2A70A889F498C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoRACTests/Pods-DemoRACTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FC963C5FBFE4810E43437B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoRAC/Pods-DemoRAC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FDCE4F93DC53A7A67E0C8F1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoRAC/Pods-DemoRAC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAA6488A9A9EE3FFAE2BD5C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoRACTests/Pods-DemoRACTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBF60016F31E35B83B7189FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DemoRACTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A4FD58C12077473200DA23E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FD58CD2077473200DA23E3 /* ViewController.m in Sources */,
+				A4FD58EE2078D52600DA23E3 /* DemoURLRequestViewController.m in Sources */,
+				A4FD58D82077473200DA23E3 /* main.m in Sources */,
+				A4FD58CA2077473200DA23E3 /* AppDelegate.m in Sources */,
+				A42D80672079D9B3004EF815 /* DemoLocationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4FD58D92077473200DA23E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4FD58E22077473200DA23E3 /* DemoRACTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A4FD58DF2077473200DA23E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4FD58C42077473200DA23E3 /* DemoRAC */;
+			targetProxy = A4FD58DE2077473200DA23E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A4FD58CE2077473200DA23E3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4FD58CF2077473200DA23E3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A4FD58D32077473200DA23E3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4FD58D42077473200DA23E3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A4FD58E42077473200DA23E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A4FD58E52077473200DA23E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A4FD58E72077473200DA23E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D60B6EA75E49478686CDE247 /* Pods-DemoRAC.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoRAC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoRAC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A4FD58E82077473200DA23E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F660629AEB3FD6BBFE7493F1 /* Pods-DemoRAC.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoRAC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoRAC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A4FD58EA2077473200DA23E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CFCC6D9F712F4E2604A7982 /* Pods-DemoRACTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoRACTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoRACTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoRAC.app/DemoRAC";
+			};
+			name = Debug;
+		};
+		A4FD58EB2077473200DA23E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD56B9B01730F2B62303B6D1 /* Pods-DemoRACTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NZPBGBZZ28;
+				INFOPLIST_FILE = DemoRACTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.icetime.DemoRACTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoRAC.app/DemoRAC";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A4FD58C02077473200DA23E3 /* Build configuration list for PBXProject "DemoRAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4FD58E42077473200DA23E3 /* Debug */,
+				A4FD58E52077473200DA23E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4FD58E62077473200DA23E3 /* Build configuration list for PBXNativeTarget "DemoRAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4FD58E72077473200DA23E3 /* Debug */,
+				A4FD58E82077473200DA23E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4FD58E92077473200DA23E3 /* Build configuration list for PBXNativeTarget "DemoRACTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4FD58EA2077473200DA23E3 /* Debug */,
+				A4FD58EB2077473200DA23E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A4FD58BD2077473200DA23E3 /* Project object */;
+}
