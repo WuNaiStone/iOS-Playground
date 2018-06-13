@@ -25,12 +25,12 @@ typedef NS_ENUM(NSInteger, CameraMode) {
 @property (nonatomic, strong) dispatch_queue_t audioWriterQueue;
 
 // 将deviceInput作为session的输入
-@property (nonatomic, strong) AVCaptureDevice *frontDevice;
-@property (nonatomic, strong) AVCaptureDevice *backDevice;
-@property (nonatomic, strong) AVCaptureDevice *currentDevice;
-@property (nonatomic, strong) AVCaptureDeviceInput *frontDeviceInput;
-@property (nonatomic, strong) AVCaptureDeviceInput *backDeviceInput;
-@property (nonatomic, strong) AVCaptureDeviceInput *currentDeviceInput;
+@property (nonatomic, strong) AVCaptureDevice *frontCaptureDevice;
+@property (nonatomic, strong) AVCaptureDevice *backCaptureDevice;
+@property (nonatomic, strong) AVCaptureDevice *currentCaptureDevice;
+@property (nonatomic, strong) AVCaptureDeviceInput *frontCaptureDeviceInput;
+@property (nonatomic, strong) AVCaptureDeviceInput *backCaptureDeviceInput;
+@property (nonatomic, strong) AVCaptureDeviceInput *currentCaptureDeviceInput;
 
 // 建立并配置session
 @property (nonatomic, strong) AVCaptureSession *captureSession;
@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, CameraMode) {
 // AVCaptureVideoDataOutput
 @property (nonatomic, strong) AVCapturePhotoOutput *photoOutput;
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoOutput;
+@property (nonatomic, strong) AVCaptureAudioDataOutput *audioOutput;
 
 // 设置AVVideoCodecKey, flashMode等.
 @property (nonatomic, strong) AVCapturePhotoSettings *photoSettings;
@@ -162,24 +163,6 @@ typedef NS_ENUM(NSInteger, CameraMode) {
     return _lbVideoDuration;
 }
 
-- (AVAssetWriterInput *)videoWriterInput {
-    if (!_videoWriterInput) {
-        NSDictionary *settings = @{
-                                   AVVideoCodecKey: AVVideoCodecTypeH264,
-                                   AVVideoWidthKey: @600,
-                                   AVVideoHeightKey: @800
-                                   };
-        _videoWriterInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:settings];
-        _videoWriterInput.expectsMediaDataInRealTime = YES;
-        _videoWriterInput.transform = CGAffineTransformMakeRotation(M_PI / 2.f);
-    }
-    return _videoWriterInput;
-}
-
-- (AVAssetWriterInput *)audioWriterInput {
-    return nil;
-}
-
 // MARK: - actions
 
 - (void)actionBtnCapture:(UIButton *)sender {
@@ -225,34 +208,35 @@ typedef NS_ENUM(NSInteger, CameraMode) {
 }
 
 - (void)actionBtnRotate:(UIButton *)sender {
-    AVCaptureDevice *currentDevice = self.currentDevice;
-    AVCaptureDevice *targetDevice;
-    AVCaptureDeviceInput *currentInput = self.currentDeviceInput;
-    AVCaptureDeviceInput *targetInput;
-    if (currentDevice == self.backDevice) {
-        targetDevice = self.frontDevice;
-    } else if (currentDevice == self.frontDevice) {
-        targetDevice = self.backDevice;
+    AVCaptureDevice *currentCaptureDevice = self.currentCaptureDevice;
+    AVCaptureDevice *targetCaptureDevice;
+    AVCaptureDeviceInput *currentCaptureInput = self.currentCaptureDeviceInput;
+    AVCaptureDeviceInput *targetCaptureInput;
+    if (currentCaptureDevice == self.backCaptureDevice) {
+        targetCaptureDevice = self.frontCaptureDevice;
+    } else if (currentCaptureDevice == self.frontCaptureDevice) {
+        targetCaptureDevice = self.backCaptureDevice;
     }
     
     [self.captureSession beginConfiguration];
     
-    targetInput = [AVCaptureDeviceInput deviceInputWithDevice:targetDevice error:nil];
-    [self.captureSession removeInput:currentInput];
-    if (![self.captureSession canAddInput:targetInput]) {
+    targetCaptureInput = [AVCaptureDeviceInput deviceInputWithDevice:targetCaptureDevice error:nil];
+    [self.captureSession removeInput:currentCaptureInput];
+    if (![self.captureSession canAddInput:targetCaptureInput]) {
         NSLog(@"session can not add input deviceInput");
         [self.captureSession commitConfiguration];
         return;
     }
-    [self.captureSession addInput:targetInput];
-    self.currentDevice = targetDevice;
-    self.currentDeviceInput = targetInput;
+    [self.captureSession addInput:targetCaptureInput];
+    self.currentCaptureDevice = targetCaptureDevice;
+    self.currentCaptureDeviceInput = targetCaptureInput;
     
     [self.captureSession commitConfiguration];
 }
 
 - (void)actionBtnFlash:(UIButton *)sender {
-    if ([self.currentDevice hasFlash] && [self.currentDevice isFlashAvailable]) {
+    if ([self.currentCaptureDevice hasFlash] &&
+        [self.currentCaptureDevice isFlashAvailable]) {
         [self.captureSession beginConfiguration];
         
         if (self.photoSettings.flashMode == AVCaptureFlashModeOff) {
@@ -316,7 +300,9 @@ typedef NS_ENUM(NSInteger, CameraMode) {
     [self.captureSession removeOutput:self.photoOutput];
     
     self.videoOutput = [AVCaptureVideoDataOutput new];
-    [self.videoOutput setVideoSettings:@{(id)kCVPixelBufferPixelFormatTypeKey : [NSNumber numberWithInt:kCVPixelFormatType_32BGRA]}];
+    self.videoOutput.videoSettings = @{
+                                       (id)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_32BGRA)
+                                       };
 //    [self.videoOutput setSampleBufferDelegate:self queue:self.cameraQueue];
     if (![self.captureSession canAddOutput:self.videoOutput]) {
         NSLog(@"session can not add output videoOutput");
@@ -330,6 +316,41 @@ typedef NS_ENUM(NSInteger, CameraMode) {
 //                                   };
 //    self.photoSettings = [AVCapturePhotoSettings photoSettingsWithFormat:settingsDict];
 //    self.photoSettings.flashMode = AVCaptureFlashModeOff;
+    
+    self.audioOutput = [AVCaptureAudioDataOutput new];
+    [self.audioOutput setSampleBufferDelegate:self queue:self.audioWriterQueue];
+}
+
+// MARK: - AVAssetWriter, AVAssetWriterInput
+
+- (AVAssetWriter *)videoWriter {
+    if (!_videoWriter) {
+        NSString *time = [self.dateFormatter stringFromDate:[NSDate date]];
+        
+        NSString *videoPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+        videoPath = [videoPath stringByAppendingString:[NSString stringWithFormat:@"/%@.mp4", time]];
+        _videoWriter = [AVAssetWriter assetWriterWithURL:[NSURL fileURLWithPath:videoPath] fileType:AVFileTypeMPEG4 error:nil];
+        _videoWriter.shouldOptimizeForNetworkUse = YES;
+    }
+    return _videoWriter;
+}
+
+- (AVAssetWriterInput *)videoWriterInput {
+    if (!_videoWriterInput) {
+        NSDictionary *settings = @{
+                                   AVVideoCodecKey: AVVideoCodecTypeH264,
+                                   AVVideoWidthKey: @600,
+                                   AVVideoHeightKey: @800
+                                   };
+        _videoWriterInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:settings];
+        _videoWriterInput.expectsMediaDataInRealTime = YES;
+        _videoWriterInput.transform = CGAffineTransformMakeRotation(M_PI / 2.f);
+    }
+    return _videoWriterInput;
+}
+
+- (AVAssetWriterInput *)audioWriterInput {
+    return nil;
 }
 
 // MARK: - AVCapturePhotoCaptureDelegate
@@ -437,17 +458,17 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         NSLog(@"no capture device");
         return;
     }
-    for (AVCaptureDevice *device in deviceDiscorySession.devices) {
-        if (device.position == AVCaptureDevicePositionBack) {
-            [device lockForConfiguration:nil];
-            device.focusMode = AVCaptureFocusModeContinuousAutoFocus;
-            [device unlockForConfiguration];
+    for (AVCaptureDevice *captureDevice in deviceDiscorySession.devices) {
+        if (captureDevice.position == AVCaptureDevicePositionBack) {
+            [captureDevice lockForConfiguration:nil];
+            captureDevice.focusMode = AVCaptureFocusModeContinuousAutoFocus;
+            [captureDevice unlockForConfiguration];
             
-            self.backDevice = device;
-            self.backDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:self.backDevice error:nil];
-        } else if (device.position == AVCaptureDevicePositionFront) {
-            self.frontDevice = device;
-            self.frontDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:self.frontDevice error:nil];
+            self.backCaptureDevice = captureDevice;
+            self.backCaptureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:self.backCaptureDevice error:nil];
+        } else if (captureDevice.position == AVCaptureDevicePositionFront) {
+            self.frontCaptureDevice = captureDevice;
+            self.frontCaptureDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:self.frontCaptureDevice error:nil];
         }
     }
     
@@ -456,13 +477,13 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     
     // 将deviceInput作为session的输入
-    if (![self.captureSession canAddInput:self.backDeviceInput]) {
+    if (![self.captureSession canAddInput:self.backCaptureDeviceInput]) {
         NSLog(@"session can not add input deviceInput");
         return;
     }
-    [self.captureSession addInput:self.backDeviceInput];
-    self.currentDevice = self.backDevice;
-    self.currentDeviceInput = self.backDeviceInput;
+    [self.captureSession addInput:self.backCaptureDeviceInput];
+    self.currentCaptureDevice = self.backCaptureDevice;
+    self.currentCaptureDeviceInput = self.backCaptureDeviceInput;
     
     // AVCapturePhotoOutput
     // AVCaptureVideoDataOutput
@@ -492,18 +513,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 }
 
 - (void)p_setupVideoWriter {
-    NSString *time = [self.dateFormatter stringFromDate:[NSDate date]];
-    
-    NSString *videoPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
-    videoPath = [videoPath stringByAppendingString:[NSString stringWithFormat:@"/%@.mp4", time]];
-    _videoWriter = [AVAssetWriter assetWriterWithURL:[NSURL fileURLWithPath:videoPath] fileType:AVFileTypeMPEG4 error:nil];
-    _videoWriter.shouldOptimizeForNetworkUse = YES;
-    
-    if ([_videoWriter canAddInput:self.videoWriterInput]) {
-        [_videoWriter addInput:self.videoWriterInput];
+    if ([self.videoWriter canAddInput:self.videoWriterInput]) {
+        [self.videoWriter addInput:self.videoWriterInput];
     }
-//    if ([_videoWriter canAddInput:self.audioWriterInput]) {
-//        [_videoWriter addInput:self.audioWriterInput];
+//    if ([self.videoWriter canAddInput:self.audioWriterInput]) {
+//        [self.videoWriter addInput:self.audioWriterInput];
 //    }
     
     self.videoWriterQueue = dispatch_queue_create("com.icetime.camera.video_writer_queue", DISPATCH_QUEUE_SERIAL);

@@ -147,6 +147,11 @@
     return self;
 }
 
++ (void)load
+{
+    NSLog(@"%s", __func__);
+}
+
 + (void)initialize
 {
     if (self == [UIViewController class]) {

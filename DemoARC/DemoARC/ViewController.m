@@ -31,8 +31,37 @@
     __weak NSString *weakStr;
 }
 
+- (void)printLog {
+    // 该方法根本不会执行.
+    // performSelector方法必须要保证线程有runloop存在.
+    NSLog(@"2 %@", [NSThread currentThread]);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    NSLog(@"1 %@", [NSThread currentThread]); // main
+    
+    dispatch_sync(globalQueue, ^{
+        NSLog(@"2 %@", [NSThread currentThread]); // main, 为啥是主线程
+        dispatch_sync(globalQueue, ^{
+            NSLog(@"3 %@", [NSThread currentThread]); // main
+        });
+        NSLog(@"4 %@", [NSThread currentThread]); // main
+    });
+    NSLog(@"5 %@", [NSThread currentThread]); // main
+    
+    
+    /*
+    dispatch_async(globalQueue, ^{
+        NSLog(@"1 %@", [NSThread currentThread]);
+        [self performSelector:@selector(printLog) withObject:nil afterDelay:0];
+        NSLog(@"3 %@", [NSThread currentThread]);
+    });
+    */
+    
     
     NSString *hello = @"hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello";
     
