@@ -18,6 +18,7 @@
 /**
  View持有ViewModel，ViewModel持有Model
  */
-@property (nonatomic, strong) ViewModelUserInfo *viewModelUserInfo;
+//@property (nonatomic, strong) ViewModelUserInfo *viewModelUserInfo;
+- (void)bindWithViewModel:(ViewModelUserInfo *)viewModelUserInfo;
 
 @end

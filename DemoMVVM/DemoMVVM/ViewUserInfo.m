@@ -13,6 +13,12 @@ static NSInteger ctxKVOName     = 0;
 static NSInteger ctxKVOAge      = 1;
 static NSInteger ctxKVOCity     = 2;
 
+@interface ViewUserInfo()
+
+@property (nonatomic, strong) ViewModelUserInfo *viewModelUserInfo;
+
+@end
+
 @implementation ViewUserInfo
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -36,8 +42,7 @@ static NSInteger ctxKVOCity     = 2;
     return self;
 }
 
-- (void)setViewModelUserInfo:(ViewModelUserInfo *)viewModelUserInfo
-{
+- (void)bindWithViewModel:(ViewModelUserInfo *)viewModelUserInfo {
     _viewModelUserInfo = viewModelUserInfo;
     
     // View -> Model
