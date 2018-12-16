@@ -11,7 +11,12 @@
 
 @interface ViewModelUserInfo : NSObject
 
-@property (nonatomic, strong) ModelUserInfo *modelUserInfo;
+@property (nonatomic, copy)     NSString    *name;
+@property (nonatomic, assign)   int         age;
+@property (nonatomic, copy)     NSString    *city;
+
+
+- (void)bindWithModel:(ModelUserInfo *)modelUserInfo;
 
 /**
  模拟服务端等对Model进行修改

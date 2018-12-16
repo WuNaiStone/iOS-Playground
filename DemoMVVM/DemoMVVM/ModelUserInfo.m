@@ -17,7 +17,7 @@
     NSLog(@"Model name : %@", name);
 }
 
-- (void)setAge:(NSInteger)age
+- (void)setAge:(int)age
 {
     _age = age;
     

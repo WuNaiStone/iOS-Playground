@@ -11,10 +11,6 @@
 
 @interface ViewUserInfo : UIView
 
-@property (nonatomic, strong) UITextField *textFieldName;
-@property (nonatomic, strong) UITextField *textFieldAge;
-@property (nonatomic, strong) UITextField *textFieldCity;
-
 /**
  View持有ViewModel，ViewModel持有Model
  */

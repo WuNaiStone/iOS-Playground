@@ -9,11 +9,15 @@
 #import "ViewUserInfo.h"
 
 // context of KVO
-static NSInteger ctxKVOName     = 0;
-static NSInteger ctxKVOAge      = 1;
-static NSInteger ctxKVOCity     = 2;
+static int ctxKVOName     = 0;
+static int ctxKVOAge      = 1;
+static int ctxKVOCity     = 2;
 
 @interface ViewUserInfo()
+
+@property (nonatomic, strong) UITextField *textFieldName;
+@property (nonatomic, strong) UITextField *textFieldAge;
+@property (nonatomic, strong) UITextField *textFieldCity;
 
 @property (nonatomic, strong) ViewModelUserInfo *viewModelUserInfo;
 
@@ -27,15 +31,15 @@ static NSInteger ctxKVOCity     = 2;
     if (self) {
         self.backgroundColor = [UIColor lightGrayColor];
         
-        self.textFieldName = [[UITextField alloc] initWithFrame:CGRectMake(20, 50, 200, 30)];
+        self.textFieldName = [[UITextField alloc] initWithFrame:CGRectMake(20, 50, 300, 30)];
         self.textFieldName.text = @"name";
         [self addSubview:self.textFieldName];
         
-        self.textFieldAge = [[UITextField alloc] initWithFrame:CGRectMake(20, 100, 200, 30)];
+        self.textFieldAge = [[UITextField alloc] initWithFrame:CGRectMake(20, 100, 300, 30)];
         self.textFieldAge.text = @"age";
         [self addSubview:self.textFieldAge];
         
-        self.textFieldCity = [[UITextField alloc] initWithFrame:CGRectMake(20, 150, 200, 30)];
+        self.textFieldCity = [[UITextField alloc] initWithFrame:CGRectMake(20, 150, 300, 30)];
         self.textFieldCity.text = @"city";
         [self addSubview:self.textFieldCity];
     }
@@ -64,18 +68,18 @@ static NSInteger ctxKVOCity     = 2;
     /**
      Using KVO to bind
      */
-    [_viewModelUserInfo.modelUserInfo addObserver:self
-                     forKeyPath:@"name"
-                        options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
-                        context:&ctxKVOName];
-    [_viewModelUserInfo.modelUserInfo addObserver:self
-                     forKeyPath:@"age"
-                        options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
-                        context:&ctxKVOAge];
-    [_viewModelUserInfo.modelUserInfo addObserver:self
-                     forKeyPath:@"city"
-                        options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
-                        context:&ctxKVOCity];
+    [_viewModelUserInfo addObserver:self
+                         forKeyPath:@"name"
+                            options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
+                            context:&ctxKVOName];
+    [_viewModelUserInfo addObserver:self
+                         forKeyPath:@"age"
+                            options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
+                            context:&ctxKVOAge];
+    [_viewModelUserInfo addObserver:self
+                         forKeyPath:@"city"
+                            options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial
+                            context:&ctxKVOCity];
 }
 
 - (void)actionViewTextFieldChanged:(UITextView *)sender
@@ -83,11 +87,11 @@ static NSInteger ctxKVOCity     = 2;
     NSLog(@"View -> Model");
     
     if ([sender isEqual:self.textFieldName]) {
-        self.viewModelUserInfo.modelUserInfo.name = sender.text;
+        self.viewModelUserInfo.name = sender.text;
     } else if ([sender isEqual:self.textFieldAge]) {
-        self.viewModelUserInfo.modelUserInfo.age = [sender.text integerValue];
+        self.viewModelUserInfo.age = [sender.text intValue];
     } else if ([sender isEqual:self.textFieldCity]) {
-        self.viewModelUserInfo.modelUserInfo.city = sender.text;
+        self.viewModelUserInfo.city = sender.text;
     }
 }
 
