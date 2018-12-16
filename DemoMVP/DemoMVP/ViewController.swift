@@ -8,6 +8,11 @@
 
 import UIKit
 
+/*
+ 这里的MVP理解错误！！！
+ 见MVP目录
+ */
+
 // MARK: - Model
 
 protocol Presentable {
@@ -101,6 +106,7 @@ class ViewController: UIViewController {
         myView = MyView(frame: self.view.frame)
         view.addSubview(myView)
         
+        // View持有Presenter，是错误的！！！见MVP目录
         let user = User(name: "Chris", age: 18, city: "Shanghai")
         let presenter = Presenter(presentable: user)
         myView.presenter = presenter
