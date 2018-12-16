@@ -12,6 +12,7 @@
 @interface DemoMVVMTests : XCTestCase
 
 @property (nonatomic, strong) ViewModelUserInfo *viewModel;
+@property (nonatomic, strong) ModelUserInfo *model;
 
 @end
 
@@ -33,21 +34,27 @@
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
+    _model = [ModelUserInfo new];
+    _model.name = @"initial name";
+    _model.age = 1;
+    _model.city = @"initial city";
+    [self.viewModel bindWithModel:_model];
+    
     [self.viewModel updateModelFromMockWeb];
     
-    XCTAssert([self.viewModel.modelUserInfo.name isEqualToString:@"Chris1"], "name等于Chris1");
-    XCTAssert(self.viewModel.modelUserInfo.age == 1, "age等于1");
-    XCTAssert([self.viewModel.modelUserInfo.city isEqualToString:@"Shanghai1"], "city等于Shanghai1");
+    XCTAssert([self.viewModel.name isEqualToString:@"ViewModel's Chris 1"], "name等于ViewModel's Chris 1");
+    XCTAssert(self.viewModel.age == 1, "age等于1");
+    XCTAssert([self.viewModel.city isEqualToString:@"ViewModel's Shanghai 1"], "city等于ViewModel's Shanghai 1");
     
     sleep(4);
-    XCTAssert([self.viewModel.modelUserInfo.name isEqualToString:@"Chris18"], "name等于Chris18");
-    XCTAssert(self.viewModel.modelUserInfo.age == 18, "age等于18");
-    XCTAssert([self.viewModel.modelUserInfo.city isEqualToString:@"Shanghai18"], "city等于Shanghai18");
+    XCTAssert([self.viewModel.name isEqualToString:@"ViewModel's Chris 18"], "name等于ViewModel's Chris 18");
+    XCTAssert(self.viewModel.age == 18, "age等于18");
+    XCTAssert([self.viewModel.city isEqualToString:@"ViewModel's Shanghai 18"], "city等于ViewModel's Shanghai 18");
     
     sleep(6);
-    XCTAssert([self.viewModel.modelUserInfo.name isEqualToString:@"Chris28"], "name等于Chris28");
-    XCTAssert(self.viewModel.modelUserInfo.age == 28, "age等于28");
-    XCTAssert([self.viewModel.modelUserInfo.city isEqualToString:@"iloveShanghai28"], "city等于iloveShanghai28");
+    XCTAssert([self.viewModel.name isEqualToString:@"ViewModel's Chris 28"], "name等于ViewModel's Chris 28");
+    XCTAssert(self.viewModel.age == 28, "age等于28");
+    XCTAssert([self.viewModel.city isEqualToString:@"ViewModel's iloveShanghai 28"], "city等于ViewModel's iloveShanghai 28");
 }
 
 - (void)testPerformanceExample {
