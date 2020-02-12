@@ -272,10 +272,15 @@ static void aspect_prepareClassAndHookSelector(NSObject *self, SEL selector, NSE
         const char *typeEncoding = method_getTypeEncoding(targetMethod);
         SEL aliasSelector = aspect_aliasForSelector(selector);
         if (![klass instancesRespondToSelector:aliasSelector]) {
+            /// aliasSelector的方法实现指向原方法viewDidLoad。
             __unused BOOL addedAlias = class_addMethod(klass, aliasSelector, method_getImplementation(targetMethod), typeEncoding);
             NSCAssert(addedAlias, @"Original implementation for %@ is already copied to %@ on %@", NSStringFromSelector(selector), NSStringFromSelector(aliasSelector), klass);
         }
 
+        /// klass已动态添加了aspects__viewDidLoad方法。
+        /// aspect_getMsgForwardIMP(self, selector) 为 (IMP) msgForwardIMP = 0x00007fff513f8400 (libobjc.A.dylib`_objc_msgForward)
+        /// 将selector的实现指向_objc_msgForward，即原方法调用，直接走到了消息转发。
+        /// 而该子类的消息转发方法已被替换为__ASPECTS_ARE_BEING_CALLED__。
         // We use forwardInvocation to hook in.
         class_replaceMethod(klass, selector, aspect_getMsgForwardIMP(self, selector), typeEncoding);
         AspectLog(@"Aspects: Installed hook for -[%@ %@].", klass, NSStringFromSelector(selector));
@@ -342,8 +347,8 @@ static void aspect_cleanupHookedClassAndSelector(NSObject *self, SEL selector) {
 
 static Class aspect_hookClass(NSObject *self, NSError **error) {
     NSCParameterAssert(self);
-	Class statedClass = self.class;
-	Class baseClass = object_getClass(self);
+	Class statedClass = self.class; // UIViewController，class_isMetaClass(statedClass)为nil。
+	Class baseClass = object_getClass(self); // (Class)0x7fff898b0f78，是一个metaClass，class_isMetaClass(baseClass)为YES。
 	NSString *className = NSStringFromClass(baseClass);
 
     // Already subclassed
@@ -352,7 +357,7 @@ static Class aspect_hookClass(NSObject *self, NSError **error) {
 
         // We swizzle a class object, not a single object.
 	}else if (class_isMetaClass(baseClass)) {
-        return aspect_swizzleClassInPlace((Class)self);
+        return aspect_swizzleClassInPlace((Class)self); // 此处的self即为UIViewController
         // Probably a KVO'ed class. Swizzle in place. Also swizzle meta classes in place.
     }else if (statedClass != baseClass) {
         return aspect_swizzleClassInPlace(baseClass);
@@ -463,6 +468,7 @@ for (AspectIdentifier *aspect in aspects) {\
     } \
 }
 
+/// 这里是实际hook代码执行的地方。
 // This is the swizzled forwardInvocation: method.
 static void __ASPECTS_ARE_BEING_CALLED__(__unsafe_unretained NSObject *self, SEL selector, NSInvocation *invocation) {
     NSCParameterAssert(self);
@@ -475,6 +481,7 @@ static void __ASPECTS_ARE_BEING_CALLED__(__unsafe_unretained NSObject *self, SEL
     AspectInfo *info = [[AspectInfo alloc] initWithInstance:self invocation:invocation];
     NSArray *aspectsToRemove = nil;
 
+    /// 通过aspect_invoke函数，来执行AspectIdentifier中的block
     // Before hooks.
     aspect_invoke(classContainer.beforeAspects, info);
     aspect_invoke(objectContainer.beforeAspects, info);
